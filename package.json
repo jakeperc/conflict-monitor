@@ -1,0 +1,21 @@
+{
+  "name": "ww3-dash-v2",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Global Conflict Monitor — data-first static dashboard rebuilt from a React SPA. Editorial content lives in data/*.json; npm run build deterministically generates dist/index.html.",
+  "scripts": {
+    "validate:data": "node scripts/validate-data.js",
+    "reconcile:history": "node scripts/reconcile-escalation-history.js",
+    "update:markets": "node scripts/update-markets.js",
+    "backfill:diesel": "node scripts/backfill-diesel.js",
+    "fetch:feeds": "node scripts/fetch-feeds.js",
+    "build": "node scripts/build.js",
+    "validate:html": "node scripts/validate-html.js",
+    "sort:events": "node scripts/sort-events.js",
+    "changelog": "node scripts/generate-changelog.js",
+    "test": "npm run validate:data && npm run build && npm run validate:html"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.0"
+  }
+}

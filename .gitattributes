@@ -1,0 +1,2 @@
+# Store every file byte-for-byte, so the deployed dist/ is exactly what was built and tested locally.
+* -text

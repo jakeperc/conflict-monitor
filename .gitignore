@@ -1,0 +1,29 @@
+# Private: never in this public repo (plan D4). The private files are mirrored to a private repo instead.
+/automation/
+/project-memory/
+/backups/
+/legacy/
+/conflict-update-plans/
+/.claude/
+/node_modules/
+
+# Internal data registers (the build publishes a reader-safe projection of them)
+/data/forecasts.json
+/data/indicators.json
+/data/intel_gaps.json
+/data/event_first_seen.json
+/data/escalation_history.json
+
+# Frozen pre-rebuild reference and local reports
+/index.html
+/index.html.bak*
+/session-report-*.html
+
+# Retired scripts and backups
+/scripts/archive/
+/scripts/*.bak*
+
+# Local machine files
+.env*
+!.env.example
+*.log

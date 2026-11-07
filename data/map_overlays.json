@@ -1,0 +1,364 @@
+{
+  "_note": "World-map overlay content (arcs, hotspots, fills, labels). Created 2026-08-26 (operator-directed) to replace hardcoded overlays in src/js/app.js that had rotted to April-era facts (carrier positions, 'ceasefire on life support'). This file is EDITORIAL — the daily pipeline may update it like any other data/*.json: keep arcs to active kinetic engagements per the current board record, keep 'as_of' honest (bump only when content changes), never add a marker or arc that is not established on a dashboard surface. Coordinates are [lng, lat]. Colors are CSS vars or literal hex matching the app palette.",
+  "as_of": "2026-11-04",
+  "arcs": [
+    {
+      "id": "russia-ukraine",
+      "from": [
+        37.6,
+        55.7
+      ],
+      "to": [
+        30.5,
+        50.45
+      ],
+      "color": "var(--c-ukraine-war)",
+      "colorLit": "#8a9a5b",
+      "kind": "war",
+      "delay": 0,
+      "note": "Active war — Russia's largest strike on Ukraine's energy system this year, 3 Nov; Abu Dhabi talks set for 10-11 Nov"
+    },
+    {
+      "id": "ukraine-deepstrike",
+      "from": [
+        30.5,
+        50.45
+      ],
+      "to": [
+        51.82,
+        55.63
+      ],
+      "color": "var(--c-ukraine-war)",
+      "colorLit": "#8a9a5b",
+      "kind": "strike",
+      "delay": 1.1,
+      "endLabel": "TATARSTAN",
+      "note": "Ukrainian deep-strike campaign — oil terminal and fuel depot hit near St Petersburg, 18 Oct"
+    },
+    {
+      "id": "houthi-yanbu",
+      "from": [
+        44.2,
+        15.35
+      ],
+      "to": [
+        38.06,
+        24.09
+      ],
+      "color": "#eab308",
+      "colorLit": "#eab308",
+      "kind": "strike",
+      "delay": 2.2,
+      "endLabel": "YANBU",
+      "note": "Houthi ballistic missile struck the Saudi tanker Amzan 63nm west of Yanbu, 25 Aug — Bahri and UKMTO confirmed"
+    },
+    {
+      "id": "us-iran",
+      "from": [
+        53.5,
+        32
+      ],
+      "to": [
+        50.6,
+        26.2
+      ],
+      "color": "var(--c-iran)",
+      "colorLit": "#c1554d",
+      "kind": "strike",
+      "delay": 3.3,
+      "note": "US strikes on Iranian air-defence sites on Qeshm and Hengam, 2 Nov (AP); Guard claims four tankers mined, 4 Nov, unconfirmed"
+    },
+    {
+      "id": "israel-lebanon",
+      "from": [
+        35,
+        31.5
+      ],
+      "to": [
+        35.5,
+        33.4
+      ],
+      "color": "#fb923c",
+      "colorLit": "#fb923c",
+      "kind": "strike",
+      "delay": 4.4,
+      "note": "Israel-Hezbollah — Israel's defence minister declared the Ali al-Taher ridge part of Israel's security zone, 14 Sep"
+    },
+    {
+      "id": "israel-gaza",
+      "from": [
+        35,
+        31.5
+      ],
+      "to": [
+        34.35,
+        31.42
+      ],
+      "color": "var(--c-iran)",
+      "colorLit": "#c1554d",
+      "kind": "tension",
+      "delay": 5,
+      "note": "Gaza operations continue — UNRWA centre raid 25 Aug"
+    },
+    {
+      "id": "sudan-kordofan",
+      "from": [
+        32.55,
+        15.6
+      ],
+      "to": [
+        29.6,
+        13.2
+      ],
+      "color": "#eab308",
+      "colorLit": "#eab308",
+      "kind": "strike",
+      "delay": 5.6,
+      "endLabel": "KORDOFAN",
+      "note": "RSF and SPLM-N attacks on North and South Kordofan — dozens killed, 25 Aug"
+    },
+    {
+      "id": "houthi-mokha",
+      "from": [
+        44.2,
+        15.35
+      ],
+      "to": [
+        43.25,
+        13.32
+      ],
+      "color": "#eab308",
+      "colorLit": "#eab308",
+      "kind": "war",
+      "delay": 3.3,
+      "endLabel": "MOKHA",
+      "note": "Houthi forces took Mokha and the Hanish islands on 10 Sep and Perim and Dhubab on 11 Sep; a Yemeni government official says they hold the entire Red Sea coast"
+    },
+    {
+      "id": "houthi-saudi-south",
+      "from": [
+        44.2,
+        15.35
+      ],
+      "to": [
+        42.6,
+        18.1
+      ],
+      "color": "#eab308",
+      "colorLit": "#eab308",
+      "kind": "strike",
+      "delay": 2.8,
+      "endLabel": "ABHA",
+      "note": "Coalition says it intercepted Houthi missiles at Riyadh and destroyed launchers in Sanaa, 25 Oct; two killed at Dammam airport, 21 Oct"
+    },
+    {
+      "id": "iran-jordan",
+      "kind": "strike",
+      "from": [
+        53.5,
+        32
+      ],
+      "to": [
+        36.83,
+        31.83
+      ],
+      "note": "Iranian ballistic missiles at the Al Azraq base in Jordan in retaliation for the tanker strikes; two fell in unpopulated areas, no casualties, 8 Sep"
+    },
+    {
+      "id": "iraq-saudi-pipeline",
+      "from": [
+        46.2,
+        31.3
+      ],
+      "to": [
+        44,
+        24.7
+      ],
+      "color": "#eab308",
+      "colorLit": "#eab308",
+      "kind": "strike",
+      "delay": 3.9,
+      "endLabel": "E-W PIPELINE",
+      "note": "Drones launched from Iraq hit the East-West pipeline, 10-11 Sep; Iraqi officials anonymously tie the launch to Iran's Revolutionary Guards and the Houthis, 28 Sep"
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "bab-el-mandeb",
+      "name": "BAB-EL-MANDEB",
+      "pos": [
+        43.3,
+        12.6
+      ],
+      "color": "#eab308",
+      "delay": 1.3,
+      "sub": "Houthis hold Yemen's Red Sea coast and the Hanish islands · 12 Sep"
+    },
+    {
+      "id": "taiwan-strait",
+      "name": "TAIWAN STRAIT",
+      "pos": [
+        119.6,
+        24.1
+      ],
+      "color": "#6366f1",
+      "delay": 2.6,
+      "sub": "grey zone · no Chinese aircraft 23–25 Oct after Typhoon Champi; 3 on 25–26 Oct",
+      "labelSide": "start"
+    },
+    {
+      "id": "black-sea-sulina",
+      "name": "BLACK SEA · SULINA",
+      "pos": [
+        29.9,
+        45
+      ],
+      "color": "#84cc16",
+      "delay": 2,
+      "sub": "Sea drones hit a container ship in Bulgaria's EEZ, 28 Oct; Khoryv sunk off Constanta 23 Oct"
+    },
+    {
+      "id": "south-china-sea-sabina",
+      "name": "SOUTH CHINA SEA · SABINA",
+      "pos": [
+        116.5,
+        9.8
+      ],
+      "color": "#f97316",
+      "delay": 1.5,
+      "sub": "China tracked USS Charleston near Sabina Shoal, 20 Oct; says it 'illegally intruded'"
+    },
+    {
+      "id": "korea-dmz",
+      "name": "KOREA · DMZ",
+      "pos": [
+        127,
+        38
+      ],
+      "color": "#a855f7",
+      "delay": 2.5,
+      "sub": "North Korea threatens strike weapons on the DMZ; hypersonic and submarine missile tests 3–14 Oct"
+    }
+  ],
+  "fills": {
+    "Iran": "rgba(244,63,94,.55)",
+    "Israel": "rgba(244,63,94,.45)",
+    "Lebanon": "rgba(251,146,60,.6)",
+    "Yemen": "rgba(234,179,8,.55)",
+    "Ukraine": "rgba(251,146,60,.55)",
+    "Sudan": "rgba(148,148,148,.45)",
+    "Russia": "rgba(244,63,94,.16)",
+    "China": "rgba(245,158,11,.22)",
+    "Taiwan": "rgba(99,102,241,.30)",
+    "Dem. Rep. Korea": "rgba(185,28,60,.30)",
+    "Pakistan": "rgba(245,158,11,.18)",
+    "Saudi Arabia": "rgba(234,179,8,.48)",
+    "Iraq": "rgba(245,158,11,.20)",
+    "Syria": "rgba(245,158,11,.18)",
+    "Turkey": "rgba(245,158,11,.13)",
+    "Egypt": "rgba(245,158,11,.10)",
+    "Jordan": "rgba(245,158,11,.34)",
+    "United Arab Emirates": "rgba(245,158,11,.13)",
+    "Qatar": "rgba(245,158,11,.13)",
+    "Kuwait": "rgba(245,158,11,.10)",
+    "Oman": "rgba(245,158,11,.16)",
+    "United States of America": "rgba(99,102,241,.18)",
+    "Belarus": "rgba(244,63,94,.20)"
+  },
+  "labels": [
+    {
+      "name": "IRAN",
+      "pos": [
+        53.5,
+        32
+      ],
+      "color": "var(--c-iran)",
+      "size": 11
+    },
+    {
+      "name": "ISRAEL",
+      "pos": [
+        35,
+        31.5
+      ],
+      "color": "#f87171",
+      "size": 11,
+      "anchor": "end",
+      "dx": -3
+    },
+    {
+      "name": "LEBANON",
+      "pos": [
+        35.7,
+        35
+      ],
+      "color": "#fb923c",
+      "size": 11,
+      "anchor": "start",
+      "dx": 3
+    },
+    {
+      "name": "YEMEN",
+      "pos": [
+        47.5,
+        15.5
+      ],
+      "color": "#eab308",
+      "size": 11
+    },
+    {
+      "name": "SAUDI ARABIA",
+      "pos": [
+        45,
+        23.5
+      ],
+      "color": "#eab308",
+      "size": 10
+    },
+    {
+      "name": "UKRAINE",
+      "pos": [
+        31.5,
+        49
+      ],
+      "color": "#fb923c",
+      "size": 11
+    },
+    {
+      "name": "SUDAN",
+      "pos": [
+        30,
+        14.9
+      ],
+      "color": "var(--text-body)",
+      "size": 11
+    },
+    {
+      "name": "USA",
+      "pos": [
+        -98,
+        39
+      ],
+      "color": "#a5b4fc",
+      "size": 11
+    },
+    {
+      "name": "RUSSIA",
+      "pos": [
+        95,
+        62
+      ],
+      "color": "#fb7185",
+      "size": 11
+    },
+    {
+      "name": "CHINA",
+      "pos": [
+        103,
+        35
+      ],
+      "color": "#e8a542",
+      "size": 11
+    }
+  ]
+}

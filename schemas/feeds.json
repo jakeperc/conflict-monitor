@@ -1,0 +1,415 @@
+{
+  "$comment": "Feed registry for scripts/fetch-feeds.js. Operator-owned like known_outlets.json — the pipeline RUNS the script (npm run fetch:feeds) but never edits this file. 'outlet' must equal a canonical name or alias in known_outlets.json (tier is looked up at runtime, not stored here — single source of truth). Order matters: feeds are processed top-to-bottom and dedupe keeps the FIRST copy of a headline, so keep tier-1 outlets first. Set enabled:false to bench a feed without losing its entry. MAINTENANCE: re-point the gdelt-* queries whenever project-memory/theaters-registry.md reframes the arcs — a static query set silently drifts off-target when the arc framing changes (as it did 2026-05-23). Watch automation/research/feed-health-log.jsonl for feed rot; items_kept:0 on an ok feed means it serves only stale content (prune candidate).",
+  "version": "1.1.0",
+  "last_reviewed": "2026-10-20",
+  "changelog_2026-10-20": "Operator-directed after a deep sweep found the daily runs missing cold-war-style tension precursors (espionage, sabotage, posture, Indo-Pacific, Arctic, economic coercion). (1) Window is now adaptive: back to the previous digest + overlap_hours, floor window_hours, cap max_window_hours (the ~60h run gate left ~1.5 days of every gap uncovered). (2) flag_categories added beside the legacy kinetic flag_terms; non-kinetic hits are listed first in the headlines view as 'tension-precursor leads'. (3) 19 feeds added, probed live 2026-10-20 (HTTP 200, current items). Outlets marked lead-only are NOT in known_outlets.json: they widen discovery but cannot be cited until Jake approves a tier.",
+  "defaults": {
+    "window_hours": 36,
+    "max_window_hours": 120,
+    "overlap_hours": 12,
+    "per_feed_cap": 30,
+    "global_cap": 700,
+    "timeout_ms": 12000,
+    "summary_max_chars": 300,
+    "flag_terms": [
+      "nuclear",
+      "strike",
+      "missile",
+      "drone",
+      "invasion",
+      "ceasefire",
+      "cease-fire",
+      "coup",
+      "assassinat",
+      "blockade",
+      "mobiliz",
+      "martial law",
+      "shot down",
+      "sanctions",
+      "hormuz",
+      "explosion",
+      "killed"
+    ],
+    "flag_categories": {
+      "grayzone": ["spy", "spies", "spying", "espionage", "sabotage", "saboteur", "arson", "undersea cable", "subsea cable", "cable cut", "damaged cable", "pipeline damage", "jamming", "gps interference", "airspace", "incursion", "intrusion", "drone sighting", "drones over", "drones spotted", "expel", "expuls", "persona non grata", "hybrid", "shadow fleet", "tanker seized", "seized tanker", "boarded", "election interference", "disinformation", "influence operation", "cyberattack", "cyber attack", "hacker", "plot", "foreign agent", "detained on", "treason"],
+      "posture": ["warship", "submarine", "destroyer", "frigate", "aircraft carrier", "coast guard", "water cannon", "naval", "military exercise", "drills", "war games", "wargame", "deploy", "troops", "military base", "airbase", "air base", "bomber", "fighter jets", "scrambled", "intercepted", "rearm", "conscription", "defence spending", "defense spending"],
+      "strategic": ["icbm", "hypersonic", "ballistic", "warhead", "nuclear test", "arms control", "new start", "deterren", "enrichment", "uranium", "anti-satellite", "satellite", "space force", "golden dome", "oreshnik", "burevestnik", "poseidon"],
+      "economic": ["export control", "export ban", "rare earth", "critical mineral", "semiconductor", "chipmaker", "entity list", "tariff", "embargo", "blacklist", "asset freeze", "frozen assets", "de-dollar", "yuan", "trade war", "trade truce"],
+      "regions": ["arctic", "greenland", "svalbard", "baltic", "kaliningrad", "belarus", "moldova", "transnistria", "georgia", "serbia", "kosovo", "taiwan", "south china sea", "scarborough", "second thomas", "senkaku", "philippine", "north korea", "pyongyang", "kim jong", "venezuela", "cuba", "panama", "sahel", "africa corps", "djibouti"]
+    }
+  },
+  "feeds": [
+    {
+      "name": "bbc-world",
+      "outlet": "BBC",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "notes": "verified 2026-08-04: RSS2.0, ~30 items, RFC822 GMT, CDATA. BBC blocks WebFetch but serves RSS freely — a poster child for this layer."
+    },
+    {
+      "name": "nyt-world",
+      "outlet": "New York Times",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "notes": "officially public NYT RSS; WebFetch-infra check was inconclusive (host refusal), expect green from Node+Chrome-UA."
+    },
+    {
+      "name": "guardian-world",
+      "outlet": "The Guardian",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.theguardian.com/world/rss",
+      "notes": "Guardian RSS is famously open; WebFetch-infra check inconclusive, expect green from Node. Outlet added to directory 2026-08-04."
+    },
+    {
+      "name": "aljazeera-all",
+      "outlet": "Al Jazeera",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "notes": "verified 2026-08-04: RSS2.0, ~25 items, +0000, CDATA."
+    },
+    {
+      "name": "cnn-world",
+      "outlet": "CNN",
+      "type": "rss",
+      "enabled": true,
+      "drop_undated": true,
+      "url": "http://rss.cnn.com/rss/edition_world.rss",
+      "notes": "verified 2026-08-04: alive after all (~29 items, ~6 in window) BUT carries undated ad/affiliate junk items — drop_undated strips them. items_kept:0 remains the prune signal."
+    },
+    {
+      "name": "dod-releases",
+      "outlet": "U.S. DoD",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=945",
+      "notes": "verified 2026-08-04: defense.gov now 301s to war.gov — URL updated to the final host. RSS2.0, 100+ items, RFC822."
+    },
+    {
+      "name": "un-news",
+      "outlet": "UN",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+      "notes": "URL unverified — standard UN News RSS path; fix or disable after first run. Expected-silence ledger candidate source."
+    },
+    {
+      "name": "nato-news",
+      "outlet": "NATO",
+      "type": "rss",
+      "enabled": false,
+      "url": "https://www.nato.int/cps/en/natolive/news_rss.htm",
+      "notes": "DISABLED 2026-08-04 — this URL and two candidates 404; nato.int homepage advertises no feed link tags. Needs manual discovery (their RSS index page) before re-enabling."
+    },
+    {
+      "name": "iaea-news",
+      "outlet": "IAEA",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.iaea.org/feeds/topnews",
+      "notes": "URL unverified — fix or disable after first run. Expected-silence ledger candidate source."
+    },
+    {
+      "name": "state-dept-press",
+      "outlet": "U.S. State Dept",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.state.gov/rss-feed/press-releases/feed/",
+      "notes": "URL unverified — fix or disable after first run. Expected-silence ledger candidate source."
+    },
+    {
+      "name": "ofac-recent-actions",
+      "outlet": "OFAC",
+      "type": "rss",
+      "enabled": false,
+      "url": "https://ofac.treasury.gov/recent-actions/rss.xml",
+      "notes": "DISABLED 2026-08-04 — guessed paths 404 and neither ofac.treasury.gov nor home.treasury.gov advertises feed link tags. Sanctions tracking still wanted; needs manual discovery before re-enabling."
+    },
+    {
+      "name": "usgs-m45-day",
+      "outlet": "USGS",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.atom",
+      "notes": "verified 2026-08-04: Atom, ISO dates, link href + rel=alternate — exercises the whole Atom code path. Nuclear-test seismology + disaster context. Outlet added to directory 2026-08-04."
+    },
+    {
+      "name": "isw",
+      "outlet": "ISW",
+      "type": "rss",
+      "enabled": false,
+      "url": "https://www.understandingwar.org/rss.xml",
+      "notes": "DISABLED 2026-08-04 — /rss.xml and /feeds.xml both 403 (bot-blocked) though the homepage serves fine. ISW coverage continues via the pipeline's normal research agents; revisit if they publish an open feed."
+    },
+    {
+      "name": "npr-world",
+      "outlet": "NPR",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "notes": "verified 2026-08-04: RSS2.0, ~10 items, -0400 zone, CDATA with raw HTML inside."
+    },
+    {
+      "name": "times-of-israel",
+      "outlet": "Times of Israel",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.timesofisrael.com/feed/",
+      "notes": "verified 2026-08-04: RSS2.0, ~16 items, +0000, CDATA."
+    },
+    {
+      "name": "france24-en",
+      "outlet": "France 24",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.france24.com/en/rss",
+      "notes": "verified 2026-08-04: RSS2.0, ~30 items, GMT, mixed CDATA/plain."
+    },
+    {
+      "name": "kyiv-independent",
+      "outlet": "Kyiv Independent",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://kyivindependent.com/news-archive/rss/",
+      "notes": "verified 2026-08-04: true endpoint discovered via homepage link tag (/feed and /rss.xml are 404s). RSS, ~15 items."
+    },
+    {
+      "name": "euromaidan",
+      "outlet": "Euromaidan Press",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://euromaidanpress.com/feed/",
+      "notes": "URL unverified (WordPress default); fix or disable after first run."
+    },
+    {
+      "name": "defense-post",
+      "outlet": "The Defense Post",
+      "type": "rss",
+      "enabled": false,
+      "url": "https://thedefensepost.com/feed/",
+      "notes": "DISABLED 2026-08-04 — returns HTTP 200 with an unparseable non-feed body (likely a bot-challenge page) and the homepage advertises no feed tags. Revisit occasionally."
+    },
+    {
+      "name": "new-arab",
+      "outlet": "The New Arab",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.newarab.com/rss",
+      "notes": "URL unverified; fix or disable after first run."
+    },
+    {
+      "name": "focus-taiwan",
+      "outlet": "Focus Taiwan",
+      "type": "rss",
+      "enabled": false,
+      "url": "https://focustaiwan.tw/rss",
+      "notes": "DISABLED 2026-08-04 — /rss, /rss/all.xml, /rss/aipl.xml all 404; homepage advertises no feed tags. Taiwan coverage rides gdelt-taiwan + normal research agents meanwhile."
+    },
+    {
+      "name": "military-times",
+      "outlet": "Military Times",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.militarytimes.com/arc/outboundfeeds/rss/?outputType=xml",
+      "notes": "URL unverified (Arc CMS default); fix or disable after first run."
+    },
+    {
+      "name": "arms-control-assoc",
+      "outlet": "Arms Control Association",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.armscontrol.org/rss.xml",
+      "notes": "added 2026-10-20 (probe: 200, 10 items, current). Strategic/nuclear lens — arms control, testing, New START aftermath."
+    },
+    {
+      "name": "usni-news",
+      "outlet": "USNI News",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://news.usni.org/feed",
+      "notes": "added 2026-10-20 (probe: 200, 30 items, current). Naval posture, carrier movements, Indo-Pacific fleet tracker."
+    },
+    {
+      "name": "foreign-policy",
+      "outlet": "Foreign Policy",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://foreignpolicy.com/feed/",
+      "notes": "added 2026-10-20 (probe: 200, 25 items). Mostly analysis — leads for strategic shifts, rarely an event of record."
+    },
+    {
+      "name": "defense-news",
+      "outlet": "Defense News",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml",
+      "notes": "added 2026-10-20 (probe: 200, 25 items, current). Deployments, procurement, European rearmament."
+    },
+    {
+      "name": "moscow-times",
+      "outlet": "The Moscow Times",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.themoscowtimes.com/rss/news",
+      "notes": "added 2026-10-20 (probe: 200, 50 items, current). Russia-domestic: espionage/treason cases, Kremlin statements, mobilisation, Arctic."
+    },
+    {
+      "name": "euronews",
+      "outlet": "Euronews",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 25,
+      "url": "https://www.euronews.com/rss?level=theme&name=news",
+      "notes": "added 2026-10-20 (probe: 200, 50 items/day — high volume, capped). European hybrid incidents, Balkans, Moldova, Nordic."
+    },
+    {
+      "name": "politico-eu",
+      "outlet": "Politico",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://www.politico.eu/feed/",
+      "notes": "added 2026-10-20 (probe: 200, 10 items). EU sanctions, defence, China trade politics."
+    },
+    {
+      "name": "scmp-china",
+      "outlet": "SCMP",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 20,
+      "url": "https://www.scmp.com/rss/4/feed",
+      "notes": "added 2026-10-20 (probe: 200, 50 items). China diplomacy/military, PLA, export controls. Hong Kong-based, Alibaba-owned — corroborate PLA claims."
+    },
+    {
+      "name": "scmp-asia",
+      "outlet": "SCMP",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 20,
+      "url": "https://www.scmp.com/rss/3/feed",
+      "notes": "added 2026-10-20 (probe: 200, 50 items). South China Sea, Philippines, Japan, Korea."
+    },
+    {
+      "name": "kyiv-post",
+      "outlet": "Kyiv Post",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 20,
+      "url": "https://www.kyivpost.com/feed",
+      "notes": "added 2026-10-20 (probe: 200, 100 items/3 days — capped). Overlaps Kyiv Independent; dedupe keeps the earlier copy."
+    },
+    {
+      "name": "arab-news",
+      "outlet": "Arab News",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 20,
+      "url": "https://www.arabnews.com/rss.xml",
+      "notes": "added 2026-10-20 (probe: 200, 50 items/day — capped). Saudi-owned: Gulf positions of record; do not rely on it alone for Saudi-related facts."
+    },
+    {
+      "name": "iran-international",
+      "outlet": "Iran International",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 20,
+      "url": "https://www.iranintl.com/en/feed",
+      "notes": "added 2026-10-20 (probe: 200, 50 items). Iran-domestic, IRGC, plots abroad. Opposition-aligned — corroborate."
+    },
+    {
+      "name": "yonhap",
+      "outlet": "Yonhap",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 25,
+      "url": "https://en.yna.co.kr/RSS/news.xml",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in known_outlets.json). Probe: 200, ~100 items/day. North Korea launches, ROK-US posture, Korea-Russia fuel cases. Candidate for directory (Korea's national wire)."
+    },
+    {
+      "name": "japan-times",
+      "outlet": "Japan Times",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 20,
+      "url": "https://www.japantimes.co.jp/feed/",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). Probe: 200, 30 items/day. China-Japan, Senkakus, Japanese defence posture."
+    },
+    {
+      "name": "the-diplomat",
+      "outlet": "The Diplomat",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 15,
+      "url": "https://thediplomat.com/feed/",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). Probe: 200. Asia-Pacific security, South China Sea, Central Asia — mostly analysis."
+    },
+    {
+      "name": "err-news",
+      "outlet": "ERR News",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 15,
+      "url": "https://news.err.ee/rss",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). Estonian public broadcaster. Baltic airspace violations, cables, GPS jamming, Narva."
+    },
+    {
+      "name": "lrt-english",
+      "outlet": "LRT",
+      "type": "rss",
+      "enabled": true,
+      "max_items": 15,
+      "url": "https://www.lrt.lt/en/news-in-english?rss",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). Lithuanian public broadcaster. Kaliningrad/Belarus border, balloons, sabotage."
+    },
+    {
+      "name": "dw-world",
+      "outlet": "DW",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://rss.dw.com/rdf/rss-en-world",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). German public broadcaster — German espionage/sabotage trials, Bundeswehr posture."
+    },
+    {
+      "name": "breaking-defense",
+      "outlet": "Breaking Defense",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://breakingdefense.com/feed/",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). Missile defence, space, nuclear modernisation, Pentagon policy."
+    },
+    {
+      "name": "gcaptain",
+      "outlet": "gCaptain",
+      "type": "rss",
+      "enabled": true,
+      "url": "https://gcaptain.com/feed/",
+      "notes": "added 2026-10-20 LEAD-ONLY (not in directory). Maritime: ship attacks, shadow-fleet boardings, cable incidents, sinkings."
+    },
+    {
+      "name": "gdelt-hormuz",
+      "outlet": "GDELT",
+      "type": "gdelt",
+      "enabled": true,
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=hormuz%20sourcelang:english&mode=artlist&maxrecords=30&timespan=36h&format=json&sort=datedesc",
+      "notes": "Iran/Epic Fury arc. API alive but throttle-prone (429 on shared IPs) — best-effort, runs last, spaced. Items are lead-only (tier 'unlisted', via_gdelt)."
+    },
+    {
+      "name": "gdelt-taiwan",
+      "outlet": "GDELT",
+      "type": "gdelt",
+      "enabled": true,
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%22taiwan%20strait%22%20sourcelang:english&mode=artlist&maxrecords=30&timespan=36h&format=json&sort=datedesc",
+      "notes": "US-BRICS arc / Taiwan flashpoint. Same caveats as gdelt-hormuz."
+    },
+    {
+      "name": "gdelt-nato-russia",
+      "outlet": "GDELT",
+      "type": "gdelt",
+      "enabled": true,
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=nato%20russia%20sourcelang:english&mode=artlist&maxrecords=30&timespan=36h&format=json&sort=datedesc",
+      "notes": "Russia-Ukraine arc. Same caveats as gdelt-hormuz."
+    }
+  ]
+}

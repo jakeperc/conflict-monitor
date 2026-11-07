@@ -1,0 +1,32 @@
+{
+  "cards": [
+    {
+      "key": "equities",
+      "title": "Equities: Gulf Risk Reaches Saudi Arabia's Investment Calendar",
+      "color": "blue",
+      "body": "The S&P 500 trades at {SPX} and the Nasdaq 100 at {NDX}. The war's clearest financial signal this week came from Riyadh, not New York: Saudi Arabia postponed its Future Investment Initiative, due 26–29 October, to 2027 because of Houthi strikes, and government agencies in Riyadh told staff to work from home. Oil, at {BRENT} for Brent, remains the main channel to equities. Supply risk sits in unconfirmed Houthi claims on Yanbu and Shaybah and continued ship attacks around Hormuz; relief sits in the US waiver of Russia sanctions and the IEA stock release.",
+      "updated_at": "2026-10-20"
+    },
+    {
+      "key": "oil",
+      "title": "Oil: Brent Falls Toward $104 Despite US Strikes",
+      "color": "amber",
+      "body": "Brent trades at {BRENT}. Brent settled on 3 November at its lowest in about four weeks, near $104, down from above $113 a week earlier, as Iran offered to reopen Hormuz in two days on its terms and Qatar worked on an interim deal. The US strike on Iranian air defences on 2 November did not reverse the move. Prices edged up on 4 November after the midterms and the Revolutionary Guard's unconfirmed claim that four tankers hit mines. A confirmed tanker loss would test the market's reading that talks matter more than strikes. Aramco is expanding the East-West pipeline that bypasses the Strait.",
+      "updated_at": "2026-11-04"
+    },
+    {
+      "key": "crypto",
+      "title": "Crypto: FBI Ties North Korea to the $6.3 Billion Binance Theft",
+      "color": "violet",
+      "body": "Bitcoin trades at {BTC} and Ether at {ETH}. The FBI says North Korea stole more than $6 billion from Binance around 29 October and is converting it mainly into Ethereum. This matters to the conflict because it can fund a sanctioned nuclear state: the question is how much the group keeps. About $3 billion was frozen, including tokens frozen by Tether and Circle, and Binance says it has replaced about 90 percent from its own funds. Those are customer protections, not proof that the thieves lost the money. This is a sanctions and payment-rail event, not a market call.",
+      "updated_at": "2026-11-01"
+    },
+    {
+      "key": "gold",
+      "title": "Gold: Flat While Oil Swings",
+      "color": "danger",
+      "body": "Gold trades at {GOLD}. The last dated check this card holds: on 18 September gold was $4,364.46 an ounce at 9 a.m. New York time, against $4,364.63 a day earlier (CNBC). That is flat, in a week when Brent swung between the high $90s and above $107 on Saudi pipeline and Hormuz news, and it is still not safe-haven behaviour. The card's standing explanation holds: gold is being priced against real yields and the cost of holding it, not against the probability of escalation. A genuine flight to safety would show up in gold before it shows up in oil.",
+      "updated_at": "2026-09-21"
+    }
+  ]
+}

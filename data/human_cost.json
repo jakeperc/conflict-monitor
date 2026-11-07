@@ -1,0 +1,58 @@
+{
+  "title": "Human Cost · Iran War",
+  "scope_note": "Iran-arc theaters only (Iran, Lebanon, US forces). The Iran and Lebanon figures are undifferentiated health-ministry totals — no institution publishes a military/civilian split. The US row differs: it counts individually identified deaths, with wider compilations shown separately.",
+  "updated_at": "2026-09-19",
+  "groups": [
+    {
+      "key": "iran",
+      "label": "Iran",
+      "rows": [
+        {
+          "k": "All deaths",
+          "value": "3,468",
+          "secondary": "26,500+ injured · UNICEF 31 Jul: 386 children killed, 2,117 injured",
+          "basis": "reported-aggregate",
+          "as_of": "2026-06-10",
+          "note": "Attributed to the Foundation of Martyrs and Veterans Affairs, whose page did not retrieve again on 3 September. A UN country page did resolve, carrying a UNICEF figure of 31 July for children only — it does not supersede this total."
+        }
+      ]
+    },
+    {
+      "key": "lebanon",
+      "label": "Lebanon",
+      "rows": [
+        {
+          "k": "All deaths",
+          "value": "4,358",
+          "secondary": "12,359 wounded · 135 health workers killed since 2 March",
+          "basis": "reported-aggregate",
+          "as_of": "2026-09-06",
+          "note": "Health ministry count since 2 March, published 6 September by one Western wire — the first refresh in 94 days after six failures. The separate since-Oct-2023 series is 8,920. The 4,346 figure refused on 7 September, carried only by Chinese state media, was twelve below the ministry's own."
+        }
+      ]
+    },
+    {
+      "key": "us",
+      "label": "US Forces",
+      "rows": [
+        {
+          "k": "KIA",
+          "value": "4",
+          "secondary": "19 in the Pentagon database (22 Sep); 22+ per officials (disputed)",
+          "basis": "identified",
+          "as_of": "2026-09-22",
+          "note": "Four deaths are individually named and incident-verified. The Pentagon's public database reached 19 on 22 September with an Army officer's death en route to the region (Washington Post). Officials told the Post at least 22; Hegseth denies any concealment. The value stays at the identified count."
+        },
+        {
+          "k": "WIA",
+          "value": "830+",
+          "basis": "reported-aggregate",
+          "as_of": "2026-09-18",
+          "note": "More than 830 wounded per the Defense Casualty Analysis System, as relayed by AP via The New Arab on 18 September. Earlier: 417 to 30 June (IG report) and 774 in late August (Military Times). The database itself was not read.",
+          "secondary": "774 in late August (Military Times); 417 to 30 June (inspector general report)"
+        }
+      ]
+    }
+  ],
+  "footnote": "\"Identified\" means every death has a name or a verified incident behind it. \"Reported\" means a credible outlet published a total nobody has independently confirmed. \"Editorial estimate\" means we split a total into military and civilian deaths using the published methods of two conflict-monitoring groups, ACLED and AOAV, checked against Reuters, AFP, IRNA and Lebanon’s Health Ministry. Where a figure is out of date, its row note says so. All casualty counts in an active war are contested."
+}

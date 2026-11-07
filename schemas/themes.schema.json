@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Themes & Key Developments",
+  "type": "object",
+  "required": ["sections", "key_developments"],
+  "properties": {
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "body"],
+        "properties": {
+          "title": { "type": "string" },
+          "body":  { "type": "string" }
+        }
+      }
+    },
+    "key_developments": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

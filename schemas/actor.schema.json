@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Actors",
+  "type": "object",
+  "required": ["risk_countries", "chess_players", "country_keys"],
+  "properties": {
+    "risk_countries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "flag", "risk", "level", "note", "alignment"],
+        "properties": {
+          "name":      { "type": "string", "minLength": 1 },
+          "flag":      { "type": "string" },
+          "risk":      { "type": "integer", "minimum": 0, "maximum": 100 },
+          "level":     { "type": "string" },
+          "note":      { "type": "string" },
+          "details":   { "type": "string" },
+          "alignment": { "type": "string", "enum": ["adversary", "ally", "partner", "neutral"] },
+          "as_of":     { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "stale_ok":  { "type": "boolean" }
+        }
+      }
+    },
+    "chess_players": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "flag", "goal", "move"],
+        "properties": {
+          "name":     { "type": "string" },
+          "flag":     { "type": "string" },
+          "goal":     { "type": "string" },
+          "move":     { "type": "string" },
+          "color":    { "type": "string" },
+          "as_of":    { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "stale_ok": { "type": "boolean" }
+        }
+      }
+    },
+    "theaters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "flag", "start", "threat", "status"],
+        "properties": {
+          "name":   { "type": "string", "minLength": 1 },
+          "flag":   { "type": "string" },
+          "start":  { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "threat": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "status": { "type": "string", "maxLength": 260 },
+          "color":  { "type": "string" },
+          "as_of":  { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+        }
+      }
+    },
+    "country_keys": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["aliases"],
+        "properties": {
+          "aliases": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

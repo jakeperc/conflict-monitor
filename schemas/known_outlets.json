@@ -1,0 +1,1074 @@
+{
+  "$comment": "Canonical outlet directory for source-tier enforcement. Consumed by scripts/validate-data.js (outlet-name check) and referenced by automation/prompts/2-plan.md and automation/prompts/3-critique.md. Alias matching is case-insensitive after trim — canonical names are also indexed.",
+  "version": "1.2.0",
+  "last_reviewed": "2026-09-02",
+  "tiers": {
+    "1-wire": {
+      "label": "Western wire / major"
+    },
+    "1-institutional": {
+      "label": "Institutional / governmental / primary source"
+    },
+    "2-established": {
+      "label": "Established non-wire outlet"
+    },
+    "3-state": {
+      "label": "State-controlled — cannot solely substantiate 'confirmed'"
+    },
+    "4-specialty": {
+      "label": "Specialty / analytical / regional / trade"
+    }
+  },
+  "rules_summary": {
+    "confirmed_requires": "two tier-1 sources, OR one 1-institutional + one 1-wire",
+    "state_media_exclusivity": "if ALL sources tier 3-state, status cannot be 'confirmed'",
+    "severity_5_min_sources": 2
+  },
+  "outlets": [
+    {
+      "canonical": "Reuters",
+      "tier": "1-wire",
+      "aliases": [
+        "REUTERS"
+      ]
+    },
+    {
+      "canonical": "AP",
+      "tier": "1-wire",
+      "aliases": [
+        "AP",
+        "ASSOCIATED PRESS",
+        "AP NEWS"
+      ]
+    },
+    {
+      "canonical": "BBC",
+      "tier": "1-wire",
+      "aliases": [
+        "BBC",
+        "BBC NEWS"
+      ]
+    },
+    {
+      "canonical": "FT",
+      "tier": "1-wire",
+      "aliases": [
+        "FT",
+        "FINANCIAL TIMES"
+      ]
+    },
+    {
+      "canonical": "WSJ",
+      "tier": "1-wire",
+      "aliases": [
+        "WSJ",
+        "WALL STREET JOURNAL"
+      ]
+    },
+    {
+      "canonical": "Bloomberg",
+      "tier": "1-wire",
+      "aliases": [
+        "BLOOMBERG"
+      ]
+    },
+    {
+      "canonical": "Al Jazeera",
+      "tier": "1-wire",
+      "aliases": [
+        "AL JAZEERA",
+        "ALJAZEERA"
+      ]
+    },
+    {
+      "canonical": "The Economist",
+      "tier": "1-wire",
+      "aliases": [
+        "THE ECONOMIST",
+        "ECONOMIST"
+      ]
+    },
+    {
+      "canonical": "Washington Post",
+      "tier": "1-wire",
+      "aliases": [
+        "WASHINGTON POST",
+        "WAPO",
+        "THE WASHINGTON POST"
+      ]
+    },
+    {
+      "canonical": "Foreign Policy",
+      "tier": "1-wire",
+      "aliases": [
+        "FOREIGN POLICY",
+        "FP"
+      ]
+    },
+    {
+      "canonical": "New York Times",
+      "tier": "1-wire",
+      "aliases": [
+        "NYT",
+        "NEW YORK TIMES",
+        "THE NEW YORK TIMES"
+      ]
+    },
+    {
+      "canonical": "The Guardian",
+      "tier": "1-wire",
+      "aliases": [
+        "GUARDIAN",
+        "THE GUARDIAN",
+        "GUARDIAN US",
+        "THEGUARDIAN.COM"
+      ]
+    },
+    {
+      "canonical": "UN",
+      "tier": "1-institutional",
+      "aliases": [
+        "UN",
+        "UN PRESS",
+        "UN AGENCIES",
+        "UNITED NATIONS"
+      ]
+    },
+    {
+      "canonical": "U.S. DoD",
+      "tier": "1-institutional",
+      "aliases": [
+        "DOD",
+        "U.S. DOD",
+        "US DOD",
+        "PENTAGON",
+        "DEPARTMENT OF DEFENSE",
+        "DEPARTMENT OF WAR",
+        "U.S. DEPARTMENT OF WAR"
+      ]
+    },
+    {
+      "canonical": "U.S. State Dept",
+      "tier": "1-institutional",
+      "aliases": [
+        "STATE DEPT",
+        "U.S. STATE DEPARTMENT",
+        "STATE DEPARTMENT",
+        "US STATE DEPT"
+      ]
+    },
+    {
+      "canonical": "OFAC",
+      "tier": "1-institutional",
+      "aliases": [
+        "OFAC",
+        "TREASURY OFAC",
+        "U.S. TREASURY"
+      ]
+    },
+    {
+      "canonical": "CISA",
+      "tier": "1-institutional",
+      "aliases": [
+        "CISA"
+      ]
+    },
+    {
+      "canonical": "IAEA",
+      "tier": "1-institutional",
+      "aliases": [
+        "IAEA"
+      ]
+    },
+    {
+      "canonical": "USGS",
+      "tier": "1-institutional",
+      "aliases": [
+        "USGS",
+        "U.S. GEOLOGICAL SURVEY",
+        "US GEOLOGICAL SURVEY",
+        "EARTHQUAKE.USGS.GOV"
+      ]
+    },
+    {
+      "canonical": "NATO",
+      "tier": "1-institutional",
+      "aliases": [
+        "NATO"
+      ]
+    },
+    {
+      "canonical": "ACLED",
+      "tier": "1-institutional",
+      "aliases": [
+        "ACLED"
+      ]
+    },
+    {
+      "canonical": "CSIS",
+      "tier": "1-institutional",
+      "aliases": [
+        "CSIS"
+      ]
+    },
+    {
+      "canonical": "USNI News",
+      "tier": "1-institutional",
+      "aliases": [
+        "USNI NEWS",
+        "USNI",
+        "US NAVAL INSTITUTE"
+      ],
+      "note": "auto-added 2026-07-10 by executor from plan source log — confirm tier"
+    },
+    {
+      "canonical": "CFR",
+      "tier": "1-institutional",
+      "aliases": [
+        "CFR",
+        "COUNCIL ON FOREIGN RELATIONS"
+      ]
+    },
+    {
+      "canonical": "Carnegie",
+      "tier": "1-institutional",
+      "aliases": [
+        "CARNEGIE",
+        "CARNEGIE ENDOWMENT"
+      ]
+    },
+    {
+      "canonical": "AEI",
+      "tier": "1-institutional",
+      "aliases": [
+        "AEI"
+      ]
+    },
+    {
+      "canonical": "FDD",
+      "tier": "1-institutional",
+      "aliases": [
+        "FDD"
+      ]
+    },
+    {
+      "canonical": "RUSI",
+      "tier": "1-institutional",
+      "aliases": [
+        "RUSI"
+      ]
+    },
+    {
+      "canonical": "Chatham House",
+      "tier": "1-institutional",
+      "aliases": [
+        "CHATHAM HOUSE"
+      ]
+    },
+    {
+      "canonical": "ISW",
+      "tier": "1-institutional",
+      "aliases": [
+        "ISW",
+        "INSTITUTE FOR THE STUDY OF WAR"
+      ]
+    },
+    {
+      "canonical": "International Crisis Group",
+      "tier": "1-institutional",
+      "aliases": [
+        "ICG",
+        "CRISIS GROUP",
+        "CRISISWATCH"
+      ]
+    },
+    {
+      "canonical": "UKMTO",
+      "tier": "1-institutional",
+      "aliases": [
+        "UKMTO"
+      ]
+    },
+    {
+      "canonical": "ROC MND",
+      "tier": "1-institutional",
+      "aliases": [
+        "ROC MND",
+        "TAIWAN MND",
+        "TAIWAN MINISTRY OF NATIONAL DEFENSE"
+      ]
+    },
+    {
+      "canonical": "WHO",
+      "tier": "1-institutional",
+      "aliases": [
+        "WHO",
+        "WORLD HEALTH ORGANIZATION"
+      ]
+    },
+    {
+      "canonical": "Vatican",
+      "tier": "1-institutional",
+      "aliases": [
+        "VATICAN",
+        "HOLY SEE"
+      ]
+    },
+    {
+      "canonical": "New Zealand Government",
+      "tier": "1-institutional",
+      "aliases": [
+        "NEW ZEALAND",
+        "NZ GOV",
+        "NEW ZEALAND GOVT"
+      ],
+      "note": "ambiguous citation form — recommend specifying NZ ministry/department in future entries"
+    },
+    {
+      "canonical": "CNN",
+      "tier": "2-established",
+      "aliases": [
+        "CNN"
+      ]
+    },
+    {
+      "canonical": "CNBC",
+      "tier": "2-established",
+      "aliases": [
+        "CNBC"
+      ]
+    },
+    {
+      "canonical": "NPR",
+      "tier": "2-established",
+      "aliases": [
+        "NPR"
+      ]
+    },
+    {
+      "canonical": "PBS News",
+      "tier": "2-established",
+      "aliases": [
+        "PBS",
+        "PBS NEWS",
+        "PBS NEWSHOUR"
+      ]
+    },
+    {
+      "canonical": "CBS News",
+      "tier": "2-established",
+      "aliases": [
+        "CBS",
+        "CBS NEWS"
+      ]
+    },
+    {
+      "canonical": "NBC",
+      "tier": "2-established",
+      "aliases": [
+        "NBC",
+        "NBC NEWS"
+      ]
+    },
+    {
+      "canonical": "Fox News",
+      "tier": "2-established",
+      "aliases": [
+        "FOX NEWS",
+        "FOX"
+      ]
+    },
+    {
+      "canonical": "Fortune",
+      "tier": "2-established",
+      "aliases": [
+        "FORTUNE"
+      ]
+    },
+    {
+      "canonical": "Semafor",
+      "tier": "2-established",
+      "aliases": [
+        "SEMAFOR"
+      ]
+    },
+    {
+      "canonical": "Axios",
+      "tier": "2-established",
+      "aliases": [
+        "AXIOS"
+      ]
+    },
+    {
+      "canonical": "Politico",
+      "tier": "2-established",
+      "aliases": [
+        "POLITICO"
+      ]
+    },
+    {
+      "canonical": "Times of Israel",
+      "tier": "2-established",
+      "aliases": [
+        "TIMES OF ISRAEL",
+        "TOI"
+      ]
+    },
+    {
+      "canonical": "Haaretz",
+      "tier": "2-established",
+      "aliases": [
+        "HAARETZ"
+      ]
+    },
+    {
+      "canonical": "Jerusalem Post",
+      "tier": "2-established",
+      "aliases": [
+        "JPOST",
+        "JERUSALEM POST"
+      ]
+    },
+    {
+      "canonical": "Israel Channel 13",
+      "tier": "2-established",
+      "aliases": [
+        "ISRAEL CH. 13",
+        "ISRAEL CHANNEL 13",
+        "CHANNEL 13 ISRAEL"
+      ]
+    },
+    {
+      "canonical": "Kyiv Independent",
+      "tier": "2-established",
+      "aliases": [
+        "KYIV INDEPENDENT"
+      ]
+    },
+    {
+      "canonical": "Ukrinform",
+      "tier": "2-established",
+      "aliases": [
+        "UKRINFORM"
+      ]
+    },
+    {
+      "canonical": "Sudan Tribune",
+      "tier": "2-established",
+      "aliases": [
+        "SUDAN TRIBUNE"
+      ]
+    },
+    {
+      "canonical": "Yahoo Finance",
+      "tier": "2-established",
+      "aliases": [
+        "YAHOO FINANCE"
+      ]
+    },
+    {
+      "canonical": "TradingEconomics",
+      "tier": "2-established",
+      "aliases": [
+        "TRADINGECONOMICS",
+        "TRADING ECONOMICS"
+      ],
+      "note": "auto-added 2026-07-11 by executor from plan source log — market-data aggregator, tiered as peer of Yahoo Finance; confirm tier"
+    },
+    {
+      "canonical": "Washington Times",
+      "tier": "2-established",
+      "aliases": [
+        "WASHINGTON TIMES"
+      ]
+    },
+    {
+      "canonical": "SCMP",
+      "tier": "2-established",
+      "aliases": [
+        "SCMP",
+        "SOUTH CHINA MORNING POST"
+      ]
+    },
+    {
+      "canonical": "Iran International",
+      "tier": "2-established",
+      "aliases": [
+        "IRAN INTERNATIONAL",
+        "IRAN INTL"
+      ]
+    },
+    {
+      "canonical": "Euronews",
+      "tier": "2-established",
+      "aliases": [
+        "EURONEWS"
+      ]
+    },
+    {
+      "canonical": "BusinessToday",
+      "tier": "2-established",
+      "aliases": [
+        "BUSINESSTODAY",
+        "BUSINESS TODAY"
+      ]
+    },
+    {
+      "canonical": "Sunday Guardian",
+      "tier": "2-established",
+      "aliases": [
+        "SUNDAY GUARDIAN"
+      ]
+    },
+    {
+      "canonical": "Tasnim",
+      "tier": "3-state",
+      "aliases": [
+        "TASNIM",
+        "TASNIM NEWS",
+        "TASNIM NEWS AGENCY"
+      ]
+    },
+    {
+      "canonical": "IRNA",
+      "tier": "3-state",
+      "aliases": [
+        "IRNA"
+      ]
+    },
+    {
+      "canonical": "Press TV",
+      "tier": "3-state",
+      "aliases": [
+        "PRESS TV",
+        "PRESSTV"
+      ]
+    },
+    {
+      "canonical": "Fars",
+      "tier": "3-state",
+      "aliases": [
+        "FARS",
+        "FARS NEWS"
+      ]
+    },
+    {
+      "canonical": "Mehr",
+      "tier": "3-state",
+      "aliases": [
+        "MEHR",
+        "MEHR NEWS"
+      ]
+    },
+    {
+      "canonical": "RT",
+      "tier": "3-state",
+      "aliases": [
+        "RT",
+        "RUSSIA TODAY"
+      ]
+    },
+    {
+      "canonical": "TASS",
+      "tier": "3-state",
+      "aliases": [
+        "TASS"
+      ]
+    },
+    {
+      "canonical": "Xinhua",
+      "tier": "3-state",
+      "aliases": [
+        "XINHUA"
+      ]
+    },
+    {
+      "canonical": "Global Times",
+      "tier": "3-state",
+      "aliases": [
+        "GLOBAL TIMES"
+      ]
+    },
+    {
+      "canonical": "KCNA",
+      "tier": "3-state",
+      "aliases": [
+        "KCNA"
+      ]
+    },
+    {
+      "canonical": "Russian MoD",
+      "tier": "3-state",
+      "aliases": [
+        "RUSSIAN MOD",
+        "RU MOD",
+        "RUSSIAN MINISTRY OF DEFENSE"
+      ]
+    },
+    {
+      "canonical": "Kremlin",
+      "tier": "3-state",
+      "aliases": [
+        "KREMLIN"
+      ]
+    },
+    {
+      "canonical": "Chainalysis",
+      "tier": "4-specialty",
+      "aliases": [
+        "CHAINALYSIS"
+      ]
+    },
+    {
+      "canonical": "TRM Labs",
+      "tier": "4-specialty",
+      "aliases": [
+        "TRM LABS",
+        "TRM"
+      ]
+    },
+    {
+      "canonical": "Global Conflict Monitor",
+      "tier": "4-specialty",
+      "aliases": [
+        "GLOBAL CONFLICT MONITOR",
+        "GCM",
+        "THIS DASHBOARD",
+        "GLOBAL CONFLICT MONITOR (EDITORIAL)"
+      ],
+      "note": "the board's own notes, observations and transparency records — never solely substantiates 'confirmed' status"
+    },
+    {
+      "canonical": "38 North",
+      "tier": "4-specialty",
+      "aliases": [
+        "38 NORTH"
+      ]
+    },
+    {
+      "canonical": "Arms Control Center",
+      "tier": "4-specialty",
+      "aliases": [
+        "ARMS CONTROL CENTER",
+        "CENTER FOR ARMS CONTROL"
+      ]
+    },
+    {
+      "canonical": "Asia Times",
+      "tier": "4-specialty",
+      "aliases": [
+        "ASIA TIMES"
+      ]
+    },
+    {
+      "canonical": "EMPR",
+      "tier": "4-specialty",
+      "aliases": [
+        "EMPR"
+      ]
+    },
+    {
+      "canonical": "Open Magazine",
+      "tier": "4-specialty",
+      "aliases": [
+        "OPEN MAGAZINE"
+      ]
+    },
+    {
+      "canonical": "Crypto Briefing",
+      "tier": "4-specialty",
+      "aliases": [
+        "CRYPTO BRIEFING"
+      ]
+    },
+    {
+      "canonical": "The Block",
+      "tier": "4-specialty",
+      "aliases": [
+        "THE BLOCK"
+      ]
+    },
+    {
+      "canonical": "Decrypt",
+      "tier": "4-specialty",
+      "aliases": [
+        "DECRYPT"
+      ]
+    },
+    {
+      "canonical": "Kurdistan24",
+      "tier": "4-specialty",
+      "aliases": [
+        "KURDISTAN24"
+      ]
+    },
+    {
+      "canonical": "missilestrikes.com",
+      "tier": "4-specialty",
+      "aliases": [
+        "MISSILESTRIKES.COM",
+        "MISSILESTRIKES"
+      ]
+    },
+    {
+      "canonical": "investigator.ua",
+      "tier": "4-specialty",
+      "aliases": [
+        "INVESTIGATOR.UA"
+      ]
+    },
+    {
+      "canonical": "AAA",
+      "tier": "4-specialty",
+      "aliases": [
+        "AAA"
+      ],
+      "note": "American Automobile Association — used only for gas-price reporting"
+    },
+    {
+      "canonical": "OKX",
+      "tier": "4-specialty",
+      "aliases": [
+        "OKX"
+      ],
+      "note": "crypto exchange — used for price reporting only"
+    },
+    {
+      "canonical": "GoodReturns",
+      "tier": "4-specialty",
+      "aliases": [
+        "GOODRETURNS"
+      ]
+    },
+    {
+      "canonical": "Insurance Journal",
+      "tier": "4-specialty",
+      "aliases": [
+        "INSURANCE JOURNAL"
+      ]
+    },
+    {
+      "canonical": "Britannica",
+      "tier": "4-specialty",
+      "aliases": [
+        "BRITANNICA"
+      ],
+      "note": "reference/encyclopedia — historical context only, not breaking news"
+    },
+    {
+      "canonical": "AGBI / Insurance Press",
+      "tier": "4-specialty",
+      "aliases": [
+        "AGBI/INSURANCE PRESS",
+        "AGBI / INSURANCE PRESS"
+      ],
+      "note": "compound citation — split into separate sources[] entries in future editorial cleanup"
+    },
+    {
+      "canonical": "Axios / NBC",
+      "tier": "2-established",
+      "aliases": [
+        "AXIOS/NBC",
+        "AXIOS / NBC"
+      ],
+      "note": "compound citation — both component outlets are tier 2-established"
+    },
+    {
+      "canonical": "CNBC / Kremlin",
+      "tier": "3-state",
+      "aliases": [
+        "CNBC/KREMLIN",
+        "CNBC / KREMLIN"
+      ],
+      "note": "compound citation — content originates from Kremlin (state); CNBC is the rebroadcaster. Treat as 3-state for corroboration purposes."
+    },
+    {
+      "canonical": "Iran International / Crypto Briefing",
+      "tier": "4-specialty",
+      "aliases": [
+        "IRAN INTL/CRYPTO BRIEFING",
+        "IRAN INTERNATIONAL/CRYPTO BRIEFING"
+      ],
+      "note": "compound citation — Iran International is independent Persian-language; Crypto Briefing is trade specialty"
+    },
+    {
+      "canonical": "Arab News",
+      "tier": "2-established",
+      "aliases": [
+        "ARAB NEWS"
+      ],
+      "note": "auto-added 2026-07-22 by executor from plan source log — confirm tier"
+    },
+    {
+      "canonical": "GOV.UK",
+      "tier": "1-institutional",
+      "aliases": [
+        "GOV.UK",
+        "UK GOVERNMENT",
+        "HM GOVERNMENT",
+        "UK CABINET OFFICE"
+      ],
+      "note": "auto-added 2026-07-26 during remediation pass — official UK government record; confirm tier"
+    },
+    {
+      "canonical": "Federal Bureau of Investigation",
+      "tier": "1-institutional",
+      "aliases": [
+        "FEDERAL BUREAU OF INVESTIGATION",
+        "FBI"
+      ]
+    },
+    {
+      "canonical": "World Food Programme",
+      "tier": "1-institutional",
+      "aliases": [
+        "WORLD FOOD PROGRAMME",
+        "WFP",
+        "UN WFP"
+      ]
+    },
+    {
+      "canonical": "UN OCHA",
+      "tier": "1-institutional",
+      "aliases": [
+        "UN OCHA",
+        "OCHA"
+      ]
+    },
+    {
+      "canonical": "EU Council",
+      "tier": "1-institutional",
+      "aliases": [
+        "EU COUNCIL",
+        "EUROPEAN COUNCIL",
+        "COUNCIL OF THE EU",
+        "CONSILIUM"
+      ]
+    },
+    {
+      "canonical": "France 24",
+      "tier": "2-established",
+      "aliases": [
+        "FRANCE 24",
+        "FRANCE24"
+      ]
+    },
+    {
+      "canonical": "Military Times",
+      "tier": "2-established",
+      "aliases": [
+        "MILITARY TIMES"
+      ]
+    },
+    {
+      "canonical": "Critical Threats",
+      "tier": "1-institutional",
+      "aliases": [
+        "CRITICAL THREATS",
+        "CRITICAL THREATS PROJECT",
+        "AEI CRITICAL THREATS"
+      ]
+    },
+    {
+      "canonical": "Focus Taiwan",
+      "tier": "2-established",
+      "aliases": [
+        "FOCUS TAIWAN",
+        "CNA FOCUS TAIWAN"
+      ]
+    },
+    {
+      "canonical": "The Defense Post",
+      "tier": "2-established",
+      "aliases": [
+        "THE DEFENSE POST",
+        "DEFENSE POST"
+      ]
+    },
+    {
+      "canonical": "The New Arab",
+      "tier": "2-established",
+      "aliases": [
+        "THE NEW ARAB",
+        "NEW ARAB"
+      ]
+    },
+    {
+      "canonical": "Euromaidan Press",
+      "tier": "2-established",
+      "aliases": [
+        "EUROMAIDAN PRESS"
+      ]
+    },
+    {
+      "canonical": "RBC-Ukraine",
+      "tier": "2-established",
+      "aliases": [
+        "RBC-UKRAINE",
+        "RBC UKRAINE"
+      ]
+    },
+    {
+      "canonical": "Lloyd's List Intelligence",
+      "tier": "4-specialty",
+      "aliases": [
+        "LLOYD'S LIST INTELLIGENCE",
+        "Lloyds List Intelligence",
+        "Lloyd's List"
+      ],
+      "note": "auto-added 2026-08-18 by executor from plan source log (arbiter-assigned tier 4-specialty) — confirm tier"
+    },
+    {
+      "canonical": "Federal Register",
+      "tier": "1-institutional",
+      "aliases": [
+        "FEDERAL REGISTER",
+        "federalregister.gov"
+      ],
+      "note": "auto-added 2026-08-21 by executor from plan source log — confirm tier"
+    },
+    {
+      "canonical": "French Foreign Ministry",
+      "tier": "1-institutional",
+      "aliases": [
+        "FRENCH FOREIGN MINISTRY",
+        "Ministry for Europe and Foreign Affairs",
+        "diplomatie.gouv.fr"
+      ],
+      "note": "auto-added 2026-08-21 by executor from plan source log — confirm tier"
+    },
+    {
+      "canonical": "The White House",
+      "tier": "1-institutional",
+      "aliases": [
+        "THE WHITE HOUSE",
+        "White House",
+        "whitehouse.gov"
+      ],
+      "note": "auto-added 2026-08-21 by executor from plan source log — confirm tier"
+    },
+    {
+      "canonical": "Stars and Stripes",
+      "tier": "2-established",
+      "aliases": [
+        "STARS AND STRIPES",
+        "Stars & Stripes",
+        "STRIPES",
+        "stripes.com"
+      ],
+      "note": "Operator-approved 2026-08-26 (Jake) after the outlet blocked a publishable event two days running. DoD-authorised under DoD Directive 5122.11 and 32 CFR 246, historically editorially independent under congressional mandate. CAUTION, verified 2026-08-26: DoD rescinded those editorial protections in January 2026, fired the congressionally-mandated ombudsman in April, and on 21 August 2026 fired the editor-in-chief, publisher and Middle East reporter over the independence dispute (carried by NPR, Washington Times, Editor & Publisher). Treat on-the-ground military-beat reporting as 2-established; require independent corroboration for any DoD-policy or DoD-conduct claim datelined after 2026-08-21."
+    },
+    {
+      "canonical": "IMO",
+      "tier": "1-institutional",
+      "aliases": [
+        "IMO",
+        "International Maritime Organization",
+        "International Maritime Organisation",
+        "IMO (International Maritime Organization)"
+      ],
+      "note": "Operator-approved 2026-08-26 (Jake). UN specialised agency for shipping — the institutional counterpart to UKMTO, which was already in the directory. Its absence forced the first institutional Hormuz incident/casualty figure this board has ever held (20 dead, 68 incidents over six months) to ship at low confidence on 2026-08-26. Primary source for maritime incident, casualty and corridor records."
+    },
+    {
+      "canonical": "The Moscow Times",
+      "tier": "2-established",
+      "aliases": [
+        "MOSCOW TIMES",
+        "The Moscow Times",
+        "themoscowtimes.com"
+      ],
+      "note": "Operator-approved 2026-08-26 (Jake). Independent English/Russian outlet, published since 1992, relocated to Amsterdam in 2022; designated a foreign agent and then an undesirable organisation by Russia in July 2024 — i.e. the opposite of state media, and NOT to be tiered with TASS/RT/Kremlin. Fills the Russia-domestic reporting gap where the directory previously offered only 3-state sources. Resolved HTTP 200 three times on 2026-08-26 while Washington Post, CNN and NBC were all blocked."
+    },
+    {
+      "canonical": "Defense News",
+      "tier": "2-established",
+      "aliases": [
+        "DEFENSE NEWS",
+        "defensenews.com"
+      ],
+      "note": "Operator-approved 2026-08-26 (Jake). Published by Sightline Media Group, the same parent as Military Times, which the directory already carries at 2-established — this add makes the treatment of that publisher consistent. US and allied defence-procurement and force-posture beat."
+    },
+    {
+      "canonical": "Kyiv Post",
+      "tier": "2-established",
+      "aliases": [
+        "KYIV POST",
+        "kyivpost.com",
+        "Kiev Post"
+      ],
+      "note": "Operator-approved 2026-08-26 (Jake). Ukraine's oldest English-language newspaper. The directory already carries Kyiv Independent, Euromaidan Press, RBC-Ukraine and Ukrinform at 2-established, so its absence was an inconsistency rather than a judgement; it carried the named-refinery reporting the board could not cite on 2026-08-26."
+    },
+    {
+      "canonical": "Anadolu Agency",
+      "tier": "3-state",
+      "aliases": [
+        "ANADOLU",
+        "Anadolu Agency",
+        "Anadolu Ajansi"
+      ],
+      "note": "Operator-approved 2026-08-26 (Jake). STATE-CONTROLLED: joint stock company whose shares are held by the Turkish Treasury; widely assessed as pro-government. Tiered 3-state deliberately — acceptable for Turkish statements-of-record only (\"the foreign ministry said X\"), never alone for a factual claim, and can never solely substantiate Confirmed. Added because the board has repeatedly needed a Turkish channel it did not have (Press Release No. 160, the Interpol/Netanyahu matter) and was reading Turkish government positions second-hand."
+    },
+    {
+      "canonical": "Republic of China Ministry of National Defense",
+      "tier": "1-institutional",
+      "aliases": [
+        "REPUBLIC OF CHINA MINISTRY OF NATIONAL DEFENSE",
+        "ROC MND",
+        "TAIWAN MND",
+        "TAIWAN MINISTRY OF NATIONAL DEFENSE"
+      ],
+      "note": "auto-added 2026-08-29 by executor from plan source log — confirm tier"
+    },
+    {
+      "canonical": "Arms Control Association",
+      "tier": "1-institutional",
+      "aliases": [
+        "Arms Control Association",
+        "ACA",
+        "Arms Control Today"
+      ],
+      "note": "auto-added 2026-09-02 by operator-approved audit implementation; tier from plan source log (institutional primary for treaty status). Confirm tier."
+    },
+    {
+      "canonical": "Iranian Red Crescent Society",
+      "tier": "1-institutional",
+      "aliases": [
+        "IRANIAN RED CRESCENT SOCIETY",
+        "Iranian Red Crescent",
+        "RCS"
+      ],
+      "note": "auto-added 2026-09-04 by executor from plan section 12 source log (tier 1-institutional) — confirm tier"
+    },
+    {
+      "canonical": "US Treasury",
+      "tier": "1-institutional",
+      "aliases": [
+        "US TREASURY",
+        "U.S. Treasury",
+        "Department of the Treasury"
+      ],
+      "note": "auto-added 2026-09-04 by executor from plan section 12 source log (tier 1-institutional) — confirm tier; OFAC already present separately"
+    },
+    {
+      "canonical": "NATS",
+      "tier": "1-institutional",
+      "aliases": [
+        "NATS",
+        "nats.aero",
+        "NATS Holdings"
+      ],
+      "note": "auto-added 2026-09-09 by executor from plan source log — UK air-navigation service publishing about its own systems; confirm tier"
+    },
+    {
+      "canonical": "Prime Minister's Office of India",
+      "tier": "1-institutional",
+      "aliases": [
+        "PRIME MINISTER'S OFFICE OF INDIA",
+        "PMINDIA",
+        "PMINDIA.GOV.IN",
+        "PMO INDIA"
+      ],
+      "note": "auto-added 2026-09-14 by executor from plan source log (§12, 1-institutional) — confirm tier"
+    }
+  ]
+}

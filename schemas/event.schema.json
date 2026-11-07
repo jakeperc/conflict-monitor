@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Event",
+  "description": "Single event entry. May be feed-visible (news), timeline-visible (curated), or both.",
+  "type": "object",
+  "required": [
+    "id",
+    "event_date",
+    "headline",
+    "sources",
+    "severity",
+    "confidence",
+    "status",
+    "feed_visibility",
+    "timeline_visibility",
+    "is_chapter_divider"
+  ],
+  "properties": {
+    "id":                  { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$" },
+    "event_date":          { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "source_time":         { "type": ["string", "null"], "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$" },
+    "headline":            { "type": "string", "minLength": 1 },
+    "body":                { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name":           { "type": "string", "minLength": 1 },
+          "url":            { "type": ["string", "null"] },
+          "published_date": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+        }
+      }
+    },
+    "severity":            { "type": "integer", "minimum": 1, "maximum": 5 },
+    "confidence":          { "enum": ["low", "medium", "high"] },
+    "status":              { "enum": ["developing", "reported", "confirmed", "disputed", "historical"] },
+    "theaters":            { "type": "array", "items": { "type": "string" } },
+    "lenses":              { "type": "array", "items": { "type": "string" }, "description": "Sub-lens tags within an arc. For events with theaters containing us-china or us-brics-rivalry, valid lenses: bilateral-us-china, brics-bloc, crink, allies-cohesion. Optional; populated on new events from 2026-05-23 onward." },
+    "tags":                { "type": "array", "items": { "type": "string" } },
+    "feed_visibility":     { "type": "boolean" },
+    "timeline_visibility": { "type": "boolean" },
+    "chapter_label":       { "type": ["string", "null"] },
+    "chapter_kicker":      { "type": ["string", "null"] },
+    "is_chapter_divider":  { "type": "boolean" }
+  }
+}

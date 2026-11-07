@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Human Cost",
+  "type": "object",
+  "required": ["title", "updated_at", "groups", "footnote"],
+  "properties": {
+    "title":      { "type": "string", "minLength": 1, "maxLength": 80 },
+    "scope_note": { "type": "string", "maxLength": 300 },
+    "updated_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["key", "label", "rows"],
+        "properties": {
+          "key":   { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "label": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "rows": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["k", "value", "basis", "as_of"],
+              "properties": {
+                "k":         { "type": "string", "minLength": 1, "maxLength": 40 },
+                "value":     { "type": "string", "minLength": 1, "maxLength": 40 },
+                "secondary": { "type": "string", "maxLength": 80 },
+                "basis":     { "enum": ["identified", "confirmed", "reported-aggregate", "editorial-estimate", "disputed"] },
+                "as_of":     { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+                "note":      { "type": "string", "maxLength": 300 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "footnote": { "type": "string", "maxLength": 500 }
+  }
+}

@@ -1,0 +1,476 @@
+{
+  "_note": "Dated, event-anchored chart series (rule #1: real dates + real/editorial values only, no fabricated fill). Consumed by src/js/app.js EventSeriesChart via window.__DATA__. ww3_milestones are the pre-daily-tracking historical anchors (each {d,v} is a real reporting date + the editorial WW3% at that date); scripts/build.js merges them with the dated daily escalation_history.json (Jun 24 -> now) into __DATA__.ww3_series. brent/hormuz/gas_nat are honest-sparse dated anchors from documented reporting; the live tail is spliced client-side and the series densify as the daily pipeline appends. Direction (red=escalating / green=de-escalating) is DERIVED from the value delta at render time; the k field is documentation only. To add a milestone going forward, append a dated {d,v,t,s} row here.",
+  "ww3_milestones": [
+    {
+      "d": "2026-02-28",
+      "v": 10,
+      "t": "War begins",
+      "s": "Operation Epic Fury launches",
+      "k": "start"
+    },
+    {
+      "d": "2026-03-04",
+      "v": 13,
+      "t": "House fails war-powers vote",
+      "s": "first constraint vote loses",
+      "k": "esc"
+    },
+    {
+      "d": "2026-03-12",
+      "v": 28,
+      "t": "IAEA inspectors out",
+      "s": "nuclear blackout begins",
+      "k": "esc"
+    },
+    {
+      "d": "2026-03-22",
+      "v": 45,
+      "t": "Strait of Hormuz mined",
+      "s": "tanker throughput plunges",
+      "k": "esc"
+    },
+    {
+      "d": "2026-03-26",
+      "v": 59,
+      "t": "Nuclear fears crest",
+      "s": "IAEA blackout enters week 3 · no inspector access",
+      "k": "esc"
+    },
+    {
+      "d": "2026-04-01",
+      "v": 62,
+      "t": "First US naval death",
+      "s": "peak of the opening phase",
+      "k": "esc"
+    },
+    {
+      "d": "2026-04-08",
+      "v": 46,
+      "t": "Ceasefire",
+      "s": "two-week pause begins · Pakistan mediates",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-04-14",
+      "v": 43,
+      "t": "Narrow violations",
+      "s": "pact holds under strain",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-04-16",
+      "v": 41,
+      "t": "House WPR fails by one vote",
+      "s": "213-214 · Trump: deal \"very close\"",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-04-21",
+      "v": 38,
+      "t": "Pause extended",
+      "s": "\"fractured Iran\" · floor of the arc",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-04-25",
+      "v": 42,
+      "t": "60-day clock ticks",
+      "s": "no withdrawal signaled as WPR deadline nears",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-01",
+      "v": 48,
+      "t": "War-powers clock expires",
+      "s": "Trump asserts authority",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-05",
+      "v": 46,
+      "t": "Pope calls for restraint",
+      "s": "\"violence is the last resort\"",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-05-07",
+      "v": 48,
+      "t": "Vatican talks",
+      "s": "diplomacy visible but slow",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-10",
+      "v": 56,
+      "t": "Counter-offer rejected",
+      "s": "Iran calls the plan \"garbage\"",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-12",
+      "v": 62,
+      "t": "Ceasefire \"on massive life support\"",
+      "s": "14-pt counter rejected; Senate WPR fails 50-49 (May 13)",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-15",
+      "v": 67,
+      "t": "Tanker seized in Hormuz",
+      "s": "first hull loss · cycle peak",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-17",
+      "v": 58,
+      "t": "Toll regime live · shock unwinds",
+      "s": "\"Hormuz Safe\" operational; Trump \"clock is ticking\" ultimatum",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-06-06",
+      "v": 50,
+      "t": "Second front removed",
+      "s": "Israel-Lebanon ceasefire (Jun 4) holds; risk consolidates",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-06-12",
+      "v": 50,
+      "t": "\"Final, agreed-upon text\"",
+      "s": "Pakistan PM announces completed framework",
+      "k": "info"
+    },
+    {
+      "d": "2026-06-17",
+      "v": 50,
+      "t": "MOU signed at Versailles",
+      "s": "war premium drains",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-06-19",
+      "v": 50,
+      "t": "US–Israel rift",
+      "s": "Vance rebukes Netanyahu",
+      "k": "esc"
+    },
+    {
+      "d": "2026-06-22",
+      "v": 50,
+      "t": "Strait of Hormuz reopens",
+      "s": "flows recover · Burgenstock books 60-day roadmap",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-06-24",
+      "v": 50,
+      "t": "Sanctions relief executes",
+      "s": "OFAC GL X: first USD Iran-oil authorization in ~20 years",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-06-27",
+      "v": 55,
+      "t": "US–Iran exchange",
+      "s": "brief kinetic exchange, contained",
+      "k": "esc"
+    },
+    {
+      "d": "2026-06-28",
+      "v": 55,
+      "t": "Same-day stand-down",
+      "s": "exchange widens to Kuwait + Bahrain, then halts",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-01",
+      "v": 55,
+      "t": "Russia bans gasoline exports",
+      "s": "first cabinet-decree conversion of the fuel crisis",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-03",
+      "v": 55,
+      "t": "Hormuz passage-fee demand",
+      "s": "Iran claims fee-for-passage authority; Taiwan surge peaks",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-06",
+      "v": 55,
+      "t": "China SLBM test · Omsk hit",
+      "s": "Pacific strategic signaling; Ukraine reaches 2,500 km",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-08",
+      "v": 60,
+      "t": "Stand-down breaks",
+      "s": "Iran strikes Hormuz shipping; US retaliates 80+ targets",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-09",
+      "v": 60,
+      "t": "Framework formally dead",
+      "s": "GL X1 wind-down published; full snap-back risk after Jul 17",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-21",
+      "v": 60,
+      "t": "US troop deaths reported",
+      "s": "Three killed July 18-20 in Jordan and Iraq; strikes run a tenth night",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-27",
+      "v": 60,
+      "t": "Strike hold ordered",
+      "s": "Trump halts Iran strikes via Oman channel; oil premium unwinds",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-30",
+      "v": 60,
+      "t": "Strike hold collapses",
+      "s": "Iranian missiles at a Jordan airbase; US and Saudi aircraft strike Iran-aligned groups in Iraq",
+      "k": "esc"
+    },
+    {
+      "d": "2026-08-03",
+      "v": 60,
+      "t": "Attack called off",
+      "s": "Trump says he will cancel the Iran attack subject to a rapid deal; oil falls about five percent",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-08-21",
+      "v": 65,
+      "t": "Economic war declared",
+      "s": "Washington aims an economic campaign at Iran's trading partners; Beijing publicly refuses to comply",
+      "k": "esc"
+    },
+    {
+      "d": "2026-09-08",
+      "v": 64,
+      "t": "Tanker war opens",
+      "s": "The United States destroys five Iranian tankers; Iran answers with ballistic missiles at a base in Jordan",
+      "k": "esc"
+    },
+    {
+      "d": "2026-10-02",
+      "v": 65,
+      "t": "Third carrier heads for Iran",
+      "s": "The Roosevelt group and 2,000 Marines sail toward Iran; buildup due by late November",
+      "k": "esc"
+    },
+    {
+      "d": "2026-10-10",
+      "v": 65,
+      "t": "US eases Russian diesel sanctions",
+      "s": "Trump licenses Russian diesel and says Ukraine needs a new president; a strike on Riyadh's airport kills 12",
+      "k": "esc"
+    },
+    {
+      "d": "2026-10-12",
+      "v": 65,
+      "t": "EU adopts record Russia listings",
+      "s": "EU adopts 1,569 Russia listings as the US keeps its diesel licence; Ukrainian officials report a US intelligence threat over refinery strikes",
+      "k": "info"
+    }
+  ],
+  "brent": [
+    {
+      "d": "2026-02-28",
+      "v": 74.21,
+      "t": "Pre-war baseline",
+      "s": "$74.21/bbl",
+      "k": "start"
+    },
+    {
+      "d": "2026-05-14",
+      "v": 109,
+      "t": "War-premium peak",
+      "s": "Hormuz \"effectively closed\"",
+      "k": "esc"
+    },
+    {
+      "d": "2026-05-20",
+      "v": 105,
+      "t": "Talks optimism",
+      "s": "first sustained downside",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-06-23",
+      "v": 77.2,
+      "t": "MOU + sanctions relief",
+      "s": "premium drains below $80",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-03",
+      "v": 70.57,
+      "t": "Cycle low",
+      "s": "weak US jobs, calm tape",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-07",
+      "v": 78,
+      "t": "Hormuz-attack spike",
+      "s": "~5% jump on tanker strike",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-09",
+      "v": 76.01,
+      "t": "Bounded exchange",
+      "s": "sub-$80 band firms",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-22",
+      "v": 94.29,
+      "t": "War premium lands",
+      "s": "Brent jumps 3.6% past $94 intraday after Rubio's 'not serious' verdict on talks — first supply-shock print of the re-escalation",
+      "k": "esc"
+    },
+    {
+      "d": "2026-07-23",
+      "v": 100.69,
+      "t": "Brent tops $100",
+      "s": "First $100 print since May as the Red Sea reopens and US strikes run a thirteenth night",
+      "k": "esc"
+    },
+    {
+      "d": "2026-09-28",
+      "v": 99.96,
+      "t": "Front month rolls to December",
+      "s": "Benchmark moved from the November contract (~$107.6, +3% on Trump's rejection of Iran's plan) to December (~$99.9, +2.5%); the step down here is the contract roll, not a price fall",
+      "k": "info"
+    }
+  ],
+  "gas_nat": [
+    {
+      "d": "2026-02-28",
+      "v": 3.42,
+      "t": "Pre-war baseline",
+      "s": "$3.42/gal",
+      "k": "start"
+    },
+    {
+      "d": "2026-03-14",
+      "v": 3.78
+    },
+    {
+      "d": "2026-03-28",
+      "v": 4.01
+    },
+    {
+      "d": "2026-04-08",
+      "v": 4.18
+    },
+    {
+      "d": "2026-04-21",
+      "v": 4.27
+    },
+    {
+      "d": "2026-05-01",
+      "v": 4.34
+    },
+    {
+      "d": "2026-05-07",
+      "v": 4.45
+    },
+    {
+      "d": "2026-05-14",
+      "v": 4.534,
+      "t": "Pump-price peak",
+      "s": "war premium tops out",
+      "k": "esc"
+    }
+  ],
+  "hormuz": [
+    {
+      "d": "2026-02-28",
+      "v": 138,
+      "t": "Pre-war baseline",
+      "s": "~138 tankers/day escorted",
+      "k": "start"
+    },
+    {
+      "d": "2026-03-22",
+      "v": 30,
+      "t": "Strait mined",
+      "s": "throughput collapses",
+      "k": "esc"
+    },
+    {
+      "d": "2026-04-08",
+      "v": 55,
+      "t": "Ceasefire",
+      "s": "partial transit resumes",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-05-15",
+      "v": 40,
+      "t": "Tanker seized",
+      "s": "transit doubt returns",
+      "k": "esc"
+    },
+    {
+      "d": "2026-06-22",
+      "v": 100,
+      "t": "Strait reopens",
+      "s": "flows recover toward normal",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-09",
+      "v": 103,
+      "t": "Bounded exchange",
+      "s": "escorted transit holds",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-07-26",
+      "v": 6,
+      "t": "Traffic at war low",
+      "s": "39 tanker transits in the week to July 26 — about 6 a day",
+      "k": "esc"
+    },
+    {
+      "d": "2026-08-19",
+      "v": 12,
+      "t": "Traffic averaging 12/day",
+      "s": "236 transits over 19 days in August, roughly a tenth of the 130/day pre-war average",
+      "k": "esc"
+    },
+    {
+      "d": "2026-08-23",
+      "v": 5,
+      "t": "New series: 40-day average",
+      "s": "40-day average from a different series (Kpler, 15 Jul-23 Aug): about 5 vessels/day against ~100 pre-war. Not comparable to the 19 Aug point - and a floor, since remaining ships run escorted or dark",
+      "k": "info"
+    },
+    {
+      "d": "2026-09-27",
+      "v": 19,
+      "t": "132 transits in a week",
+      "s": "132 transits in the week to 27 Sep (116 the week before) — about 19 a day against ~130/day pre-war (Al Jazeera, same all-transits basis as the 19 Aug point)",
+      "k": "deesc"
+    },
+    {
+      "d": "2026-10-11",
+      "v": 15,
+      "t": "104 non-Iranian transits in a week",
+      "s": "104 non-Iranian-linked transits in the week to 11 Oct, about 15 a day, down 17% on the week (Lloyd's List Intelligence). A narrower basis than the 27 Sep all-transits point, so not directly comparable",
+      "k": "info"
+    }
+  ]
+}

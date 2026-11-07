@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Escalation Ladder & Axes",
+  "type": "object",
+  "required": ["ladder", "axes"],
+  "properties": {
+    "ladder": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["pct", "label", "trigger"],
+        "properties": {
+          "pct":     { "type": "integer", "minimum": 0, "maximum": 100 },
+          "label":   { "type": "string" },
+          "trigger": { "type": "string" }
+        }
+      }
+    },
+    "axes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "label", "score", "currentLabel"],
+        "properties": {
+          "key":          { "type": "string" },
+          "label":        { "type": "string" },
+          "score":        { "type": "integer", "minimum": 0, "maximum": 100 },
+          "currentLabel": { "type": "string" }
+        }
+      }
+    }
+  }
+}

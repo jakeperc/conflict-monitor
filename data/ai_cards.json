@@ -1,0 +1,160 @@
+{
+  "cards": [
+    {
+      "lens": "COLD WAR · PUTIN-XI",
+      "icon": "🐉",
+      "color": "var(--c-blue)",
+      "arc": "us-brics-rivalry",
+      "updated_at": "11/01/2026 · 04:45 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Quad and purge reporting from SCMP; North Korean test is KCNA's account via Japan Times; Taiwan patrol from Reuters via Japan Times; Bulava from USNI News citing the Russian defence ministry.",
+      "title": "North Korea tests cluster warhead as Quad sets Philippines summit",
+      "summary": "North Korea said it tested a cluster warhead on Hwasong-11D missiles on 31 October. Quad ministers finalised a leaders' summit in the Philippines before Trump meets Xi in Shenzhen. China's coast guard patrolled east of Taiwan. China expelled 16 generals at its fifth plenum.",
+      "body": "The Indo-Pacific ran on two calendars this window: weapons testing and summit preparation. North Korea said on 1 November that it had fired Standard Type 2 cluster-bomb warheads on Hwasong-11D tactical missiles the day before, claiming they can destroy 12 to 13 hectares, and that units will be able to choose among four warhead types this year. Kim Jong Un did not attend. This follows the 29 October firing from Wonsan, which USNI News identifies as KN-25 rockets at a demonstration during a drone exhibition. Seoul counted 10 short-range missiles, fewer than the 'around a dozen' first reported, and US Indo-Pacific Command counted two. Russia said its submarine Generalissimus Suvorov fired a Bulava missile from the Sea of Okhotsk; USNI notes that such autumn launches are regular.\n\nQuad foreign ministers met on the sidelines of the G20 in Atlanta, voiced grave concern about overcapacity without naming China, and finalised a leaders' summit in the Philippines next month. Rubio said the Quad is not anti-China, then added that the behaviours of concern come 'repetitively from one country' (SCMP). The summit comes weeks before Trump is scheduled to meet Xi in Shenzhen. No White House or Chinese foreign ministry statement in this window confirms the Kremlin's idea of a three-leader meeting.\n\nChina's coast guard announced a new patrol off Taiwan's east coast with two ships and sent another near Pratas. Taiwan's coast guard said China was harassing shipping by radio and that officials believe Beijing is practising for a blockade, using an area Taipei considers vital for wartime supply (Reuters via Japan Times). At home, the fifth plenum expelled a record number of officials, among them 16 generals and former heads of nuclear, aerospace and shipbuilding groups (SCMP; The Guardian). Assessment: the purge removes people who built the PLA's strategic systems; what that does to readiness is unknown.\n\nWhat would change this read: a North Korean ICBM or border loudspeakers; a Chinese operation of ten or more vessels around Taiwan; a lapse in the rare-earth suspension on 10 November."
+    },
+    {
+      "lens": "COLD WAR · CYBER + TECH",
+      "icon": "💻",
+      "color": "var(--c-blue)",
+      "arc": "us-brics-rivalry",
+      "updated_at": "11/01/2026 · 04:45 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "FBI statement as carried by Al Jazeera (Reuters) and France 24; the FBI's own press page returned 403 and IC3 carried nothing. TRM Labs via The New Arab; freezers and Baltic message are Reuters via Military Times.",
+      "title": "FBI blames North Korea for $6.3 billion Binance crypto theft",
+      "summary": "The FBI said North Korea's TraderTraitor stole more than $6 billion from Binance around 29 October, reported as the largest crypto theft on record. About $3 billion was frozen. The Pentagon suspects a hack behind commissary freezer failures. Pentagon officials asked Baltic states to soften their Russia rhetoric.",
+      "body": "The largest crypto theft on record, as outlets describe it, is a state-attributed financial operation. Binance reported around $6.3 billion affected, and blockchain firm TRM Labs said with high confidence that North Korea-linked hackers called TraderTraitor were responsible. The FBI confirmed that on 31 October, saying North Korea stole more than $6 billion 'on or about October 29, 2026' and is laundering the proceeds primarily into Ethereum. The same group was blamed for the $1.5 billion Bybit theft last year. Binance's co-chief executive describes a compromised laptop and malicious software designed to delete evidence, and the company later said it had found additional points of breach.\n\nThe recovery is unusually large. Binance says about $3 billion of assets were frozen, with Tether and Circle freezing about $1.6 billion and more than $800 million of their tokens, and that it has replaced 90 percent of the loss from its own funds (France 24 says 95). That means customers may be protected while the thief's net gain remains unknown. Asked about it, Trump said 'we don't know if it's North Korea' and that the US would talk to Pyongyang if it were. The board could not read the FBI statement at its source: the bureau's press page refused the fetch, and its IC3 alert index showed nothing after 23 October. The text here is as carried by Al Jazeera and France 24.\n\nThis matters for the conflict because it bears directly on how a sanctioned nuclear state funds itself. OFAC designated North Korea-related targets on 28 October, the day before the theft, and delisted others on 21 October.\n\nOther gray-zone items: Pentagon officials suspect a hack behind freezer failures at six or more military commissaries; no attacker is named. Reuters says Pentagon officials have asked Lithuania, Latvia and Estonia to moderate their language on Russia.\n\nWhat would change this card: a Treasury designation tied to the theft, evidence of how much was actually laundered, or attribution of the freezer incident."
+    },
+    {
+      "lens": "EPIC FURY · TACTICAL READ",
+      "icon": "🎯",
+      "color": "var(--c-iran)",
+      "arc": "iran-hormuz",
+      "updated_at": "11/04/2026 · 05:00 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Qeshm strikes rest on AP (via Arab News) citing one US official, plus Euronews; no on-record CENTCOM statement found. The four-tanker claim is the Guard's alone (France 24, AFP). Al-Jusufi from India's government via Arab News.",
+      "title": "US strikes Iranian air defences on Qeshm; Iran claims four tankers mined",
+      "summary": "The US struck surface-to-air missile sites on Qeshm and Hengam islands on 2 November, AP reports. An Indian crewman died when a dhow was hit off Oman on 3 November. On 4 November Iran's Guard said four tankers hit mines on a prohibited route; no ship was named, and France 24 reported no independent confirmation.",
+      "body": "The US struck Iranian territory late on 2 November, the eve of the midterms. AP, reporting from Tehran, said the targets were surface-to-air missile sites on Qeshm and Hengam islands near Bandar Abbas, and quoted a US official who called them defensive, aimed at missiles threatening US forces in the Strait. Iranian state media reported explosions and no casualties. This board found no on-record CENTCOM or Pentagon statement; France 24 says Trump said the next day that the US had launched strikes. The record is therefore a reported strike with an anonymous official source, not an announced campaign.\n\nThe strikes did not stop the shipping attacks. On 3 November the Indian-flagged dhow Al-Jusufi was hit near Limah in Omani waters by what India's shipping minister called an unidentified aerial object; one crewman died and 13 were rescued. India now counts 15 Indian seafarers killed in the area since March. No one has named an attacker, as with three earlier ship attacks (Louise 1, Al Mayeda and Riti) a week before.\n\nOn 4 November Iran's Revolutionary Guard said four 'non-compliant' tankers hit naval mines on a prohibited route south of the Strait and were destroyed, and that it stopped two more ships and downed a drone. It named no ship, flag or crew. Until UKMTO, JMIC, a flag state or an owner confirms it, this is a claim, and the Guard has made unconfirmed tanker claims before: none of its 21–22 October claims has been matched to a named ship.\n\nWhat it means. The pattern of the last week is low-attribution pressure at sea. A limited US strike on air defences was followed two days later by an unverified Guard claim of mined tankers; whether the two are linked is not established (inference). Both sides kept the action below the level that would end talks: Iran has so far made a claim at sea rather than striking Gulf bases, and the US framed its strike as defensive. That could change quickly. Iran's leader has ordered an 'unrestricted' response, and Israel is pressing Washington with chemical-weapons warnings that Gulf states call unserious.\n\nMarkets did not treat the week as escalation. Brent settled on 3 November at its lowest in about four weeks, near $104, down from above $113 a week earlier, before rising slightly on 4 November. The price is reading the talks as more likely to matter than the strikes, a judgement that a confirmed tanker loss would test.\n\nWhat to watch: confirmation or rebuttal of the four tankers; any second US strike day, which would turn a single action into a campaign; an on-record US statement; and whether any Gulf state names Iran for the ship attacks."
+    },
+    {
+      "lens": "EPIC FURY · DIPLOMATIC TRACK",
+      "icon": "🕊",
+      "color": "var(--c-iran)",
+      "arc": "iran-hormuz",
+      "updated_at": "11/04/2026 · 05:00 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Baghaei and the conditions from Euronews (2 Nov); Qatar from The New Arab and Euronews (3 Nov); Trump quotes relayed by Iran International and France 24 from WSJ, Politico and Fox; Araghchi's additional demands relayed by Euronews from Al Jazeera.",
+      "title": "Iran offers two-day Hormuz reopening as Qatar drafts interim deal",
+      "summary": "Iran said on 2 November it could reopen Hormuz in two days, not seven, if the US ends the blockade, releases frozen assets and lifts oil sanctions. A Qatari delegation held three hours of talks in Tehran on 2 November and is drafting an interim agreement. No date for US-Iran talks has been set.",
+      "body": "Iran shortened its timetable but not its terms. Foreign ministry spokesman Esmaeil Baghaei said on 2 November that the Strait could reopen within two days rather than the seven first proposed in September, calling it a sign of good faith while saying that 'everything depends' on Washington. Euronews lists the conditions as an end to hostilities on all fronts, release of frozen assets abroad, lifting of oil-sector sanctions and an end to the US naval blockade. Foreign Minister Araghchi, in an interview relayed by Euronews, added acceptance of an Oman-Iran transit arrangement, a reduction of US forces in the region and removal of sanctions imposed since August. That is the closest this board has come to the 'seven conditions' Iran has cited for weeks, though the list is a paraphrase, not a published text.\n\nQatar kept the channel open through the strikes. A foreign ministry delegation spent more than three hours in Tehran on the night of 2 November and returned to Doha; spokesman Majed al-Ansari called the talks positive and said Qatar is working on an interim agreement to build confidence. On 3 November he said proposals were being exchanged and reviewed in Washington and Tehran, adding that 'if there were no hope, there would be no negotiations.' No date for a US-Iran round was announced, and no US delegation has been confirmed in Doha.\n\nWashington's signals pointed both ways. Vance spoke of optimism on 2 November; after the midterms he said the war decision was 'for the long term good of our country' while conceding that 'a part of it was Iran' in Republican losses. Democrats now hold both chambers, but the new Congress does not sit until January.\n\nWhat it means. Each side is preparing for both outcomes. Iran is offering speed in exchange for the blockade and sanctions, the two US levers it most needs removed, while its security chief says US replies are 'not convincing.' The US is pairing limited force with a working channel. An interim deal, if Qatar can close one, would most likely trade a partial reopening for a partial easing of the blockade, a structure the two sides came close to in the summer.\n\nWhat to watch: the text or outline of Qatar's interim proposal; a US delegation at any venue; any Iranian statement on the conditions that drops or narrows one; and whether new strikes pause the channel."
+    },
+    {
+      "lens": "ALLIANCE · TRUMP–NETANYAHU",
+      "icon": "🤝",
+      "color": "var(--c-iran)",
+      "arc": "iran-hormuz",
+      "updated_at": "11/04/2026 · 05:00 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Election commission from Euronews (4 Nov); chemical-weapons account is New York Times reporting relayed by Times of Israel, with anonymous officials; Hebron from The New Arab citing the municipality and Wafa.",
+      "title": "Israel's election body rejects Netanyahu fraud claim as coalition talks begin",
+      "summary": "Israel's election commission found no evidence of irregularities and rejected Netanyahu's fraud claims; neither bloc has a majority and Herzog will consult parties. Israel told US and Gulf officials that Iran may use chemical weapons, which some US officials see as pressure to resume war. Israeli forces left Hebron after a ten-day siege.",
+      "body": "Israel's election has not produced a government, and Netanyahu is contesting it. The central election commission said on 4 November that it found no evidence of irregularities affecting the vote and rejected his claims of fraud by Arab parties; a Shin Bet inquiry into alleged foreign interference continues. Neither Netanyahu's bloc nor Gadi Eisenkot's has a majority on the final count this board carries (53, 48 and 19 for the Arab parties). President Herzog will meet each party over two days after certification before choosing who gets the first mandate. Until a government forms, Netanyahu remains caretaker prime minister with authority to order military action.\n\nThat authority matters for the Iran question. The New York Times reported, in an account carried by Times of Israel, that Israel told US and Gulf officials that Iran may use chemical weapons. Some US officials believe the intelligence is being used to push Trump back into war; Gulf officials called the briefings unserious; the prime minister's office said it follows every threat closely. Iran denies developing such weapons. The episode shows the gap between Israel and the Gulf states on how to handle Iran, at a time when Washington is talking through Qatar.\n\nIn the West Bank, Israeli forces withdrew from Hebron on 2 November after a siege that began on 23 October. The municipality says almost 5,000 people were displaced and at least 15 buildings demolished; the UN rights chief voiced serious concern. Separately, Syria said it arrested a Hezbollah-linked cell planning to attack the Homs refinery; Hezbollah denies any presence in Syria.\n\nWhat it means. A caretaker leader with a disputed result, a hawkish intelligence message and a US president who has just lost Congress is a combination that raises the risk of an Israeli push for renewed strikes on Iran. Against that, the Gulf states are openly sceptical and Washington is pursuing a deal. Coalition arithmetic is now the main domestic variable: the Arab parties' record 19 seats make any non-Netanyahu government depend on outside support.\n\nWhat to watch: Herzog's choice for the mandate; any US public response to the chemical-weapons claim; Israeli statements on Iran during the talks; and whether Hebron-style operations resume elsewhere in the West Bank."
+    },
+    {
+      "lens": "DUAL-PILLAR · STRATEGIC OUTLOOK",
+      "icon": "🎯",
+      "color": "var(--c-green)",
+      "arc": "cross-cutting",
+      "updated_at": "11/04/2026 · 05:00 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Synthesis of this run's records: AP via Arab News, Euronews, France 24, Al Jazeera, Kyiv Independent, Kyiv Post, The Moscow Times, The New Arab.",
+      "title": "US strikes Iran and Russia hits Ukraine's grid as Democrats win Congress",
+      "summary": "The US struck Iranian air defences on 2 November and Russia mounted its largest strike on Ukraine's grid this year on 3 November, while Democrats won both chambers of Congress. Talks continue on both fronts: Qatar is drafting an Iran deal and Ukraine-Russia talks are set for Abu Dhabi on 10-11 November.",
+      "body": "The three days around the US vote combined force and talks on both main fronts. In the Gulf, the US struck Iranian surface-to-air sites on Qeshm and Hengam on 2 November, the Guard claimed four tankers were mined on 4 November, and Qatar kept drafting an interim agreement. In Ukraine, Russia fired 76 missiles and 289 drones at the energy system on 3 November, then 310 drones overnight, while Washington set talks in Abu Dhabi for 10-11 November and Lavrov rejected any partial truce.\n\nThe vote itself changes the US setting more than the battlefield. Democrats won both chambers, and Trump said the Iran war and fuel prices contributed. The new Congress sits in January, so near-term decisions on Iran and Ukraine stay with the administration, but the result raises the cost of a long war and may shorten the US timeline for a deal on either front.\n\nPressure is also building in places without open war. Poland deployed forces and counter-terrorism police to the Kaliningrad border after intelligence warned of sabotage in early November; Norway added air-defence sensors at Kirkenes. North Korea fired missiles after denying the Binance theft, and Taiwan logged its highest daily count of Chinese military sorties this year. In Yemen, the Houthis advanced to within about 80 km of Aden.\n\nWhat it means. The board's risk reading holds at 65. The US strike is the most significant single event, but it was limited, framed as defensive and not followed by a second strike day in the window; Iran has so far claimed a mined-tanker incident rather than striking bases. Markets read the week as calmer: Brent fell to around $104 from above $113 a week earlier. The upside risk is a confirmed tanker loss or an Iranian strike on a Gulf base, either of which would turn a limited exchange into a renewed campaign. The downside, a calmer path, runs through Qatar and Abu Dhabi.\n\nCrypto relevance: North Korea's denial does not change the attribution by the FBI and blockchain firms. No other material crypto or blockchain relevance was identified."
+    },
+    {
+      "lens": "EASTERN FRONT · WAR & CHANNELS",
+      "icon": "🌻",
+      "color": "var(--c-ukraine-war)",
+      "arc": "russia-ukraine-war",
+      "updated_at": "11/04/2026 · 05:00 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Attack totals from energy minister Shmyhal via Kyiv Independent and Kyiv Post; Komyshuvakha toll from regional officials via The Moscow Times; talks from the White House and Kremlin via The Moscow Times and Kyiv Post; Lavrov via Kyiv Post citing TASS.",
+      "title": "Russia hits Ukraine's grid hardest this year; Abu Dhabi talks set",
+      "summary": "Russia fired 59 cruise and 17 ballistic missiles and 289 drones at Ukraine's energy system on 3 November and 310 drones overnight after. A strike on an aid point in Zaporizhzhia region killed at least 31. The US set Ukraine-Russia talks in Abu Dhabi for 10-11 November; Lavrov rejected ceasefire proposals.",
+      "body": "Russia used the US election day for its heaviest strike on Ukraine's energy system this year. Energy minister Denys Shmyhal counted 289 drones, 17 ballistic missiles and 59 cruise missiles on 3 November; Ukrenergo recorded facilities hit more than 20 times in 24 hours. A substation critical to the Khmelnytskyi nuclear power plant was struck, three drones were aimed at it, and Kyiv alerted the IAEA. Kyiv had emergency power cuts and widespread water outages. Overnight into 4 November Russia launched 310 more drones; the air force says 272 were downed and 19 sites hit in six regions.\n\nCivilians were hit away from the grid too. On 2 November a strike on a school used as an aid distribution point in Komyshuvakha, Zaporizhzhia region, killed at least 31 people, with about 50 missing, regional officials say; emergency services describe a repeat strike on rescuers. Russia's defence ministry says it struck Ukrainian troops.\n\nThe diplomatic track got a date. The White House said on 3 November that the US will mediate working-level talks in Abu Dhabi on 10 and 11 November, after Witkoff's preparatory meetings in Brussels; the Kremlin confirmed and is again sending Vladimir Medinsky. The same day Lavrov rejected Ukraine's proposals for an immediate ceasefire and for narrower truces on energy, food, air and sea, saying they would let Kyiv rearm. The Oleshky truce ended on 1 November without an extension, and the Kremlin said it has no similar plans.\n\nUkraine kept striking Russia's oil industry, hitting the Yaroslavl refinery on 3 November.\n\nWhat it means. Moscow is negotiating on the calendar while trying to break Ukraine's grid before winter, and it has closed off the energy truce that would protect that grid. Abu Dhabi will be the first three-way meeting in months, but Russia's opening position rules out the interim steps that usually precede a settlement. The strike on a nuclear plant's supply line keeps nuclear safety in play without crossing into a nuclear threat.\n\nWhat to watch: whether Abu Dhabi convenes on time and who attends; the next mass strike; IAEA comment on Khmelnytskyi; Ukraine's air-defence stocks; and ship strikes off Romania and Bulgaria, where NATO says it is adding patrol aircraft and radars."
+    }
+  ],
+  "iran_lead": {
+    "kicker": "Epic Fury · Lead Development",
+    "pillar": "iran",
+    "salience": 1,
+    "updated_at": "11/04/2026 · 05:00 EST",
+    "title": "US strikes Iranian air defences on Qeshm as Iran claims mined tankers",
+    "summary": "The US struck surface-to-air missile sites on Qeshm and Hengam islands on 2 November, AP reports, citing a US official. On 4 November Iran's Guard said four tankers hit mines south of Hormuz, naming no ships. Iran says it could reopen the Strait in two days on its terms, and Qatar is drafting an interim deal.",
+    "facts": [
+      "2 November: US strikes on surface-to-air missile sites on Qeshm and Hengam; a US official called them defensive; Iranian media reported explosions and no casualties (AP via Arab News; Euronews).",
+      "3 November: an Indian crewman died when the dhow Al-Jusufi was hit near Limah, off Oman; India counts 15 Indian seafarers killed since March (Arab News).",
+      "4 November: the Revolutionary Guard said four tankers hit mines on a prohibited route and were destroyed; no ship was named or confirmed (France 24, citing AFP).",
+      "2 November: Iran says it could reopen Hormuz in two days if the US ends the blockade, releases frozen assets and lifts oil sanctions (Euronews).",
+      "2 November: a Qatari delegation held three hours of talks in Tehran; Qatar is working on an interim agreement (The New Arab, 3 Nov).",
+      "Democrats won Congress; Trump said the war played a part but he 'did the right thing' (France 24; Iran International, citing WSJ)."
+    ],
+    "changed": "The US moved from naming targets to hitting them: limited strikes on Iranian air defences around Qeshm on the eve of the vote, described by a US official as defensive. Two days later Iran's Guard claimed, with no outside confirmation, that four tankers struck its mines, and Iran kept talking through Qatar. Its reopening offer shrank from seven days to two, but the conditions did not change. Democrats now control Congress. Israel's chemical-weapons warning split US officials, and Gulf states called it unserious.",
+    "watch": "Whether UKMTO or any shipowner confirms the four tankers; any further US strike or an on-record CENTCOM statement on Qeshm; Iran's response under its 'unrestricted' order; the Qatari interim deal and any US delegation; what the new Congress does on war powers; Brent, which fell to its lowest in about four weeks on 3 November."
+  },
+  "brics_lead": {
+    "kicker": "US-BRICS Rivalry · Lead Development",
+    "pillar": "brics",
+    "salience": 3,
+    "updated_at": "11/04/2026 · 05:00 EST",
+    "title": "North Korea fires missiles as Kremlin pushes a Putin-Trump-Xi meeting",
+    "summary": "North Korea fired several missiles toward the Sea of Japan on 4 November after denying it stole $6.3 billion from Binance. The Kremlin says a Putin-Trump-Xi meeting in China should be fixed for later this month; Beijing and Washington have not confirmed. Taiwan reported 49 Chinese military sorties in a day, its highest this year.",
+    "changed": "North Korea paired denial with launches: Kim Yo Jong called the FBI accusation a provocation and ruled out talks, and missiles followed. Moscow is trying to set the summit calendar, while Beijing stays noncommittal and Russia's defence minister praises 'unprecedented' military ties in Beijing. On Europe's northern flank, Poland and Norway moved forces toward Russia's borders after warnings of sabotage. Democrats took Congress, which may harden US policy on China.",
+    "watch": "China's rare-earth control suspension, due to lapse on 10 November; White House or Chinese confirmation of a three-leader meeting; the Quad summit date; APEC in Shenzhen on 18-19 November; any Polish border incident; North Korean loudspeakers or a longer-range launch; Treasury action on the Binance theft.",
+    "lenses": [
+      {
+        "label": "Bilateral US-China",
+        "oneline": "Taiwan logged 49 Chinese military sorties in a day, its highest this year; the rare-earth suspension lapses 10 November unless extended."
+      },
+      {
+        "label": "BRICS bloc",
+        "oneline": "No material bloc development in the window."
+      },
+      {
+        "label": "CRINK",
+        "oneline": "North Korea fired missiles and denied the Binance theft; Belousov hailed record Russia-China military ties; Kremlin pushes a three-leader meeting."
+      },
+      {
+        "label": "Allies cohesion",
+        "oneline": "Poland deployed police near Kaliningrad after sabotage warnings; Norway added air-defence sensors at Kirkenes; Democrats won Congress."
+      }
+    ],
+    "facts": [
+      "4 November: several missiles fired from Sondok toward the Sea of Japan, per South Korea's military (Al Jazeera).",
+      "Kim Yo Jong called the FBI's Binance attribution a provocation and ruled out talks with the US (Al Jazeera).",
+      "3 November: Peskov said a Putin-Trump-Xi meeting should be finalised within days for later in November; China did not mention Trump (The Moscow Times).",
+      "3 November: Taiwan reported 49 sorties in 24 hours, the year's highest, with the Liaoning group in the western Pacific (SCMP).",
+      "3 November: Belousov in Beijing called military ties unprecedented (Kyiv Post).",
+      "3 November: Poland sent forces and counter-terrorism police to the Kaliningrad border; Norway added NASAMS sensors at Kirkenes (The Moscow Times; Kyiv Post; Kyiv Independent)."
+    ]
+  },
+  "ukraine_lead": {
+    "kicker": "Russia-Ukraine · Lead Development",
+    "pillar": "ukraine",
+    "salience": 2,
+    "updated_at": "11/04/2026 · 05:00 EST",
+    "title": "Russia launches year's largest energy strike as Abu Dhabi talks are set",
+    "summary": "Russia fired 76 missiles and 289 drones at Ukraine's energy system on 3 November, hitting a substation serving a nuclear plant and cutting power and water in Kyiv. A strike on an aid point in Zaporizhzhia region killed at least 31. The US will host Ukraine-Russia talks in Abu Dhabi on 10-11 November; Lavrov rejected a ceasefire.",
+    "facts": [
+      "3 November: 289 drones, 17 ballistic and 59 cruise missiles at energy targets; a Khmelnytskyi nuclear plant substation hit (Kyiv Independent; Kyiv Post).",
+      "4 November: 310 more drones overnight, 272 downed, 19 sites hit (Kyiv Post, citing the air force).",
+      "2 November: at least 31 killed at a school used as an aid point in Komyshuvakha; Russia says it hit troops (The Moscow Times).",
+      "3 November: the White House will mediate talks in Abu Dhabi on 10-11 November; the Kremlin confirmed (The Moscow Times; Kyiv Post).",
+      "3 November: Lavrov rejected an immediate ceasefire and narrower truces (Kyiv Post, citing TASS).",
+      "1 November: the Oleshky truce ended without extension; the Kremlin has 'no similar plans' (The Moscow Times; Euromaidan Press)."
+    ],
+    "changed": "The diplomatic calendar and the air war moved in opposite directions. Washington fixed a date for the first three-way talks, while Russia mounted its heaviest strike on the grid this year on US election day and Lavrov ruled out the partial truces Kyiv wants. The Oleshky pause ended on schedule, and the Kremlin dropped talk of it as a precedent. Ukraine kept hitting refineries, striking Yaroslavl.",
+    "watch": "Whether the Abu Dhabi round convenes on 10-11 November and at what level; further mass strikes on power and heat as winter starts; IAEA comment on the Khmelnytskyi substation; ship strikes off Romania and Bulgaria; the German aid vote; Polish border incidents."
+  }
+}

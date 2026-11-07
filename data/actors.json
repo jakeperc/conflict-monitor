@@ -1,0 +1,955 @@
+{
+  "risk_countries": [
+    {
+      "name": "Iran",
+      "flag": "🇮🇷",
+      "risk": 82,
+      "level": "EXTREME",
+      "alignment": "adversary",
+      "note": "Hit by limited US strikes on Qeshm; claims four tankers mined; offers to reopen Hormuz in two days on its terms.",
+      "details": "The US struck surface-to-air missile sites on Qeshm and Hengam islands on 2 November, AP reports; Iranian media reported explosions and no casualties. On 4 November the Revolutionary Guard said four tankers hit mines on a prohibited route and were destroyed, naming no ships.\n\nThe foreign ministry says Hormuz could reopen within two days if the US ends the blockade, releases frozen assets and lifts oil sanctions. Security chief Rezaei calls US replies 'not convincing', and Speaker Ghalibaf says the ball is in America's court. A Qatari delegation held three hours of talks in Tehran on 2 November. Internet disruptions were reported in Tehran on 3 November.",
+      "as_of": "2026-11-04"
+    },
+    {
+      "name": "Israel",
+      "flag": "🇮🇱",
+      "risk": 80,
+      "level": "EXTREME",
+      "alignment": "ally",
+      "note": "Final count left Netanyahu 53 seats, no majority; he remains caretaker and spoke to Trump on Iran.",
+      "details": "Final results gave Netanyahu's bloc 53 of 120 seats, Gadi Eisenkot's camp 48 and Arab parties a record 19. President Herzog will consult party leaders. Joint List leader Tibi offered outside support for an anti-Netanyahu government, while several opposition parties rule out a coalition with Arab parties.\n\nNetanyahu remains caretaker prime minister with power to order military action, and the Wall Street Journal reports he spoke to Trump on 31 October amid strike preparations. The UN rights office says Israeli deployment in Gaza is being expanded to 70 percent of the territory.",
+      "as_of": "2026-11-01"
+    },
+    {
+      "name": "Lebanon",
+      "flag": "🇱🇧",
+      "risk": 76,
+      "level": "EXTREME",
+      "alignment": "neutral",
+      "note": "More than 300,000 remain displaced; Israeli demolitions and strikes continue in the south, OCHA says.",
+      "details": "OCHA said on 30 October that more than 300,000 people displaced since March remain so, that about 970,000 have returned to the south, and that Israeli demolitions, fires and strikes continued that week. A military court charged 13 people over a 780 kg explosives truck seized on the Beirut highway; Hezbollah said the explosives were its own and meant for Israeli forces.\n\nThe health ministry's last total this board holds is 4,358 deaths since March, dated 6 September. The board found no Israeli military report of a Hezbollah launch between 29 October and 1 November.",
+      "as_of": "2026-11-01"
+    },
+    {
+      "name": "USA",
+      "flag": "🇺🇸",
+      "risk": 64,
+      "level": "HIGH",
+      "alignment": "ally",
+      "note": "Struck Iranian air defences on Qeshm on the eve of midterms Democrats won; set Ukraine-Russia talks in Abu Dhabi.",
+      "details": "A US official told AP the 2 November strikes on Qeshm and Hengam were defensive, aimed at missiles threatening US forces; no on-record Pentagon statement was found. After the vote, Trump said the war decision was right.\n\nDemocrats won both chambers of Congress, with at least 54 Senate seats; the new Congress sits in January. The White House will mediate Ukraine-Russia talks in Abu Dhabi on 10-11 November.",
+      "as_of": "2026-11-04"
+    },
+    {
+      "name": "China",
+      "flag": "🇨🇳",
+      "risk": 52,
+      "level": "HIGH",
+      "alignment": "adversary",
+      "note": "Purged 16 generals at its plenum; coast guard patrolled off Taiwan's east coast; Trump is due in Shenzhen.",
+      "details": "The fifth plenum expelled a record number of officials, including 16 generals and former heads of nuclear, aerospace and shipbuilding firms. China's coast guard announced a new patrol off Taiwan's east coast and sent a ship near Pratas.\n\nBeijing opposed a US FCC decision to bar device testing in China by 2028, and denied a New York Times report about a spy case near Nvidia. Trump is scheduled to meet Xi in Shenzhen within weeks; the rare-earth control suspension is due to lapse on 10 November.",
+      "as_of": "2026-11-01"
+    },
+    {
+      "name": "Taiwan",
+      "flag": "🇹🇼",
+      "risk": 57,
+      "level": "CRITICAL",
+      "alignment": "ally",
+      "note": "Logged 49 Chinese military sorties in a day, the year's highest, as the Liaoning carrier group drilled in the western Pacific.",
+      "details": "Taiwan's defence ministry reported 49 sorties by Chinese military aircraft in the 24 hours to 6 am on 3 November, the highest one-day total this year, SCMP reports, while the Liaoning led a strike group in the western Pacific.\n\nThis follows Chinese coast-guard patrols off the east coast and near Pratas that Taipei says rehearse a blockade. Taiwan is trimming draft exemptions to add thousands of conscripts.",
+      "as_of": "2026-11-04"
+    },
+    {
+      "name": "Russia",
+      "flag": "🇷🇺",
+      "risk": 78,
+      "level": "SEVERE",
+      "alignment": "adversary",
+      "note": "Launched its largest grid strike this year and rejected ceasefire proposals, while agreeing to Abu Dhabi talks on 10-11 November.",
+      "details": "On 3 November Russia fired 59 cruise and 17 ballistic missiles and 289 drones at Ukraine's energy system, hitting a substation serving the Khmelnytskyi nuclear plant, then 310 drones overnight. A strike on an aid point in Komyshuvakha killed at least 31.\n\nThe Kremlin confirmed talks in Abu Dhabi on 10-11 November and is sending Medinsky; Lavrov rejected an immediate ceasefire and narrower truces. Peskov says a Putin-Trump-Xi meeting should be fixed for later this month, and defence minister Belousov called military ties with China unprecedented.",
+      "as_of": "2026-11-04"
+    },
+    {
+      "name": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "risk": 70,
+      "level": "HIGH",
+      "alignment": "partner",
+      "note": "Riyadh alerted again on 29 October; Syria weighs joining its defence pact; no new Saudi death reported.",
+      "details": "AFP heard at least eight explosions in Riyadh on 29 October and the city issued a phone alert, later lifted. The Houthis say Saudi strikes killed 12 in Taiz; Saudi officials confirmed neither. No new death on Saudi soil has been reported since 23 October.\n\nThe Mecca defence pact is widening: Syria's foreign minister says Damascus is discussing joining, and Turkey's full parliament is reported to be expected to vote soon. Saudi Arabia avoided naming Iran at the Manama Dialogue.",
+      "as_of": "2026-11-01"
+    },
+    {
+      "name": "UAE",
+      "flag": "🇦🇪",
+      "risk": 58,
+      "level": "HIGH",
+      "alignment": "partner",
+      "note": "Hosts US-mediated Ukraine-Russia working-level talks in Abu Dhabi on 10-11 November.",
+      "details": "The White House said the US will mediate working-level talks between Ukraine and Russia in Abu Dhabi on 10-11 November, and the Kremlin confirmed. Abu Dhabi has hosted earlier rounds and prisoner exchanges.\n\nEarlier, its attorney general said the FlyDubai co-pilot planned a suicide attack on Ben Gurion airport and acted alone.",
+      "as_of": "2026-11-04",
+      "stale_ok": false
+    },
+    {
+      "name": "Qatar",
+      "flag": "🇶🇦",
+      "risk": 36,
+      "level": "HIGH",
+      "alignment": "partner",
+      "note": "Mediating Iran talks in Doha while its own gas carrier was struck; named no attacker.",
+      "details": "Qatar's LNG carrier Al Mayeda was struck in Gulf waters on 30 October by what its state news agency called unidentified objects; there were no casualties, and Doha named no attacker.\n\nQatari envoys held more than 12 hours of talks in Tehran and hosted Iranian officials in Doha. Its seven-day trust-building plan has not satisfied Iran, and a US delegation is reportedly expected to join indirect talks.",
+      "as_of": "2026-11-01",
+      "stale_ok": false
+    },
+    {
+      "name": "Oman",
+      "risk": 36,
+      "level": "ELEVATED",
+      "alignment": "partner",
+      "as_of": "2026-11-01",
+      "stale_ok": false,
+      "note": "Its navy rescued 25 crew from the burning tanker Riti; Musandam waters remain a target zone.",
+      "details": "Oman's Maritime Security Centre said its navy rescued 25 crew from the Panama-flagged tanker Riti after it was targeted and caught fire. On 29 October limpet mines hit the tanker Louise 1 about 25 nautical miles northeast of Khasab, on Oman's side of the Strait.\n\nOman named no attacker. Its waters carry much of the traffic now moving through Hormuz, which leaves it exposed whichever way the talks go.",
+      "flag": "🇴🇲"
+    },
+    {
+      "name": "North Korea",
+      "flag": "🇰🇵",
+      "risk": 38,
+      "level": "ELEVATED",
+      "alignment": "adversary",
+      "note": "Fired several missiles on 4 November after denying the Binance theft and ruling out talks with Washington.",
+      "details": "South Korea's military said North Korea fired several missiles from the Sondok area toward the Sea of Japan on 4 November; type and range were not given. Kim Yo Jong called the FBI's attribution of the $6.3 billion Binance theft a provocation and said there would be no talks while US hostility continues.\n\nThe launches follow a claimed cluster-warhead test and short-range launches in late October.",
+      "as_of": "2026-11-04"
+    },
+    {
+      "name": "Pakistan",
+      "flag": "🇵🇰",
+      "risk": 25,
+      "level": "ELEVATED",
+      "alignment": "neutral",
+      "note": "Pledged forces to Saudi Arabia under the activated Mecca pact while fighting the Taliban on its border and halting Iran trade.",
+      "details": "Pakistan is stretched on three fronts. On 5 October it joined Saudi Arabia and Turkey in activating their Mecca defence pact for the first time, agreeing to provide forces for Saudi Arabia's defence against the Houthis. On its western border, fighting with the Taliban continued after Moscow-format talks ended on 5 October with no statement, and it declared an emergency in Khyber Pakhtunkhwa. On 17 October it suspended trade with Iran at the Taftan and Gabd crossings, citing security and smuggling, even as it remains a mediator between Washington and Tehran.",
+      "as_of": "2026-10-20"
+    },
+    {
+      "name": "Vatican",
+      "flag": "🇻🇦",
+      "risk": 18,
+      "level": "MODERATE",
+      "alignment": "neutral",
+      "note": "Pope Leo XIV rejected Trump's claim that the Holy See supports Iran's nuclear program; he met Secretary Rubio at the Vatican on May 7.",
+      "details": "The Vatican's posture is to distance the Holy See from the Trump administration's framing while keeping its diplomatic-venue offer open. Pope Leo XIV's remarks at Castel Gandolfo on May 5 directly rejected Trump's claim that he supports Iran's nuclear program.\n\nSecretary of State Marco Rubio met the Pope at the Vatican on May 7. The Holy See's stated framing — 'need to promote peace' — anchors both the meeting and the broader diplomatic offer.\n\nThe Vatican's neutral-mediator posture is reputational and procedural; there is no kinetic exposure. Watch-points: any formal Holy See offer to host ceasefire talks; any subsequent papal statement on Iran's enrichment program or the Lebanon framework.",
+      "as_of": "2026-05-16",
+      "stale_ok": true
+    },
+    {
+      "name": "Turkey",
+      "flag": "🇹🇷",
+      "risk": 24,
+      "level": "MODERATE",
+      "alignment": "partner",
+      "note": "Parliament's foreign affairs committee approved the Mecca defence pact with Saudi Arabia and Pakistan on 27 October; a full vote is pending.",
+      "details": "Turkey is turning a political commitment in the Gulf into law. On 27 October parliament's foreign affairs committee, chaired by Fuat Oktay, approved the 16-article Mecca Joint Defence Agreement with Saudi Arabia and Pakistan, which binds the parties for ten years; it now goes to the full assembly, with no date set (The New Arab). A Turkish official said in October that Ankara's contribution would likely be equipment, intelligence and weapons systems. On 26 October intelligence chief Ibrahim Kalin joined Saudi and Pakistani security chiefs at talks with Iran's leaders in Tehran.",
+      "as_of": "2026-10-29",
+      "stale_ok": false
+    },
+    {
+      "name": "India",
+      "flag": "🇮🇳",
+      "risk": 24,
+      "level": "ELEVATED",
+      "alignment": "neutral",
+      "note": "Lost a 15th seafarer near Hormuz when the dhow Al-Jusufi was hit off Oman; called for de-escalation.",
+      "details": "An Indian crewman died when the Indian-flagged dhow Al-Jusufi was hit by what the shipping minister called an unidentified aerial object near Limah in Omani waters on 3 November; Oman's coast guard rescued 13. India says 15 Indian seafarers have been killed near Hormuz since March, and six Indians were aboard the Al Mayeda, all safe.\n\nNew Delhi called for de-escalation. India also warned earlier that US tariffs on buyers of Russian oil would hurt ties.",
+      "as_of": "2026-11-04",
+      "stale_ok": false
+    },
+    {
+      "name": "Egypt",
+      "flag": "🇪🇬",
+      "risk": 18,
+      "level": "MODERATE",
+      "alignment": "neutral",
+      "note": "Parliament authorised military support for Saudi Arabia on 26 October if Riyadh asks; Sisi limits it to defending Saudi territory.",
+      "details": "Egypt has given itself the legal option of a Gulf deployment. On 26 October parliament authorised President Sisi, by the two-thirds majority the constitution requires, to send military support to Saudi Arabia if Riyadh requests it (Al Jazeera; Euronews). No troop numbers, systems or duration were published. Sisi says Egypt's role is confined to defending Saudi territory and borders, not attacking Yemen.\n\nOn 4 October Egypt, Eritrea, Sudan's army leader and Somalia's president declared at El Alamein that Red Sea governance belongs to littoral states, as Ethiopia presses for sea access.",
+      "as_of": "2026-10-29",
+      "stale_ok": false
+    },
+    {
+      "name": "Ethiopia",
+      "flag": "🇪🇹",
+      "risk": 15,
+      "level": "MODERATE",
+      "alignment": "neutral",
+      "note": "Received 12 Russian Su-35 fighter jets, with four S-400 air-defence systems to follow, the prime minister says.",
+      "details": "Ethiopia, a BRICS member since January 2024, has taken delivery of a major Russian arms package. Prime Minister Abiy Ahmed said 12 Su-35 fighter jets arrived a year early and four S-400 air-defence systems will follow (The Moscow Times, Reuters). No value or basing was given. The delivery comes as Ethiopia fights Tigrayan forces again and presses for Red Sea access, which Egypt, Eritrea, Sudan and Somalia oppose.",
+      "as_of": "2026-10-29",
+      "stale_ok": false
+    },
+    {
+      "name": "United Kingdom",
+      "flag": "🇬🇧",
+      "risk": 26,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-10-20",
+      "note": "Will fly Typhoon jets to defend Saudi Arabia from Houthi attacks; MI5 calls Russia 'aggressor number one'.",
+      "details": "Britain is taking a direct role in the Gulf. On 20 October the Ministry of Defence said RAF Typhoons will fly defensive counter-air missions over Saudi cities and infrastructure against Houthi missiles and drones, with air-to-air refuelling; they will not attack the Houthis.\n\nAt home, MI5's chief said on 13 October that Russia is escalating hybrid attacks below NATO's Article 5 threshold and that more than 50 Iran-linked arrests were made in a year. Two Iranians were charged on 3 October over an alleged bomb plot against Manchester's Jewish community, separate from the RAF Fairford case."
+    },
+    {
+      "name": "Iraq",
+      "flag": "🇮🇶",
+      "risk": 50,
+      "level": "HIGH",
+      "alignment": "neutral",
+      "note": "Parliament made Asaib Ahl al-Haq's Laith al-Khazali, a US-designated terrorist, a deputy prime minister two weeks after US troops left.",
+      "details": "Iran-aligned militias are entering Iraq's state. On 15 October parliament approved the remaining cabinet, making Laith al-Khazali of Asaib Ahl al-Haq, whom the US designates a terrorist, one of three deputy prime ministers, Reuters reports. The last US troops left Iraq on 30 September. On 15 October the US Treasury sanctioned an Iraqi bank in a new round against Iran's finances.",
+      "as_of": "2026-10-20"
+    },
+    {
+      "name": "Kuwait",
+      "flag": "🇰🇼",
+      "risk": 50,
+      "level": "HIGH",
+      "alignment": "partner",
+      "note": "Court sentenced three to death for spying for Iran and Hezbollah and plotting to kill the interior minister; Iran's ambassador summoned.",
+      "details": "Kuwait has moved from silence to confrontation with Tehran through its courts. On 26 October a state security court sentenced three men to death for espionage for Iran and Hezbollah and for plotting to assassinate First Deputy Prime Minister and Interior Minister Sheikh Fahad Al-Yousef; the sentences can be appealed (Iran International, citing Kuwait Times and AFP). On 28 October Kuwait summoned Iran's ambassador over an embassy statement it said interfered in its judiciary.\n\nKuwait was struck by Iranian missiles and drones in early September; it reported interceptions and no casualties.",
+      "as_of": "2026-10-29"
+    },
+    {
+      "name": "Jordan",
+      "flag": "🇯🇴",
+      "risk": 62,
+      "level": "HIGH",
+      "alignment": "partner",
+      "note": "Gunmen killed eight at a funeral at a church in Karak; three suspects were arrested after a firefight.",
+      "details": "Jordan's most serious attack this autumn came from inside. On 23 October gunmen opened fire at a funeral at a Greek Orthodox church in Hamoud, Karak governorate, killing eight and injuring about 40, the health ministry said; earlier official tallies were lower. Three wounded suspects were arrested on 26 October in Al-Jadeeda after a firefight of about three hours. Officials have not named them or any group, and no one has claimed the attack. The King promised the harshest penalties and ordered a review of security procedures.\n\nThe attack comes on top of Jordan's exposure to the Iran war: Iranian ballistic missiles were fired at the Al Azraq base in September, in the third such episode, and Jordan published interception counts each time without announcing measures against Iran.",
+      "as_of": "2026-10-26"
+    },
+    {
+      "name": "Bahrain",
+      "flag": "🇧🇭",
+      "risk": 46,
+      "level": "HIGH",
+      "alignment": "partner",
+      "note": "Condemned Iran over Jordan, days after the Revolutionary Guard threatened tanker crews in Bahraini ports.",
+      "details": "Bahrain hosts the United States Fifth Fleet, which makes it structurally exposed in any American-Iranian exchange, and its position sharpened twice this week.\n\nFirst, the Revolutionary Guard warned the crews of oil tankers in Kuwaiti and Bahraini ports to abandon their vessels immediately because they would be targeted. That is the first threat in this war aimed at vessels inside the harbours of Gulf states that are not belligerents. No vessel has been hit in either port, and neither government has announced a closure or a change in port operations.\n\nSecond, Bahrain joined Saudi Arabia, Qatar and Egypt in condemning Iran's missile strike on Jordan on 9 September.\n\nThe combination is the whole of Manama's problem in miniature: it is the most militarily entangled of the small Gulf states, it has just been threatened directly, and its available response is a statement. Whether the threat to shipping in Gulf ports converts into an actual attack is the single question that would change this entry, and the first observable signs would be a port closure, a war-risk rate move specific to Bahraini calls, or a vessel actually struck at anchor.",
+      "as_of": "2026-09-09"
+    },
+    {
+      "name": "Libya",
+      "flag": "🇱🇾",
+      "risk": 32,
+      "level": "ELEVATED",
+      "alignment": "neutral",
+      "as_of": "2026-09-08",
+      "note": "The government says it dismantled the cell behind drone attacks on energy sites and arrested five, without naming them.",
+      "details": "Libya's Government of National Unity announced on 7 September that it had dismantled an organised cell responsible for drone attacks on the country's oil infrastructure and arrested five people, describing a broader interconnected sabotage plot. It did not release the names of those arrested, identify their nationalities beyond a mix of Libyan and foreign, or name any state backer.\n\nThat withholding is the notable part. A government announcing a security success normally supplies attribution, and the absence of it leaves this dashboard's standing question — who has been attacking Libyan energy infrastructure — open rather than answered. The National Oil Corporation has not declared force majeure. The claim is carried by a single directory outlet and is published as reported."
+    },
+    {
+      "name": "Japan",
+      "flag": "🇯🇵",
+      "risk": 28,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-10-29",
+      "note": "Agreed with the US to build a joint air-to-air missile production plant in Japan; hosts the Keen Sword exercise.",
+      "details": "Japan is deepening defence-industrial integration with Washington. On 28 October Defence Minister Shinjiro Koizumi said after meeting Hegseth in Cebu that the two countries will establish a facility in Japan for joint production of advanced medium-range air-to-air missiles (Arab News, AP). The Keen Sword exercise, with about 56,000 US and Japanese troops, began on 19 October.\n\nJapan's jets scrambled 442 times from April to September, against 265 a year earlier, and the carrier Liaoning sailed through its waters in mid-October."
+    },
+    {
+      "name": "Romania",
+      "flag": "🇷🇴",
+      "risk": 36,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-10-26",
+      "note": "A drone sank the cargo ship Khoryv off Constanta, killing one; President Dan blames Russia's escalation.",
+      "details": "Romania's coast is now where the Black Sea war kills sailors. On 23 October the Comoros-flagged cargo ship Khoryv sank after a drone strike about 13 nautical miles off Constanta, just outside Romanian territorial waters; one sailor died, nine were rescued and three are missing. President Nicusor Dan said it was 'part of Russia's escalation process in its war in Ukraine'. Reuters counts at least seven cargo ships hit off Romania and Bulgaria in two weeks.\n\nRomanian F-16s shot down two jet-powered Geran drones over Romanian waters near Sulina on 17 October. NATO's council, meeting at Bucharest's request on 20 October, agreed to send more patrol aircraft, radars and drones to the Black Sea but no new command. Romania has proposed a rotating NATO Black Sea command it would host from 2028."
+    },
+    {
+      "name": "South Korea",
+      "flag": "🇰🇷",
+      "risk": 38,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-11-04",
+      "stale_ok": false,
+      "note": "Reported North Korea's 4 November missile launch from Sondok; Pyongyang rules out talks with Washington.",
+      "details": "South Korea's Joint Chiefs said North Korea fired several missiles from the Sondok area toward the Sea of Japan on 4 November. Kim Yo Jong denied North Korean involvement in the Binance theft and ruled out talks with the US.\n\nSeoul earlier vowed firm retaliation as Pyongyang threatened deployments near the border, and it has pulled embassy staff from Kyiv over a prisoner dispute."
+    },
+    {
+      "name": "Germany",
+      "flag": "🇩🇪",
+      "risk": 36,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-10-23",
+      "note": "Raised its Russian sabotage threat level to 'significant' for the first time and arrested a Ukrainian suspected of spying for Russia.",
+      "details": "Germany's counter-intelligence cases reached the top of its own system. On 6 October prosecutors arrested August Hanning, a former head of the BND foreign-intelligence service, on suspicion of treasonous espionage for a foreign service they did not name; Süddeutsche Zeitung reports Russia is not involved. On 14 October a Ukrainian ex-officer went on trial in Hamburg as the alleged leader of the 2022 Nord Stream sabotage, which he and Kyiv deny. Two German teenagers were charged in Bulgaria over the 9 October Starlink-site fire."
+    },
+    {
+      "name": "Canada",
+      "flag": "🇨🇦",
+      "risk": 40,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "note": "The EU invited Canada to become its first associate member as Ottawa seeks less dependence on US trade.",
+      "details": "The European Commission's president, Ursula von der Leyen, invited Canada on 16 September to become the EU's first associate member, speaking with Prime Minister Mark Carney in the European Parliament. She proposed upgrading the existing trade deal into an alliance covering technology, defence industry, energy and critical minerals. The EU has never had an associate membership category, and what it would mean for the single market is unclear.\n\nThe offer lands in a live trade dispute with Washington. Canada's counter-tariffs on about $20bn of US goods took effect on 8 September; the US answered with an import ban on several Canadian goods effective 29 September.\n\nCanada also joined Britain's measures against trade with Israeli settlements over an explicit American objection. None of this touches an operational military commitment, which is why the board counts it as friction rather than fragmentation.",
+      "as_of": "2026-09-16"
+    },
+    {
+      "name": "Syria",
+      "flag": "🇸🇾",
+      "risk": 40,
+      "level": "HIGH",
+      "alignment": "neutral",
+      "as_of": "2026-11-01",
+      "stale_ok": false,
+      "note": "Foreign minister confirms Damascus is discussing joining the Mecca defence pact.",
+      "details": "Foreign Minister al-Shaibani confirmed that Syria is discussing whether to join the defence pact of Saudi Arabia, Turkey and Pakistan, giving no conditions or timeline, and said Syria's security is inseparable from Gulf stability. Joining could tie Damascus to the kingdom's war with the Houthis, the New York Times notes.\n\nJordan said it stopped an armed group trying to enter from Syria."
+    },
+    {
+      "name": "Chad",
+      "flag": "🇹🇩",
+      "risk": 26,
+      "level": "ELEVATED",
+      "alignment": "neutral",
+      "as_of": "2026-08-28",
+      "note": "Accused Sudan of an air strike near their shared border that killed twelve at a fuel market; Sudan has not responded.",
+      "details": "Chad borders Sudan's Darfur region and has absorbed large numbers of people displaced by that war. On 28 August its government accused Sudan of carrying out an air strike near the shared border, killing twelve people at a fuel market. Sudan has not responded, and no independent verification of responsibility has been published.\n\nThe allegation matters because this board has carried Sudan as an internal war between the army and the Rapid Support Forces. A cross-border strike between two states is a different object, and if substantiated it would widen the conflict rather than deepen it. Chad has previously been named in reporting as a transit route for supplies reaching the Rapid Support Forces, which both governments dispute.\n\nThe entry opens at a low risk level because the claim rests on one government's statement carried by a single outlet, with no attribution established and no second state confirming it."
+    },
+    {
+      "name": "Venezuela",
+      "flag": "🇻🇪",
+      "risk": 30,
+      "level": "ELEVATED",
+      "alignment": "neutral",
+      "note": "Opposition leader Machado returned from exile; interim president Delcy Rodríguez governs with no election scheduled.",
+      "details": "Venezuela is in a transition without an election date. Interim president Delcy Rodríguez has governed since US forces seized Nicolás Maduro in January 2026. Opposition leader María Corina Machado returned on 25 October after about ten months in exile, France 24 reports; she had declined to join US-backed reconciliation talks between the government and parts of the opposition, whose first round ended in August without an election date.\n\nOn the economy, the Treasury was reported in September to have licensed five international oil companies to operate in Venezuela; the instrument itself has not been read by this board. Washington's posture in the region has hardened toward Cuba, where Rubio has urged citizens to work with the CIA.",
+      "as_of": "2026-10-26"
+    },
+    {
+      "name": "Ukraine",
+      "flag": "🇺🇦",
+      "risk": 74,
+      "level": "EXTREME",
+      "alignment": "partner",
+      "as_of": "2026-11-04",
+      "note": "Lost power and water in Kyiv after Russia's largest grid strike this year; heads to US-mediated talks in Abu Dhabi.",
+      "details": "Russia's 3 November attack hit energy facilities across the country and a substation serving the Khmelnytskyi nuclear plant; Kyiv alerted the IAEA. At least 31 people were killed at an aid point in Komyshuvakha on 2 November.\n\nUkraine will attend US-mediated talks in Abu Dhabi on 10-11 November. Lavrov rejected its ceasefire and partial-truce proposals. Ukrainian drones hit the Yaroslavl refinery on 3 November, and Zelensky sought air-defence and energy aid in Berlin."
+    },
+    {
+      "name": "France",
+      "flag": "🇫🇷",
+      "risk": 30,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-09-26",
+      "note": "Macron pledged soldiers, radars and defence systems to protect Saudi Arabia's Yanbu port; the EU dropped Usmanov at France's request.",
+      "details": "France is one of two European nuclear powers and the EU's only one, and until 2026-09-02 this board carried no entry for it at all.\n\nOn 2 March 2026, in a speech at Ile-Longue, President Macron set out a doctrine of \"forward deterrence\" — allied participation in French deterrence exercises and the temporary basing of nuclear-capable Rafale aircraft on partner territory. A Franco-German nuclear steering group followed. The doctrine also moved France from a fixed 300-warhead ceiling to a posture of dynamic sufficiency and ended public disclosure of stockpile size.\n\nWith no negotiated limit binding American or Russian strategic forces since New START expired in February, France is the instrument European states are hedging with. A presidential election falls in spring 2027 with no incumbent standing.\n\nOn 11 September a passenger train derailed at Cléon, between Rouen and Caen, injuring 44. A police source told AFP investigators suspect sabotage after a rail fragment was found on the track. No suspect, group or state has been named."
+    },
+    {
+      "name": "Hungary",
+      "flag": "🇭🇺",
+      "risk": 22,
+      "level": "MODERATE",
+      "alignment": "ally",
+      "as_of": "2026-09-08",
+      "note": "Expelled ten Russian diplomats two weeks after designating Russia a threat; Moscow promised a harsh reply.",
+      "details": "Hungary expelled ten staff of Russia's diplomatic mission on 8 September for activities its foreign minister said were unacceptable under the Vienna Convention, saying the decision protects Hungary's security and sovereignty. Russia's foreign ministry promised a harsh and painful response. It follows Budapest's 26 August instruction designating Russia a threat to Hungary, Europe and the global order.\n\nUnder Péter Magyar, in office since May, Hungary has moved from the alliance's most Russia-friendly member to one taking measures its neighbours have not — a datum that runs with, not against, the alliance axis. Ukraine's foreign minister called the expulsion timely and sensible. Carried by a single directory outlet."
+    },
+    {
+      "name": "Poland",
+      "flag": "🇵🇱",
+      "risk": 36,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-11-04",
+      "note": "Sent forces and counter-terrorism police to the Kaliningrad border after warnings of Russian sabotage in early November.",
+      "details": "Tusk said border guards saw people with flashlights at the Kaliningrad border just after midnight on 3 November and that forces and equipment were sent; he said Polish and NATO intelligence had warned of sabotage or provocations in early November. Police deployed counter-terrorism units to the Warmian-Masurian and Podlaskie regions.\n\nAt home, the constitutional court standoff between Tusk and President Nawrocki continues, and a US basing decision is expected around December."
+    },
+    {
+      "name": "Lithuania",
+      "flag": "🇱🇹",
+      "risk": 34,
+      "level": "ELEVATED",
+      "alignment": "ally",
+      "as_of": "2026-11-01",
+      "note": "Under US pressure over Belarusian potash; Pentagon asked it to soften rhetoric on Russia.",
+      "details": "Politico reports the US is pressing Lithuania to let Belarusian potash through Klaipeda despite EU sanctions; Foreign Minister Budrys says the sanctions forbid transit. Reuters says Pentagon officials asked Lithuania, Latvia and Estonia to moderate their language on Russia. Lithuania's defence minister told Lithuanian public broadcaster LRT he has no information on the request."
+    }
+  ],
+  "chess_players": [
+    {
+      "name": "United States",
+      "flag": "🇺🇸",
+      "goal": "Reopen the Strait on American terms while the economic campaign does the rest of the work.",
+      "move": "Struck Iranian air defences on Qeshm while pursuing a deal through Qatar; lost Congress; set Abu Dhabi talks.",
+      "as_of": "2026-11-04",
+      "details": "A US official called the 2 November strikes on Qeshm and Hengam defensive; Trump defends the war after Democrats won both chambers, while Vance voices optimism about a deal.\n\nOn Ukraine, the White House will mediate talks in Abu Dhabi on 10-11 November. On China, Moscow says a Putin-Trump-Xi meeting is being arranged, which Washington has not confirmed.",
+      "color": "var(--c-blue)"
+    },
+    {
+      "name": "China",
+      "flag": "🇨🇳",
+      "goal": "Keep buying Iranian oil and refuse the enforcement architecture, while raising maritime pressure on Taiwan without committing to a campaign.",
+      "move": "Purged 16 generals, patrolled east of Taiwan and prepares for Trump in Shenzhen.",
+      "as_of": "2026-11-01",
+      "details": "Xi's fifth plenum expelled a record number of officials. China's coast guard pressed east of Taiwan and near Pratas, while Beijing prepares to host Trump within weeks and faces a Quad summit in the Philippines.",
+      "color": "var(--c-brics)"
+    },
+    {
+      "name": "Taiwan",
+      "flag": "🇹🇼",
+      "goal": "Hold operational readiness through Balikatan 2026 and post-summit PLA posture window; deepen alignment with Japan and the Philippines",
+      "move": "Recorded 49 Chinese military sorties in a day, its highest this year, as the Liaoning group drilled offshore.",
+      "as_of": "2026-11-04",
+      "details": "Taiwan's defence ministry reported 49 sorties in the 24 hours to 6 am on 3 November, with the Liaoning carrier group in the western Pacific, SCMP reports. Taipei says recent coast-guard patrols rehearse a blockade.\n\nA $14 billion US arms package awaits Trump's approval, and Taiwan is trimming draft exemptions.",
+      "color": "#22d3ee"
+    },
+    {
+      "name": "Israel",
+      "flag": "🇮🇱",
+      "goal": "Establish a permanent security posture in Lebanon, Syria and Gaza before any framework acquires enforcement, and absorb American objection without paying for it.",
+      "move": "Netanyahu stays caretaker after a 53-seat result and spoke to Trump on Iran.",
+      "as_of": "2026-11-01",
+      "details": "Final results left no bloc with a majority. Netanyahu remains caretaker prime minister and reportedly spoke to Trump on 31 October amid preparations for strikes on Iran. Herzog will consult party leaders.",
+      "color": "var(--c-blue)"
+    },
+    {
+      "name": "Iran",
+      "flag": "🇮🇷",
+      "goal": "Convert control of the Strait into sanctions relief and compensation, with Washington moving first.",
+      "move": "Claims four tankers mined after US strikes on Qeshm; offers to reopen Hormuz in two days if its conditions are met.",
+      "as_of": "2026-11-04",
+      "details": "Iran's Guard says four tankers hit mines on a prohibited route on 4 November; no ships were named. The foreign ministry offers to reopen the Strait within two days if the blockade ends, frozen assets are released and oil sanctions lifted.\n\nQatari mediators held talks in Tehran on 2 November and are drafting an interim deal. The supreme leader's order for an 'unrestricted' response to attack stands.",
+      "color": "var(--c-iran)"
+    },
+    {
+      "name": "Russia",
+      "flag": "🇷🇺",
+      "goal": "Absorb strikes on export infrastructure without acknowledging damage, while keeping the war's economic pressure pointed at Ukraine through winter.",
+      "move": "Mounted its largest grid strike this year while agreeing to Abu Dhabi talks and rejecting any partial truce.",
+      "as_of": "2026-11-04",
+      "details": "Russia fired 76 missiles and 289 drones at Ukraine's energy system on 3 November. Lavrov rejected Ukraine's ceasefire and partial-truce proposals, and the Kremlin said it has no plans for another Oleshky-style pause.\n\nIt confirmed the 10-11 November Abu Dhabi talks and is promoting a Putin-Trump-Xi meeting in China this month.",
+      "color": "var(--c-ukraine-war)"
+    },
+    {
+      "name": "Ukraine",
+      "flag": "🇺🇦",
+      "goal": "Convert deep strikes from claimed damage into measurable losses of Russian export revenue and launch capacity.",
+      "move": "Faces Russia's heaviest grid strike this year; will attend US-mediated talks in Abu Dhabi on 10-11 November.",
+      "as_of": "2026-11-04",
+      "details": "Kyiv lost power and water after the 3 November attack, which hit a substation serving the Khmelnytskyi nuclear plant. Ukraine proposed an immediate ceasefire and energy, food, air and sea truces, which Lavrov rejected.\n\nUkraine keeps striking Russian refineries, including Yaroslavl on 3 November, and is seeking air defence from Germany.",
+      "color": "#facc15"
+    },
+    {
+      "name": "Pakistan",
+      "flag": "🇵🇰",
+      "goal": "Keep channels to both Washington and Tehran while making the Mecca pact a credible deterrent for Saudi Arabia.",
+      "move": "Backs Saudi Arabia under the activated Mecca pact while squeezed by Taliban border fighting and a halt to Iran trade.",
+      "as_of": "2026-10-20",
+      "color": "var(--c-amber)",
+      "details": "Islamabad's play is to be indispensable to Riyadh and Washington at once: a Mecca-pact partner, a US-Iran mediator and a counter-terrorism front-line state. The Taliban border and the Iran trade halt show the cost."
+    },
+    {
+      "name": "Vatican",
+      "flag": "🇻🇦",
+      "goal": "Distance the Holy See from Trump's framing while keeping diplomatic-venue offer open",
+      "move": "Pope Leo XIV at Castel Gandolfo May 5 rejected Trump's claim he supports Iran's nuclear program; met Rubio May 7 — Vatican cites 'need to promote peace.'",
+      "as_of": "2026-05-16",
+      "stale_ok": true,
+      "color": "#a78bfa"
+    },
+    {
+      "name": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "goal": "Impose costs on Iran's proxy network without owning the escalation rhetorically or opening a second front in Yemen.",
+      "move": "Sends its defence minister to Tehran for Mecca pact talks while its air defences intercept Houthi missiles at Riyadh.",
+      "as_of": "2026-10-26",
+      "color": "var(--c-amber)",
+      "details": "Riyadh's play is to defend with partners and open its own line to Tehran. Its defence minister leads a delegation to security talks in Iran with Pakistan and Turkey, while the coalition intercepts missiles at the capital and strikes launchers in Sanaa. European crews and the Mecca pact share its air defence as Washington steps back."
+    },
+    {
+      "name": "UAE",
+      "flag": "🇦🇪",
+      "goal": "Keep the Strait open and stay out of the war, while holding the US relationship without joining an American campaign against Iran.",
+      "move": "Took charge of the FlyDubai investigation days after hosting Netanyahu, keeping the Israel channel open.",
+      "as_of": "2026-10-02",
+      "stale_ok": false,
+      "color": "var(--text-mid)",
+      "details": "Abu Dhabi's strategy through this war has been to absorb rather than escalate, and to keep its Israel channel open. Days after hosting Netanyahu, it took charge of the investigation into a FlyDubai co-pilot's attack on the captain of a Dubai–Tel Aviv flight, examining a possible terror link; FlyDubai suspended the route. No group or state has been linked.\n\nThe UAE is also rebuilding infrastructure around the Iranian threat, redesigning a planned AI data-centre campus into a dispersed network. Algeria cut diplomatic ties with it on 10 September."
+    },
+    {
+      "name": "Qatar",
+      "flag": "🇶🇦",
+      "goal": "Mediate the war toward a settlement without Al Udeid becoming a target.",
+      "move": "Keeps Iran mediation running after its own LNG carrier was struck.",
+      "as_of": "2026-11-01",
+      "stale_ok": false,
+      "color": "var(--text-mid)",
+      "details": "Qatar named no attacker after Al Mayeda was struck on 30 October and continued talks with Iranian envoys in Tehran and Doha. Its seven-day plan has not satisfied Tehran."
+    },
+    {
+      "name": "Turkey",
+      "flag": "🇹🇷",
+      "goal": "Expand its position in post-Assad Syria while keeping its NATO membership and its out-of-alliance commitments from being forced into a single choice.",
+      "move": "Parliament's foreign affairs committee approves the Mecca defence pact; intelligence chief Kalin joins Gulf talks in Tehran.",
+      "as_of": "2026-10-29",
+      "stale_ok": false,
+      "color": "#f59e0b",
+      "details": "Ankara's play is to gain a Gulf security role without front-line exposure: a ratified pact, defence sales and intelligence support to Riyadh, with any troop deployment left to parliament."
+    },
+    {
+      "name": "Hezbollah / Lebanon",
+      "flag": "🇱🇧",
+      "goal": "Survive the framework’s disarmament clause without a new war.",
+      "move": "Acknowledged a seized 780 kg explosives truck as its own; 13 charged by a Lebanese military court.",
+      "as_of": "2026-11-01",
+      "stale_ok": false,
+      "color": "#e05050",
+      "details": "Hezbollah said the explosives on a truck seized this month were its own and meant for Israeli forces in the south. A Lebanese military court charged 13 people, two in custody. The board found no Israeli report of a Hezbollah launch between 29 October and 1 November, while Israeli strikes and demolitions continue."
+    },
+    {
+      "name": "North Korea",
+      "flag": "🇰🇵",
+      "goal": "Sustain CRINK operational coordination via arms (artillery shells) and troops to Russia in exchange for tech, energy, and food; preserve ICBM/SLBM ladder as posture-signaling reserve; quiet stretch in May 2026 maintains optionality without provoking US/JK-PH posture firming",
+      "move": "Fired missiles on 4 November and denied the $6.3 billion Binance theft, ruling out talks with Washington.",
+      "as_of": "2026-11-04",
+      "stale_ok": false,
+      "details": "Pyongyang fired several missiles from Sondok toward the Sea of Japan on 4 November. Kim Yo Jong called the FBI's attribution a provocation and ruled out dialogue while US hostility continues.\n\nThe launches follow a claimed cluster-warhead test in late October. Kim also inspected a shipyard and called for a faster naval build-up, per South Korean media.",
+      "color": "var(--c-brics)"
+    },
+    {
+      "name": "United Kingdom",
+      "flag": "🇬🇧",
+      "color": "var(--c-blue)",
+      "as_of": "2026-10-20",
+      "goal": "Lead a broad European and Commonwealth position on the West Bank without getting ahead of Washington on Israel policy.",
+      "move": "Joins Saudi Arabia's air defence with Typhoon patrols while MI5 warns of Russian and Iranian hybrid attacks at home.",
+      "details": "London's play is to back Gulf partners and Ukraine while hardening at home. It now flies defensive patrols over Saudi Arabia, and its security service names Russia as the main hybrid threat, with Iran-linked plots second."
+    },
+    {
+      "name": "Kuwait",
+      "flag": "🇰🇼",
+      "goal": "Stay a basing partner without becoming a belligerent, and avoid making a strike on its own soil into a public quarrel.",
+      "move": "Hosts tanker crews the Revolutionary Guard told to abandon ship or be targeted, after two Iranian strikes on its territory this month.",
+      "as_of": "2026-09-10",
+      "color": "var(--c-amber)",
+      "details": "Kuwait's public posture through this war has been minimal. On 31 July its defence ministry said hostile targets were engaged and destroyed; in early September its armed forces reported intercepting two Iranian attacks, with no casualties.\n\nOn 8 September the Revolutionary Guard warned tanker crews in Kuwaiti and Bahraini ports to abandon their vessels because they would be targeted, extending its threats from the Strait into the harbours of non-belligerent partners. This dashboard found no published Kuwaiti response.\n\nThe strategy remains to avoid being made a party to the war in public while hosting the forces that are the target. A strike inside a Kuwaiti port would test it directly."
+    },
+    {
+      "name": "Jordan",
+      "flag": "🇯🇴",
+      "color": "var(--c-amber)",
+      "goal": "Stay inside the American security umbrella without becoming a recurring target of Iranian retaliation.",
+      "move": "Arrests three suspects after gunmen killed eight at a church funeral in Karak.",
+      "details": "Jordan's play is to absorb shocks and publish facts. After gunmen killed eight at a church funeral in Karak on 23 October, security forces arrested three wounded suspects on 26 October after a firefight; no group has been named. It has handled Iranian missile episodes the same way, publishing counts without announcing measures against Iran.",
+      "as_of": "2026-10-26"
+    },
+    {
+      "name": "Bahrain",
+      "flag": "🇧🇭",
+      "color": "var(--c-amber)",
+      "goal": "Keep the Fifth Fleet’s home port out of the exchange while the war is fought from its neighbours’ soil.",
+      "move": "Condemned Iran over Jordan while its own ports sit under a Revolutionary Guard threat to tanker crews.",
+      "details": "Bahrain hosts the United States Fifth Fleet and has spent this war as the quietest of the exposed Gulf states. Two things this week changed what it is managing.\n\nThe Revolutionary Guard told crews of oil tankers in Bahraini and Kuwaiti ports to abandon their vessels or be targeted — the first threat in this war against ships inside the harbours of non-belligerent Gulf states. Manama has announced no port closure and no change in operations, and no vessel has been struck.\n\nOn 9 September Bahrain joined Saudi Arabia, Qatar and Egypt in condemning Iran's ballistic-missile strike on Jordan. For a government that has avoided naming Tehran throughout, that is a real shift in register, and it arrived only once a partner state's soil was hit rather than when its own shipping was threatened.\n\nBahrain's room for manoeuvre is the smallest of the Gulf states: it cannot credibly threaten Iran, it cannot distance itself from the American presence it hosts, and its economy runs through the same water everyone is fighting over.",
+      "as_of": "2026-09-09"
+    },
+    {
+      "name": "South Korea",
+      "flag": "🇰🇷",
+      "as_of": "2026-10-20",
+      "stale_ok": false,
+      "goal": "Stay out of the Iran war without breaking with Washington, and keep a path open to US-North Korea dialogue.",
+      "move": "Answers North Korea's border threats with promises of firm retaliation while its rift with Kyiv over North Korean prisoners deepens.",
+      "details": "Seoul's play is deterrence at the DMZ and distance from the Ukraine war. It matched the North with its own hypersonic test and is pulling staff from Kyiv after a public row over North Korean prisoners."
+    }
+  ],
+  "theaters": [
+    {
+      "flag": "🇨🇳",
+      "name": "China",
+      "start": "2026-05-14",
+      "threat": 62,
+      "status": "China's coast guard patrolled east of Taiwan; the fifth plenum expelled 16 generals.",
+      "color": "#c97a1a",
+      "as_of": "2026-11-01"
+    },
+    {
+      "flag": "🇹🇼",
+      "name": "Taiwan",
+      "start": "2026-05-14",
+      "threat": 56,
+      "status": "Taiwan logged 49 Chinese military sorties in a day, the year's highest, as the Liaoning group drilled in the western Pacific.",
+      "color": "#22d3ee",
+      "as_of": "2026-11-04"
+    },
+    {
+      "flag": "🇮🇷",
+      "name": "Iran",
+      "start": "2026-02-28",
+      "threat": 88,
+      "status": "The US struck Iranian air defences on Qeshm on 2 November; Iran claims four tankers mined; Qatar drafts an interim deal.",
+      "color": "var(--c-iran)",
+      "as_of": "2026-11-04"
+    },
+    {
+      "flag": "🇱🇧",
+      "name": "Lebanon",
+      "start": "2026-03-02",
+      "threat": 70,
+      "status": "More than 300,000 remain displaced and Israeli strikes and demolitions continue in the south, OCHA says; 13 charged over a Hezbollah explosives truck.",
+      "color": "#fb923c",
+      "as_of": "2026-11-01"
+    },
+    {
+      "flag": "🇾🇪",
+      "name": "Yemen",
+      "start": "2026-02-28",
+      "threat": 85,
+      "status": "Houthi forces are within about 80 km of Aden after taking Al-Maqatirah, Reuters reports; the Taiz-Aden road remains cut.",
+      "color": "#eab308",
+      "as_of": "2026-11-04"
+    },
+    {
+      "flag": "🇺🇦",
+      "name": "Ukraine",
+      "start": "2022-02-24",
+      "threat": 72,
+      "status": "Russia's largest grid strike this year hit Kyiv's power and water; at least 31 killed at an aid point; Abu Dhabi talks set for 10-11 November.",
+      "color": "#fb923c",
+      "as_of": "2026-11-04"
+    },
+    {
+      "flag": "🇸🇩",
+      "name": "Sudan",
+      "start": "2023-04-15",
+      "threat": 55,
+      "status": "An army strike on Nyala's market killed at least 102, AFP reports; the UN chief is appalled by drone attacks on civilians.",
+      "color": "var(--text-mid)",
+      "as_of": "2026-11-01"
+    }
+  ],
+  "country_keys": {
+    "Iran": {
+      "aliases": [
+        "Iran",
+        "IRGC",
+        "Iranian",
+        "Tehran",
+        "Fordow",
+        "Natanz",
+        "Khorramshahr",
+        "Pezeshkian",
+        "Khamenei",
+        "Mojtaba",
+        "Mojtaba Khamenei"
+      ]
+    },
+    "Israel": {
+      "aliases": [
+        "Israel",
+        "IDF",
+        "Israeli",
+        "Netanyahu",
+        "Mossad",
+        "IAF"
+      ]
+    },
+    "Lebanon": {
+      "aliases": [
+        "Lebanon",
+        "Hezbollah",
+        "Qassem",
+        "Bekaa",
+        "Lebanese",
+        "Karaki",
+        "Safieddine"
+      ]
+    },
+    "USA": {
+      "aliases": [
+        "USA",
+        "US ",
+        "U.S.",
+        "United States",
+        "Trump",
+        "Pentagon",
+        "Senate",
+        "House",
+        "Marine",
+        "Vance",
+        "Hegseth",
+        "NSA"
+      ]
+    },
+    "Saudi Arabia": {
+      "aliases": [
+        "Saudi",
+        "Riyadh",
+        "SAMA"
+      ]
+    },
+    "UAE": {
+      "aliases": [
+        "UAE",
+        "Emirates",
+        "Dubai",
+        "ADIA"
+      ]
+    },
+    "Qatar": {
+      "aliases": [
+        "Qatar",
+        "Al Udeid",
+        "Doha",
+        "QIA",
+        "LNG"
+      ]
+    },
+    "China": {
+      "aliases": [
+        "China",
+        "PLA",
+        "PLAN",
+        "Chinese",
+        "Shandong",
+        "Beijing",
+        "Xi",
+        "Xi Jinping",
+        "MSS",
+        "§951",
+        "United Front",
+        "Volt Typhoon",
+        "Senkaku",
+        "61398",
+        "Mandiant",
+        "overseas service station",
+        "He Lifeng"
+      ]
+    },
+    "Taiwan": {
+      "aliases": [
+        "Taiwan",
+        "ROC",
+        "Taiwanese",
+        "ADIZ",
+        "median line",
+        "Taipei",
+        "Lai Ching-te",
+        "Balikatan",
+        "Ishigaki"
+      ]
+    },
+    "Russia": {
+      "aliases": [
+        "Russia",
+        "Russian",
+        "Putin",
+        "Moscow",
+        "Sarmat",
+        "Caspian",
+        "S-400",
+        "Ursa Major",
+        "Oboronlogistics",
+        "Barents",
+        "Iskander-M",
+        "Lavrov",
+        "Wagner",
+        "GRU",
+        "Fancy Bear",
+        "Kazan",
+        "Kursk",
+        "NSR",
+        "Northern Sea Route"
+      ]
+    },
+    "Ukraine": {
+      "aliases": [
+        "Ukraine",
+        "Ukrainian",
+        "Kyiv",
+        "Kharkiv",
+        "Odesa",
+        "Odessa",
+        "Zelensky",
+        "Zelenskyy",
+        "SBU",
+        "AFU",
+        "ZSU",
+        "Donbas",
+        "Donetsk",
+        "Luhansk",
+        "Zaporizhzhia",
+        "Dnipro",
+        "Tuapse",
+        "Volgograd refinery"
+      ]
+    },
+    "Pakistan": {
+      "aliases": [
+        "Pakistan",
+        "Sharif",
+        "Pakistani"
+      ]
+    },
+    "North Korea": {
+      "aliases": [
+        "North Korea",
+        "SLBM",
+        "DMZ",
+        "Pyongyang",
+        "DPRK",
+        "Wonsan",
+        "Sinpo",
+        "Hwasong",
+        "Storm Corps",
+        "Lazarus"
+      ]
+    },
+    "Turkey": {
+      "aliases": [
+        "Turkey",
+        "Erdogan",
+        "Bosphorus",
+        "Turkish"
+      ]
+    },
+    "India": {
+      "aliases": [
+        "India",
+        "Indian",
+        "Modi",
+        "New Delhi",
+        "Delhi",
+        "Jaishankar",
+        "Quad",
+        "Malabar"
+      ]
+    },
+    "Egypt": {
+      "aliases": [
+        "Egypt",
+        "Egyptian",
+        "Cairo",
+        "Sisi",
+        "Al-Sisi"
+      ]
+    },
+    "Ethiopia": {
+      "aliases": [
+        "Ethiopia",
+        "Ethiopian",
+        "Addis Ababa",
+        "Abiy"
+      ]
+    },
+    "United Kingdom": {
+      "aliases": [
+        "United Kingdom",
+        "UK",
+        "Britain",
+        "British",
+        "Downing Street",
+        "Burnham",
+        "Starmer",
+        "Whitehall",
+        "London"
+      ]
+    },
+    "Iraq": {
+      "aliases": [
+        "Iraq",
+        "Iraqi",
+        "Baghdad",
+        "Anbar",
+        "PMF",
+        "Popular Mobilization Forces"
+      ]
+    },
+    "Kuwait": {
+      "aliases": [
+        "Kuwait",
+        "Kuwaiti",
+        "Ahmad Al-Jaber",
+        "Ahmad Al-Jaber Air Base",
+        "Camp Arifjan",
+        "Ali Al Salem"
+      ]
+    },
+    "Jordan": {
+      "aliases": [
+        "Jordan",
+        "Jordanian",
+        "Amman",
+        "Muwaffaq Salti"
+      ]
+    },
+    "Bahrain": {
+      "aliases": [
+        "Bahrain",
+        "Bahraini",
+        "Manama",
+        "Fifth Fleet"
+      ]
+    },
+    "Libya": {
+      "aliases": [
+        "Libya",
+        "Zawiya",
+        "Libyan",
+        "Tripoli",
+        "Benghazi",
+        "Haftar",
+        "National Oil Corporation"
+      ]
+    },
+    "Japan": {
+      "aliases": [
+        "Japan",
+        "Japanese",
+        "Tokyo"
+      ]
+    },
+    "Romania": {
+      "aliases": [
+        "Romania",
+        "Romanian",
+        "Bucharest",
+        "Galati",
+        "Mihail Kogalniceanu"
+      ]
+    },
+    "South Korea": {
+      "aliases": [
+        "SOUTH KOREA",
+        "ROK",
+        "REPUBLIC OF KOREA",
+        "SEOUL"
+      ]
+    },
+    "Germany": {
+      "aliases": [
+        "Germany",
+        "German",
+        "Berlin",
+        "Bundeswehr",
+        "Merz",
+        "Scholz"
+      ]
+    },
+    "Venezuela": {
+      "aliases": [
+        "Venezuela",
+        "Venezuelan",
+        "Caracas",
+        "PDVSA",
+        "Rodriguez",
+        "Delcy Rodriguez"
+      ]
+    }
+  }
+}

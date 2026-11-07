@@ -1,0 +1,80 @@
+{
+  "ladder": [
+    {
+      "pct": 10,
+      "label": "Diplomatic Tension",
+      "trigger": "Sanctions, rhetoric, proxy skirmishes; HIIK Level 1 dispute; no kinetic between major-power-aligned states. Analog: US-China trade war peak 2018-19."
+    },
+    {
+      "pct": 20,
+      "label": "Limited Strikes",
+      "trigger": "Targeted air/missile exchanges, no ground forces; UCDP minor armed conflict (≥25 KIA/yr). Analog: 2020 Soleimani strike + Iran al-Asad retaliation (de-escalated)."
+    },
+    {
+      "pct": 30,
+      "label": "Regional Escalation",
+      "trigger": "Multiple theater activation, proxy war expansion, one cross-border ground operation. Analogs: 2008 Russia-Georgia 5-day war; 2023 Sudan civil war outbreak."
+    },
+    {
+      "pct": 40,
+      "label": "Direct Conventional",
+      "trigger": "State-vs-state ground operations OR naval blockade OR chokepoint disruption affecting global trade. UCDP war threshold (≥1,000 KIA/yr). Analogs: 1990-91 Gulf War; 2003 Iraq invasion; 1999 NATO Kosovo."
+    },
+    {
+      "pct": 50,
+      "label": "Great Power Signaling",
+      "trigger": "Major-power red lines tied to ongoing kinetic, OR summit produces operational economic-architecture commitments, OR cyber op crosses Tallinn-Manual use-of-force. Analogs: 2022 Russia invasion early months; Stuxnet 2010; 2024 Israel-Iran direct exchanges; NotPetya 2017."
+    },
+    {
+      "pct": 60,
+      "label": "Nuclear Posturing",
+      "trigger": "DEFCON 3 OR rival equivalent OR nuclear-armed state crosses enrichment threshold OR leadership invokes nuclear use with operational detail. Analogs: 1973 Yom Kippur DEFCON 3; 2017 'fire and fury'; Sep-Oct 2022 Russia nuclear rhetoric peak (Biden 'Armageddon')."
+    },
+    {
+      "pct": 70,
+      "label": "Alliance Fragmentation",
+      "trigger": "NATO/Gulf/equivalent allied bloc PUBLICLY BREAKING with lead power on an operational commitment — not friction. Analogs: 1966 France leaves NATO integrated command; 2003 Iraq War 'Old vs New Europe' split; 2025 Trump Article-5 ambiguity moments."
+    },
+    {
+      "pct": 80,
+      "label": "Major-Power Nuclear Posturing",
+      "trigger": "DEFCON 2 OR equivalent — nuclear weapons loaded onto delivery systems; max readiness short of launch. Reached publicly only twice. Analogs: Cuban Missile Crisis SAC at DEFCON 2 (Oct 22 – Nov 15 1962); 1991 Gulf War SAC at DEFCON 2; Able Archer 83 Soviet warhead loading."
+    },
+    {
+      "pct": 90,
+      "label": "Nuclear Threshold",
+      "trigger": "Nuclear briefcase activated OR first-use doctrine published OR launch-decision window entered. Analogs: Cuban Missile 'Black Saturday' Oct 27 1962 (sub B-59 nearly fired nuclear torpedo; McNamara post-1990s: 99% if invasion); 1995 Norwegian rocket (only known briefcase activation)."
+    },
+    {
+      "pct": 100,
+      "label": "Global Thermonuclear",
+      "trigger": "Multi-party nuclear exchange has begun. NEVER OCCURRED. Doomsday Clock 85 seconds (Jan 2026, closest ever) is the standing macro indicator that systemic risk is elevated but not at this rung."
+    }
+  ],
+  "axes": [
+    {
+      "key": "kinetic",
+      "label": "Kinetic Intensity",
+      "score": 80,
+      "currentLabel": "The US struck Iranian air defences on Qeshm; Russia mounted its largest grid strike this year; Houthis advanced toward Aden."
+    },
+    {
+      "key": "greatpower",
+      "label": "Great-Power Involvement",
+      "score": 65,
+      "currentLabel": "US strikes inside Iran while Qatar drafts a deal; US sets Ukraine-Russia talks for 10-11 November; Kremlin pushes a three-leader meeting."
+    },
+    {
+      "key": "wmd",
+      "label": "WMD / Nuclear Posture",
+      "score": 60,
+      "currentLabel": "A Russian strike hit a substation serving a Ukrainian nuclear plant; no US-Russia arms limits are in force. Israel's disputed Iran chemical-weapons warning is not scored."
+    },
+    {
+      "key": "alliance",
+      "label": "Alliance Cohesion (inverse)",
+      "score": 55,
+      "currentLabel": "Gulf states called Israel's chemical-weapons warning unserious; Poland and Norway reinforced borders with Russia; Democrats won Congress."
+    }
+  ]
+}

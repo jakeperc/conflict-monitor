@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Cards",
+  "type": "object",
+  "required": ["cards", "iran_lead", "brics_lead", "ukraine_lead"],
+  "properties": {
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["lens", "title", "body", "confidence", "arc", "updated_at"],
+        "properties": {
+          "lens":            { "type": "string" },
+          "icon":            { "type": "string" },
+          "color":           { "type": "string" },
+          "confidence":      { "type": "string" },
+          "confidenceNote":  { "type": "string" },
+          "title":           { "type": "string" },
+          "summary":         { "type": "string" },
+          "bottom_line":     { "type": "string", "maxLength": 320 },
+          "body":            { "type": "string" },
+          "arc":             { "type": "string", "enum": ["iran-hormuz", "us-brics-rivalry", "russia-ukraine-war", "cross-cutting"] },
+          "updated_at":      { "type": "string" }
+        }
+      }
+    },
+    "iran_lead":    { "type": "object", "required": ["pillar", "title", "summary"] },
+    "brics_lead":   { "type": "object", "required": ["pillar", "title", "summary"] },
+    "ukraine_lead": { "type": "object", "required": ["pillar", "title", "summary"] }
+  }
+}

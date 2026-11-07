@@ -1,0 +1,16 @@
+{
+  "dashboard_title": "Global Conflict Monitor",
+  "war_start": "2026-02-28T00:00:00",
+  "now": "2026-11-04T05:00:00-05:00",
+  "ww3_pct": 65,
+  "ww3_now_label": "Nov 4 · US strikes Qeshm; Democrats win Congress",
+  "base_last_update": "11/04/2026 · 05:00 EST",
+  "last_built": "2026-11-06T16:14:04.291Z",
+  "version": "2.0.0",
+  "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
+  "hormuz_status": {
+    "label": "CONTESTED",
+    "note": "The US struck Iranian air defences on Qeshm on 2 November. The Guard claims four tankers mined on 4 November, unconfirmed; an Indian crewman died off Oman on 3 November.",
+    "as_of": "2026-11-04"
+  }
+}

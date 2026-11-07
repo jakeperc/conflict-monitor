@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Live global conflict monitoring dashboard — real-time markets, news, and crisis indicators." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='none' stroke='%23f59e0b' stroke-width='6'/><circle cx='50' cy='50' r='8' fill='%23f43f5e'/></svg>" />
+  <meta property="og:title" content="Global Conflict Monitor" />
+  <meta property="og:description" content="Live global conflict monitoring dashboard — real-time markets, news, and crisis indicators." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://conflict-monitor.jakepercy.com/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Global Conflict Monitor" />
+  <meta name="twitter:description" content="Live global conflict monitoring dashboard — real-time markets, news, and crisis indicators." />
+  <link rel="canonical" href="https://conflict-monitor.jakepercy.com/" />
+  <link rel="alternate" type="text/markdown" href="llms.txt" title="llms.txt" />
+  <title>Global Conflict Monitor</title>
+  <script>
+    // Force dark theme on every page load — runs before React parses so
+    // the first paint is guaranteed dark. Also wipes any legacy
+    // "wargame.theme" value so a cached "light" preference cannot resurrect.
+    (function () {
+      try { document.documentElement.setAttribute("data-theme", "dark"); } catch (_) {}
+      try { localStorage.removeItem("wargame.theme"); } catch (_) {}
+    })();
+  </script>
+  <!-- DATA_INJECT -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- JSONLD_INJECT -->
+</head>
+<body>
+  <div id="root"><!-- PRERENDER_INJECT --></div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

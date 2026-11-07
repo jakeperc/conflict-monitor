@@ -1,0 +1,1314 @@
+{
+  "terms": [
+    {
+      "term": "CRINK",
+      "aliases": [
+        "CRINK"
+      ],
+      "expansion": "China, Russia, Iran, North Korea",
+      "definition": "Shorthand for the loose alignment of China, Russia, Iran, and North Korea — four states that increasingly coordinate militarily and economically against US-led pressure.",
+      "category": "alliance"
+    },
+    {
+      "term": "BRICS",
+      "aliases": [
+        "BRICS"
+      ],
+      "expansion": null,
+      "definition": "An economic bloc originally of Brazil, Russia, India, China, and South Africa (since expanded), often positioned as a counterweight to the US-led Western order. 'BRICS+' refers to the enlarged membership.",
+      "category": "alliance"
+    },
+    {
+      "term": "Quad",
+      "aliases": [
+        "Quad"
+      ],
+      "expansion": "Quadrilateral Security Dialogue",
+      "definition": "A strategic grouping of the United States, Japan, India, and Australia that coordinates on security in the Indo-Pacific.",
+      "category": "alliance"
+    },
+    {
+      "term": "PoS2",
+      "aliases": [
+        "PoS2",
+        "Power of Siberia 2"
+      ],
+      "expansion": "Power of Siberia 2",
+      "definition": "A proposed natural-gas pipeline that would carry Russian gas to China. A signed deal would deepen Russia-China energy ties; it has stalled for years over price.",
+      "category": "energy"
+    },
+    {
+      "term": "IRGC",
+      "aliases": [
+        "IRGC"
+      ],
+      "expansion": "Islamic Revolutionary Guard Corps",
+      "definition": "A powerful branch of Iran's military that controls elite forces, the missile program, and much of the country's strategic and economic activity.",
+      "category": "military"
+    },
+    {
+      "term": "IDF",
+      "aliases": [
+        "IDF"
+      ],
+      "expansion": "Israel Defense Forces",
+      "definition": "Israel's national military.",
+      "category": "military"
+    },
+    {
+      "term": "Hezbollah",
+      "aliases": [
+        "Hezbollah"
+      ],
+      "expansion": null,
+      "definition": "An Iran-backed Shia political party and armed group based in Lebanon, and one of Iran's most powerful regional proxies.",
+      "category": "actor"
+    },
+    {
+      "term": "PLA",
+      "aliases": [
+        "PLA"
+      ],
+      "expansion": "People's Liberation Army",
+      "definition": "The armed forces of China.",
+      "category": "military"
+    },
+    {
+      "term": "PLAN",
+      "aliases": [
+        "PLAN"
+      ],
+      "expansion": "People's Liberation Army Navy",
+      "definition": "China's navy.",
+      "category": "military"
+    },
+    {
+      "term": "CENTCOM",
+      "aliases": [
+        "CENTCOM"
+      ],
+      "expansion": "US Central Command",
+      "definition": "The US military command responsible for the Middle East and surrounding region.",
+      "category": "military"
+    },
+    {
+      "term": "ADIZ",
+      "aliases": [
+        "ADIZ"
+      ],
+      "expansion": "Air Defense Identification Zone",
+      "definition": "Airspace where a country demands that aircraft identify themselves; deliberate incursions (e.g. around Taiwan) are a common way to signal pressure.",
+      "category": "military"
+    },
+    {
+      "term": "Volt Typhoon",
+      "aliases": [
+        "Volt Typhoon"
+      ],
+      "expansion": null,
+      "definition": "A Chinese state-linked hacking group known for quietly pre-positioning inside US critical infrastructure — power, water, and telecom networks — for potential future disruption.",
+      "category": "cyber"
+    },
+    {
+      "term": "Oreshnik",
+      "aliases": [
+        "Oreshnik"
+      ],
+      "expansion": null,
+      "definition": "A Russian intermediate-range ballistic missile first used in combat in late 2024; notable as a nuclear-capable system fired with a conventional warhead as a signaling weapon.",
+      "category": "weapon"
+    },
+    {
+      "term": "Shahed-136",
+      "aliases": [
+        "Shahed-136",
+        "Shahed"
+      ],
+      "expansion": null,
+      "definition": "An Iranian-designed long-range 'kamikaze' attack drone that flies into a target and explodes; used heavily by Russia against Ukraine.",
+      "category": "weapon"
+    },
+    {
+      "term": "HEU",
+      "aliases": [
+        "HEU"
+      ],
+      "expansion": "Highly Enriched Uranium",
+      "definition": "Uranium processed to a high purity. Weapons-grade is about 90%; the higher the enrichment, the closer the material is to being usable in a bomb.",
+      "category": "nuclear"
+    },
+    {
+      "term": "LEU",
+      "aliases": [
+        "LEU"
+      ],
+      "expansion": "Low-Enriched Uranium",
+      "definition": "Uranium at the low purity (typically under 5%) used to fuel civilian nuclear power reactors.",
+      "category": "nuclear"
+    },
+    {
+      "term": "enrichment",
+      "aliases": [
+        "enrichment"
+      ],
+      "expansion": null,
+      "definition": "The process of raising the concentration of the fissile isotope in uranium. Low levels fuel power plants; very high levels are needed for a nuclear weapon.",
+      "category": "nuclear"
+    },
+    {
+      "term": "IAEA",
+      "aliases": [
+        "IAEA"
+      ],
+      "expansion": "International Atomic Energy Agency",
+      "definition": "The UN's nuclear watchdog, which inspects nuclear sites to verify that material isn't diverted toward weapons.",
+      "category": "nuclear"
+    },
+    {
+      "term": "WMD",
+      "aliases": [
+        "WMD"
+      ],
+      "expansion": "Weapons of Mass Destruction",
+      "definition": "Nuclear, chemical, or biological weapons capable of killing large numbers of people.",
+      "category": "nuclear"
+    },
+    {
+      "term": "DEFCON",
+      "aliases": [
+        "DEFCON"
+      ],
+      "expansion": "Defense Readiness Condition",
+      "definition": "The US military's alert scale, from DEFCON 5 (normal) to DEFCON 1 (maximum war readiness). Lower numbers mean higher alert.",
+      "category": "military"
+    },
+    {
+      "term": "OFAC",
+      "aliases": [
+        "OFAC"
+      ],
+      "expansion": "Office of Foreign Assets Control",
+      "definition": "The US Treasury office that administers and enforces US economic sanctions.",
+      "category": "sanctions"
+    },
+    {
+      "term": "General License",
+      "aliases": [
+        "General License"
+      ],
+      "expansion": null,
+      "definition": "A carve-out from US sanctions that temporarily permits certain otherwise-prohibited transactions — for example, winding down business with a newly sanctioned entity.",
+      "category": "sanctions"
+    },
+    {
+      "term": "de-dollarization",
+      "aliases": [
+        "de-dollarization"
+      ],
+      "expansion": null,
+      "definition": "Efforts by some countries to reduce reliance on the US dollar for trade and reserves in favor of other currencies.",
+      "category": "finance"
+    },
+    {
+      "term": "chokepoint",
+      "aliases": [
+        "chokepoint",
+        "choke point"
+      ],
+      "expansion": null,
+      "definition": "A narrow passage — like the Strait of Hormuz — that a large share of world trade must pass through, so disrupting it has outsized global impact.",
+      "category": "concept"
+    },
+    {
+      "term": "Strait of Hormuz",
+      "aliases": [
+        "Strait of Hormuz"
+      ],
+      "expansion": null,
+      "definition": "The narrow sea passage between Iran and the Arabian Peninsula through which roughly a fifth of the world's oil is shipped.",
+      "category": "geography"
+    },
+    {
+      "term": "blockade",
+      "aliases": [
+        "blockade"
+      ],
+      "expansion": null,
+      "definition": "Using military force to seal off a country's ports or sea lanes to stop ships and goods from getting in or out.",
+      "category": "concept"
+    },
+    {
+      "term": "kinetic",
+      "aliases": [
+        "kinetic"
+      ],
+      "expansion": null,
+      "definition": "Military jargon for physical force — actual strikes, missiles, and combat — as opposed to economic, cyber, or diplomatic pressure.",
+      "category": "concept"
+    },
+    {
+      "term": "deep-strike",
+      "aliases": [
+        "deep-strike"
+      ],
+      "expansion": null,
+      "definition": "A long-range attack hitting targets far behind the front line, such as refineries or airfields deep inside enemy territory.",
+      "category": "concept"
+    },
+    {
+      "term": "OSINT",
+      "aliases": [
+        "OSINT"
+      ],
+      "expansion": "Open-Source Intelligence",
+      "definition": "Analysis built from publicly available information such as satellite images, flight trackers, and verified social-media footage.",
+      "category": "method"
+    },
+    {
+      "term": "Brent",
+      "aliases": [
+        "Brent"
+      ],
+      "expansion": null,
+      "definition": "Brent crude — the main international benchmark price for a barrel of oil, and a key gauge of global energy costs.",
+      "category": "finance"
+    },
+    {
+      "term": "P5",
+      "aliases": [
+        "P5"
+      ],
+      "expansion": null,
+      "definition": "The five permanent members of the UN Security Council — the US, Russia, China, the UK, and France — each a nuclear power with a veto.",
+      "category": "concept"
+    },
+    {
+      "term": "tri-actor firebreak",
+      "aliases": [
+        "tri-actor firebreak"
+      ],
+      "expansion": null,
+      "definition": "A situation where three parties' competing interests act as a brake on escalation, each restraining the others from tipping a confrontation into wider war.",
+      "category": "concept"
+    },
+    {
+      "term": "tier-1",
+      "aliases": [
+        "tier-1"
+      ],
+      "expansion": null,
+      "definition": "This dashboard's top reliability rating for a source — major international news wires such as Reuters, AP, and Bloomberg.",
+      "category": "method"
+    },
+    {
+      "term": "tier-2",
+      "aliases": [
+        "tier-2"
+      ],
+      "expansion": null,
+      "definition": "A mid-reliability source — credible, but warranting corroboration before a claim is treated as confirmed.",
+      "category": "method"
+    },
+    {
+      "term": "tier-3",
+      "aliases": [
+        "tier-3"
+      ],
+      "expansion": null,
+      "definition": "A low-reliability or state-controlled source (e.g. state media); used only for 'who said what', not to confirm facts on its own.",
+      "category": "method"
+    },
+    {
+      "term": "category-(t) pollution",
+      "aliases": [
+        "category-(t)",
+        "category t pollution"
+      ],
+      "expansion": "",
+      "definition": "A candidate type of search-engine pollution where a research source claims a major Western wire (such as Reuters or Bloomberg) as the publisher, but the URL does not verify on direct fetch and the article does not appear in the outlet's own site search. The dashboard treats such attributions as Unverified pending operator URL verification.",
+      "category": "verification"
+    },
+    {
+      "term": "Islamabad MOU",
+      "aliases": [
+        "Islamabad MOU",
+        "Islamabad Memorandum of Understanding",
+        "VERSAILLES MOU",
+        "JUNE MOU",
+        "THE MOU"
+      ],
+      "expansion": "Islamabad Memorandum of Understanding (US-Iran interim framework)",
+      "definition": "The Pakistan- and Qatar-mediated interim US-Iran memorandum signed electronically June 17: a 14-article framework that halts military operations, extends the ceasefire 60 days, commits Iran to keep the Strait of Hormuz open with US naval-blockade removal within 30 days, and defers a final settlement on Iran's nuclear program, sanctions relief and reconstruction to a 60-day negotiation.",
+      "category": "diplomacy"
+    },
+    {
+      "term": "Mojtaba Khamenei",
+      "aliases": [
+        "Mojtaba Khamenei",
+        "Mojtaba"
+      ],
+      "expansion": "Mojtaba Khamenei (Supreme Leader of Iran since March 8, 2026)",
+      "definition": "Son of Ali Khamenei and, since March 8, 2026, the Supreme Leader of Iran. He was appointed by the Assembly of Experts after his father was killed in the February-28 opening US-Israeli strike, was himself wounded, and has deep ties to the IRGC. His first statement (March 12) vowed to keep the Strait of Hormuz closed.",
+      "category": "actor"
+    },
+    {
+      "term": "GL X",
+      "aliases": [
+        "GL X",
+        "General License X"
+      ],
+      "expansion": "OFAC General License X",
+      "definition": "OFAC General License X, issued 2026-06-22, authorizing Iran oil, petrochemical and petroleum sales for 60 days through 2026-08-21 with US dollar settlement explicitly permitted — the first US authorization for Iran USD oil revenue in roughly twenty years.",
+      "category": "sanctions"
+    },
+    {
+      "term": "SLBM",
+      "aliases": [
+        "SLBM",
+        "submarine-launched ballistic missile"
+      ],
+      "expansion": "Submarine-Launched Ballistic Missile",
+      "definition": "A ballistic missile fired from a submarine — the sea leg of a nuclear triad. A test over open ocean is a strategic-force signal that a state can launch a survivable second strike from underwater.",
+      "category": "military"
+    },
+    {
+      "term": "UKMTO",
+      "aliases": [
+        "UKMTO"
+      ],
+      "expansion": "United Kingdom Maritime Trade Operations",
+      "definition": "The Royal Navy's maritime-security reporting authority for the Gulf and Red Sea region — commercial ships report attacks and suspicious activity to it, making its advisories a primary record of maritime incidents.",
+      "category": "institution"
+    },
+    {
+      "term": "snap-back",
+      "aliases": [
+        "SNAP-BACK",
+        "SNAPBACK"
+      ],
+      "expansion": "",
+      "definition": "The automatic return of sanctions that had been suspended, once a waiver or licence expires. No new decision is needed — the old rules simply come back into force on the expiry date.",
+      "category": "sanctions"
+    },
+    {
+      "term": "off-ramp",
+      "aliases": [
+        "OFF-RAMP"
+      ],
+      "expansion": "",
+      "definition": "A way out of a confrontation that lets a side stop fighting without appearing to back down. \"Off-ramp language\" means public signals that a leader is looking for one.",
+      "category": "diplomacy"
+    },
+    {
+      "term": "secondary sanctions",
+      "aliases": [
+        "SECONDARY SANCTIONS",
+        "SECONDARY TARIFF",
+        "SECONDARY TARIFFS"
+      ],
+      "expansion": "",
+      "definition": "Penalties aimed not at the target country but at foreign companies, banks or states that keep doing business with it — used to pressure third parties such as China or India into compliance.",
+      "category": "sanctions"
+    },
+    {
+      "term": "war-risk insurance",
+      "aliases": [
+        "WAR-RISK INSURANCE",
+        "WAR RISK INSURANCE"
+      ],
+      "expansion": "",
+      "definition": "Extra insurance a shipowner buys to sail through a conflict zone. It is quoted as a percentage of the ship’s insured value, so a rise from 0.3% to 1% roughly triples the cost of the voyage.",
+      "category": "shipping"
+    },
+    {
+      "term": "hull value",
+      "aliases": [
+        "HULL VALUE"
+      ],
+      "expansion": "",
+      "definition": "The insured value of a ship itself, separate from its cargo. War-risk premiums are quoted as a percentage of it.",
+      "category": "shipping"
+    },
+    {
+      "term": "settlement price",
+      "aliases": [
+        "SETTLE",
+        "SETTLEMENT PRICE",
+        "FRONT-MONTH SETTLE"
+      ],
+      "expansion": "",
+      "definition": "The official closing price of an oil contract for the day — the number markets treat as \"the\" price. It differs from an intraday high, which is only the peak touched during trading.",
+      "category": "markets"
+    },
+    {
+      "term": "LAF",
+      "aliases": [
+        "LAF"
+      ],
+      "expansion": "Lebanese Armed Forces",
+      "definition": "Lebanon’s national army — distinct from Hezbollah, the armed political movement. The two are separate forces with separate command.",
+      "category": "military"
+    },
+    {
+      "term": "MND",
+      "aliases": [
+        "MND"
+      ],
+      "expansion": "Ministry of National Defense (Taiwan)",
+      "definition": "Taiwan’s defence ministry, which publishes a daily count of Chinese military aircraft and ships operating near the island.",
+      "category": "military"
+    },
+    {
+      "term": "GCC",
+      "aliases": [
+        "GCC"
+      ],
+      "expansion": "Gulf Cooperation Council",
+      "definition": "A bloc of six Gulf states — Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain and Oman — that often issues joint statements on regional security.",
+      "category": "alliance"
+    },
+    {
+      "term": "ACLED",
+      "aliases": [
+        "ACLED"
+      ],
+      "expansion": "Armed Conflict Location & Event Data Project",
+      "definition": "An independent research group that records conflict events and casualties worldwide. This dashboard uses its published method for splitting casualty totals between combatants and civilians.",
+      "category": "reference"
+    },
+    {
+      "term": "AOAV",
+      "aliases": [
+        "AOAV"
+      ],
+      "expansion": "Action on Armed Violence",
+      "definition": "An independent research group that tracks casualties from explosive weapons. Used here alongside ACLED for casualty methodology.",
+      "category": "reference"
+    },
+    {
+      "term": "Operation Epic Fury",
+      "aliases": [
+        "OPERATION EPIC FURY",
+        "EPIC FURY"
+      ],
+      "expansion": "",
+      "definition": "The name this dashboard uses for the 2026 US-Israel-Iran war, which began on 28 February 2026. It is a tracking label for the conflict as a whole, not an official military operation name.",
+      "category": "reference"
+    },
+    {
+      "term": "Brier score",
+      "aliases": [
+        "BRIER",
+        "BRIER SCORE",
+        "BRIER-CALIBRATED"
+      ],
+      "expansion": "",
+      "definition": "A way of scoring how accurate someone’s past probability predictions turned out to be. Used internally to check this dashboard’s forecasting record.",
+      "category": "reference"
+    },
+    {
+      "term": "Cloture",
+      "aliases": [
+        "CLOTURE"
+      ],
+      "expansion": null,
+      "definition": "A US Senate procedure that ends debate on a bill and forces a vote; invoking it is the usual signal that a floor vote is imminent.",
+      "category": "process"
+    },
+    {
+      "term": "SUMED pipeline",
+      "aliases": [
+        "SUMED"
+      ],
+      "expansion": "Suez-Mediterranean Pipeline",
+      "definition": "An Egyptian pipeline running from the Red Sea to the Mediterranean that lets crude bypass the Suez Canal transit — the main overland detour when Red Sea shipping becomes too dangerous or expensive.",
+      "category": "infrastructure"
+    },
+    {
+      "term": "Programmable logic controller",
+      "aliases": [
+        "PLC",
+        "PROGRAMMABLE LOGIC CONTROLLER"
+      ],
+      "expansion": "PLC",
+      "definition": "A small industrial computer that physically operates equipment — pumps, valves, chlorine dosing — at facilities like water treatment plants. Because it controls machinery directly rather than just storing data, an attacker who reaches one can affect physical operations, not merely steal information.",
+      "category": "cyber"
+    },
+    {
+      "term": "Kh-101",
+      "aliases": [
+        "Kh-101",
+        "Kh-101 cruise missile"
+      ],
+      "expansion": "Russian air-launched cruise missile",
+      "definition": "A Russian long-range cruise missile launched from bomber aircraft, used heavily against Ukrainian targets. Its identification matters because a missile type can be traced to the country that fired it.",
+      "category": "military"
+    },
+    {
+      "term": "Article 4",
+      "aliases": [
+        "Article 4",
+        "Article Four"
+      ],
+      "expansion": "NATO treaty consultation clause",
+      "definition": "The clause of the NATO treaty any member can invoke to demand formal consultations when it believes its security is threatened. It is a step below Article 5, the mutual-defence clause — invoking it signals alarm without committing anyone to act.",
+      "category": "alliance"
+    },
+    {
+      "term": "Dark fleet",
+      "aliases": [
+        "dark fleet",
+        "AIS-dark",
+        "going dark",
+        "transponders off"
+      ],
+      "expansion": "Ships sailing with transponders switched off",
+      "definition": "Vessels that turn off the automatic transponders which broadcast their identity and position. Ships do it to evade sanctions or to avoid being targeted. It matters for measurement: any traffic count built from transponder data cannot see these ships, so a strait can look empty while vessels are still moving through it.",
+      "category": "shipping"
+    },
+    {
+      "term": "median line",
+      "aliases": [
+        "median line",
+        "median-line",
+        "Taiwan Strait median line",
+        "median-line crossings"
+      ],
+      "expansion": null,
+      "definition": "An unofficial dividing line down the middle of the Taiwan Strait, observed for decades as a tacit boundary between Chinese and Taiwanese military aircraft. Crossings are read as deliberate pressure rather than routine activity, which is why daily counts of them are tracked.",
+      "category": "military"
+    },
+    {
+      "term": "ATACMS",
+      "aliases": [
+        "ATACMS",
+        "Army Tactical Missile System"
+      ],
+      "expansion": "Army Tactical Missile System",
+      "definition": "A US long-range guided missile fired from a ground launcher, used to hit targets several hundred kilometres away. It matters here because reporting says almost the entire American stock was used during the Iran war, which would limit how quickly the United States could resume deep strikes.",
+      "category": "weapon"
+    },
+    {
+      "term": "Precision Strike Missile",
+      "aliases": [
+        "Precision Strike Missile",
+        "PrSM",
+        "PSM"
+      ],
+      "expansion": "The successor to ATACMS",
+      "definition": "The newer US long-range ground-launched missile built to replace ATACMS, with greater range. Reporting on stockpile depletion covers both weapons together, which is why the two names usually appear side by side.",
+      "category": "weapon"
+    },
+    {
+      "term": "Glide bomb",
+      "aliases": [
+        "glide bomb",
+        "glide bombs",
+        "guided aerial bomb"
+      ],
+      "expansion": "An ordinary bomb fitted with wings and guidance",
+      "definition": "A conventional bomb given pop-out wings and a guidance kit so it can be released far from its target and glide in. It is cheap, hard to intercept and launched from aircraft that never enter defended airspace, which is why the monthly count dropped on Ukraine is tracked as a measure of Russian air pressure.",
+      "category": "weapon"
+    },
+    {
+      "term": "Han Kuang",
+      "aliases": [
+        "Han Kuang",
+        "Han Kuang exercise",
+        "Han Kuang exercises"
+      ],
+      "expansion": "Taiwan's annual military exercise",
+      "definition": "Taiwan's largest annual military exercise, running each summer and rehearsing how the island would fight if invaded — including drills against attempts to kill its leadership. Chinese air and naval activity around Taiwan has historically risen while it takes place, which is why a spike during Han Kuang means less than the same spike would at another time of year.",
+      "category": "military"
+    },
+    {
+      "term": "THAAD",
+      "aliases": [
+        "THAAD",
+        "Terminal High Altitude Area Defense"
+      ],
+      "expansion": "Terminal High Altitude Area Defense",
+      "definition": "A US missile-defence system that shoots down incoming ballistic missiles high in their flight. It matters here because reporting says a large share of the American stock of THAAD interceptors has been used during the Iran war, and interceptors take a long time to replace.",
+      "category": "weapon"
+    },
+    {
+      "term": "Patriot",
+      "aliases": [
+        "Patriot",
+        "Patriot missile",
+        "PAC-3"
+      ],
+      "expansion": "Patriot air and missile defence system",
+      "definition": "The main US air-defence system used to shoot down aircraft, cruise missiles and shorter-range ballistic missiles. Both the Iran war and Ukraine draw on the same limited pool of Patriot interceptors, which is why shortages in one theatre affect the other.",
+      "category": "weapon"
+    },
+    {
+      "term": "KN-23",
+      "aliases": [
+        "KN-23",
+        "KN-24"
+      ],
+      "expansion": "North Korean short-range ballistic missile",
+      "definition": "A North Korean short-range ballistic missile, broadly comparable to Russia's Iskander. Ukraine says these have been fired at it from Russian territory, which would give Pyongyang combat data on a weapon it has otherwise only tested.",
+      "category": "weapon"
+    },
+    {
+      "term": "SDN list",
+      "aliases": [
+        "SDN LIST",
+        "SDN"
+      ],
+      "expansion": "Specially Designated Nationals list",
+      "definition": "The US Treasury's register of people, companies, vessels and aircraft blocked from the American financial system. Being removed from it, as the Iraqi carrier Fly Baghdad was on 6 August 2026, lifts those restrictions.",
+      "category": "sanctions"
+    },
+    {
+      "term": "Polysilicon",
+      "aliases": [
+        "POLYSILICON"
+      ],
+      "expansion": null,
+      "definition": "Highly purified silicon, the base material for both solar cells and the wafers semiconductors are built on. China dominates global production, which is why a tariff on it is a strategic trade measure rather than an ordinary one.",
+      "category": "economy"
+    },
+    {
+      "term": "Supreme National Security Council",
+      "definition": "Iran's top security body, which coordinates defence and foreign-policy decisions and whose approval is required for major national-security commitments. Chaired by the president, with the Supreme Leader's representatives sitting on it."
+    },
+    {
+      "term": "Final passage",
+      "definition": "The vote by which a legislative chamber approves a bill and sends it onward. Distinct from cloture (ending debate) and a motion to proceed (agreeing to take the bill up) — both of which can pass without the bill itself ever being approved."
+    },
+    {
+      "term": "Mutual-defence clause",
+      "definition": "Treaty language under which an armed attack on one signatory is treated as an attack on all, obliging a collective response. NATO’s Article 5 is the best-known example; the Mecca agreement of August 2026 uses the same formula."
+    },
+    {
+      "term": "Iskander-M",
+      "definition": "A Russian short-range ballistic missile system with a range of roughly 500 km, used against Ukrainian cities. Its speed and flight profile make it substantially harder to intercept than a cruise missile or a drone."
+    },
+    {
+      "term": "ADNOC",
+      "definition": "The Abu Dhabi National Oil Company, the United Arab Emirates' state-owned oil and gas producer."
+    },
+    {
+      "term": "Shadow fleet",
+      "definition": "Ageing, opaquely-owned tankers used to move sanctioned crude outside mainstream insurance, flag and inspection regimes."
+    },
+    {
+      "term": "Anadolu Agency",
+      "definition": "Turkey's state-run news agency. Statements by Turkish officials are frequently issued through it rather than through ministry websites, which makes it the primary check for a claimed Turkish official quote."
+    },
+    {
+      "term": "Taneco",
+      "definition": "A large oil-refining and petrochemical complex at Nizhnekamsk in Russia's Republic of Tatarstan, more than 1,200 kilometres from the Ukrainian border."
+    },
+    {
+      "term": "Force majeure",
+      "definition": "A clause in a commercial contract releasing a party from its delivery obligations because of events outside its control — war damage, disaster, blockade. When an oil producer declares force majeure it is formally telling buyers it cannot supply what it promised, which is why the declaration itself moves markets."
+    },
+    {
+      "term": "Kuril Islands",
+      "aliases": [
+        "Kurils",
+        "Northern Territories"
+      ],
+      "expansion": "",
+      "definition": "A chain north of Japan seized by Soviet forces in the closing days of the Second World War. Japan claims the four southernmost islands, which it calls the Northern Territories, and the unresolved dispute is why Russia and Japan have never signed a peace treaty formally ending that war.",
+      "category": "geography"
+    },
+    {
+      "term": "Ulchi Freedom Shield",
+      "aliases": [
+        "UFS"
+      ],
+      "expansion": null,
+      "definition": "The largest annual joint military exercise between the United States and South Korea, combining computer-simulated command drills with field training. North Korea routinely denounces it as rehearsal for an invasion.",
+      "category": "military"
+    },
+    {
+      "term": "Ust-Luga",
+      "aliases": [],
+      "expansion": null,
+      "definition": "Russia's largest Baltic Sea port complex, near St Petersburg, handling crude oil, refined products and LNG for export. It has become a recurring target of Ukrainian long-range drone strikes.",
+      "category": "geography"
+    },
+    {
+      "term": "Transshipment",
+      "aliases": [
+        "transshipping"
+      ],
+      "expansion": null,
+      "definition": "Routing goods through an intermediate country so they arrive labelled with that country's origin. It is the mechanism the United States alleges more than forty countries use to help Chinese exports avoid US tariffs.",
+      "category": "economics"
+    },
+    {
+      "term": "Sheskharis",
+      "aliases": [
+        "Sheskharis terminal"
+      ],
+      "expansion": "Sheskharis oil export terminal, Novorossiysk",
+      "definition": "The main crude oil export terminal at the Russian Black Sea port of Novorossiysk, and one of the largest loading points for Russian and Kazakh crude.",
+      "category": "energy"
+    },
+    {
+      "term": "Erbil",
+      "aliases": [
+        "Irbil"
+      ],
+      "expansion": "Capital of the Kurdistan Region of Iraq",
+      "definition": "The capital of Iraq's autonomous Kurdistan Region, and host to US-led coalition forces — which has made it a recurring target for Iran-aligned Iraqi armed groups.",
+      "category": "geography"
+    },
+    {
+      "term": "Savasleyka",
+      "aliases": [
+        "Savasleyka airbase"
+      ],
+      "expansion": "Russian military airbase, Nizhny Novgorod Oblast",
+      "definition": "A Russian air base that hosts MiG-31 interceptors, the aircraft used to launch air-launched ballistic missiles at Ukraine.",
+      "category": "military"
+    },
+    {
+      "term": "Ali Taher Ridge",
+      "aliases": [
+        "Ali Taher",
+        "Ali al-Taher Ridge"
+      ],
+      "expansion": "",
+      "definition": "A ridge in the Nabatieh district of southern Lebanon, overlooking the approaches to the Litani river. Israel names it as the origin of the 15 August 2026 drone attack that wounded three of its soldiers.",
+      "category": "geography"
+    },
+    {
+      "term": "Novorossiysk",
+      "aliases": [
+        "Novorossiisk"
+      ],
+      "expansion": "",
+      "definition": "Russia's largest Black Sea port, and the anchorage the Black Sea Fleet relocated to for safety after Ukrainian strikes on Sevastopol. Site of the Sheskharis crude export terminal.",
+      "category": "geography"
+    },
+    {
+      "term": "Air policing",
+      "aliases": [
+        "NATO air policing",
+        "Baltic Air Policing"
+      ],
+      "expansion": "",
+      "definition": "NATO's standing peacetime mission in which member states rotate fighter aircraft to patrol allied airspace. It is the mechanism by which one member's jets intercept objects over another member's territory.",
+      "category": "military"
+    },
+    {
+      "term": "Wildberries",
+      "aliases": [],
+      "expansion": "",
+      "definition": "Russia's largest online marketplace and a major logistics operator. Struck by Ukrainian drones and, separately, by a Ukrainian cyberattack on its payment systems within the same window in August 2026.",
+      "category": "economy"
+    },
+    {
+      "term": "Belgorod",
+      "aliases": [
+        "BELGOROD",
+        "BELGOROD REGION",
+        "BELGOROD OBLAST"
+      ],
+      "expansion": "Belgorod region, Russia",
+      "definition": "A Russian region on the Ukrainian border, about 40 km from Kharkiv. Its proximity makes it the Russian territory most often hit by Ukrainian strikes, and its regional authorities are usually the first — and often only — source for casualty figures there.",
+      "category": "place"
+    },
+    {
+      "term": "Banderol",
+      "definition": "A Russian short-range cruise missile carried by drone launch platforms, first widely reported in 2025. Ukraine says one entered Moldovan airspace on 17 August 2026.",
+      "aliases": [
+        "CRINK"
+      ],
+      "expansion": "",
+      "category": ""
+    },
+    {
+      "term": "Abu al-Duhur",
+      "aliases": [
+        "Abu Duhur",
+        "Abu al-Duhur airbase"
+      ],
+      "expansion": null,
+      "definition": "A military airbase in Syria's Idlib province, struck by Israel on 18 August 2026 in an operation Israel said pre-empted a Turkish deployment there.",
+      "category": "place"
+    },
+    {
+      "term": "Joint Chiefs of Staff (ROK)",
+      "aliases": [
+        "ROK JCS",
+        "South Korea's Joint Chiefs of Staff"
+      ],
+      "expansion": "Republic of Korea Joint Chiefs of Staff",
+      "definition": "South Korea's senior military command, which announced on 19 August 2026 that the Ulchi Freedom Shield exercise had been shortened by six days at Washington's request.",
+      "category": "institution"
+    },
+    {
+      "term": "Zaporizhzhia Nuclear Power Plant",
+      "aliases": [
+        "Zaporizhzhia",
+        "ZNPP"
+      ],
+      "expansion": null,
+      "definition": "Europe's largest nuclear plant, in Russian-held southern Ukraine and monitored by the IAEA. A drone explosion at a bus stop used by its workers killed one person and injured fifteen on 18 August 2026.",
+      "category": "place"
+    },
+    {
+      "term": "E1",
+      "aliases": [
+        "E1",
+        "E1 plan",
+        "E1 settlement project"
+      ],
+      "expansion": "East 1",
+      "definition": "A long-planned Israeli settlement development east of Jerusalem in the occupied West Bank. Building it would connect Jerusalem to the Maale Adumim settlement and split the northern West Bank from the southern, which is why opponents argue it would make a contiguous Palestinian state impossible.",
+      "category": "conflict"
+    },
+    {
+      "term": "red notice",
+      "aliases": [
+        "red notice",
+        "Interpol red notice",
+        "Interpol notice"
+      ],
+      "expansion": null,
+      "definition": "A request circulated by Interpol asking member countries to locate and provisionally arrest someone pending extradition. It is a request, not an international arrest warrant, and Interpol's own rules bar it from acting on matters of a political character — so a state announcing it has sought one is not the same as Interpol having issued one.",
+      "category": "legal"
+    },
+    {
+      "term": "Ozon",
+      "definition": "A large Russian online retailer and logistics operator, the second named non-energy company struck in Ukraine's deep-strike campaign after Wildberries."
+    },
+    {
+      "term": "Kordofan",
+      "definition": "A region of central Sudan and a main front of the war between the Sudanese army and the Rapid Support Forces."
+    },
+    {
+      "term": "Temporary suspension proclamation",
+      "definition": "A presidential document that pauses tariffs already imposed by an earlier proclamation, rather than creating new ones."
+    },
+    {
+      "term": "Section 338",
+      "aliases": [
+        "Section 338",
+        "SECTION 338"
+      ],
+      "expansion": "Section 338 of the Tariff Act of 1930",
+      "definition": "A rarely used provision of the Tariff Act of 1930 letting the President impose additional duties, up to fifty percent, on goods from a country found to discriminate against United States commerce. It is the authority named in the August 2026 proclamations on Canadian goods.",
+      "category": "legal"
+    },
+    {
+      "term": "sectoral determination",
+      "aliases": [
+        "sectoral determination",
+        "sectoral determinations"
+      ],
+      "expansion": null,
+      "definition": "A decision by the US Treasury that an entire sector of a country's economy — not just a named company — is subject to sanctions. Anyone operating in that sector becomes designatable.",
+      "category": "sanctions"
+    },
+    {
+      "term": "general licence",
+      "definition": "A standing OFAC authorisation permitting a class of otherwise-prohibited transactions. Suspending one re-imposes the prohibition without naming anybody."
+    },
+    {
+      "term": "123 Agreement",
+      "definition": "A US civil nuclear cooperation agreement, named for section 123 of the Atomic Energy Act. It sets the terms on which American reactor technology may be exported, and takes effect after a congressional review period unless Congress objects."
+    },
+    {
+      "term": "blocked account",
+      "aliases": [
+        "blocked account",
+        "blocked accounts"
+      ],
+      "expansion": null,
+      "definition": "A frozen, interest-bearing US account into which payments owed to a sanctioned person must be paid. The money is not confiscated, but the recipient cannot reach it while the sanction stands.",
+      "category": "sanctions"
+    },
+    {
+      "term": "Kpler",
+      "aliases": [
+        "Kpler"
+      ],
+      "expansion": null,
+      "definition": "A commercial data firm that tracks ships and commodity cargoes, largely by reading vessels' automatic transponder signals. Its figures are widely cited for chokepoint traffic, but they can only count ships that are broadcasting.",
+      "category": "shipping"
+    },
+    {
+      "term": "AIS",
+      "aliases": [
+        "AIS",
+        "transponder",
+        "automatic identification system"
+      ],
+      "expansion": "Automatic Identification System",
+      "definition": "The transponder system ships use to broadcast their identity and position. Vessels can switch it off - 'going dark' - which means transponder-derived traffic counts are a floor, not a total, wherever crews have reason to hide.",
+      "category": "shipping"
+    },
+    {
+      "term": "Board of Peace",
+      "aliases": [
+        "BOARD OF PEACE"
+      ],
+      "expansion": "",
+      "definition": "The international body convened around Gaza's ceasefire and reconstruction. It is not a United States government agency; its high representative speaks for the body, not for Washington.",
+      "category": "alliance"
+    },
+    {
+      "term": "correspondent banking",
+      "aliases": [
+        "CORRESPONDENT BANKING",
+        "CORRESPONDENT ACCOUNT"
+      ],
+      "expansion": "",
+      "definition": "An arrangement in which one bank holds an account for another, letting a foreign bank move dollars and settle international payments. Cutting it off effectively removes a bank from the dollar system without freezing its assets.",
+      "category": "sanctions"
+    },
+    {
+      "term": "Geran-4",
+      "definition": "A jet-powered version of the Russian Geran long-range strike drone, itself derived from the Iranian Shahed design. Faster than the propeller-driven models and correspondingly harder to intercept.",
+      "aliases": [
+        "CRINK"
+      ],
+      "expansion": "",
+      "category": ""
+    },
+    {
+      "term": "Transit passage",
+      "definition": "The right of ships and aircraft to pass continuously and expeditiously through a strait used for international navigation. Under the law of the sea a coastal state may not suspend or impede it.",
+      "aliases": [
+        "CRINK"
+      ],
+      "expansion": "",
+      "category": ""
+    },
+    {
+      "term": "Larak Island",
+      "aliases": [
+        "Larak",
+        "Larak Island"
+      ],
+      "expansion": null,
+      "definition": "A small Iranian island inside the Strait of Hormuz, near the shipping lanes at the Strait's narrowest point. Its position makes it a site for missile and rocket batteries covering the waterway, which is why it is struck when the aim is to reduce Iran's ability to close the Strait rather than to strike the Iranian state at large.",
+      "category": "geography"
+    },
+    {
+      "term": "Africa Corps",
+      "aliases": [
+        "Africa Corps",
+        "Afrika Korps"
+      ],
+      "expansion": null,
+      "definition": "The Russian defence ministry's successor to the Wagner Group in Africa, formed after Wagner's 2023 mutiny and brought under direct state control. It operates in Mali, Burkina Faso, Niger and elsewhere in the Sahel, providing security services to governments in exchange for access and influence.",
+      "category": "actor"
+    },
+    {
+      "term": "Bishkek Declaration",
+      "aliases": [
+        "Bishkek Declaration",
+        "Bishkek declaration"
+      ],
+      "expansion": null,
+      "definition": "The joint declaration signed by Shanghai Cooperation Organisation leaders at their September 2026 summit in Bishkek, Kyrgyzstan. It was accompanied by a separate organisation statement condemning military strikes on Iran and the use of unilateral coercive measures. The document itself has not been retrieved at an official page by this dashboard.",
+      "category": "document"
+    },
+    {
+      "term": "Goethe-Institut",
+      "aliases": [
+        "Goethe Institut",
+        "Goethe-Institute"
+      ],
+      "expansion": "Germany's state-funded cultural institute",
+      "definition": "Germany's state-funded cultural institute, which runs language teaching and cultural programmes abroad. Russia closing its centres is a diplomatic reprisal against the German state, not a security measure.",
+      "category": "alliance"
+    },
+    {
+      "term": "IMO",
+      "definition": "The International Maritime Organization, the United Nations agency responsible for the safety and security of shipping. Its statements are one of the few institutional sources for attacks on merchant vessels."
+    },
+    {
+      "term": "Knesset",
+      "definition": "Israel's parliament. Its 120 members are elected by nationwide proportional representation, and the government must hold its confidence."
+    },
+    {
+      "term": "Bab el-Mandeb",
+      "definition": "The strait between Yemen and Djibouti linking the Red Sea to the Gulf of Aden. With the Suez Canal it forms the shortest sea route between Europe and Asia."
+    },
+    {
+      "term": "prohibited zone",
+      "aliases": [
+        "PROHIBITED ZONE",
+        "restricted zone"
+      ],
+      "expansion": "",
+      "definition": "A stretch of sea a state declares off-limits to shipping, with penalties for vessels that enter. Unlike a threat against a named ship, it changes insurance and routing decisions for everyone — but only once its coordinates are published, since a zone that cannot be plotted cannot be avoided.",
+      "category": "maritime"
+    },
+    {
+      "term": "AfD",
+      "aliases": [
+        "AFD",
+        "Alternative für Deutschland",
+        "Alternative for Germany"
+      ],
+      "expansion": "Alternative für Deutschland",
+      "definition": "A German far-right party. Every other party in the Bundestag has refused to enter government with it — an arrangement usually called the firewall. It campaigns to end German military aid to Ukraine and for closer relations with Russia, which is why German election results are an alliance-cohesion question.",
+      "category": "alliance"
+    },
+    {
+      "term": "BSW",
+      "aliases": [
+        "BSW",
+        "Bündnis Sahra Wagenknecht"
+      ],
+      "expansion": "Bündnis Sahra Wagenknecht",
+      "definition": "A German left-populist party that split from the Left party in 2024. It is economically left-wing and sceptical of NATO and of arms deliveries to Ukraine, which makes it the one party that has not ruled out cooperating with the AfD.",
+      "category": "alliance"
+    },
+    {
+      "term": "continuity of knowledge",
+      "aliases": [
+        "continuity of knowledge",
+        "CoK"
+      ],
+      "expansion": null,
+      "definition": "An IAEA term for the agency's ability to say, from its own unbroken observation, that declared nuclear material has not moved or changed. Losing it does not mean inspectors believe material has been diverted — it means they can no longer rule it out from their own records.",
+      "category": "nuclear"
+    },
+    {
+      "term": "Pickaxe Mountain",
+      "aliases": [
+        "Pickaxe",
+        "Kuh-e Kolang Gaz La"
+      ],
+      "expansion": "",
+      "definition": "An informal name for Kuh-e Kolang Gaz La, a mountain beside Iran's Natanz nuclear site where satellite imagery has shown tunnelling for a deep underground facility. Activity there is watched because a site under that much rock is hard to strike.",
+      "category": "nuclear"
+    },
+    {
+      "term": "Yongbyon",
+      "aliases": [
+        "Yongbyon",
+        "Yongbyon Nuclear Scientific Research Center"
+      ],
+      "expansion": "",
+      "definition": "North Korea's main nuclear complex, north of Pyongyang, home to its original plutonium reactor and its known uranium enrichment halls. A new enrichment building there means more capacity to make weapons fuel.",
+      "category": "nuclear"
+    },
+    {
+      "term": "Dive-LD",
+      "aliases": [
+        "Dive-LD",
+        "Anduril Dive-LD"
+      ],
+      "expansion": "",
+      "definition": "An autonomous underwater vehicle made by the American defence firm Anduril, used for undersea survey and surveillance. Iran says it captured one near the Strait of Hormuz; the Pentagon says it had malfunctioned.",
+      "category": "maritime"
+    },
+    {
+      "term": "Khamis Mushait",
+      "aliases": [
+        "Khamis Mushait",
+        "King Khalid Air Base"
+      ],
+      "expansion": "City in south-west Saudi Arabia, home to King Khalid Air Base",
+      "definition": "A city in Saudi Arabia's Asir province, about 100 km from the Yemeni border, hosting King Khalid Air Base, one of the kingdom's main southern air bases. It is within range of Houthi missiles and drones fired from northern Yemen.",
+      "category": "military"
+    },
+    {
+      "term": "Space control weapons",
+      "aliases": [
+        "space control weapons",
+        "space control weapon"
+      ],
+      "expansion": "",
+      "definition": "Military systems meant to protect a country's own satellites or disrupt an adversary's in orbit, ranging from radio jamming to devices that disable or destroy satellites. The US Air Force secretary said in September 2026 that the United States has deployed them, without saying which kind.",
+      "category": "military"
+    },
+    {
+      "term": "War powers resolution",
+      "aliases": [
+        "war powers resolution",
+        "war powers resolutions"
+      ],
+      "expansion": "",
+      "definition": "A congressional vote directing the president to end US forces' involvement in hostilities that Congress has not authorised. The president can veto it, and Congress needs a two-thirds majority in both chambers to override.",
+      "category": "politics"
+    },
+    {
+      "term": "Joint combat readiness patrol",
+      "aliases": [
+        "joint combat readiness patrol",
+        "combat readiness patrol"
+      ],
+      "expansion": null,
+      "definition": "Beijing's name for coordinated Chinese air and naval patrols near Taiwan. Taiwan's defence ministry reports them and calls them harassment.",
+      "category": "military"
+    },
+    {
+      "term": "State Duma",
+      "aliases": [
+        "Duma",
+        "State Duma"
+      ],
+      "expansion": "Lower house of Russia's Federal Assembly",
+      "definition": "The elected lower house of Russia's parliament, with 450 seats. It passes federal law and ratifies wartime measures, and in practice has not functioned as a check on the executive since 2022.",
+      "category": "institutions"
+    },
+    {
+      "term": "Non-Proliferation Treaty",
+      "aliases": [
+        "NPT",
+        "Non-Proliferation Treaty",
+        "nuclear Non-Proliferation Treaty"
+      ],
+      "expansion": "Treaty on the Non-Proliferation of Nuclear Weapons",
+      "definition": "The 1970 treaty under which states without nuclear weapons agree not to acquire them and accept inspections by the UN nuclear watchdog. A member can withdraw by giving the Security Council three months' notice.",
+      "category": "nuclear"
+    },
+    {
+      "term": "Aspides",
+      "aliases": [
+        "Aspides",
+        "Operation Aspides",
+        "EUNAVFOR Aspides"
+      ],
+      "expansion": "EUNAVFOR Aspides",
+      "definition": "The European Union's naval operation protecting merchant ships in the Red Sea and Gulf of Aden; its warships sail under EU command rather than as national missions.",
+      "category": "military"
+    },
+    {
+      "term": "IEA",
+      "aliases": [
+        "IEA",
+        "International Energy Agency"
+      ],
+      "expansion": "International Energy Agency",
+      "definition": "The Paris-based agency of oil-importing countries that coordinates releases from members' emergency oil stocks during supply shocks.",
+      "category": "economic"
+    },
+    {
+      "term": "TPLF",
+      "aliases": [
+        "TPLF",
+        "Tigray People's Liberation Front"
+      ],
+      "expansion": "Tigray People's Liberation Front",
+      "definition": "The party that governed Ethiopia's northern Tigray region and fought the federal government in the 2020–2022 war; it withdrew from the regional capital Mekelle in October 2026.",
+      "category": "political"
+    },
+    {
+      "term": "Pryluky",
+      "aliases": [
+        "Pryluky"
+      ],
+      "expansion": "City in Ukraine's Chernihiv region",
+      "definition": "A city in northern Ukraine's Chernihiv region, about 150 km east of Kyiv. More than 20 people were killed there in Russia's missile strike of 7 October 2026.",
+      "category": "geography"
+    },
+    {
+      "term": "Abha",
+      "aliases": [
+        "Abha",
+        "Abha International Airport"
+      ],
+      "expansion": "Capital of Saudi Arabia's Asir province",
+      "definition": "A city in south-west Saudi Arabia, the capital of Asir province, about 200 km from the Yemeni border. Its international airport has been a repeated Houthi target; Houthi attacks on it and on Riyadh's airport killed three civilians in October 2026.",
+      "category": "geography"
+    },
+    {
+      "term": "PURL",
+      "aliases": [
+        "PURL"
+      ],
+      "expansion": "Prioritized Ukraine Requirements List",
+      "definition": "A NATO-run channel through which European allies pay for US weapons sent to Ukraine.",
+      "category": "alliance"
+    },
+    {
+      "term": "Mecca defence pact",
+      "aliases": [
+        "Mecca pact",
+        "Mecca Joint Defence Agreement",
+        "Mecca Alliance for Defence",
+        "Makkah agreement"
+      ],
+      "expansion": "Mecca Joint Defence Agreement (Saudi Arabia, Turkey, Pakistan)",
+      "definition": "A mutual-defence agreement signed in Mecca on 7 August 2026 by Saudi Arabia, Turkey and Pakistan. It was invoked for the first time on 5 October 2026 against Houthi attacks, with each country's contribution subject to its own laws.",
+      "category": "alliance"
+    },
+    {
+      "term": "IRBM",
+      "aliases": [
+        "IRBM",
+        "intermediate-range ballistic missile",
+        "intermediate-range missile"
+      ],
+      "expansion": "Intermediate-Range Ballistic Missile",
+      "definition": "A ballistic missile with a range of roughly 3,000–5,500 km — far enough from North Korea to reach Guam and US bases across Japan, but short of intercontinental range.",
+      "category": "military"
+    },
+    {
+      "term": "NMESIS",
+      "aliases": [
+        "NMESIS"
+      ],
+      "expansion": "Navy-Marine Expeditionary Ship Interdiction System",
+      "definition": "A US Marine Corps truck-mounted anti-ship missile launcher designed to be placed on islands in the first island chain to threaten hostile warships in nearby straits.",
+      "category": "military"
+    },
+    {
+      "term": "JMIC",
+      "aliases": [
+        "JMIC"
+      ],
+      "expansion": "Joint Maritime Information Center",
+      "definition": "A multinational naval centre in Bahrain that assesses and publishes maritime-security incidents around Hormuz, the Gulf and the Red Sea; with UKMTO, it is a primary record of attacks on ships.",
+      "category": "institution"
+    },
+    {
+      "term": "Kh-59",
+      "aliases": [
+        "Kh-59"
+      ],
+      "expansion": "Russian air-launched guided missile",
+      "definition": "A Russian guided missile fired from aircraft, used against Ukrainian targets alongside large drone waves.",
+      "category": "military"
+    },
+    {
+      "term": "Northwood Declaration",
+      "aliases": [
+        "Northwood Declaration"
+      ],
+      "expansion": "UK-France nuclear declaration, 2025",
+      "definition": "A 2025 agreement in which Britain and France pledged closer coordination of their independent nuclear forces, stating that no extreme threat to Europe would fail to prompt a response from both.",
+      "category": "nuclear"
+    },
+    {
+      "term": "limpet mine",
+      "aliases": [
+        "limpet mine"
+      ],
+      "expansion": "Limpet mine",
+      "definition": "An explosive charge attached to a ship's hull, usually by hand from a small boat or by a diver."
+    },
+    {
+      "term": "TraderTraitor",
+      "aliases": [
+        "TraderTraitor"
+      ],
+      "expansion": "TraderTraitor",
+      "definition": "The name the FBI uses for a North Korean state-linked hacking group that targets cryptocurrency firms."
+    },
+    {
+      "term": "JUMPSTART",
+      "aliases": [
+        "JUMPSTART"
+      ],
+      "expansion": "JUMPSTART",
+      "definition": "A US-led fast-track procurement framework that lets allies finance American-made weapons for a partner."
+    }
+  ]
+}

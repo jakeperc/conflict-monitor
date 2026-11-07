@@ -1,0 +1,185 @@
+{
+  "_note": "Allied political calendar and leadership register. Added 2026-09-02 (operator-approved) after two failures of the same class: the UK changed prime minister on 2026-07-20 and the board carried no UK entry for six days, and Hungary changed government on 2026-05-09 and the board still carried nothing four months later. A 24-hour news sweep structurally cannot see a fact whose news cycle already closed — only a standing calendar can. Maintained by the daily planner; see 2-plan.md prep step 5b.",
+  "as_of": "2026-11-01",
+  "maintenance": {
+    "cadence": "Review every run. Re-verify any leader whose last_verified is more than 45 days old; that check is the whole point of this file.",
+    "sourcing": "Elections: an official electoral commission or a directory outlet. Leaders: a government primary (kormany.hu, elysee.fr, gov.uk) or two directory outlets. Wikipedia may locate a URL but is never the citation."
+  },
+  "elections": [
+    {
+      "country": "Sweden",
+      "date": "2026-09-13",
+      "type": "parliamentary",
+      "stakes": "NATO membership has broad cross-party consensus; the live question is the defence-spending trajectory, not alliance reversal.",
+      "verified": true,
+      "source": "riksdagen.se / val.se (date); France 24 2026-09-14 (result, read in full)",
+      "status": "HELD 13 Sep — centre-left opposition 176 seats. Kristersson resigned 17 Sep. The new Riksdag convened 28 Sep; a prime-ministerial vote was reported as possible from 29 Sep (research return citing riksdagen.se — not read directly).",
+      "last_verified": "2026-09-28"
+    },
+    {
+      "country": "Czechia",
+      "date": "2026-10",
+      "type": "senate-third + municipal",
+      "stakes": "Not a government election, but flagged by analysts as the first durability test of the sitting coalition.",
+      "verified": false,
+      "source": "Candidate date 9 October 2026 from a research return citing volby.gov.cz, whose fetch redirected — NOT verified; needs a resolving electoral-commission page"
+    },
+    {
+      "country": "United States",
+      "date": "2026-11-03",
+      "type": "midterms (House + one-third Senate)",
+      "stakes": "Direct control of Ukraine-aid appropriations and NATO-adjacent funding. The single highest-consequence vote in this window.",
+      "verified": true,
+      "source": "statutory federal election date",
+      "note": "HELD 3 Nov. Democrats won control of both chambers; at least 54 Senate seats per Al Jazeera (4 Nov, read). New Congress sits in January 2027.",
+      "last_verified": "2026-11-04"
+    },
+    {
+      "country": "France",
+      "date": "2027-04-18",
+      "second_round": "2027-05-02",
+      "type": "presidential",
+      "stakes": "P5 nuclear power. Macron is term-limited out. Bears directly on European extended deterrence and EU-level Ukraine-aid unity.",
+      "verified": false,
+      "source": "DATES NOT FETCH-VERIFIED — france24 403 on 2026-09-02. High confidence but does not clear the bar; re-verify at a French government primary."
+    },
+    {
+      "country": "Finland",
+      "date": "2027-04-18",
+      "type": "parliamentary",
+      "stakes": "NATO member since 2023 with a 1,340 km Russian border; the eastern border has been closed since 2023 over instrumentalised migration.",
+      "verified": false,
+      "source": "pending"
+    },
+    {
+      "country": "Hungary",
+      "date": "2026-04-12",
+      "type": "parliamentary",
+      "status": "HELD — Tisza won; Magyar PM from 2026-05-09",
+      "stakes": "Reported to have removed the EU's most consistent veto on Ukraine funding and Russia sanctions. The board carried no Hungary entry at all until 2026-09-02.",
+      "verified": true,
+      "source": "Al Jazeera 2026-04-13"
+    },
+    {
+      "country": "Israel",
+      "date": "2026-10-27",
+      "type": "parliamentary (Knesset)",
+      "last_verified": "2026-11-01",
+      "source": "Times of Israel",
+      "note": "Scheduled 27 October; reaffirmed by Al Jazeera (27 Sep) reporting on the opposition's pre-election coordination. No early change announced.",
+      "result": "Final: Netanyahu bloc 53, Eisenkot camp 48, Arab parties 19; Likud 27 (Euronews 30 Oct; NYT 29 Oct). President Herzog to consult party leaders."
+    },
+    {
+      "country": "Russia",
+      "date": "2026-09-20",
+      "type": "parliamentary (State Duma)",
+      "stakes": "The first State Duma election since the full-scale invasion, held over three days from 18 September and including voting in occupied Ukrainian territory. Not a competitive contest for control, but the occupied-territory voting is a formal annexation claim and the result sets the legislature that ratifies wartime measures.",
+      "verified": true,
+      "source": "NPR 2026-09-19 (voting in seized areas); Kyiv Independent 2026-09-20; Foreign Policy 2026-09-18",
+      "status": "HELD 18-20 Sep — election commission count at 83.5% of precincts: United Russia 57.8% of the party list, leading in 208 of 225 districts (TASS, statement of record, 21 Sep). Voting also held in occupied Ukrainian territory.",
+      "last_verified": "2026-09-21"
+    },
+    {
+      "country": "Germany",
+      "date": "2026-09-20",
+      "type": "state (Berlin; Mecklenburg-Western Pomerania)",
+      "stakes": "State contests that do not change the federal government, but are read as a test of Chancellor Friedrich Merz's standing after earlier far-right gains in the east. Germany is one of Ukraine's largest European backers and a unanimity vote in every EU sanctions renewal.",
+      "verified": true,
+      "source": "Al Jazeera 2026-09-20; BBC 2026-09-20",
+      "status": "HELD 20 Sep — final: AfD first in Mecklenburg-Western Pomerania (~38%), Linke first in Berlin (25.7%); Merz called it a disaster (Euronews, 21 Sep). No federal change.",
+      "last_verified": "2026-09-21"
+    },
+    {
+      "country": "Brazil",
+      "date": "2026-10-04",
+      "type": "general (presidential first round + congress)",
+      "stakes": "Lula seeks re-election; he has accused Trump of meddling. A runoff, if needed, follows on 25 October. Brazil is a founding BRICS member.",
+      "verified": true,
+      "source": "Al Jazeera 2026-10-05 (result and runoff date, read in full)",
+      "second_round": "2026-10-25",
+      "status": "HELD 4 Oct (first round) and 25 Oct (runoff) — Lula just over 51%, Flávio Bolsonaro 48% at 98.76% counted (Al Jazeera, read 26 Oct); Bolsonaro refuses to recognise the result.",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "country": "Spain",
+      "date": "2026-11-29",
+      "type": "general (snap)",
+      "stakes": "NATO and EU member; called by Prime Minister Pedro Sánchez after parliament rejected his housing measures. His Socialist Party trails in polls, so a change of government in Madrid is possible.",
+      "verified": true,
+      "source": "France 24 2026-10-05 (read in full)",
+      "last_verified": "2026-10-05"
+    },
+    {
+      "country": "Serbia",
+      "date": "2026-10-25",
+      "type": "parliamentary (snap)",
+      "stakes": "Vučić's SNS against the student-led movement after a year of protests; Serbia balances EU candidacy and ties with Russia.",
+      "verified": true,
+      "source": "France 24 2026-10-25 (read)",
+      "status": "HELD 25 Oct — Vučić conceded; CESID projection Student List 138 of 250 seats, SNS 104; turnout ~70%.",
+      "last_verified": "2026-10-26"
+    },
+    {
+      "country": "Bulgaria",
+      "date": "2026-11-01",
+      "type": "presidential runoff",
+      "stakes": "NATO and EU member on the Black Sea. Iliana Iotova, described as favouring better Russia ties and backed by PM Radev's party, faces the pro-Western Andrey Gyurov.",
+      "verified": true,
+      "source": "Kyiv Post 2026-10-31 (read)",
+      "last_verified": "2026-11-04",
+      "note": "HELD 1 Nov. Central Election Commission declared Iliana Iotova elected with 57.6% to Andrey Gyurov's 39.5% (BTA, 3 Nov 2026, read)."
+    }
+  ],
+  "leaders": [
+    {
+      "country": "United Kingdom",
+      "role": "prime minister",
+      "name": "Andy Burnham",
+      "since": "2026-07-20",
+      "last_verified": "2026-10-29",
+      "source": "gov.uk/government/people/andy-burnham, fetched 2026-10-29, HTTP 200 (announcements to 28 Oct)",
+      "note": "Replaced Keir Starmer. The board discovered this six days late on 2026-07-26 while carrying no UK actor entry — the failure this file exists to prevent."
+    },
+    {
+      "country": "Hungary",
+      "role": "prime minister",
+      "name": "Péter Magyar",
+      "since": "2026-05-09",
+      "last_verified": "2026-10-26",
+      "source": "Al Jazeera 2026-04-13 (election) + official gazette action reported 2026-08-26; two independent fetches; re-verified 2026-10-26 at kormany.hu (government page names Magyar Péter as miniszterelnök, items dated 22–25 Oct)",
+      "note": "Replaced Viktor Orban after Fidesz lost the 12 April 2026 election. Verified 2026-09-02."
+    },
+    {
+      "country": "Norway",
+      "role": "head of state",
+      "name": "King Haakon VIII",
+      "since": "2026-08-28",
+      "last_verified": "2026-10-14",
+      "source": "directory outlets, 2026-08-28",
+      "note": "Succeeded King Harald V. Ceremonial; the head of government is unaffected."
+    },
+    {
+      "country": "Germany",
+      "role": "federal chancellor",
+      "name": "Friedrich Merz",
+      "since": "2025-05",
+      "last_verified": "2026-10-29",
+      "source": "bundesregierung.de, fetched 2026-10-29, HTTP 200 (names Federal Chancellor Friedrich Merz)",
+      "note": "The file carried no Germany entry at all until 2026-09-07, on the day a German state election became the alliance story. Third instance of the failure class this file exists to prevent, after the UK in July and Hungary in May."
+    },
+    {
+      "country": "Ukraine",
+      "role": "commander-in-chief of the armed forces",
+      "name": "Mykhailo Drapatyi",
+      "since": "2026-07-21",
+      "last_verified": "2026-09-09",
+      "source": "Kyiv Independent 2026-09-02 + Euromaidan Press 2026-09-08; Presidential Decree No. 630 of 21 July 2026 located via RBC-Ukraine on 2026-09-09 (decree text not retrieved; president.gov.ua 403)",
+      "note": "Military rather than head-of-government entry, added 2026-09-08 because the board carried no record of the change for 49 days — the same failure class this file exists to prevent. Verify the decree."
+    }
+  ],
+  "watchlist": [
+    "Any NATO / G7 / Quad / AUKUS member changing head of government by election, resignation, coalition collapse, succession or no-confidence vote.",
+    "Any allied government entering caretaker status or losing a confidence vote.",
+    "Any state where an anti-NATO or pro-Russia party enters government or leads polling."
+  ]
+}

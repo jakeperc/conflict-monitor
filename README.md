@@ -2,8 +2,8 @@
 
 A dashboard by Jake Percy that follows three conflict arcs:
 - the US-Israel-Iran war and the Strait of Hormuz;
-- US-BRICS rivalry, read through four lenses: bilateral US-China, the BRICS bloc, the China-Russia-Iran-North Korea alignment, and allied cohesion;
-- the Russia-Ukraine war.
+- the Russia-Ukraine war;
+- US-BRICS rivalry, read through four lenses: bilateral US-China, the BRICS bloc, the China-Russia-Iran-North Korea alignment, and allied cohesion.
 
 It has six tabs: Overview, Feed, Actors, Economy, Analysis and Outlook.
 

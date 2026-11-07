@@ -16,6 +16,6 @@
     "test": "npm run validate:data && npm run build && npm run validate:html"
   },
   "devDependencies": {
-    "esbuild": "^0.21.0"
+    "esbuild": "0.28.2"
   }
 }

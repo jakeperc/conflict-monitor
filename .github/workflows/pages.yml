@@ -1,0 +1,42 @@
+# Deploy the committed dist/ to GitHub Pages (conflict-monitor.jakepercy.com).
+# The daily publish commits a rebuilt dist/ and pushes master, which redeploys the site.
+# This workflow never builds: a build outside the main checkout produces a degraded page,
+# so only the dist/ that was built and tested locally is ever deployed.
+name: Deploy site
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "dist/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Deploy only while the repository is public. While it is private the run is skipped, not failed.
+    if: github.event.repository.visibility == 'public'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

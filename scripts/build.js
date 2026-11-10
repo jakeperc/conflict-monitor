@@ -694,10 +694,25 @@ log(`  gas_nat_series: ${gasNatSeries.length} dated points (${(markets.gas_daily
 // ww3_history is sparse (milestone-anchored, not strictly daily), so "two points
 // back" was often several days, and on a rebuild it silently read 0. Injected into
 // meta below and consumed by app.js.
-const ww3Delta = (escalationHistory.length >= 2)
-  ? (escalationHistory[escalationHistory.length - 1].ww3_pct - escalationHistory[escalationHistory.length - 2].ww3_pct)
-  : 0;
-log(`  ww3: pct=${meta.ww3_pct} delta_24h=${ww3Delta >= 0 ? '+' : ''}${ww3Delta} (from escalation_history)`);
+// The comparison point is the previous MEASURED reading — the last row a run
+// actually scored on its own day — not yesterday's row. On a multi-day run
+// cadence yesterday is a carried-forward or backfill copy of today, which made
+// the chip read "0 pts 24h" on every gap run. ww3DeltaDays says how far back
+// that reading is, so the chip can say "3d" instead of a false "24h".
+const MEASURED_SOURCES = new Set(['plan-of-record', 'audit-rescore', 'escalation.json-live']);
+let ww3Delta = 0;
+let ww3DeltaDays = 1;
+if (escalationHistory.length >= 2) {
+  const last = escalationHistory[escalationHistory.length - 1];
+  let prev = null;
+  for (let i = escalationHistory.length - 2; i >= 0; i--) {
+    if (MEASURED_SOURCES.has(escalationHistory[i].source)) { prev = escalationHistory[i]; break; }
+  }
+  if (!prev) prev = escalationHistory[escalationHistory.length - 2];
+  ww3Delta = last.ww3_pct - prev.ww3_pct;
+  ww3DeltaDays = Math.max(1, Math.round((Date.parse(last.date) - Date.parse(prev.date)) / 86400000));
+}
+log(`  ww3: pct=${meta.ww3_pct} delta_${ww3DeltaDays}d=${ww3Delta >= 0 ? '+' : ''}${ww3Delta} (from escalation_history)`);
 
 // Stamp the build time NOW — before the data→dist copy and the sitemap render —
 // so dist/data/meta.json and sitemap.xml carry THIS build's timestamp. (It used to
@@ -768,6 +783,7 @@ const payload = {
     // 24h risk delta (from escalation_history) and the current-state label for the
     // WW3 chart's "NOW" marker. Both replace hardcoded values in app.js.
     ww3_delta: ww3Delta,
+    ww3_delta_days: ww3DeltaDays,
     ww3_now_label: meta.ww3_now_label || null,
     // Hormuz chokepoint status chip (label/note/as_of). Round-trips through
     // data/meta.json; null until authored.

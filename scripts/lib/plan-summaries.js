@@ -38,6 +38,12 @@ function parsePlanSummaries(plansDir) {
   } catch (_) {
     return { byDate, unparsed };
   }
+  // A `rescore-*-summary.md` file is a sourced, after-the-fact correction of a
+  // day's axes (an audit re-score). It must win over that date's original plan
+  // or backfill summary regardless of directory order, so process it last. The
+  // original summary stays on disk untouched as the record of what was published.
+  const isRescore = (f) => f.startsWith('rescore-');
+  files.sort((a, b) => (isRescore(a) - isRescore(b)) || a.localeCompare(b));
   for (const f of files) {
     const full = path.join(plansDir, f);
     let text;
@@ -62,7 +68,16 @@ function parsePlanSummaries(plansDir) {
     // Same-day re-runs (e.g. "-run2") or a plan later superseded by a same-date
     // file: last one wins by directory order, which is fine since these are
     // rare and both represent the same editorial day.
-    byDate.set(date, { ...axes, file: f });
+    // kind: 'rescore' (audit correction), 'backfill' (a later run scoring a
+    // day no run covered, from that later run's evidence) or 'plan' (the day's
+    // own run). reconcile-escalation-history.js labels each history row by it.
+    // A re-score of a day no run covered stays 'rescore-inferred': it corrects
+    // the axes but the day is still scored from a later run's evidence.
+    const prior = byDate.get(date);
+    const kind = isRescore(f)
+      ? ((prior && prior.kind === 'plan') ? 'rescore' : 'rescore-inferred')
+      : (/^backfill:\s*true\s*$/m.test(text) || f.startsWith('backfill-')) ? 'backfill' : 'plan';
+    byDate.set(date, { ...axes, file: f, kind });
   }
   return { byDate, unparsed };
 }

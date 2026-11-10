@@ -141,6 +141,9 @@ const GAS_NAT_HISTORY = window.__DATA__.gas_nat_history;
 // EventSeriesChart; the bare *_HISTORY arrays above stay for legacy consumers.
 // Falls back to [] so an old data payload still boots (charts then no-op).
 const WW3_SERIES = window.__DATA__.ww3_series || [];
+// Peak/floor read the plotted trajectory (current, audited values), not the
+// legacy per-build sparkline, which keeps values later re-scored.
+const WW3_SERIES_VALUES = WW3_SERIES.length ? WW3_SERIES.map(p => p.v) : WW3_HISTORY;
 const BRENT_SERIES = window.__DATA__.brent_series || [];
 const GAS_NAT_SERIES = window.__DATA__.gas_nat_series || [];
 const HORMUZ_SERIES = window.__DATA__.hormuz_series || [];
@@ -163,6 +166,8 @@ const HORMUZ_NOW = HORMUZ_SERIES.length ? HORMUZ_SERIES[HORMUZ_SERIES.length - 1
 // the fields are absent, so old data payloads still render.
 const WW3_DELTA = (window.__DATA__.meta && typeof window.__DATA__.meta.ww3_delta === "number")
   ? window.__DATA__.meta.ww3_delta : null;
+const WW3_DELTA_SPAN = (window.__DATA__.meta && window.__DATA__.meta.ww3_delta_days > 1)
+  ? `${window.__DATA__.meta.ww3_delta_days}d` : "24h";
 const WW3_NOW_LABEL = (window.__DATA__.meta && window.__DATA__.meta.ww3_now_label) || null;
 
 // Lead Development structured TL;DR — Operation Epic Fury pillar
@@ -810,7 +815,7 @@ function GlanceMode({ active, onClose, ww3, mkt, gas, conflictDay, latestHeadlin
               background: ww3Delta >= 0 ? alpha(IRAN, .10) : alpha(GREEN, .10),
               padding: "3px 10px", borderRadius: 999,
               border: `1px solid ${ww3Delta >= 0 ? alpha(IRAN, .25) : alpha(GREEN, .22)}`,
-            }}>{fmt.arrow(ww3Delta)} {fmt.abs(ww3Delta)} pts 24h</span>
+            }}>{fmt.arrow(ww3Delta)} {fmt.abs(ww3Delta)} pts {WW3_DELTA_SPAN}</span>
           </div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 10 }}>
@@ -2694,9 +2699,9 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
                   padding:"3px 9px", borderRadius:999,
                   border: `1px solid ${ww3Delta >= 0 ? alpha(IRAN, .25) : alpha(GREEN, .22)}`
                 }}>
-                  {fmt.arrow(ww3Delta)} {fmt.abs(ww3Delta)} pts <span style={{ color:TEXT_DIM, fontWeight:500, marginLeft:3 }}>24h</span>
+                  {fmt.arrow(ww3Delta)} {fmt.abs(ww3Delta)} pts <span style={{ color:TEXT_DIM, fontWeight:500, marginLeft:3 }}>{WW3_DELTA_SPAN}</span>
                 </span>
-                <span style={{ fontSize:11, color:TEXT_DIM }}>peak {Math.max(...WW3_HISTORY)}% · floor {Math.min(...WW3_HISTORY)}%</span>
+                <span style={{ fontSize:11, color:TEXT_DIM }}>peak {Math.max(...WW3_SERIES_VALUES)}% · floor {Math.min(...WW3_SERIES_VALUES)}%</span>
               </div>
               <span
                 title={`${currentRung.label} — ${currentRung.trigger}`}
@@ -6565,7 +6570,8 @@ function App() {
   useEffect(() => { applyTheme(themePref); }, [themePref]);
   const conflictDay = Math.floor((NOW - WAR_START) / 86400000);
   const ww3Color = ww3Live > 60 ? DANGER : ww3Live > 40 ? AMBER : GREEN;
-  const ww3Delta = ww3Live - WW3_HISTORY[WW3_HISTORY.length - 2];
+  // Same measured delta as the hero chip (build.js ww3_delta), not a build-day sparkline diff.
+  const ww3Delta = WW3_DELTA != null ? WW3_DELTA : (ww3Live - WW3_HISTORY[WW3_HISTORY.length - 2]);
 
   // Per-tab scroll memory: keyed map of saved page scrollTop values.
   // Desktop restores position when returning to a tab; mobile keeps scroll-to-top.

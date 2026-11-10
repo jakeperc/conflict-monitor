@@ -53,6 +53,7 @@ const DATA = path.join(ROOT, 'data');
 const AUTOMATION = path.join(ROOT, 'automation');
 
 const AXIS_KEYS = ['kinetic', 'greatpower', 'wmd', 'alliance'];
+const DAILY_RECORD_START = '2026-05-19';
 
 function round1(mean) {
   // Standard round-half-up, matching the sign-agnostic convention already
@@ -123,7 +124,10 @@ function computeReconciledHistory({ planByDate, existingHistory, dateKey, liveAx
 
     if (plan) {
       axes = { kinetic: plan.kinetic, greatpower: plan.greatpower, wmd: plan.wmd, alliance: plan.alliance };
-      source = 'plan-of-record';
+      source = plan.kind === 'rescore' ? 'audit-rescore'
+        : plan.kind === 'rescore-inferred' ? 'audit-rescore-inferred'
+        : plan.kind === 'backfill' ? 'backfill-inferred'
+        : 'plan-of-record';
       scored = true;
       if (!existing) filled.push(d);
       else if (AXIS_KEYS.some((k) => existing.scores?.[k] !== axes[k])) {
@@ -134,7 +138,10 @@ function computeReconciledHistory({ planByDate, existingHistory, dateKey, liveAx
       source = 'escalation.json-live';
       scored = true;
       if (!existing) filled.push(d);
-    } else if (existing && existing.scores && AXIS_KEYS.every((k) => Number.isFinite(existing.scores[k]))) {
+    } else if (existing && existing.scored !== false && existing.scores && AXIS_KEYS.every((k) => Number.isFinite(existing.scores[k]))) {
+      // An on-disk row that was itself only carried forward is not kept: it
+      // would freeze a stale value (e.g. one superseded by an audit re-score)
+      // instead of carrying forward the latest scored day below.
       // Defensive fallback only — a date covered by neither the plan-of-record
       // nor today's live axes, but already present on disk. Keep it rather
       // than discard information, but don't claim it's freshly verified.
@@ -169,7 +176,15 @@ function reconcileEscalationHistory({ dataDir = DATA, automationDir = AUTOMATION
   const plansDir = path.join(automationDir, 'plans');
   const { byDate: planByDate, unparsed } = parsePlanSummaries(plansDir);
   const existingHistory = readJsonSafe(path.join(dataDir, 'escalation_history.json')) || [];
-  const result = computeReconciledHistory({ planByDate, existingHistory: Array.isArray(existingHistory) ? existingHistory : [], dateKey, liveAxes });
+  // The daily record starts on DAILY_RECORD_START (2026-05-19), the first day the four sub-axes
+  // were scored (methodology v2, 2026-05-19). Before 2026-11-07 it started on
+  // 06-24 to protect hand-set milestone values, but the 05-19..06-23 plan
+  // summaries hold real scored axes, and an axis-derived value is more accurate
+  // than a single editorial number. Milestones before 05-19 still stand alone.
+  const existingDates = (Array.isArray(existingHistory) ? existingHistory : []).map((r) => r && r.date).filter(isIsoDate);
+  const earliestExisting = existingDates.length ? existingDates.reduce((x, y) => (x < y ? x : y)) : null;
+  const minDate = earliestExisting && earliestExisting < DAILY_RECORD_START ? earliestExisting : DAILY_RECORD_START;
+  const result = computeReconciledHistory({ planByDate, existingHistory: Array.isArray(existingHistory) ? existingHistory : [], dateKey, liveAxes, minDate });
   return { ...result, unparsedSummaries: unparsed };
 }
 

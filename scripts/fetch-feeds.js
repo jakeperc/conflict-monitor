@@ -98,6 +98,43 @@ function readJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
+// Rolling feed store (see the note in main()).
+const STORE = path.join(OUT_DIR, 'feed-store.json');
+const STORE_KEEP_DAYS = 8;
+const ACCUMULATE = process.argv.includes('--accumulate');
+
+function loadStore() {
+  try {
+    const s = readJson(STORE);
+    if (s && typeof s.feeds === 'object') return s;
+  } catch (_) { /* first run, or unreadable: start empty */ }
+  return { feeds: {} };
+}
+
+function saveStore(store) {
+  try {
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+    store.updated_at = new Date().toISOString();
+    fs.writeFileSync(STORE, JSON.stringify(store) + '\n');
+  } catch (e) {
+    warn(`cannot write feed store (${e.message}): this run uses live items only`);
+  }
+}
+
+// Union a feed's live items with its stored history, newest copy winning, and
+// drop anything older than STORE_KEEP_DAYS. Undated items are never stored:
+// they cannot be windowed, and the live fetch still carries them.
+function mergeIntoStore(store, name, liveItems, now) {
+  const cutoff = now - STORE_KEEP_DAYS * 86400e3;
+  const key = (it) => it.link || it.title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const byKey = new Map();
+  for (const it of store.feeds[name] || []) if (it.ts != null && it.ts >= cutoff) byKey.set(key(it), it);
+  for (const it of liveItems) if (it.ts != null) byKey.set(key(it), { title: it.title, link: it.link, ts: it.ts, summary: it.summary });
+  store.feeds[name] = [...byKey.values()];
+  const undatedLive = liveItems.filter((it) => it.ts == null);
+  return [...store.feeds[name], ...undatedLive];
+}
+
 // ---------------------------------------------------------------------------
 // Text plumbing: CDATA → tags → entities, in that order. Entities run twice
 // because feeds routinely double-encode titles (&amp;#8217;) — a second pass
@@ -302,8 +339,8 @@ let dateKey = new Date().toISOString().slice(0, 10); // system date is always we
   // Caps scale with the window so a 3-day gap isn't truncated to the newest 36h
   // of each high-volume feed.
   const scale = Math.max(1, win.hours / defaults.window_hours);
-  const perFeedCap = (f) => Math.min(Math.ceil((f.max_items || defaults.per_feed_cap) * scale), 120);
-  const globalCap = Math.min(Math.ceil(defaults.global_cap * scale), 1500);
+  const perFeedCap = (f) => Math.min(Math.ceil((f.max_items || defaults.per_feed_cap) * scale), 300); // ceiling raised 120->300 on 2026-11-10 so the rolling store reaches the digest
+  const globalCap = Math.min(Math.ceil(defaults.global_cap * scale), 2500);
   const enabled = (config.feeds || []).filter((f) => f.enabled !== false && f.url);
   const rssFeeds = enabled.filter((f) => f.type !== 'gdelt');
   const gdeltFeeds = enabled.filter((f) => f.type === 'gdelt').slice(0, 3) // hard cap 3, throttle-friendly
@@ -313,6 +350,34 @@ let dateKey = new Date().toISOString().slice(0, 10); // system date is always we
 
   // RSS concurrently; GDELT sequentially after, spaced (the API 429s readily).
   const results = await Promise.all(rssFeeds.map((f) => fetchFeed(f, defaults)));
+
+  // Rolling feed store (added 2026-11-10, coverage audit). Most RSS endpoints
+  // serve only their newest 10-50 items: on 10 Nov Al Jazeera's feed reached back
+  // 7h, Japan Times 7h, Yonhap 10h, Times of Israel 11h, France 24 14h, against an
+  // 85h digest window, so most of a gap never reached any digest no matter how
+  // far the window looked back. Every fetch now merges each RSS feed's items into
+  // feed-store.json (pruned at STORE_KEEP_DAYS), and the window filter below runs
+  // on the stored history. `--accumulate` only tops the store up and exits; run
+  // it every few hours (it writes no digest, so it never moves the window).
+  const store = loadStore();
+  rssFeeds.forEach((feed, i) => {
+    const res = results[i];
+    if (!res.status.ok) return;
+    const fresh = res.items.filter((it) => it.ts != null);
+    if (fresh.length) {
+      const oldest = Math.min(...fresh.map((it) => it.ts));
+      res.status.live_history_hours = Math.round((now - oldest) / 3600e3);
+    }
+    res.items = mergeIntoStore(store, feed.name, res.items, now);
+    res.status.items_with_store = res.items.length;
+  });
+  saveStore(store);
+  if (ACCUMULATE) {
+    const n = Object.values(store.feeds).reduce((s, a) => s + a.length, 0);
+    log(`accumulate: store now holds ${n} items across ${Object.keys(store.feeds).length} feeds; no digest written`);
+    return;
+  }
+
   for (const f of gdeltFeeds) {
     results.push(await fetchFeed(f, defaults));
     await new Promise((res) => setTimeout(res, GDELT_SPACING_MS));
@@ -385,6 +450,7 @@ let dateKey = new Date().toISOString().slice(0, 10); // system date is always we
     for (const term of terms) {
       const idx = [];
       items.forEach((it, i) => {
+        if (cat === 'regions' && it.outlet === 'USGS') return; // earthquakes are not watch-region leads (2026-11-10)
         if (it.title.toLowerCase().includes(term.toLowerCase())) { idx.push(i); itemCats[i].add(cat); }
       });
       if (idx.length) flagged.push({ term, category: cat, count: idx.length, item_indexes: idx });
@@ -419,7 +485,7 @@ let dateKey = new Date().toISOString().slice(0, 10); // system date is always we
   fs.writeFileSync(jsonPath, JSON.stringify(digest, null, 2) + '\n');
 
   // Compact headlines view — what the planner/evening check/wires read FIRST.
-  const CAT_CODE = { kinetic: 'K', grayzone: 'G', posture: 'P', strategic: 'S', economic: 'E', regions: 'R' };
+  const CAT_CODE = { kinetic: 'K', grayzone: 'G', posture: 'P', strategic: 'S', economic: 'E', regions: 'R', diplomatic: 'D', macro: 'M' };
   const catMark = (i) => {
     if (!flaggedIdx.has(i)) return '';
     const codes = [...itemCats[i]].map((c) => CAT_CODE[c] || c[0].toUpperCase()).sort().join('');
@@ -434,7 +500,7 @@ let dateKey = new Date().toISOString().slice(0, 10); // system date is always we
     `Generated ${digest.generated_at} · ${feedsOk}/${feedStatuses.length} feeds ok · ` +
       `${items.length} items · ${win.hours}h window (${win.reason}${win.since ? ', previous digest ' + win.since : ''}). ` +
       'Leads only — not citable sources; ⚑ = keyword-flagged (triage aid, not judgment). ' +
-      'Codes: K kinetic · G gray-zone/hybrid · P military posture · S strategic/nuclear · E economic coercion · R watch region.',
+      'Codes: K kinetic · G gray-zone/hybrid · P military posture · S strategic/nuclear · E economic coercion · R watch region · D diplomatic/legal/domestic stability · M macro transmission.',
     flagged.length
       ? `Flags: ${flagged.map((f) => `${f.term} (${f.count})`).join(', ')}`
       : 'Flags: none',

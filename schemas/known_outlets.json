@@ -1,7 +1,7 @@
 {
   "$comment": "Canonical outlet directory for source-tier enforcement. Consumed by scripts/validate-data.js (outlet-name check) and referenced by automation/prompts/2-plan.md and automation/prompts/3-critique.md. Alias matching is case-insensitive after trim — canonical names are also indexed.",
-  "version": "1.2.0",
-  "last_reviewed": "2026-09-02",
+  "version": "1.3.0",
+  "last_reviewed": "2026-11-10",
   "tiers": {
     "1-wire": {
       "label": "Western wire / major"
@@ -1069,6 +1069,177 @@
         "PMO INDIA"
       ],
       "note": "auto-added 2026-09-14 by executor from plan source log (§12, 1-institutional) — confirm tier"
+    },
+    {
+      "canonical": "Yonhap",
+      "tier": "4-specialty",
+      "aliases": [
+        "YONHAP",
+        "YONHAP NEWS AGENCY",
+        "YNA"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. South Korea's main news agency; state-funded but editorially independent, so not tiered 3-state. Treat its North Korea reporting as Seoul-government-adjacent."
+    },
+    {
+      "canonical": "Japan Times",
+      "tier": "4-specialty",
+      "aliases": [
+        "JAPAN TIMES",
+        "THE JAPAN TIMES"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary."
+    },
+    {
+      "canonical": "LRT",
+      "tier": "4-specialty",
+      "aliases": [
+        "LRT",
+        "LRT ENGLISH",
+        "LITHUANIAN NATIONAL RADIO AND TELEVISION"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. Lithuanian public broadcaster."
+    },
+    {
+      "canonical": "ERR News",
+      "tier": "4-specialty",
+      "aliases": [
+        "ERR",
+        "ERR NEWS",
+        "ESTONIAN PUBLIC BROADCASTING"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. Estonian public broadcaster."
+    },
+    {
+      "canonical": "gCaptain",
+      "tier": "4-specialty",
+      "aliases": [
+        "GCAPTAIN"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. Maritime trade press; its Reuters relays should be cited as Reuters."
+    },
+    {
+      "canonical": "Breaking Defense",
+      "tier": "4-specialty",
+      "aliases": [
+        "BREAKING DEFENSE"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. Defence trade press."
+    },
+    {
+      "canonical": "The Diplomat",
+      "tier": "4-specialty",
+      "aliases": [
+        "THE DIPLOMAT",
+        "DIPLOMAT"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. Asia-Pacific analysis; separate its reporting from its commentary."
+    },
+    {
+      "canonical": "DW",
+      "tier": "4-specialty",
+      "aliases": [
+        "DW",
+        "DEUTSCHE WELLE"
+      ],
+      "note": "Operator-approved 2026-11-10 (coverage audit): was a lead-only feed since 2026-10-20. 4-specialty: citable as Reported on its own beat; a Confirmed still needs a wire or an institutional primary. German public international broadcaster."
+    },
+    {
+      "canonical": "GIE AGSI+",
+      "tier": "1-institutional",
+      "aliases": [
+        "GIE AGSI+",
+        "GIE AGSI",
+        "AGSI+",
+        "AGSI",
+        "GAS INFRASTRUCTURE EUROPE"
+      ],
+      "note": "Operator-approved 2026-11-10: the EU gas storage operators' own transparency platform (agsi.gie.eu), read by scripts/gas-storage.js. Cite with the gas day."
+    },
+    {
+      "canonical": "Federal Reserve",
+      "tier": "1-institutional",
+      "aliases": [
+        "FEDERAL RESERVE",
+        "FED",
+        "FEDERAL RESERVE BOARD",
+        "FOMC",
+        "US FEDERAL RESERVE"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "European Central Bank",
+      "tier": "1-institutional",
+      "aliases": [
+        "EUROPEAN CENTRAL BANK",
+        "ECB"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "Bank of England",
+      "tier": "1-institutional",
+      "aliases": [
+        "BANK OF ENGLAND",
+        "BOE"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "Bank of Japan",
+      "tier": "1-institutional",
+      "aliases": [
+        "BANK OF JAPAN",
+        "BOJ"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "Eurostat",
+      "tier": "1-institutional",
+      "aliases": [
+        "EUROSTAT"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "US Bureau of Labor Statistics",
+      "tier": "1-institutional",
+      "aliases": [
+        "BUREAU OF LABOR STATISTICS",
+        "BLS",
+        "US BUREAU OF LABOR STATISTICS"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "US Energy Information Administration",
+      "tier": "1-institutional",
+      "aliases": [
+        "ENERGY INFORMATION ADMINISTRATION",
+        "EIA",
+        "US EIA"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "International Energy Agency",
+      "tier": "1-institutional",
+      "aliases": [
+        "INTERNATIONAL ENERGY AGENCY",
+        "IEA"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact."
+    },
+    {
+      "canonical": "OPEC",
+      "tier": "1-institutional",
+      "aliases": [
+        "OPEC",
+        "OPEC+",
+        "ORGANIZATION OF THE PETROLEUM EXPORTING COUNTRIES"
+      ],
+      "note": "Operator-approved 2026-11-10 with the macro-release step (2-plan 5d): primary source for its own decisions, releases and data. Its forecasts and commentary are its own view, not fact. OPEC is a producer cartel: its production statements are statements of record, not independent market data."
     }
   ]
 }

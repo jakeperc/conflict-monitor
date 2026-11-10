@@ -1309,6 +1309,45 @@
       ],
       "expansion": "JUMPSTART",
       "definition": "A US-led fast-track procurement framework that lets allies finance American-made weapons for a partner."
+    },
+    {
+      "term": "Rewards for Justice",
+      "aliases": [
+        "Rewards for Justice",
+        "RFJ"
+      ],
+      "expansion": "US State Department reward programme",
+      "definition": "A State Department programme, created in 1984, that pays for information on threats to US national security. In November 2026 it offered up to $20 million for information on Iran's nuclear programme.",
+      "category": "sanctions"
+    },
+    {
+      "term": "NASAMS",
+      "aliases": [
+        "NASAMS"
+      ],
+      "expansion": "National Advanced Surface-to-Air Missile System",
+      "definition": "A medium-range air-defence system developed by Norway's Kongsberg and RTX, used by Ukraine and several NATO members to shoot down cruise missiles, drones and aircraft.",
+      "category": "military"
+    },
+    {
+      "term": "FPCON",
+      "aliases": [
+        "FPCON",
+        "Force Protection Condition",
+        "FPCON Charlie"
+      ],
+      "expansion": "Force Protection Condition",
+      "definition": "The US Defense Department's five-level scale for base security against terrorist threats: Normal, Alpha, Bravo, Charlie and Delta. Charlie, the second-highest, applies when intelligence suggests an attack is likely.",
+      "category": "military"
+    },
+    {
+      "term": "FinCEN",
+      "aliases": [
+        "FinCEN"
+      ],
+      "expansion": "Financial Crimes Enforcement Network",
+      "definition": "A US Treasury bureau that fights money laundering. Under section 9714(a) of the 2020 Combating Russian Money Laundering Act it can bar US banks from dealing with a foreign firm, as it did with the crypto exchange MEXC Global in November 2026.",
+      "category": "sanctions"
     }
   ]
 }

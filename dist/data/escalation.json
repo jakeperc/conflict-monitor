@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 80,
-      "currentLabel": "The US struck Iranian air defences on Qeshm; Russia mounted its largest grid strike this year; Houthis advanced toward Aden."
+      "currentLabel": "US aircraft disabled a blockade runner off Khor Fakkan; Houthi attacks hit Riyadh and a Saudi pipeline; Russia struck power plants near Kyiv."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 65,
-      "currentLabel": "US strikes inside Iran while Qatar drafts a deal; US sets Ukraine-Russia talks for 10-11 November; Kremlin pushes a three-leader meeting."
+      "currentLabel": "Russia-Ukraine talks opened in Abu Dhabi with US mediation; China extended the trade truce; Trump expects a three-leader meeting at APEC."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "A Russian strike hit a substation serving a Ukrainian nuclear plant; no US-Russia arms limits are in force. Israel's disputed Iran chemical-weapons warning is not scored."
+      "currentLabel": "A drone killed a Zaporizhzhia nuclear plant worker after a power loss; Iran's Guard says missile range limits are lifted; no US-Russia arms limits."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 55,
-      "currentLabel": "Gulf states called Israel's chemical-weapons warning unserious; Poland and Norway reinforced borders with Russia; Democrats won Congress."
+      "currentLabel": "Europe is outside the core Abu Dhabi format as the US floats sanctions relief; France blamed Iran for cyber sabotage; US left a second UK base."
     }
   ]
 }

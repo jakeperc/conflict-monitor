@@ -64,10 +64,10 @@
       "country": "Israel",
       "date": "2026-10-27",
       "type": "parliamentary (Knesset)",
-      "last_verified": "2026-11-01",
+      "last_verified": "2026-11-10",
       "source": "Times of Israel",
       "note": "Scheduled 27 October; reaffirmed by Al Jazeera (27 Sep) reporting on the opposition's pre-election coordination. No early change announced.",
-      "result": "Final: Netanyahu bloc 53, Eisenkot camp 48, Arab parties 19; Likud 27 (Euronews 30 Oct; NYT 29 Oct). President Herzog to consult party leaders."
+      "result": "Final: Netanyahu bloc 53, Eisenkot camp 48, Arab parties 19. On 7 Nov Herzog gave Eisenkot the mandate to form a government (The Guardian; NYT); 28 days, extendable by 14. Netanyahu caretaker."
     },
     {
       "country": "Russia",
@@ -128,6 +128,16 @@
       "source": "Kyiv Post 2026-10-31 (read)",
       "last_verified": "2026-11-04",
       "note": "HELD 1 Nov. Central Election Commission declared Iliana Iotova elected with 57.6% to Andrey Gyurov's 39.5% (BTA, 3 Nov 2026, read)."
+    },
+    {
+      "country": "New Zealand",
+      "date": "2026-11-07",
+      "type": "general",
+      "stakes": "Five Eyes partner; a change of prime minister would need an actors.json entry under the allied head-of-government rule.",
+      "verified": false,
+      "source": "Euronews and The Guardian feed headlines, 7 Nov 2026 (not read): count under way, Labour and National level.",
+      "status": "HELD 7 Nov; no clear winner on the preliminary count, about 400,000 special votes outstanding; final results due 27 Nov. Luxon caretaker (AP via search summaries, NPR page not read).",
+      "last_verified": "2026-11-10"
     }
   ],
   "leaders": [
@@ -172,9 +182,9 @@
       "role": "commander-in-chief of the armed forces",
       "name": "Mykhailo Drapatyi",
       "since": "2026-07-21",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-10",
       "source": "Kyiv Independent 2026-09-02 + Euromaidan Press 2026-09-08; Presidential Decree No. 630 of 21 July 2026 located via RBC-Ukraine on 2026-09-09 (decree text not retrieved; president.gov.ua 403)",
-      "note": "Military rather than head-of-government entry, added 2026-09-08 because the board carried no record of the change for 49 days — the same failure class this file exists to prevent. Verify the decree."
+      "note": "Military rather than head-of-government entry. Re-checked 2026-11-10: Kyiv Independent carries a 10 Nov feature headline on '100 days' under Commander-in-Chief Drapatyi (headline-level; decree text still not retrieved)."
     }
   ],
   "watchlist": [

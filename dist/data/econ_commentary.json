@@ -9,17 +9,17 @@
     },
     {
       "key": "oil",
-      "title": "Oil: Brent Falls Toward $104 Despite US Strikes",
+      "title": "Oil: Prices Ease as Trump Plays Down New Iran Strikes",
       "color": "amber",
-      "body": "Brent trades at {BRENT}. Brent settled on 3 November at its lowest in about four weeks, near $104, down from above $113 a week earlier, as Iran offered to reopen Hormuz in two days on its terms and Qatar worked on an interim deal. The US strike on Iranian air defences on 2 November did not reverse the move. Prices edged up on 4 November after the midterms and the Revolutionary Guard's unconfirmed claim that four tankers hit mines. A confirmed tanker loss would test the market's reading that talks matter more than strikes. Aramco is expanding the East-West pipeline that bypasses the Strait.",
-      "updated_at": "2026-11-04"
+      "body": "Brent trades at {BRENT}. Brent ended last week near $98, its lowest in about a month, as Qatar's mediation and the end of the US midterms eased fears of a wider war. Trump's 9 November remark that further strikes on Iran are 'quite unlikely' points the same way. The blockade still holds, and US aircraft disabled a ship running it on 7 November. Houthi attacks on 8-9 November damaged an Aramco office tower in Riyadh and caused a limited fire on the East-West pipeline near Medina; Saudi Arabia said pipeline operations were unaffected. The pipeline is the main route around Hormuz, so a sustained outage would matter more than a strike headline.",
+      "updated_at": "2026-11-10"
     },
     {
       "key": "crypto",
-      "title": "Crypto: FBI Ties North Korea to the $6.3 Billion Binance Theft",
+      "title": "Crypto: Treasury Hits Iranian Money Rails in Canada and MEXC",
       "color": "violet",
-      "body": "Bitcoin trades at {BTC} and Ether at {ETH}. The FBI says North Korea stole more than $6 billion from Binance around 29 October and is converting it mainly into Ethereum. This matters to the conflict because it can fund a sanctioned nuclear state: the question is how much the group keeps. About $3 billion was frozen, including tokens frozen by Tether and Circle, and Binance says it has replaced about 90 percent from its own funds. Those are customer protections, not proof that the thieves lost the money. This is a sanctions and payment-rail event, not a market call.",
-      "updated_at": "2026-11-01"
+      "body": "Bitcoin trades at {BTC}. On 6 November the US Treasury sanctioned eight Canadian money-exchange businesses it says moved Iranian funds, including the crypto firm Cryptoyal, and a separate Treasury release, read only by its title, says MEXC was cut off from the US financial system. That is a direct strike on payment rails Iran uses to move money around its blockade. Nothing new has been announced on the $6.3 billion Binance theft the FBI attributes to North Korea.",
+      "updated_at": "2026-11-07"
     },
     {
       "key": "gold",

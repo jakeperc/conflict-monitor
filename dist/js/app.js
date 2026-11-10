@@ -81,12 +81,14 @@
   var BRENT_HISTORY = window.__DATA__.brent_history;
   var GAS_NAT_HISTORY = window.__DATA__.gas_nat_history;
   var WW3_SERIES = window.__DATA__.ww3_series || [];
+  var WW3_SERIES_VALUES = WW3_SERIES.length ? WW3_SERIES.map((p) => p.v) : WW3_HISTORY;
   var BRENT_SERIES = window.__DATA__.brent_series || [];
   var GAS_NAT_SERIES = window.__DATA__.gas_nat_series || [];
   var HORMUZ_SERIES = window.__DATA__.hormuz_series || [];
   var MAP_OVERLAYS = window.__DATA__.map_overlays || null;
   var HORMUZ_NOW = HORMUZ_SERIES.length ? HORMUZ_SERIES[HORMUZ_SERIES.length - 1] : null;
   var WW3_DELTA = window.__DATA__.meta && typeof window.__DATA__.meta.ww3_delta === "number" ? window.__DATA__.meta.ww3_delta : null;
+  var WW3_DELTA_SPAN = window.__DATA__.meta && window.__DATA__.meta.ww3_delta_days > 1 ? `${window.__DATA__.meta.ww3_delta_days}d` : "24h";
   var WW3_NOW_LABEL = window.__DATA__.meta && window.__DATA__.meta.ww3_now_label || null;
   var IRAN_LEAD = window.__DATA__.iran_lead;
   var BRICS_LEAD = window.__DATA__.brics_lead;
@@ -588,7 +590,7 @@
       padding: "3px 10px",
       borderRadius: 999,
       border: `1px solid ${ww3Delta >= 0 ? alpha(IRAN, 0.25) : alpha(GREEN, 0.22)}`
-    } }, fmt.arrow(ww3Delta), " ", fmt.abs(ww3Delta), " pts 24h"))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 10 } }, [
+    } }, fmt.arrow(ww3Delta), " ", fmt.abs(ww3Delta), " pts ", WW3_DELTA_SPAN))), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 10 } }, [
       { l: "BRENT", v: mkt.BRENT.price != null ? fmt.money(mkt.BRENT.price) : "\u2014", c: AMBER },
       { l: "S&P", v: mkt.SPX.price != null ? fmt.num(Math.round(mkt.SPX.price)) : "\u2014", c: TEXT_HI },
       { l: "GAS", v: gas?.national != null ? fmt.money(gas.national, 3) : "\u2014", c: AMBER },
@@ -2311,7 +2313,7 @@
       padding: "3px 9px",
       borderRadius: 999,
       border: `1px solid ${ww3Delta >= 0 ? alpha(IRAN, 0.25) : alpha(GREEN, 0.22)}`
-    } }, fmt.arrow(ww3Delta), " ", fmt.abs(ww3Delta), " pts ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 500, marginLeft: 3 } }, "24h")), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: TEXT_DIM } }, "peak ", Math.max(...WW3_HISTORY), "% \xB7 floor ", Math.min(...WW3_HISTORY), "%")), /* @__PURE__ */ React.createElement(
+    } }, fmt.arrow(ww3Delta), " ", fmt.abs(ww3Delta), " pts ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 500, marginLeft: 3 } }, WW3_DELTA_SPAN)), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 11, color: TEXT_DIM } }, "peak ", Math.max(...WW3_SERIES_VALUES), "% \xB7 floor ", Math.min(...WW3_SERIES_VALUES), "%")), /* @__PURE__ */ React.createElement(
       "span",
       {
         title: `${currentRung.label} \u2014 ${currentRung.trigger}`,
@@ -4877,7 +4879,7 @@
     }, [themePref]);
     const conflictDay = Math.floor((NOW - WAR_START) / 864e5);
     const ww3Color = ww3Live > 60 ? DANGER : ww3Live > 40 ? AMBER : GREEN;
-    const ww3Delta = ww3Live - WW3_HISTORY[WW3_HISTORY.length - 2];
+    const ww3Delta = WW3_DELTA != null ? WW3_DELTA : ww3Live - WW3_HISTORY[WW3_HISTORY.length - 2];
     const scrollMemory = useRef({});
     const isMobileScroll = () => window.innerWidth < 768;
     const getScroll = () => document.body.scrollTop || document.documentElement.scrollTop;

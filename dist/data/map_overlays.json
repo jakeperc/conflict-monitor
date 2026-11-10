@@ -1,6 +1,6 @@
 {
   "_note": "World-map overlay content (arcs, hotspots, fills, labels). Created 2026-08-26 (operator-directed) to replace hardcoded overlays in src/js/app.js that had rotted to April-era facts (carrier positions, 'ceasefire on life support'). This file is EDITORIAL — the daily pipeline may update it like any other data/*.json: keep arcs to active kinetic engagements per the current board record, keep 'as_of' honest (bump only when content changes), never add a marker or arc that is not established on a dashboard surface. Coordinates are [lng, lat]. Colors are CSS vars or literal hex matching the app palette.",
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-10",
   "arcs": [
     {
       "id": "russia-ukraine",
@@ -16,7 +16,7 @@
       "colorLit": "#8a9a5b",
       "kind": "war",
       "delay": 0,
-      "note": "Active war — Russia's largest strike on Ukraine's energy system this year, 3 Nov; Abu Dhabi talks set for 10-11 Nov"
+      "note": "Active war — Russia struck the Trypillia power plant near Kyiv, 9 Nov; US-mediated talks opened in Abu Dhabi, 10 Nov"
     },
     {
       "id": "ukraine-deepstrike",
@@ -66,7 +66,7 @@
       "colorLit": "#c1554d",
       "kind": "strike",
       "delay": 3.3,
-      "note": "US strikes on Iranian air-defence sites on Qeshm and Hengam, 2 Nov (AP); Guard claims four tankers mined, 4 Nov, unconfirmed"
+      "note": "US strikes on Iranian air defences on Qeshm, 2 and 6 Nov; US aircraft disabled the blockade runner Huda off Khor Fakkan, 7 Nov; Trump calls more strikes unlikely, 9 Nov"
     },
     {
       "id": "israel-lebanon",
@@ -149,7 +149,7 @@
       "kind": "strike",
       "delay": 2.8,
       "endLabel": "ABHA",
-      "note": "Coalition says it intercepted Houthi missiles at Riyadh and destroyed launchers in Sanaa, 25 Oct; two killed at Dammam airport, 21 Oct"
+      "note": "Houthi attack damaged an Aramco tower in Riyadh, 8 Nov; pipeline fire near Medina, 9 Nov; no casualties reported"
     },
     {
       "id": "iran-jordan",

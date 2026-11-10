@@ -6,9 +6,9 @@
       "risk": 82,
       "level": "EXTREME",
       "alignment": "adversary",
-      "note": "Hit by limited US strikes on Qeshm; claims four tankers mined; offers to reopen Hormuz in two days on its terms.",
-      "details": "The US struck surface-to-air missile sites on Qeshm and Hengam islands on 2 November, AP reports; Iranian media reported explosions and no casualties. On 4 November the Revolutionary Guard said four tankers hit mines on a prohibited route and were destroyed, naming no ships.\n\nThe foreign ministry says Hormuz could reopen within two days if the US ends the blockade, releases frozen assets and lifts oil sanctions. Security chief Rezaei calls US replies 'not convincing', and Speaker Ghalibaf says the ball is in America's court. A Qatari delegation held three hours of talks in Tehran on 2 November. Internet disruptions were reported in Tehran on 3 November.",
-      "as_of": "2026-11-04"
+      "note": "Trump calls the war 'effectively over', but the blockade tightens and Tehran demands its seven conditions before talks.",
+      "details": "Trump said on 9 November, after meeting Qatar's prime minister, that the war is militarily 'effectively over' and further US strikes are 'quite unlikely', while warning the US remains ready. Rubio reported no progress in talks. Iran's security council secretary Rezaei told Washington to stop 'manufacturing fake news' and accept Iran's seven conditions; Tehran says sanctions and the blockade must end before talks.\n\nThe blockade is tightening: US aircraft disabled the cargo ship Huda running it off Khor Fakkan on 7 November, and CENTCOM set up Task Force Iron Gate to cut land and Caspian routes. The Guard says two tankers hit mines on an 'unauthorised' route; Reuters could not confirm it, and no ship has been named. A Guard spokesman said Iran's missile range limit 'has been lifted'.\n\nIran's confrontation is reaching Europe: France blamed the Guard's Shahid Kaveh cyber unit for sabotaging supermarket fridges and seeks warrants for two officials, and the US moved tankers from RAF Mildenhall over an Iran-linked threat.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "Israel",
@@ -16,9 +16,9 @@
       "risk": 80,
       "level": "EXTREME",
       "alignment": "ally",
-      "note": "Final count left Netanyahu 53 seats, no majority; he remains caretaker and spoke to Trump on Iran.",
-      "details": "Final results gave Netanyahu's bloc 53 of 120 seats, Gadi Eisenkot's camp 48 and Arab parties a record 19. President Herzog will consult party leaders. Joint List leader Tibi offered outside support for an anti-Netanyahu government, while several opposition parties rule out a coalition with Arab parties.\n\nNetanyahu remains caretaker prime minister with power to order military action, and the Wall Street Journal reports he spoke to Trump on 31 October amid strike preparations. The UN rights office says Israeli deployment in Gaza is being expanded to 70 percent of the territory.",
-      "as_of": "2026-11-01"
+      "note": "Herzog gave Eisenkot the mandate to form a government; Netanyahu stays caretaker and calls for unity.",
+      "details": "President Herzog gave opposition leader Gadi Eisenkot the mandate to form a government on 7 November, after more lawmakers recommended him than Netanyahu. He has 28 days, extendable by 14. The election left Netanyahu's bloc at 53 seats, Eisenkot's camp at 48 and Arab-majority parties at 19.\n\nNetanyahu remains caretaker prime minister with full authority over military decisions, including on Iran. He has called for a unity government; Eisenkot's side rejects it in its current form. Herzog says the next government must advance the US Gaza plan, and Trump told Netanyahu to stop obstructing it. Shin Bet reportedly found no evidence of foreign election interference.\n\nIsraeli drone strikes continue in southern Lebanon; one person was killed on 4 November.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "Lebanon",
@@ -36,9 +36,9 @@
       "risk": 64,
       "level": "HIGH",
       "alignment": "ally",
-      "note": "Struck Iranian air defences on Qeshm on the eve of midterms Democrats won; set Ukraine-Russia talks in Abu Dhabi.",
-      "details": "A US official told AP the 2 November strikes on Qeshm and Hengam were defensive, aimed at missiles threatening US forces; no on-record Pentagon statement was found. After the vote, Trump said the war decision was right.\n\nDemocrats won both chambers of Congress, with at least 54 Senate seats; the new Congress sits in January. The White House will mediate Ukraine-Russia talks in Abu Dhabi on 10-11 November.",
-      "as_of": "2026-11-04"
+      "note": "Trump calls Iran strikes unlikely while enforcing the blockade; mediates Abu Dhabi talks with a wider European agenda.",
+      "details": "Trump said on 9 November that the Iran war is 'militarily effectively over' and new strikes 'quite unlikely', after meeting Qatar's prime minister and Vance; Rubio reported no progress. The blockade is enforced harder: US aircraft disabled the cargo ship Huda off Khor Fakkan on 7 November, and CENTCOM set up Task Force Iron Gate for land routes. The US moved tankers from RAF Mildenhall over an Iran-linked threat.\n\nOn Ukraine, envoys Witkoff and Kushner opened talks with Russia and Ukraine in Abu Dhabi on 10 November. Officials describe a Russia-Europe security architecture, a possible NATO-Russia Council revival, possible sanctions relief and NATO-like guarantees for Kyiv.\n\nTrump says he expects to meet Putin and Xi at APEC in Shenzhen on 18-19 November; China extended the trade truce to 10 January.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "China",
@@ -46,9 +46,9 @@
       "risk": 52,
       "level": "HIGH",
       "alignment": "adversary",
-      "note": "Purged 16 generals at its plenum; coast guard patrolled off Taiwan's east coast; Trump is due in Shenzhen.",
-      "details": "The fifth plenum expelled a record number of officials, including 16 generals and former heads of nuclear, aerospace and shipbuilding firms. China's coast guard announced a new patrol off Taiwan's east coast and sent a ship near Pratas.\n\nBeijing opposed a US FCC decision to bar device testing in China by 2028, and denied a New York Times report about a spy case near Nvidia. Trump is scheduled to meet Xi in Shenzhen within weeks; the rare-earth control suspension is due to lapse on 10 November.",
-      "as_of": "2026-11-01"
+      "note": "Extended its trade truce with the US to 10 January; Trump says he expects to meet Xi and Putin at APEC.",
+      "details": "China extended every measure suspended after September's Washington summit by two months on 9 November: a 24% tariff stays off, and critical-mineral export waivers, port-fee suspensions and unreliable-entity measures are paused to 10 January 2027 (Reuters). Beijing warned it is watching US plans to replace court-struck tariffs with Section 301 duties.\n\nTrump says he expects to meet Xi and Putin at APEC in Shenzhen on 18-19 November; China says only that it is in communication about a three-leader meeting.\n\nLithuania's president confirmed talks on renaming Taiwan's office in Vilnius, a change Beijing has demanded since 2021, and Chinese diplomats are expected there. Nvidia's chief executive is under investigation over an affair with a suspected Chinese spy; Trump says Xi may raise it.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "Taiwan",
@@ -66,9 +66,9 @@
       "risk": 78,
       "level": "SEVERE",
       "alignment": "adversary",
-      "note": "Launched its largest grid strike this year and rejected ceasefire proposals, while agreeing to Abu Dhabi talks on 10-11 November.",
-      "details": "On 3 November Russia fired 59 cruise and 17 ballistic missiles and 289 drones at Ukraine's energy system, hitting a substation serving the Khmelnytskyi nuclear plant, then 310 drones overnight. A strike on an aid point in Komyshuvakha killed at least 31.\n\nThe Kremlin confirmed talks in Abu Dhabi on 10-11 November and is sending Medinsky; Lavrov rejected an immediate ceasefire and narrower truces. Peskov says a Putin-Trump-Xi meeting should be fixed for later this month, and defence minister Belousov called military ties with China unprecedented.",
-      "as_of": "2026-11-04"
+      "note": "Sat down with Ukraine and US envoys in Abu Dhabi while striking power plants; rejects any European role.",
+      "details": "Russia's delegation, led by Vladimir Medinsky and including Sergei Ryabkov, met Ukraine's team with US envoys in Abu Dhabi on 10 November, the first such talks since February. The Kremlin says Europeans have no role in the talks. Russia still demands the rest of Donetsk, and US officials say sanctions relief and a Russia-Europe security framework are on their agenda.\n\nBefore the talks Russia struck the Trypillia thermal power plant near Kyiv. The IAEA said a drone killed a worker at the Russian-occupied Zaporizhzhia nuclear plant, which lost its only external power line for about 10 hours on 8 November; the IAEA did not say who launched it.\n\nCanada sanctioned 38 entities and 24 people tied to Russia's missile industry, cyber actors and crypto enablers. Trump expects to meet Putin and Xi at APEC in Shenzhen.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "Saudi Arabia",
@@ -76,9 +76,9 @@
       "risk": 70,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Riyadh alerted again on 29 October; Syria weighs joining its defence pact; no new Saudi death reported.",
-      "details": "AFP heard at least eight explosions in Riyadh on 29 October and the city issued a phone alert, later lifted. The Houthis say Saudi strikes killed 12 in Taiz; Saudi officials confirmed neither. No new death on Saudi soil has been reported since 23 October.\n\nThe Mecca defence pact is widening: Syria's foreign minister says Damascus is discussing joining, and Turkey's full parliament is reported to be expected to vote soon. Saudi Arabia avoided naming Iran at the Manama Dialogue.",
-      "as_of": "2026-11-01"
+      "note": "A Houthi attack damaged an Aramco tower in Riyadh and set a pipeline fire near Medina; no casualties reported.",
+      "details": "A Houthi missile attack on Riyadh on 8 November damaged an Aramco office tower in the King Abdullah Financial District; Saudi authorities blamed falling shrapnel from interceptions and reported no casualties. The coalition said it intercepted missiles aimed at Riyadh and the Eastern Province and a drone. On 9 November an attack on the East-West pipeline in the Medina region caused a limited fire; the energy ministry said operations were unaffected, and missiles fired at Riyadh were intercepted.\n\nNo Saudi death from Houthi fire has been reported since 23 October. Houthi-run media say a coalition airstrike in Sanaa province killed at least 40 people on 7 November; the coalition has not commented.\n\nTurkey ratified the Mecca defence pact with Saudi Arabia and Pakistan on 5 November.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "UAE",
@@ -97,9 +97,9 @@
       "risk": 36,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Mediating Iran talks in Doha while its own gas carrier was struck; named no attacker.",
-      "details": "Qatar's LNG carrier Al Mayeda was struck in Gulf waters on 30 October by what its state news agency called unidentified objects; there were no casualties, and Doha named no attacker.\n\nQatari envoys held more than 12 hours of talks in Tehran and hosted Iranian officials in Doha. Its seven-day trust-building plan has not satisfied Iran, and a US delegation is reportedly expected to join indirect talks.",
-      "as_of": "2026-11-01",
+      "note": "Mediator of a two-step plan: US blockade relief and inspections first, then a Hormuz reopening.",
+      "details": "Qatar is the chief mediator between Washington and Tehran. Regional officials told Reuters its bridge plan would have the US lift its blockade and release some frozen funds while Iran admits IAEA inspectors, then reopen Hormuz under an Iran-Oman arrangement the US has not approved. Iran is reviewing it.\n\nQatar's foreign ministry rejected reports that its prime minister said talks had failed, and the prime minister said the US is willing to seek a solution. Trump spoke with the emir, and Hegseth with his Qatari counterpart.",
+      "as_of": "2026-11-07",
       "stale_ok": false
     },
     {
@@ -150,9 +150,9 @@
       "risk": 24,
       "level": "MODERATE",
       "alignment": "partner",
-      "note": "Parliament's foreign affairs committee approved the Mecca defence pact with Saudi Arabia and Pakistan on 27 October; a full vote is pending.",
-      "details": "Turkey is turning a political commitment in the Gulf into law. On 27 October parliament's foreign affairs committee, chaired by Fuat Oktay, approved the 16-article Mecca Joint Defence Agreement with Saudi Arabia and Pakistan, which binds the parties for ten years; it now goes to the full assembly, with no date set (The New Arab). A Turkish official said in October that Ankara's contribution would likely be equipment, intelligence and weapons systems. On 26 October intelligence chief Ibrahim Kalin joined Saudi and Pakistani security chiefs at talks with Iran's leaders in Tehran.",
-      "as_of": "2026-10-29",
+      "note": "Parliament ratified the Mecca defence pact with Saudi Arabia and Pakistan; troop deployments need a separate vote.",
+      "details": "Turkey's parliament approved the Mecca Joint Defence Agreement on 5 November by 279 votes to 119 (Iran International; The New Arab, citing Anadolu). The pact, signed in August, covers intelligence sharing, military coordination, joint deterrence and defence industry, and treats an attack on one member as an attack on all three. It does not authorise sending Turkish troops, which needs a separate vote, and Ankara says its forces will not take part in offensive operations against the Houthis.\n\nA NATO member is now bound to defend Saudi Arabia, which is under Houthi missile fire. Turkey also began 'Sea of Friendship' naval drills with Egypt on 4 November.",
+      "as_of": "2026-11-07",
       "stale_ok": false
     },
     {
@@ -194,9 +194,9 @@
       "risk": 26,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-10-20",
-      "note": "Will fly Typhoon jets to defend Saudi Arabia from Houthi attacks; MI5 calls Russia 'aggressor number one'.",
-      "details": "Britain is taking a direct role in the Gulf. On 20 October the Ministry of Defence said RAF Typhoons will fly defensive counter-air missions over Saudi cities and infrastructure against Houthi missiles and drones, with air-to-air refuelling; they will not attack the Houthis.\n\nAt home, MI5's chief said on 13 October that Russia is escalating hybrid attacks below NATO's Article 5 threshold and that more than 50 Iran-linked arrests were made in a year. Two Iranians were charged on 3 October over an alleged bomb plot against Manchester's Jewish community, separate from the RAF Fairford case."
+      "as_of": "2026-11-10",
+      "note": "US moved tankers from RAF Mildenhall over an Iran-linked threat, the second British base vacated after Fairford.",
+      "details": "The US moved refuelling tankers from RAF Mildenhall to Germany and elsewhere on 9 November after a threat from Iran, the Wall Street Journal reported, and raised Mildenhall and Lakenheath to FPCON Charlie, the second-highest protection level. The Ministry of Defence said assets move regularly. It is the second British base the US has vacated, after bombers left RAF Fairford in September following arrests on suspicion of helping Iranian intelligence; Prime Minister Burnham has said that activity was likely coordinated in Iran.\n\nBritish officials joined European colleagues in Abu Dhabi, meeting Ukraine's delegation outside the three-way talks. RAF Typhoons fly defensive patrols over Saudi Arabia against Houthi attacks, and MI5 names Russia and Iran as the leading hybrid threats."
     },
     {
       "name": "Iraq",
@@ -254,9 +254,9 @@
       "risk": 28,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-10-29",
-      "note": "Agreed with the US to build a joint air-to-air missile production plant in Japan; hosts the Keen Sword exercise.",
-      "details": "Japan is deepening defence-industrial integration with Washington. On 28 October Defence Minister Shinjiro Koizumi said after meeting Hegseth in Cebu that the two countries will establish a facility in Japan for joint production of advanced medium-range air-to-air missiles (Arab News, AP). The Keen Sword exercise, with about 56,000 US and Japanese troops, began on 19 October.\n\nJapan's jets scrambled 442 times from April to September, against 265 a year earlier, and the carrier Liaoning sailed through its waters in mid-October."
+      "as_of": "2026-11-07",
+      "note": "Demanded Russia return Japan Tobacco's four businesses after Putin placed them under state control.",
+      "details": "Putin placed the Russian operations of Japan Tobacco International under state control on 5 November (Euronews; The Moscow Times); Tokyo demanded the return of four businesses. It follows a decree in October seizing several European firms' Russian assets.\n\nJapan's role in the region otherwise centres on Okinawa basing, a debate on a large defence-spending increase, and coordination with the US ahead of APEC."
     },
     {
       "name": "Romania",
@@ -295,9 +295,9 @@
       "risk": 40,
       "level": "ELEVATED",
       "alignment": "ally",
-      "note": "The EU invited Canada to become its first associate member as Ottawa seeks less dependence on US trade.",
-      "details": "The European Commission's president, Ursula von der Leyen, invited Canada on 16 September to become the EU's first associate member, speaking with Prime Minister Mark Carney in the European Parliament. She proposed upgrading the existing trade deal into an alliance covering technology, defence industry, energy and critical minerals. The EU has never had an associate membership category, and what it would mean for the single market is unclear.\n\nThe offer lands in a live trade dispute with Washington. Canada's counter-tariffs on about $20bn of US goods took effect on 8 September; the US answered with an import ban on several Canadian goods effective 29 September.\n\nCanada also joined Britain's measures against trade with Israeli settlements over an explicit American objection. None of this touches an operational military commitment, which is why the board counts it as friction rather than fragmentation.",
-      "as_of": "2026-09-16"
+      "note": "Sanctioned 38 entities and 24 people tied to Russia's missile industry, cyber actors and crypto enablers.",
+      "details": "Foreign minister Anita Anand announced new Russia sanctions on 9 November at the G7 foreign ministers' meeting in Paris, adding 38 entities and 24 individuals linked to Russia's ballistic-missile industry, Russian cyber actors and financial enablers including crypto exchanges.\n\nIn September the EU invited Canada to become its first associate member, offering an alliance covering technology, defence industry, energy and critical minerals as Ottawa seeks less dependence on US trade. Canada's Treasury-sanctioned money-exchange firms that moved Iranian funds were named by the US on 6 November.",
+      "as_of": "2026-11-10"
     },
     {
       "name": "Syria",
@@ -336,9 +336,9 @@
       "risk": 74,
       "level": "EXTREME",
       "alignment": "partner",
-      "as_of": "2026-11-04",
-      "note": "Lost power and water in Kyiv after Russia's largest grid strike this year; heads to US-mediated talks in Abu Dhabi.",
-      "details": "Russia's 3 November attack hit energy facilities across the country and a substation serving the Khmelnytskyi nuclear plant; Kyiv alerted the IAEA. At least 31 people were killed at an aid point in Komyshuvakha on 2 November.\n\nUkraine will attend US-mediated talks in Abu Dhabi on 10-11 November. Lavrov rejected its ceasefire and partial-truce proposals. Ukrainian drones hit the Yaroslavl refinery on 3 November, and Zelensky sought air-defence and energy aid in Berlin."
+      "as_of": "2026-11-10",
+      "note": "Opened US-mediated talks with Russia in Abu Dhabi as Russia hit power plants and a nuclear-plant worker was killed.",
+      "details": "Defence minister Rustem Umerov leads Ukraine's delegation at the Abu Dhabi talks, which opened on 10 November with US envoys mediating. Kyiv's agenda is a cessation of hostilities, security guarantees and humanitarian steps; a senior official said it has no particular expectations. Ukraine met European and US officials separately before the session.\n\nRussian forces struck the Trypillia thermal power plant near Kyiv on 9 November. The IAEA said a drone killed a worker at the occupied Zaporizhzhia nuclear plant after it lost its only external line for about 10 hours. Bulgaria confirmed six bodies aboard the tanker Wine Trader, hit off Romania on 15 October.\n\nNATO's top commander said in late October that no European-funded PURL deliveries have been delayed."
     },
     {
       "name": "France",
@@ -346,9 +346,9 @@
       "risk": 30,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-09-26",
-      "note": "Macron pledged soldiers, radars and defence systems to protect Saudi Arabia's Yanbu port; the EU dropped Usmanov at France's request.",
-      "details": "France is one of two European nuclear powers and the EU's only one, and until 2026-09-02 this board carried no entry for it at all.\n\nOn 2 March 2026, in a speech at Ile-Longue, President Macron set out a doctrine of \"forward deterrence\" — allied participation in French deterrence exercises and the temporary basing of nuclear-capable Rafale aircraft on partner territory. A Franco-German nuclear steering group followed. The doctrine also moved France from a fixed 300-warhead ceiling to a posture of dynamic sufficiency and ended public disclosure of stockpile size.\n\nWith no negotiated limit binding American or Russian strategic forces since New START expired in February, France is the instrument European states are hedging with. A presidential election falls in spring 2027 with no incumbent standing.\n\nOn 11 September a passenger train derailed at Cléon, between Rouen and Caen, injuring 44. A police source told AFP investigators suspect sabotage after a rail fragment was found on the track. No suspect, group or state has been named."
+      "as_of": "2026-11-10",
+      "note": "Blamed Iran's Revolutionary Guard for cyberattacks on supermarket fridges; seeks warrants and EU sanctions.",
+      "details": "France made Europe's first government attribution of a large Iranian cyber sabotage campaign. Foreign minister Jean-Noel Barrot said the Revolutionary Guard was behind attacks on 11-12 October that raised fridge temperatures at hundreds of French supermarkets. The Paris prosecutor opened a probe into the Guard's Shahid Kaveh unit and requested international arrest warrants for two officials. Barrot said France 'rules nothing out', will summon Iran's ambassador and will seek EU sanctions. Similar suspected attacks on 2 November hit at least nine other European countries, not yet attributed.\n\nOn Ukraine, Barrot said European officials would be present at the Abu Dhabi talks and that European security cannot be negotiated with Russia before a ceasefire.\n\nFrance is one of two European nuclear powers and has pledged forces and air defences to protect Saudi Arabia's Yanbu port."
     },
     {
       "name": "Hungary",
@@ -376,9 +376,9 @@
       "risk": 34,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-01",
-      "note": "Under US pressure over Belarusian potash; Pentagon asked it to soften rhetoric on Russia.",
-      "details": "Politico reports the US is pressing Lithuania to let Belarusian potash through Klaipeda despite EU sanctions; Foreign Minister Budrys says the sanctions forbid transit. Reuters says Pentagon officials asked Lithuania, Latvia and Estonia to moderate their language on Russia. Lithuania's defence minister told Lithuanian public broadcaster LRT he has no information on the request."
+      "as_of": "2026-11-10",
+      "note": "President confirmed talks on renaming Taiwan's Vilnius office as Chinese diplomats prepare to return.",
+      "details": "Lithuania's foreign ministry asked Taiwan in September to change the name of its representative office in Vilnius, and President Nauseda confirmed the talks were coordinated with him. Taiwan's deputy foreign minister said there are no plans to change the name. Chinese diplomats are expected in Lithuania this week to discuss normalising relations; China withdrew its diplomatic staff after the office opened under Taiwan's name in 2021 and imposed trade restrictions.\n\nThe US has also pressed Lithuania to let Belarusian potash through Klaipeda despite EU sanctions; Vilnius says the sanctions forbid transit."
     }
   ],
   "chess_players": [
@@ -386,18 +386,18 @@
       "name": "United States",
       "flag": "🇺🇸",
       "goal": "Reopen the Strait on American terms while the economic campaign does the rest of the work.",
-      "move": "Struck Iranian air defences on Qeshm while pursuing a deal through Qatar; lost Congress; set Abu Dhabi talks.",
-      "as_of": "2026-11-04",
-      "details": "A US official called the 2 November strikes on Qeshm and Hengam defensive; Trump defends the war after Democrats won both chambers, while Vance voices optimism about a deal.\n\nOn Ukraine, the White House will mediate talks in Abu Dhabi on 10-11 November. On China, Moscow says a Putin-Trump-Xi meeting is being arranged, which Washington has not confirmed.",
+      "move": "Calls more Iran strikes unlikely while enforcing the blockade; mediates Abu Dhabi talks with a wider European agenda.",
+      "as_of": "2026-11-10",
+      "details": "Trump says the Iran war is 'militarily effectively over' and new strikes are 'quite unlikely'; the blockade is enforced harder, with a cargo ship disabled off Khor Fakkan and a task force for land routes. Rubio reports no progress with Iran.\n\nIn Abu Dhabi, Witkoff and Kushner opened talks with Russia and Ukraine and floated a Russia-Europe security architecture, possible sanctions relief and NATO-like guarantees for Kyiv. Trump expects to meet Putin and Xi at APEC in Shenzhen. The US moved tankers from RAF Mildenhall over an Iranian threat.",
       "color": "var(--c-blue)"
     },
     {
       "name": "China",
       "flag": "🇨🇳",
       "goal": "Keep buying Iranian oil and refuse the enforcement architecture, while raising maritime pressure on Taiwan without committing to a campaign.",
-      "move": "Purged 16 generals, patrolled east of Taiwan and prepares for Trump in Shenzhen.",
-      "as_of": "2026-11-01",
-      "details": "Xi's fifth plenum expelled a record number of officials. China's coast guard pressed east of Taiwan and near Pratas, while Beijing prepares to host Trump within weeks and faces a Quad summit in the Philippines.",
+      "move": "Extended the US trade truce to 10 January; Trump expects a three-leader meeting with Xi and Putin at APEC.",
+      "as_of": "2026-11-10",
+      "details": "Beijing rolled over every suspended trade measure, including critical-mineral export waivers and port fees, to 10 January 2027, while warning about US Section 301 plans. Trump says he expects to meet Xi and Putin in Shenzhen on 18-19 November; China says only that talks are under way. Lithuania confirmed talks on renaming Taiwan's Vilnius office.",
       "color": "var(--c-brics)"
     },
     {
@@ -413,36 +413,36 @@
       "name": "Israel",
       "flag": "🇮🇱",
       "goal": "Establish a permanent security posture in Lebanon, Syria and Gaza before any framework acquires enforcement, and absorb American objection without paying for it.",
-      "move": "Netanyahu stays caretaker after a 53-seat result and spoke to Trump on Iran.",
-      "as_of": "2026-11-01",
-      "details": "Final results left no bloc with a majority. Netanyahu remains caretaker prime minister and reportedly spoke to Trump on 31 October amid preparations for strikes on Iran. Herzog will consult party leaders.",
+      "move": "Eisenkot holds the mandate to form a government; Netanyahu remains caretaker with authority over Iran decisions.",
+      "as_of": "2026-11-10",
+      "details": "Herzog gave Eisenkot the mandate on 7 November; he has 28 days, extendable by 14. Netanyahu stays caretaker, calls for a unity government and keeps authority over military operations. Herzog and Trump want the next government to advance the US Gaza plan.",
       "color": "var(--c-blue)"
     },
     {
       "name": "Iran",
       "flag": "🇮🇷",
       "goal": "Convert control of the Strait into sanctions relief and compensation, with Washington moving first.",
-      "move": "Claims four tankers mined after US strikes on Qeshm; offers to reopen Hormuz in two days if its conditions are met.",
-      "as_of": "2026-11-04",
-      "details": "Iran's Guard says four tankers hit mines on a prohibited route on 4 November; no ships were named. The foreign ministry offers to reopen the Strait within two days if the blockade ends, frozen assets are released and oil sanctions lifted.\n\nQatari mediators held talks in Tehran on 2 November and are drafting an interim deal. The supreme leader's order for an 'unrestricted' response to attack stands.",
+      "move": "Rejects talk of progress and demands its seven conditions while the Guard claims tanker mines and lifts missile range limits.",
+      "as_of": "2026-11-10",
+      "details": "Iran's security council secretary told the US to stop 'manufacturing fake news' about talks and accept Iran's seven conditions; Tehran says sanctions and the blockade must end first. The Guard says two tankers hit mines on an unauthorised route, unconfirmed, and says its missile range limit has been lifted. France blamed the Guard's cyber unit for sabotaging supermarket fridges, and the US moved aircraft from a British base over an Iranian threat.",
       "color": "var(--c-iran)"
     },
     {
       "name": "Russia",
       "flag": "🇷🇺",
       "goal": "Absorb strikes on export infrastructure without acknowledging damage, while keeping the war's economic pressure pointed at Ukraine through winter.",
-      "move": "Mounted its largest grid strike this year while agreeing to Abu Dhabi talks and rejecting any partial truce.",
-      "as_of": "2026-11-04",
-      "details": "Russia fired 76 missiles and 289 drones at Ukraine's energy system on 3 November. Lavrov rejected Ukraine's ceasefire and partial-truce proposals, and the Kremlin said it has no plans for another Oleshky-style pause.\n\nIt confirmed the 10-11 November Abu Dhabi talks and is promoting a Putin-Trump-Xi meeting in China this month.",
+      "move": "Opened talks with Ukraine under US mediation while striking power plants and rejecting a European role.",
+      "as_of": "2026-11-10",
+      "details": "Medinsky's delegation, including Ryabkov, met Ukraine with US envoys in Abu Dhabi on 10 November. The Kremlin rejects any European role; Moscow still demands the rest of Donetsk while US officials float sanctions relief and a Russia-Europe security framework. Russian forces struck the Trypillia power plant before the talks; a drone killed a worker at the occupied Zaporizhzhia nuclear plant.",
       "color": "var(--c-ukraine-war)"
     },
     {
       "name": "Ukraine",
       "flag": "🇺🇦",
       "goal": "Convert deep strikes from claimed damage into measurable losses of Russian export revenue and launch capacity.",
-      "move": "Faces Russia's heaviest grid strike this year; will attend US-mediated talks in Abu Dhabi on 10-11 November.",
-      "as_of": "2026-11-04",
-      "details": "Kyiv lost power and water after the 3 November attack, which hit a substation serving the Khmelnytskyi nuclear plant. Ukraine proposed an immediate ceasefire and energy, food, air and sea truces, which Lavrov rejected.\n\nUkraine keeps striking Russian refineries, including Yaroslavl on 3 November, and is seeking air defence from Germany.",
+      "move": "Opened talks with Russia under US mediation; seeks a ceasefire and security guarantees as power plants are hit.",
+      "as_of": "2026-11-10",
+      "details": "Umerov leads Ukraine's team in Abu Dhabi, seeking a cessation of hostilities, security guarantees and humanitarian steps; Kyiv met European and US officials beforehand. US officials discuss NATO-like guarantees. Russia struck the Trypillia power plant, and a drone killed a worker at the Zaporizhzhia nuclear plant after a 10-hour power loss.",
       "color": "#facc15"
     },
     {
@@ -467,10 +467,10 @@
       "name": "Saudi Arabia",
       "flag": "🇸🇦",
       "goal": "Impose costs on Iran's proxy network without owning the escalation rhetorically or opening a second front in Yemen.",
-      "move": "Sends its defence minister to Tehran for Mecca pact talks while its air defences intercept Houthi missiles at Riyadh.",
-      "as_of": "2026-10-26",
+      "move": "Absorbing Houthi attacks on Riyadh and a pipeline near Medina with no casualties reported.",
+      "as_of": "2026-11-10",
       "color": "var(--c-amber)",
-      "details": "Riyadh's play is to defend with partners and open its own line to Tehran. Its defence minister leads a delegation to security talks in Iran with Pakistan and Turkey, while the coalition intercepts missiles at the capital and strikes launchers in Sanaa. European crews and the Mecca pact share its air defence as Washington steps back."
+      "details": "A Houthi attack damaged an Aramco tower in Riyadh on 8 November, and a pipeline in the Medina region caught fire on 9 November; Saudi Arabia said operations were unaffected and reported no casualties. Houthi-run media say a coalition airstrike killed at least 40 people in Sanaa province. Turkey ratified the Mecca defence pact on 5 November."
     },
     {
       "name": "UAE",
@@ -486,21 +486,21 @@
       "name": "Qatar",
       "flag": "🇶🇦",
       "goal": "Mediate the war toward a settlement without Al Udeid becoming a target.",
-      "move": "Keeps Iran mediation running after its own LNG carrier was struck.",
-      "as_of": "2026-11-01",
+      "move": "Chief mediator of a two-step plan: blockade relief and inspections, then a Hormuz reopening.",
+      "as_of": "2026-11-07",
       "stale_ok": false,
       "color": "var(--text-mid)",
-      "details": "Qatar named no attacker after Al Mayeda was struck on 30 October and continued talks with Iranian envoys in Tehran and Doha. Its seven-day plan has not satisfied Tehran."
+      "details": "Regional officials told Reuters Qatar's bridge plan has the US lift its blockade and free some funds while Iran admits IAEA inspectors, followed by a Hormuz reopening under an Iran-Oman arrangement. Iran is reviewing it; the White House declined comment. Qatar denies talks failed, and Trump spoke with the emir."
     },
     {
       "name": "Turkey",
       "flag": "🇹🇷",
       "goal": "Expand its position in post-Assad Syria while keeping its NATO membership and its out-of-alliance commitments from being forced into a single choice.",
-      "move": "Parliament's foreign affairs committee approves the Mecca defence pact; intelligence chief Kalin joins Gulf talks in Tehran.",
-      "as_of": "2026-10-29",
+      "move": "Ratified the Mecca defence pact with Saudi Arabia and Pakistan; no troop deployment yet.",
+      "as_of": "2026-11-07",
       "stale_ok": false,
       "color": "#f59e0b",
-      "details": "Ankara's play is to gain a Gulf security role without front-line exposure: a ratified pact, defence sales and intelligence support to Riyadh, with any troop deployment left to parliament."
+      "details": "Parliament approved the pact on 5 November by 279 to 119. It binds a NATO member to treat an attack on Saudi Arabia or Pakistan as an attack on itself. Sending troops needs a separate vote, and Ankara says it will not join offensive operations against the Houthis."
     },
     {
       "name": "Hezbollah / Lebanon",
@@ -526,10 +526,10 @@
       "name": "United Kingdom",
       "flag": "🇬🇧",
       "color": "var(--c-blue)",
-      "as_of": "2026-10-20",
+      "as_of": "2026-11-10",
       "goal": "Lead a broad European and Commonwealth position on the West Bank without getting ahead of Washington on Israel policy.",
-      "move": "Joins Saudi Arabia's air defence with Typhoon patrols while MI5 warns of Russian and Iranian hybrid attacks at home.",
-      "details": "London's play is to back Gulf partners and Ukraine while hardening at home. It now flies defensive patrols over Saudi Arabia, and its security service names Russia as the main hybrid threat, with Iran-linked plots second."
+      "move": "Hosts US bases now under heightened Iran-linked threat; joins Europeans in Abu Dhabi outside the core talks.",
+      "details": "The US moved tankers from RAF Mildenhall over an Iran-linked threat and raised two bases to FPCON Charlie, after leaving RAF Fairford in September. British officials met Ukraine's delegation in Abu Dhabi outside the three-way format. RAF Typhoons patrol over Saudi Arabia."
     },
     {
       "name": "Kuwait",
@@ -561,11 +561,11 @@
     {
       "name": "South Korea",
       "flag": "🇰🇷",
-      "as_of": "2026-10-20",
+      "as_of": "2026-11-07",
       "stale_ok": false,
       "goal": "Stay out of the Iran war without breaking with Washington, and keep a path open to US-North Korea dialogue.",
-      "move": "Answers North Korea's border threats with promises of firm retaliation while its rift with Kyiv over North Korean prisoners deepens.",
-      "details": "Seoul's play is deterrence at the DMZ and distance from the Ukraine war. It matched the North with its own hypersonic test and is pulling staff from Kyiv after a public row over North Korean prisoners."
+      "move": "Will ask parliament to extend its Cheonghae naval unit toward the Strait of Hormuz.",
+      "details": "South Korea's defence ministry will submit a motion to extend the Cheonghae anti-piracy unit's operating area closer to the Strait of Hormuz, limited to open waters south of Oman, after US criticism of Seoul's support for the war. Parliament, the president and cabinet must approve. A ministry committee also approved a nuclear-powered submarine project (Yonhap, not yet carried by a directory outlet)."
     }
   ],
   "theaters": [
@@ -574,9 +574,9 @@
       "name": "China",
       "start": "2026-05-14",
       "threat": 62,
-      "status": "China's coast guard patrolled east of Taiwan; the fifth plenum expelled 16 generals.",
+      "status": "China extended the US trade truce to 10 January; Trump expects to meet Xi and Putin at APEC in Shenzhen.",
       "color": "#c97a1a",
-      "as_of": "2026-11-01"
+      "as_of": "2026-11-10"
     },
     {
       "flag": "🇹🇼",
@@ -592,9 +592,9 @@
       "name": "Iran",
       "start": "2026-02-28",
       "threat": 88,
-      "status": "The US struck Iranian air defences on Qeshm on 2 November; Iran claims four tankers mined; Qatar drafts an interim deal.",
+      "status": "Trump calls more strikes unlikely; US aircraft disabled a blockade runner off Khor Fakkan; Guard tanker claims unconfirmed.",
       "color": "var(--c-iran)",
-      "as_of": "2026-11-04"
+      "as_of": "2026-11-10"
     },
     {
       "flag": "🇱🇧",
@@ -610,18 +610,18 @@
       "name": "Yemen",
       "start": "2026-02-28",
       "threat": 85,
-      "status": "Houthi forces are within about 80 km of Aden after taking Al-Maqatirah, Reuters reports; the Taiz-Aden road remains cut.",
+      "status": "A Houthi attack damaged an Aramco tower in Riyadh on 8 November and set a pipeline fire near Medina; no casualties reported.",
       "color": "#eab308",
-      "as_of": "2026-11-04"
+      "as_of": "2026-11-10"
     },
     {
       "flag": "🇺🇦",
       "name": "Ukraine",
       "start": "2022-02-24",
       "threat": 72,
-      "status": "Russia's largest grid strike this year hit Kyiv's power and water; at least 31 killed at an aid point; Abu Dhabi talks set for 10-11 November.",
+      "status": "US-mediated talks with Russia opened in Abu Dhabi on 10 November; Russia struck Trypillia; a Zaporizhzhia plant worker was killed.",
       "color": "#fb923c",
-      "as_of": "2026-11-04"
+      "as_of": "2026-11-10"
     },
     {
       "flag": "🇸🇩",

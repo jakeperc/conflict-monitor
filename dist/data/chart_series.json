@@ -1,131 +1,89 @@
 {
-  "_note": "Dated, event-anchored chart series (rule #1: real dates + real/editorial values only, no fabricated fill). Consumed by src/js/app.js EventSeriesChart via window.__DATA__. ww3_milestones are the pre-daily-tracking historical anchors (each {d,v} is a real reporting date + the editorial WW3% at that date); scripts/build.js merges them with the dated daily escalation_history.json (Jun 24 -> now) into __DATA__.ww3_series. brent/hormuz/gas_nat are honest-sparse dated anchors from documented reporting; the live tail is spliced client-side and the series densify as the daily pipeline appends. Direction (red=escalating / green=de-escalating) is DERIVED from the value delta at render time; the k field is documentation only. To add a milestone going forward, append a dated {d,v,t,s} row here.",
+  "_note": "Dated, event-anchored chart series (rule #1: real dates + real/editorial values only, no fabricated fill). Consumed by src/js/app.js EventSeriesChart via window.__DATA__. ww3_milestones are the pre-daily-tracking historical anchors (each {d,v} is a real reporting date + the editorial WW3% at that date); scripts/build.js merges them with the dated daily escalation_history.json (Jun 24 -> now) into __DATA__.ww3_series. brent/hormuz/gas_nat are honest-sparse dated anchors from documented reporting; the live tail is spliced client-side and the series densify as the daily pipeline appends. Direction (red=escalating / green=de-escalating) is DERIVED from the value delta at render time; the k field is documentation only. To add a milestone going forward, append a dated {d,v,t,s} row here. AUDIT 2026-11-07: milestones before 2026-05-19 (the first day the four sub-axes were scored) were re-scored by applying the methodology bands to a verified fact sheet; they are reconstructions, not same-day scores. Day 0 moved from 10 (rung \"no kinetic\") to 55: the opening strike killed Khamenei and Iran hit US bases in seven states. Five labels were corrected or dropped (House vote Mar 5 not Mar 4; IAEA-exit, first-naval-death and Mar 22 mining events not found; the tanker seizure was May 8). From 2026-05-19 the chart uses the scored daily record. Axis breakdowns are in the private methodology file.",
   "ww3_milestones": [
     {
       "d": "2026-02-28",
-      "v": 10,
+      "v": 55,
       "t": "War begins",
-      "s": "Operation Epic Fury launches",
+      "s": "US-Israeli strikes kill Khamenei; Iran fires at US bases in seven states",
       "k": "start"
     },
     {
-      "d": "2026-03-04",
-      "v": 13,
-      "t": "House fails war-powers vote",
-      "s": "first constraint vote loses",
+      "d": "2026-03-05",
+      "v": 60,
+      "t": "Six US troops killed",
+      "s": "Spain refuses US use of Rota and Morón; House war-powers vote fails 212-219",
       "k": "esc"
     },
     {
       "d": "2026-03-12",
-      "v": 28,
-      "t": "IAEA inspectors out",
-      "s": "nuclear blackout begins",
+      "v": 61,
+      "t": "Hormuz mined, ships hit",
+      "s": "Mines laid and three ships struck; transits down about 95%",
       "k": "esc"
     },
     {
-      "d": "2026-03-22",
-      "v": 45,
-      "t": "Strait of Hormuz mined",
-      "s": "tanker throughput plunges",
-      "k": "esc"
-    },
-    {
-      "d": "2026-03-26",
-      "v": 59,
-      "t": "Nuclear fears crest",
-      "s": "IAEA blackout enters week 3 · no inspector access",
-      "k": "esc"
-    },
-    {
-      "d": "2026-04-01",
-      "v": 62,
-      "t": "First US naval death",
-      "s": "peak of the opening phase",
+      "d": "2026-03-31",
+      "v": 65,
+      "t": "Allies refuse US bases",
+      "s": "Spain closes its airspace; Italy denies Sigonella; peak of the opening phase",
       "k": "esc"
     },
     {
       "d": "2026-04-08",
-      "v": 46,
+      "v": 53,
       "t": "Ceasefire",
       "s": "two-week pause begins · Pakistan mediates",
       "k": "deesc"
     },
     {
-      "d": "2026-04-14",
-      "v": 43,
-      "t": "Narrow violations",
-      "s": "pact holds under strain",
-      "k": "deesc"
+      "d": "2026-04-13",
+      "v": 53,
+      "t": "US naval blockade begins",
+      "s": "Islamabad talks fail; the blockade of Iranian ports starts",
+      "k": "esc"
     },
     {
       "d": "2026-04-16",
-      "v": 41,
+      "v": 53,
       "t": "House WPR fails by one vote",
       "s": "213-214 · Trump: deal \"very close\"",
-      "k": "deesc"
+      "k": "info"
     },
     {
       "d": "2026-04-21",
-      "v": 38,
+      "v": 53,
       "t": "Pause extended",
-      "s": "\"fractured Iran\" · floor of the arc",
+      "s": "open-ended at Pakistan's request; the blockade stays",
       "k": "deesc"
-    },
-    {
-      "d": "2026-04-25",
-      "v": 42,
-      "t": "60-day clock ticks",
-      "s": "no withdrawal signaled as WPR deadline nears",
-      "k": "esc"
     },
     {
       "d": "2026-05-01",
-      "v": 48,
+      "v": 53,
       "t": "War-powers clock expires",
-      "s": "Trump asserts authority",
-      "k": "esc"
+      "s": "Trump tells Congress hostilities have \"terminated\"",
+      "k": "info"
     },
     {
-      "d": "2026-05-05",
-      "v": 46,
-      "t": "Pope calls for restraint",
-      "s": "\"violence is the last resort\"",
-      "k": "deesc"
-    },
-    {
-      "d": "2026-05-07",
-      "v": 48,
-      "t": "Vatican talks",
-      "s": "diplomacy visible but slow",
-      "k": "esc"
-    },
-    {
-      "d": "2026-05-10",
-      "v": 56,
-      "t": "Counter-offer rejected",
-      "s": "Iran calls the plan \"garbage\"",
+      "d": "2026-05-08",
+      "v": 55,
+      "t": "Destroyer clash",
+      "s": "Iran attacks three US destroyers; US strikes Hormozgan; IRGC seizes the tanker Ocean Koi",
       "k": "esc"
     },
     {
       "d": "2026-05-12",
-      "v": 62,
-      "t": "Ceasefire \"on massive life support\"",
-      "s": "14-pt counter rejected; Senate WPR fails 50-49 (May 13)",
-      "k": "esc"
-    },
-    {
-      "d": "2026-05-15",
-      "v": 67,
-      "t": "Tanker seized in Hormuz",
-      "s": "first hull loss · cycle peak",
+      "v": 55,
+      "t": "Ceasefire \"on life support\"",
+      "s": "Trump rejects Iran's counter-proposal; Iran threatens 90% enrichment if attacked",
       "k": "esc"
     },
     {
       "d": "2026-05-17",
-      "v": 58,
-      "t": "Toll regime live · shock unwinds",
-      "s": "\"Hormuz Safe\" operational; Trump \"clock is ticking\" ultimatum",
-      "k": "deesc"
+      "v": 56,
+      "t": "Barakah strike, ultimatum",
+      "s": "drone hits the UAE nuclear plant perimeter; Trump: \"clock is ticking\"",
+      "k": "esc"
     },
     {
       "d": "2026-06-06",

@@ -1,0 +1,35 @@
+# Backstop alarm: fails (GitHub emails the owner) when the live board is more than 4 days old.
+# Normal cadence is about 3 days, so one missed run does not fire; two do. It reads the deployed
+# data/meta.json, so it also catches a dead desktop, a stopped task or a failed deploy, which the
+# private repo's run-record check cannot see. It checks out nothing and needs no token.
+name: Freshness
+
+on:
+  schedule:
+    - cron: "41 15 * * *" # 10:41 EST / 11:41 EDT, after the morning run
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check the live board's age
+        run: |
+          meta=$(curl -fsS --retry 3 --retry-delay 10 --max-time 30 "https://conflict-monitor.jakepercy.com/data/meta.json") \
+            || { echo "::error::The live site did not return data/meta.json."; exit 1; }
+          fail=0
+          for field in now last_built; do
+            value=$(jq -r --arg f "$field" '.[$f] // empty' <<<"$meta")
+            if [ -z "$value" ]; then echo "::error::The live meta.json has no $field."; fail=1; continue; fi
+            stamp=$(date -u -d "$value" +%s 2>/dev/null) || { echo "::error::Cannot read $field ($value)."; fail=1; continue; }
+            age=$(( ( $(date -u +%s) - stamp ) / 3600 ))
+            echo "$field: $value ($age h ago)"
+            if [ "$age" -gt 96 ]; then
+              echo "::error::The live board's $field is $age hours old (more than 4 days). The automated update has stopped."
+              fail=1
+            fi
+          done
+          exit $fail

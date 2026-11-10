@@ -13,7 +13,10 @@
     "validate:html": "node scripts/validate-html.js",
     "sort:events": "node scripts/sort-events.js",
     "changelog": "node scripts/generate-changelog.js",
-    "test": "npm run validate:data && npm run build && npm run validate:html"
+    "test": "npm run validate:data && npm run build && npm run validate:html",
+    "should-run": "node scripts/should-run.js",
+    "publish": "node scripts/publish.js",
+    "test:publish": "node scripts/test/publish-fixtures.js"
   },
   "devDependencies": {
     "esbuild": "0.28.2"

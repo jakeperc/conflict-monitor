@@ -6,6 +6,8 @@
 /conflict-update-plans/
 /.claude/
 /node_modules/
+# The publish run record (status/last-run.json) goes to the private repo only.
+/status/
 
 # Internal data registers (the build publishes a reader-safe projection of them)
 /data/forecasts.json

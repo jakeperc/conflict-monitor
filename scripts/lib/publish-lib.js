@@ -430,7 +430,9 @@ function sanitizer() {
 }
 const MIRROR_ROOTS = ["automation", "project-memory", ".claude", "status/last-run.json"].concat(INTERNAL_DATA);
 const mirrorExcluded = rel => /^automation\/tmp\//.test(rel) || /^automation\/context\/raw-feed-/.test(rel)
-  || rel === "automation/publish.lock" || /^\.claude\/worktrees\//.test(rel) || rel === ".claude/settings.local.json";
+  || rel === "automation/publish.lock" || /^\.claude\/worktrees\//.test(rel) || rel === ".claude/settings.local.json"
+  // The rolling feed store is a regenerable headline cache, and archives are local rollback copies (2026-11-10).
+  || rel === "automation/context/feed-store.json" || /^automation\/backups\/.*\.(zip|tar\.gz|tgz)$/.test(rel);
 function mirrorPrivate(scanner) {
   const bad = syncPrivate();
   if (bad) return `not mirrored: ${bad}`;

@@ -1,11 +1,11 @@
 {
   "dashboard_title": "Global Conflict Monitor",
   "war_start": "2026-02-28T00:00:00",
-  "now": "2026-11-10T05:00:00-05:00",
-  "ww3_pct": 65,
-  "ww3_now_label": "Nov 10 · Abu Dhabi talks open; Trump eases on Iran",
-  "base_last_update": "11/10/2026 · 05:00 EST",
-  "last_built": "2026-11-10T15:48:07.057Z",
+  "now": "2026-11-12T06:00:00-05:00",
+  "ww3_pct": 66,
+  "ww3_now_label": "Nov 12 · prisoner deal; audit-corrected axes",
+  "base_last_update": "11/12/2026 · 06:00 EST",
+  "last_built": "2026-11-12T09:36:19.034Z",
   "version": "2.0.0",
   "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
   "hormuz_status": {

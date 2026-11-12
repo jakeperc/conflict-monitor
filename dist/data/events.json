@@ -49982,6 +49982,43 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-08-a-drone-struck-the-khor-mor",
+    "event_date": "2026-11-08",
+    "source_time": null,
+    "headline": "A drone struck the Khor Mor gas field in Iraqi Kurdistan, halting gas supplies to power plants and cutting power to more than 70% of the region; no one claimed the attack and Iraq's prime minister ordered a joint investigation.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news-analysis/2026/11/10/khor-mor-drone-attack-raises-fears-over-iraqs-energy-security",
+        "published_date": "2026-11-10"
+      },
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/production-suspended-iraqs-khor-mor-gas-field-after-drone-attack",
+        "published_date": "2026-11-08"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "markets-risk-transmission"
+    ],
+    "tags": [
+      "iraq",
+      "kurdistan",
+      "energy-infrastructure",
+      "drones"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-08-centcom-set-up-task-force-iron",
     "event_date": "2026-11-08",
     "source_time": null,
@@ -50071,6 +50108,36 @@
       "apec",
       "shenzhen",
       "summit"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-08-turkey-and-iraq-said-turkish-forces",
+    "event_date": "2026-11-08",
+    "source_time": null,
+    "headline": "Turkey and Iraq said Turkish forces will gradually hand over the Bashiqa base in northern Iraq, held since 2015; Iraq says the withdrawal begins this month and ends by the end of the year.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Breaking Defense",
+        "url": "https://breakingdefense.com/2026/11/turkey-prepares-to-withdraw-from-base-in-iraq-in-shift-for-ankara-baghdad-relations-analysts/",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "turkey",
+      "iraq",
+      "basing"
     ],
     "feed_visibility": true,
     "timeline_visibility": false,
@@ -50325,12 +50392,17 @@
     "id": "2026-11-09-china-extended-its-trade-truce-with",
     "event_date": "2026-11-09",
     "source_time": null,
-    "headline": "China extended its trade truce with the US by two months, keeping a 24% tariff suspended and extending export-control waivers on certain critical minerals and its port-fee suspension to 10 January 2027.",
+    "headline": "China extended its trade truce with the US by two months, keeping a 24% tariff suspended and extending its pause on expanded rare-earth and other critical-mineral export controls, and its port-fee suspension, to 10 January 2027.",
     "body": "",
     "sources": [
       {
         "name": "Reuters",
         "url": "https://gcaptain.com/china-extends-us-trade-truce-by-two-months/",
+        "published_date": "2026-11-09"
+      },
+      {
+        "name": "Reuters",
+        "url": "https://www.thenationalnews.com/news/us/2026/11/09/china-extends-pause-on-rare-earth-export-curbs-for-two-months/",
         "published_date": "2026-11-09"
       }
     ],
@@ -50346,6 +50418,7 @@
     ],
     "tags": [
       "trade-truce",
+      "rare-earths",
       "critical-minerals",
       "economic-coercion"
     ],
@@ -50383,6 +50456,73 @@
       "taiwan",
       "economic-coercion",
       "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-09-two-chinese-built-heavy-lift-ships-used-for",
+    "event_date": "2026-11-09",
+    "source_time": null,
+    "headline": "Two Chinese-built heavy-lift ships used for Arctic LNG 2 deliveries are now owned by a Russian company and fly the Russian flag, vessel records show, gCaptain reported.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/russia-takes-control-of-two-chinese-heavy-lift-ships-used-for-arctic-lng-2-deliveries/",
+        "published_date": "2026-11-09"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "sanctions-financial-warfare",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "crink"
+    ],
+    "tags": [
+      "arctic-lng-2",
+      "shadow-fleet",
+      "arctic"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-09-japan-signed-a-4-3-billion",
+    "event_date": "2026-11-09",
+    "source_time": null,
+    "headline": "Japan signed a ¥4.3 billion grant to supply the Philippine navy with a coastal radar and its air force with surveillance drones.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/11/10/japan-to-supply-philippine-military-with-coastal-radar-and-drones",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "japan",
+      "philippines",
+      "south-china-sea"
     ],
     "feed_visibility": true,
     "timeline_visibility": false,
@@ -50461,6 +50601,91 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-10-british-counter-terrorism-police-arrested-a-41-year-old",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "British counter-terrorism police arrested a 41-year-old US Army member near Gloucester on suspicion of spying for Russia; officials told the AP he served in NATO's Allied Rapid Reaction Corps, and the FBI director commented on the record.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Military Times",
+        "url": "https://www.militarytimes.com/news/your-military/2026/11/10/us-soldier-arrested-in-uk-for-suspected-espionage-for-russia/",
+        "published_date": "2026-11-10"
+      },
+      {
+        "name": "DW",
+        "url": "https://www.dw.com/en/british-counterterrorism-police-arrest-us-soldier-accused-of-spying-on-behalf-of-russia/a-79913240",
+        "published_date": "2026-11-10"
+      },
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/senior-us-officer-in-nato-unit-arrested-in-uk-on-suspicion-of-spying-for-russia/",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "nato",
+      "united-kingdom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-10-the-us-justice-department-charged-three",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "The US Justice Department charged three Iran-backed operatives in an eight-count indictment, alleging that one of them orchestrated a plot at RAF Fairford, a British base used by US bombers.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c3rryrryk59zo",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/americas/20261110-us-iranian-operatives-raf-fairford-terror-plot",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "plot",
+      "raf-fairford",
+      "united-kingdom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-10-german-french-british-italian-and-eu",
     "event_date": "2026-11-10",
     "source_time": null,
@@ -50497,6 +50722,586 @@
       "abu-dhabi",
       "europe",
       "talks"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-10-france-summoned-irans-ambassador-over-the",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "France summoned Iran's ambassador over the cyberattacks it blames on the Revolutionary Guard that disabled refrigeration at hundreds of supermarkets; Iran's foreign ministry denied any role.",
+    "body": "",
+    "sources": [
+      {
+        "name": "DW",
+        "url": "https://www.dw.com/en/iran-denies-role-in-fridge-hack-france-summons-ambassador/a-79910206",
+        "published_date": "2026-11-10"
+      },
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/france-summons-iran-envoy-over-supermarket-fridge-hack",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "cyber-infrastructure",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gray-zone",
+      "france",
+      "cyber"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-10-syria-is-weighing-sending-thousands-of",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "Syria is weighing sending thousands of troops to Saudi Arabia and Yemen to help fight the Houthis, possibly under the Mecca defence pact, Syrian and Yemeni officials told the New York Times; no decision has been made.",
+    "body": "",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/10/world/middleeast/syria-weighs-sending-troops-to-aid-saudi-war-with-houthis.html",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping"
+    ],
+    "tags": [
+      "syria",
+      "saudi-arabia",
+      "mecca-pact"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-10-gulf-defence-ministers-approved-an-advanced",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "Gulf defence ministers approved an advanced headquarters in Kuwait for the GCC's unified military command and the deployment of forces to it, without giving a size.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/gcc-approve-military-command-hq-force-deployment-kuwait",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gcc",
+      "kuwait",
+      "posture"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-10-iranian-state-media-released-footage-of",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "Iranian state media released footage of the armed forces chief of staff and the Revolutionary Guard's aerospace commander touring what it called a new underground 'missile city'; the location was not disclosed and the footage is unverified.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611117576",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 1,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "missiles",
+      "irgc",
+      "state-media"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-10-rosneft-has-limited-fuel-sales-in",
+    "event_date": "2026-11-10",
+    "source_time": null,
+    "headline": "Rosneft has limited fuel sales in at least four Russian regions since 7 November, with caps of 30 to 100 litres reported in Zabaykalsky, Krasnoyarsk and Karelia, as Ukraine's refinery strikes continue.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/89629",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "markets-risk-transmission"
+    ],
+    "tags": [
+      "refinery-campaign",
+      "fuel-shortage"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-russia-and-ukraine-agreed-at-the",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Russia and Ukraine agreed at the end of two days of US-mediated talks in Abu Dhabi to the largest prisoner exchange of the war, which Kushner said would involve more than 1,000 prisoners from each side; there was no breakthrough on territory.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/nov/11/ukraine-talks-in-abu-dhabi-bring-progress-on-prisoners-but-not-on-peace",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261111-russia-and-ukraine-agree-to-major-prisoner-swap-as-peace-talks-end",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/12/us-envoys-arrive-in-moscow-for-russia-ukraine-talks-with-putin",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "talks",
+      "abu-dhabi",
+      "prisoner-exchange"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-ukrainian-drones-attacked-the-siberian-city",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Ukrainian drones attacked the Siberian city of Omsk, home to Russia's largest oil refinery, for more than eight hours, and struck the Baltic port of Ust-Luga, where Estonia's defence minister said a Russian Baltic Fleet vessel was hit.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russias-largest-oil-refinery-slammed-by-drones-in-8-hr-attack-2-500-km-from-ukraine/",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610193178/defense-minister-drones-entered-estonian-airspace-from-northeast-and-southeast",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "markets-risk-transmission"
+    ],
+    "tags": [
+      "refinery-campaign",
+      "omsk",
+      "ust-luga",
+      "baltic-fleet"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-two-russian-banderol-cruise-missiles-crossed",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Two Russian Banderol cruise missiles crossed into Moldovan airspace from Ukraine's Odesa region for four to five minutes, Moldovan authorities said, during an overnight attack of 163 drones and missiles; Russian strikes killed nine people across Ukraine that day.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-attacks-kill-9-injure-39-across-ukraine-over-past-day-as-2-russian-cruise-missiles-violate-moldovan-airspace/",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "moldova",
+      "airspace",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-drones-from-ukraines-attack-on-ust-luga",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Drones from Ukraine's attack on Ust-Luga strayed into Lithuanian and Estonian airspace overnight, triggering red air alerts in Lithuania; NATO jets were scrambled but did not down them, and Estonia asked Kyiv for an explanation.",
+    "body": "",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3111025/drone-incursions-trigger-air-alerts-across-lithuania-nato-jets-scrambled",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610193178/defense-minister-drones-entered-estonian-airspace-from-northeast-and-southeast",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "airspace",
+      "baltic",
+      "nato",
+      "lithuania",
+      "estonia"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-treasury-secretary-scott-bessent-has-moved",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Treasury Secretary Scott Bessent has moved to a military base because of Iranian threats, people familiar with the matter said; the Treasury addressed the threats but did not confirm the move.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/us-treasury-chief-bessent-moved-to-military-base-amid-iranian-threats-sources-say/",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/11/us-treasury-chief-bessent-moved-to-military-base-after-iranian-threats",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "threat",
+      "us-officials"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-russias-fsb-said-it-arrested-two",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Russia's FSB said it arrested two alleged Polish intelligence agents in the Kaliningrad region on espionage charges and barred seven Polish citizens from Russia; Poland called the claim a provocation and disinformation.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/11/fsb-arrests-alleged-polish-intelligence-agents-in-kaliningrad-region-a94225",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "disputed",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "kaliningrad",
+      "poland"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-kyiv-post-reported-that-eu-ambassadors",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Kyiv Post reported that EU ambassadors gave preliminary agreement to sanctions on 145 Russia-linked people and entities, including 50 banks; foreign ministers are expected to adopt them on 16 November.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/89847",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "sanctions-financial-warfare",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "eu-sanctions",
+      "banks"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-opecs-monthly-report-said-saudi-arabia",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "OPEC's monthly report said Saudi Arabia pumped 10.56 million barrels a day in October, its most since the Iran war began, and OPEC+ output rose by about 2 million barrels a day to 41.23 million.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/11/oil-production-near-pre-iran-war-levels-opec-says",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "markets-risk-transmission",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "opec",
+      "oil-supply",
+      "saudi-arabia"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-britain-launched-atlantic-net-the-90m",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Britain launched Atlantic Net, the £90m first phase of a Royal Navy programme using sensors, uncrewed vessels and AI to track Russian submarines and protect undersea cables, due to be operational in 2027.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/uk-launches-atlantic-net-to-track-russian-submarines-and-protect-undersea-cables/",
+        "published_date": "2026-11-11"
+      },
+      {
+        "name": "USNI News",
+        "url": "https://news.usni.org/2026/11/10/u-k-to-develop-north-atlantic-network-of-drones-ai-systems-to-find-russian-subs",
+        "published_date": "2026-11-10"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "cyber-infrastructure"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "undersea-cables",
+      "submarines",
+      "united-kingdom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-11-the-russia-led-csto-alliance-stripped-armenia",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "The Russia-led CSTO alliance stripped Armenia of its voting rights over unpaid dues while saying its membership stands; Armenia has frozen its participation in the bloc.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/11/csto-strips-armenia-of-voting-rights-a94231",
+        "published_date": "2026-11-11"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "caucasus",
+      "csto",
+      "armenia"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-russia-attacked-kyiv-overnight-with-ballistic",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "Russia attacked Kyiv overnight with ballistic missiles and drones hours after the Abu Dhabi talks ended; Ukraine's air force counted one Iskander-M missile and 123 drones, and the mayor said one person was killed and seven injured.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russia-attacks-kyiv-with-ballistic-missiles-hours-after-peace-talks-end/",
+        "published_date": "2026-11-12"
+      },
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/89855",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "kyiv",
+      "ballistic-missiles",
+      "drones"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-us-envoys-witkoff-and-kushner-arrived",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "US envoys Witkoff and Kushner arrived in Moscow for talks with Putin and were met at their plane by his envoy Kirill Dmitriev; they are due to brief Zelensky and European leaders in Dublin afterwards.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/12/us-envoys-arrive-in-moscow-for-russia-ukraine-talks-with-putin",
+        "published_date": "2026-11-12"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/witkoff-kushner-arrive-in-moscow-following-ukraine-peace-talks/",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "talks",
+      "moscow",
+      "witkoff",
+      "kushner"
     ],
     "feed_visibility": true,
     "timeline_visibility": false,

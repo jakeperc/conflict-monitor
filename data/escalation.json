@@ -55,26 +55,26 @@
     {
       "key": "kinetic",
       "label": "Kinetic Intensity",
-      "score": 80,
-      "currentLabel": "US aircraft disabled a blockade runner off Khor Fakkan; Houthi attacks hit Riyadh and a Saudi pipeline; Russia struck power plants near Kyiv."
+      "score": 75,
+      "currentLabel": "Russia struck Kyiv after the talks and Ukraine hit Omsk and Ust-Luga; no US strike on Iran reported since 7 November."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
-      "score": 65,
-      "currentLabel": "Russia-Ukraine talks opened in Abu Dhabi with US mediation; China extended the trade truce; Trump expects a three-leader meeting at APEC."
+      "score": 70,
+      "currentLabel": "Abu Dhabi talks ended with a prisoner deal; US envoys met Putin's team in Moscow; the APEC three-leader meeting is unconfirmed."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "A drone killed a Zaporizhzhia nuclear plant worker after a power loss; Iran's Guard says missile range limits are lifted; no US-Russia arms limits."
+      "currentLabel": "Iran showed a new underground missile site; no binding US-Russia arms limits are in force; Zaporizhzhia's power supply stays fragile."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
-      "score": 55,
-      "currentLabel": "Europe is outside the core Abu Dhabi format as the US floats sanctions relief; France blamed Iran for cyber sabotage; US left a second UK base."
+      "score": 60,
+      "currentLabel": "Europe stays outside the US-Russia talks; a US soldier was arrested in Britain over Russia spying; US charges target an Iran plot at a British base."
     }
   ]
 }

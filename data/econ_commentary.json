@@ -9,10 +9,10 @@
     },
     {
       "key": "oil",
-      "title": "Oil: Prices Ease as Trump Plays Down New Iran Strikes",
+      "title": "Oil: Saudi Output Hits a Wartime High as Strikes Pause",
       "color": "amber",
-      "body": "Brent trades at {BRENT}. Brent ended last week near $98, its lowest in about a month, as Qatar's mediation and the end of the US midterms eased fears of a wider war. Trump's 9 November remark that further strikes on Iran are 'quite unlikely' points the same way. The blockade still holds, and US aircraft disabled a ship running it on 7 November. Houthi attacks on 8-9 November damaged an Aramco office tower in Riyadh and caused a limited fire on the East-West pipeline near Medina; Saudi Arabia said pipeline operations were unaffected. The pipeline is the main route around Hormuz, so a sustained outage would matter more than a strike headline.",
-      "updated_at": "2026-11-10"
+      "body": "Brent trades at {BRENT}. OPEC's monthly report, published 11 November, says Saudi Arabia pumped 10.56 million barrels a day in October, its most since the war began in February, and OPEC+ output rose about 2 million barrels a day to 41.23 million. More supply from outside the Strait eases the pressure from a contested Hormuz. Brent fell from about $98 on 7 November to about $91 on 10 November after Trump called further strikes on Iran unlikely. The blockade still holds, and Houthi attacks on 8-9 November hit an Aramco tower in Riyadh and the East-West pipeline near Medina, the main route around Hormuz.",
+      "updated_at": "2026-11-12"
     },
     {
       "key": "crypto",

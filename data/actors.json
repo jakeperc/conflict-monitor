@@ -194,9 +194,9 @@
       "risk": 26,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-10",
-      "note": "US moved tankers from RAF Mildenhall over an Iran-linked threat, the second British base vacated after Fairford.",
-      "details": "The US moved refuelling tankers from RAF Mildenhall to Germany and elsewhere on 9 November after a threat from Iran, the Wall Street Journal reported, and raised Mildenhall and Lakenheath to FPCON Charlie, the second-highest protection level. The Ministry of Defence said assets move regularly. It is the second British base the US has vacated, after bombers left RAF Fairford in September following arrests on suspicion of helping Iranian intelligence; Prime Minister Burnham has said that activity was likely coordinated in Iran.\n\nBritish officials joined European colleagues in Abu Dhabi, meeting Ukraine's delegation outside the three-way talks. RAF Typhoons fly defensive patrols over Saudi Arabia against Houthi attacks, and MI5 names Russia and Iran as the leading hybrid threats."
+      "as_of": "2026-11-12",
+      "note": "US charged Iran-backed operatives over a plot at RAF Fairford; a US soldier was arrested near Gloucester on suspicion of spying for Russia.",
+      "details": "Britain is now the main European stage for both of the board's adversary arcs. On 10 November the US Justice Department charged three Iran-backed operatives in an eight-count indictment, alleging one orchestrated a plot at RAF Fairford, the base US bombers left in September after earlier arrests. A day earlier the US moved refuelling tankers out of RAF Mildenhall over an Iran-linked threat and raised two bases to FPCON Charlie, the Wall Street Journal reported.\n\nAlso on 10 November, counter-terrorism police arrested a 41-year-old US Army member near Gloucester on suspicion of spying for Russia; officials told the AP he served in NATO's Allied Rapid Reaction Corps at Imjin Barracks. No charge has been announced.\n\nOn 11 November Britain launched Atlantic Net, a £90m programme to track Russian submarines and protect undersea cables, due in 2027. British officials met Ukraine's delegation outside the Abu Dhabi talks."
     },
     {
       "name": "Iraq",
@@ -204,9 +204,9 @@
       "risk": 50,
       "level": "HIGH",
       "alignment": "neutral",
-      "note": "Parliament made Asaib Ahl al-Haq's Laith al-Khazali, a US-designated terrorist, a deputy prime minister two weeks after US troops left.",
-      "details": "Iran-aligned militias are entering Iraq's state. On 15 October parliament approved the remaining cabinet, making Laith al-Khazali of Asaib Ahl al-Haq, whom the US designates a terrorist, one of three deputy prime ministers, Reuters reports. The last US troops left Iraq on 30 September. On 15 October the US Treasury sanctioned an Iraqi bank in a new round against Iran's finances.",
-      "as_of": "2026-10-20"
+      "note": "A drone hit the Khor Mor gas field, cutting power to most of Kurdistan; Turkey will hand over its Bashiqa base.",
+      "details": "On the night of 8 November an explosive drone struck the Khor Mor gas field in Iraqi Kurdistan, halting gas to power plants and taking more than 70% of the region off the grid, Al Jazeera reported. No one claimed the attack; the prime minister ordered a joint investigation. The same field was hit in 2025.\n\nTurkey and Iraq said Turkish forces will gradually hand over the Bashiqa base north of Mosul, held since 2015; Iraq says the withdrawal begins this month and ends by year-end, though analysts expect other Turkish forces to stay in the north (Breaking Defense).\n\nIran-aligned militias are inside the state: in October parliament made Laith al-Khazali of Asaib Ahl al-Haq, a US-designated terrorist, a deputy prime minister. The last US troops left on 30 September.",
+      "as_of": "2026-11-12"
     },
     {
       "name": "Kuwait",
@@ -214,9 +214,9 @@
       "risk": 50,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Court sentenced three to death for spying for Iran and Hezbollah and plotting to kill the interior minister; Iran's ambassador summoned.",
-      "details": "Kuwait has moved from silence to confrontation with Tehran through its courts. On 26 October a state security court sentenced three men to death for espionage for Iran and Hezbollah and for plotting to assassinate First Deputy Prime Minister and Interior Minister Sheikh Fahad Al-Yousef; the sentences can be appealed (Iran International, citing Kuwait Times and AFP). On 28 October Kuwait summoned Iran's ambassador over an embassy statement it said interfered in its judiciary.\n\nKuwait was struck by Iranian missiles and drones in early September; it reported interceptions and no casualties.",
-      "as_of": "2026-10-29"
+      "note": "Will host an advanced headquarters for the Gulf states' unified military command, GCC defence ministers decided.",
+      "details": "On 10 November GCC defence ministers approved an advanced headquarters in Kuwait for the Gulf states' unified military command and the deployment of forces to it, without giving a size (The New Arab). It is the most concrete step yet toward a Gulf collective-defence structure during the Iran and Houthi wars.\n\nKuwait's courts have taken on Tehran directly: on 26 October a state security court sentenced three men to death for spying for Iran and Hezbollah and plotting to kill the interior minister, and on 28 October Kuwait summoned Iran's ambassador over an embassy statement. Kuwait was struck by Iranian missiles and drones in early September and reported interceptions.",
+      "as_of": "2026-11-12"
     },
     {
       "name": "Jordan",
@@ -366,9 +366,9 @@
       "risk": 36,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-04",
-      "note": "Sent forces and counter-terrorism police to the Kaliningrad border after warnings of Russian sabotage in early November.",
-      "details": "Tusk said border guards saw people with flashlights at the Kaliningrad border just after midnight on 3 November and that forces and equipment were sent; he said Polish and NATO intelligence had warned of sabotage or provocations in early November. Police deployed counter-terrorism units to the Warmian-Masurian and Podlaskie regions.\n\nAt home, the constitutional court standoff between Tusk and President Nawrocki continues, and a US basing decision is expected around December."
+      "as_of": "2026-11-12",
+      "note": "Called Russia's claim of arresting Polish agents in Kaliningrad a provocation and disinformation; border forces remain reinforced.",
+      "details": "On 11 November Russia's FSB said it had arrested two alleged Polish intelligence agents in the Kaliningrad region on espionage charges, warned seven Polish citizens and three Russians over contacts with Polish services, and barred the seven Poles from Russia. Polish government spokesman Jacek Dobrzyński called it a provocation and disinformation.\n\nEarlier in November Tusk sent forces and counter-terrorism police to the Kaliningrad border after Polish and NATO intelligence warned of sabotage or provocations. A Ukrainian drone on its way to Russia may have briefly crossed Polish airspace near Lithuania on the night of 10-11 November, Lithuanian officials said. At home, the constitutional court standoff between Tusk and President Nawrocki continues."
     },
     {
       "name": "Lithuania",
@@ -592,9 +592,9 @@
       "name": "Iran",
       "start": "2026-02-28",
       "threat": 88,
-      "status": "Trump calls more strikes unlikely; US aircraft disabled a blockade runner off Khor Fakkan; Guard tanker claims unconfirmed.",
+      "status": "No US strike reported since 7 November; blockade holds; US charged Iran-backed plotters over a British base; France summoned Iran's envoy.",
       "color": "var(--c-iran)",
-      "as_of": "2026-11-10"
+      "as_of": "2026-11-12"
     },
     {
       "flag": "🇱🇧",
@@ -619,9 +619,9 @@
       "name": "Ukraine",
       "start": "2022-02-24",
       "threat": 72,
-      "status": "US-mediated talks with Russia opened in Abu Dhabi on 10 November; Russia struck Trypillia; a Zaporizhzhia plant worker was killed.",
+      "status": "Abu Dhabi talks ended with a prisoner deal and no territorial breakthrough; US envoys met Putin; Russia struck Kyiv again.",
       "color": "#fb923c",
-      "as_of": "2026-11-10"
+      "as_of": "2026-11-12"
     },
     {
       "flag": "🇸🇩",

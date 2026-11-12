@@ -4824,7 +4824,7 @@
       ), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".06em" } }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}`, marginRight: 6 } }, "\u2190"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2192"), /* @__PURE__ */ React.createElement("span", { style: { margin: "0 8px" } }, "navigate"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "Esc"), /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 6 } }, "exit")))
     ));
   }
-  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"bea3eb5494e1"}`, document.baseURI).href;
+  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"c8fd6f415fe9"}`, document.baseURI).href;
   var GLOBE_ATLAS_URL = new URL("vendor/world-atlas-50m.json", document.baseURI).href;
   function GlobeStage({ active, openCountry }) {
     const ref = useRef(null);

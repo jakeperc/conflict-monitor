@@ -648,7 +648,11 @@ export function mountGlobe(root, DATA, opts = {}) {
   function initGlobe() {
     if (!feats.length) throw new Error('the country atlas did not load');
     const canvas = $('#g-gl');
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
+    // preserveDrawingBuffer: the idle throttle and the sleep after a minute both skip frames.
+    // Without it the browser may discard the presented buffer, and any later recomposite of the
+    // page (label fades, the blurred glass panels over the canvas) then shows a black globe:
+    // the globe flashed black on every skipped frame on the live site (2026-11-12).
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: true });
     const PR = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2);
     renderer.setPixelRatio(PR);
     renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
@@ -657,13 +661,27 @@ export function mountGlobe(root, DATA, opts = {}) {
     const camera = new THREE.PerspectiveCamera(36, 1, 0.12, 160);
 
     // ---- post-processing, with a self-check ladder (see the header comment)
+    // Half-float targets are deliberately absent. Measured 2026-11-12 on Intel UHD 770 (ANGLE/D3D11):
+    // half-float + MSAA drew every frame black, and plain half-float drew about 7% of frames black
+    // at random (10 of 151) while passing the startup check, which showed as rapid flashing.
+    // 8-bit + MSAA drew 0 black frames of 234 and looks the same at this bloom strength.
     const TIERS = [
-      { name: 'half-float + MSAA', type: THREE.HalfFloatType, samples: coarse ? 2 : 4 },
-      { name: 'half-float', type: THREE.HalfFloatType, samples: 0 },
       { name: '8-bit + MSAA', type: THREE.UnsignedByteType, samples: coarse ? 2 : 4 },
+      { name: '8-bit', type: THREE.UnsignedByteType, samples: 0 },
       { name: 'direct', direct: true },
     ];
-    let tier = 0, composer = null, bloom = null, probe = { frames: 0, fails: 0, done: false, log: [] };
+    // ?globe-debug=1 samples one pixel at the globe's centre after every drawn frame (stats in
+    // root.__globeDebug()); ?globe-tier=N starts the ladder at TIERS[N]. Diagnostics only.
+    const QS = new URLSearchParams(location.search);
+    const DEBUG = QS.has('globe-debug');
+    const frameStats = { drawn: 0, black: 0 };
+    // Watchdog: a startup check cannot see a setup that fails only some of the time, so every
+    // WATCH_EVERY drawn frames one pixel at the globe's centre is read (never pure black on a
+    // healthy frame: it is lit ocean or land). WATCH_LIMIT black samples in a row of WATCH_WINDOW
+    // steps down a setup, exactly as a failed startup check does.
+    const WATCH_EVERY = 20, WATCH_WINDOW = 12, WATCH_LIMIT = 2;
+    const watch = { n: 0, recent: [] };
+    let tier = clamp(parseInt(QS.get('globe-tier') || '0', 10) || 0, 0, 2), composer = null, bloom = null, probe = { frames: 0, fails: 0, done: false, log: [] };
     function makeComposer() {
       if (composer) { composer.renderTarget1.dispose(); composer.renderTarget2.dispose(); composer.passes.forEach(p => p.dispose && p.dispose()); composer = null; bloom = null; }
       const T = TIERS[tier]; if (T.direct) return;
@@ -1083,7 +1101,7 @@ export function mountGlobe(root, DATA, opts = {}) {
         const r = canvas.getBoundingClientRect();
         return { canvas: [Math.round(r.width), Math.round(r.height)], CW, CH, homeDist: +homeDist.toFixed(3), dist: +camera.position.length().toFixed(3),
           maxDistance: +controls.maxDistance.toFixed(3), vo: vo && vo.map(v => Math.round(v)), voT: voT.map(v => Math.round(v)), SAFE: SAFE.map(v => Math.round(v)),
-          autoRotate: controls.autoRotate, flying: !!fly, tier: TIERS[tier].name, probe: probe.log.join(' ') };
+          autoRotate: controls.autoRotate, flying: !!fly, tier: TIERS[tier].name, probe: probe.log.join(' '), frames: { ...frameStats } };
       },
       render(dt, t) {
         if (lostCtx) return;
@@ -1130,6 +1148,21 @@ export function mountGlobe(root, DATA, opts = {}) {
           return;
         }
         if (composer) composer.render(dt); else { renderer.setRenderTarget(null); renderer.render(scene, camera); }
+        const sampleNow = DEBUG || (composer && ++watch.n % WATCH_EVERY === 0);
+        if (sampleNow) {
+          const bw = gl.drawingBufferWidth, bh = gl.drawingBufferHeight, s = bw / CW, px = new Uint8Array(4);
+          gl.readPixels(Math.round((CW / 2 - vo[0]) * s), Math.round(bh - (CH / 2 - vo[1]) * s), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+          const black = px[0] + px[1] + px[2] < 4;
+          if (DEBUG) { frameStats.drawn++; if (black) frameStats.black++; }
+          if (composer && (DEBUG ? watch.n++ % WATCH_EVERY === 0 : true)) {
+            watch.recent.push(black); if (watch.recent.length > WATCH_WINDOW) watch.recent.shift();
+            if (watch.recent.filter(Boolean).length >= WATCH_LIMIT && tier < TIERS.length - 1) {
+              tier++; makeComposer(); watch.recent.length = 0;
+              probe.log.push(`watchdog:black frames → ${TIERS[tier].name}`); root.dataset.renderLog = probe.log.join(' '); root.dataset.render = TIERS[tier].name;
+              console.warn(`[globe] black frames while running; stepping down to "${TIERS[tier].name}"`);
+            }
+          }
+        }
       },
       dispose() {
         controls.dispose();

@@ -812,8 +812,39 @@ const html = template
 // ---------------------------------------------------------------------------
 // Bundle app.js with esbuild
 // ---------------------------------------------------------------------------
-log('bundling src/js/app.js with esbuild');
 fs.mkdirSync(path.join(DIST, 'js'), { recursive: true });
+
+// The Theater Globe (Globe tab) is its own ES-module bundle, fetched only when the
+// tab is first opened: three.js is bundled from the pinned npm package (no CDN), so
+// the main app.js and dist/index.html do not grow. Its content hash is compiled into
+// app.js and used as the ?v= query, so a deploy can never pair a new app.js with a
+// cached old globe.js.
+log('bundling src/js/globe.js with esbuild');
+const globeResult = esbuild.buildSync({
+  entryPoints: [path.join(SRC, 'js', 'globe.js')],
+  bundle: true,
+  format: 'esm',
+  outfile: path.join(DIST, 'js', 'globe.js'),
+  loader: { '.css': 'text' },
+  target: ['es2020'],
+  minify: true,
+  legalComments: 'eof',
+  logLevel: 'warning',
+});
+if (globeResult.errors && globeResult.errors.length) {
+  console.error('esbuild errors (globe):', globeResult.errors);
+  process.exit(1);
+}
+const globeHash = require('node:crypto').createHash('sha256')
+  .update(fs.readFileSync(path.join(DIST, 'js', 'globe.js'))).digest('hex').slice(0, 12);
+
+// Country outlines for the globe: world-atlas 2.0.2 (Natural Earth 50m), copied byte
+// for byte from the pinned npm package and served from this site.
+fs.mkdirSync(path.join(DIST, 'vendor'), { recursive: true });
+fs.copyFileSync(require.resolve('world-atlas/countries-50m.json'), path.join(DIST, 'vendor', 'world-atlas-50m.json'));
+log(`  globe.js ${(fs.statSync(path.join(DIST, 'js', 'globe.js')).size / 1024).toFixed(0)} KB (v=${globeHash}) + vendor/world-atlas-50m.json`);
+
+log('bundling src/js/app.js with esbuild');
 const result = esbuild.buildSync({
   entryPoints: [path.join(SRC, 'js', 'app.js')],
   bundle: true,
@@ -827,7 +858,7 @@ const result = esbuild.buildSync({
   minify: false,
   logLevel: 'warning',
   // React + ReactDOM come from UMD globals, not from bundle
-  define: {},
+  define: { __GLOBE_VERSION__: JSON.stringify(globeHash) },
 });
 if (result.errors && result.errors.length) {
   console.error('esbuild errors:', result.errors);

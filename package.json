@@ -19,6 +19,8 @@
     "test:publish": "node scripts/test/publish-fixtures.js"
   },
   "devDependencies": {
-    "esbuild": "0.28.2"
+    "esbuild": "0.28.2",
+    "three": "0.186.1",
+    "world-atlas": "2.0.2"
   }
 }

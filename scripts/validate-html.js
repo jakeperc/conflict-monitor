@@ -48,6 +48,15 @@ if (!m) {
       for (const k of required) {
         if (!(k in obj)) err(`__DATA__ missing required key "${k}"`);
       }
+      // Keys the Theater Globe (src/js/globe.js) reads. A rename upstream would otherwise
+      // leave the Globe tab quietly drawing less.
+      for (const k of ['map_overlays', 'escalation_history']) {
+        if (!(k in obj)) err(`__DATA__ missing key "${k}" (read by the Theater Globe)`);
+      }
+      for (const k of ['ww3_pct', 'now', 'war_start', 'base_last_update']) {
+        if (!obj.meta || obj.meta[k] == null) err(`__DATA__.meta.${k} is missing (read by the Theater Globe)`);
+      }
+      if (obj.map_overlays && !Array.isArray(obj.map_overlays.arcs)) err('__DATA__.map_overlays.arcs is not an array (read by the Theater Globe)');
       if (!Array.isArray(obj.events) || obj.events.length === 0) err('__DATA__.events is empty');
       if (!Array.isArray(obj.timeline) || obj.timeline.length === 0) err('__DATA__.timeline is empty');
       if (!Array.isArray(obj.init_news) || obj.init_news.length === 0) err('__DATA__.init_news is empty');
@@ -91,8 +100,22 @@ if (!html.trimEnd().endsWith('</html>')) {
 }
 
 // 9. Companion assets exist
-for (const p of ['css/styles.css', 'js/app.js']) {
+for (const p of ['css/styles.css', 'js/app.js', 'js/globe.js', 'vendor/world-atlas-50m.json']) {
   if (!fs.existsSync(path.join(DIST, p))) err(`missing dist/${p}`);
+}
+
+// 9b. Theater Globe bundle: exports its mount function, carries no CDN imports
+// (three.js is bundled from the pinned npm package), and app.js points at this build of it.
+{
+  const gp = path.join(DIST, 'js', 'globe.js');
+  if (fs.existsSync(gp)) {
+    const g = fs.readFileSync(gp, 'utf8');
+    if (!/export\s*\{[^}]*\bmountGlobe\b/.test(g)) err('dist/js/globe.js does not export mountGlobe');
+    if (/from\s*["']https?:|import\(\s*["']https?:/.test(g)) err('dist/js/globe.js imports from a remote URL (three.js must be bundled)');
+    const hash = require('node:crypto').createHash('sha256').update(fs.readFileSync(gp)).digest('hex').slice(0, 12);
+    const app = fs.existsSync(path.join(DIST, 'js', 'app.js')) ? fs.readFileSync(path.join(DIST, 'js', 'app.js'), 'utf8') : '';
+    if (!app.includes('js/globe.js?v=') || !app.includes(`"${hash}"`)) err(`dist/js/app.js does not carry this globe.js build's version ${hash} (stale bundle pairing)`);
+  }
 }
 
 // 10. No unreplaced render-target markers (defense in depth)

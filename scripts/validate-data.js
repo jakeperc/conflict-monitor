@@ -694,6 +694,30 @@ try {
 }
 
 // ---------------------------------------------------------------------------
+// Map names must resolve to a world-atlas shape (Theater Globe + 2D map)
+// ---------------------------------------------------------------------------
+// A name the atlas does not know is drawn nowhere, silently: the "Dem. Rep. Korea"
+// fill went unpainted on the 2D map for months that way. Fills exist only to paint
+// a shape, so an unresolved fill is an error; risk rows and alias keys can name an
+// entity that has no shape, so those only warn.
+try {
+  const { toAtlasName } = require('../src/js/board-shared.mjs');
+  const atlas = require('world-atlas/countries-50m.json');
+  const shapes = new Set(atlas.objects.countries.geometries.map(g => g.properties.name));
+  const ov = fs.existsSync(path.join(DATA, 'map_overlays.json')) ? loadJson('map_overlays.json') : null;
+  for (const k of Object.keys((ov && ov.fills) || {})) {
+    if (!shapes.has(toAtlasName(k))) err('map_overlays.json', `fills["${k}"] matches no world-atlas country, so no map draws it. Use the atlas name, or add an alias in src/js/board-shared.mjs`);
+  }
+  const act = fs.existsSync(path.join(DATA, 'actors.json')) ? loadJson('actors.json') : null;
+  const names = new Set([...((act && act.risk_countries) || []).map(r => r.name), ...Object.keys((act && act.country_keys) || {})]);
+  for (const n of names) {
+    if (!shapes.has(toAtlasName(n))) warn('actors.json', `"${n}" matches no world-atlas country, so the globe cannot place it (add an alias in src/js/board-shared.mjs if it is a country)`);
+  }
+} catch (e) {
+  err('map-names', `could not check map names against world-atlas: ${e.message}`);
+}
+
+// ---------------------------------------------------------------------------
 // Report
 // ---------------------------------------------------------------------------
 if (warnings.length) {

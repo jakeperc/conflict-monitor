@@ -9,7 +9,7 @@ Static, data-first dashboard: `npm run build` turns `data/*.json` and `src/` int
 
 ## Rules for every session in this folder
 - **Work in this checkout only.** Never use a worktree or a clone for code changes. A build there lacks the private inputs and produces a reduced board.
-- **Commit code before you end the session.** If you changed `src/`, `scripts/` or `schemas/`, commit and push it by hand (with Jake's OK) after `npm run publish -- --check` passes. An uncommitted code change makes the next automated publish refuse.
+- **Land code before you end the session.** If you changed `src/`, `scripts/` or `schemas/`, run `npm run publish -- --check`, then push a branch and open a pull request (`ci.yml` tests it). Once the maintainer merges it, pull `master` and leave this checkout on `master`, clean. The automated publish refuses a checkout that is on another branch, holds uncommitted code, or is behind a merged pull request.
 - **Keep machine paths out of repo files.** Never write a local machine path into any file in this repo. A push guard on this machine blocks protected names and machine paths; never bypass it (`--no-verify` is forbidden).
 - **Every commit uses the noreply identity.**
 
@@ -30,3 +30,10 @@ The full daily update is `/conflict-update` (local only): backup → plan → cr
 - **Fact, inference and unknown stay visibly separate.** Label the verification level and cite sources.
 - **Overview is the summary, Analysis is the depth.** Overview stays scannable; long-form lives on Analysis.
 - **Arc framing follows the live `theaters-registry.md` set:** three arcs, Iran/Epic Fury, US-BRICS and Russia-Ukraine. Do not revert to the obsolete two-pillar framing.
+
+## Fixes: issue first, then a pull request
+- When you find a problem in this repo (something wrong, broken, missing or misleading), open a GitHub issue before fixing it: what is wrong, how it shows up, the likely cause.
+- Fix it on a short branch and open a pull request whose description says `Fixes #<issue>`. The maintainer approves the merge; merging closes the issue.
+- New features may skip the issue. Automated data publishes and scheduled runs never open one.
+- Issue and pull request text is public. Run it through the local text guard before posting; it follows the same rules as files in this repo (no machine paths, no protected names).
+- After the merge, pull the default branch and leave this checkout on it, clean, before the session ends.

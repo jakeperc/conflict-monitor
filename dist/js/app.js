@@ -1,4 +1,35 @@
 (() => {
+  // src/js/board-shared.mjs
+  var ARC_FILTERS = [
+    { key: "iran", label: "Iran", color: "var(--c-iran)", match: /* @__PURE__ */ new Set(["iran-hormuz"]) },
+    { key: "us-brics", label: "US-BRICS", color: "var(--c-brics)", textColor: "var(--c-brics-text)", match: /* @__PURE__ */ new Set(["us-brics-rivalry", "us-china", "us-china-cold-war"]) },
+    { key: "russia-ukraine", label: "Russia-Ukraine", color: "var(--c-ukraine-war)", match: /* @__PURE__ */ new Set(["russia-ukraine-war", "russia-ukraine"]) },
+    { key: "cyber", label: "Cyber", color: "var(--c-blue)", match: /* @__PURE__ */ new Set(["cyber-infrastructure"]) },
+    { key: "sanctions", label: "Sanctions", color: "var(--c-amber)", match: /* @__PURE__ */ new Set(["sanctions-financial-warfare"]) },
+    { key: "markets", label: "Markets", color: "var(--c-green)", match: /* @__PURE__ */ new Set(["markets-risk-transmission", "markets"]) }
+  ];
+  var MAP_LEGEND = [
+    { color: "rgba(244,63,94,.55)", label: "Active War" },
+    { color: "rgba(251,146,60,.6)", label: "Critical" },
+    { color: "rgba(234,179,8,.55)", label: "High" },
+    { color: "rgba(99,102,241,.55)", label: "Secondary" },
+    { color: "rgba(245,158,11,.18)", label: "Aligned / At-Risk" },
+    { color: "rgba(148,148,148,.45)", label: "Monitoring" }
+  ];
+  var ATLAS_TO_KEY = {
+    "United States of America": "USA",
+    "United Arab Emirates": "UAE"
+  };
+  var atlasToKey = (name) => ATLAS_TO_KEY[name] || name;
+  var NAME_TO_ATLAS = {
+    "USA": "United States of America",
+    "UAE": "United Arab Emirates",
+    "Dem. Rep. Korea": "North Korea",
+    "Korea, Democratic People's Republic of": "North Korea"
+  };
+  var toAtlasName = (name) => NAME_TO_ATLAS[name] || name;
+  var chessMatches = (country, playerName) => playerName === country || country === "USA" && playerName === "United States" || country === "Lebanon" && playerName.includes("Lebanon");
+
   // src/js/app.js
   if (typeof window === "undefined" || !window.__DATA__) {
     throw new Error("app.js requires window.__DATA__ \u2014 load the page through dist/index.html, not the source file.");
@@ -923,7 +954,7 @@
     const aliases = COUNTRY_KEYS[country]?.aliases || [country];
     const matchAny = makeAliasMatcher(aliases);
     const risk = RISK_COUNTRIES.find((r) => r.name === country);
-    const chess = CHESS_PLAYERS.find((p) => p.name === country || country === "USA" && p.name === "United States" || country === "Lebanon" && p.name.includes("Lebanon"));
+    const chess = CHESS_PLAYERS.find((p) => chessMatches(country, p.name));
     const newsHits = INIT_NEWS.filter((n) => matchAny(n.h)).slice(0, 6);
     const timelineHits = [...TIMELINE].reverse().filter((t) => matchAny(t.desc)).slice(0, 8);
     return { country, aliases, risk, chess, newsHits, timelineHits };
@@ -1525,15 +1556,16 @@
     const key = tick;
     return /* @__PURE__ */ React.createElement("button", { type: "button", onClick, className: "choreographed", style: { animationDelay: "480ms", height: 38, background: alpha(DANGER, 0.08), border: "none", borderBottom: `1px solid ${alpha(DANGER, 0.22)}`, display: "flex", alignItems: "center", padding: "0 18px", gap: 14, overflow: "hidden", flexShrink: 0, width: "100%", textAlign: "left", font: "inherit", color: "inherit", cursor: "pointer" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 7, flexShrink: 0 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 8, height: 8, borderRadius: "50%", background: DANGER, animation: "ping 1.4s ease infinite" } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, fontWeight: 600, color: DANGER, letterSpacing: ".12em" } }, "BREAKING")), /* @__PURE__ */ React.createElement("div", { style: { width: 1, height: 18, background: alpha(DANGER, 0.25) } }), /* @__PURE__ */ React.createElement("div", { key, className: "brkr", style: { fontSize: 13, color: TEXT_HI, fontFamily: SANS, fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" } }, headlines[idx]), /* @__PURE__ */ React.createElement("div", { style: { flexShrink: 0, fontFamily: SANS, fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, idx + 1, "/", headlines.length));
   }
-  var TABS = ["overview", "feed", "actors", "economy", "analysis", "outlook"];
-  var TAB_LABELS = { overview: "Overview", feed: "Feed", actors: "Actors", economy: "Economy", analysis: "Analysis", outlook: "Outlook" };
-  var TAB_HINTS = { overview: "Situation report", feed: "News + timeline", actors: "Players, theaters & moves", economy: "Markets + gas", analysis: "AI strategy", outlook: "Forecasts + track record" };
+  var TABS = ["overview", "globe", "feed", "actors", "economy", "analysis", "outlook"];
+  var TAB_LABELS = { overview: "Overview", globe: "Globe", feed: "Feed", actors: "Actors", economy: "Economy", analysis: "Analysis", outlook: "Outlook" };
+  var TAB_HINTS = { overview: "Situation report", globe: "3D theater + replay", feed: "News + timeline", actors: "Players, theaters & moves", economy: "Markets + gas", analysis: "AI strategy", outlook: "Forecasts + track record" };
   var Icon = ({ name, size = 16, color = "currentColor" }) => {
     const props = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 1.75, strokeLinecap: "round", strokeLinejoin: "round" };
     switch (name) {
       case "overview":
         return /* @__PURE__ */ React.createElement("svg", { ...props }, /* @__PURE__ */ React.createElement("rect", { x: "3", y: "3", width: "7", height: "9", rx: "1.5" }), /* @__PURE__ */ React.createElement("rect", { x: "14", y: "3", width: "7", height: "5", rx: "1.5" }), /* @__PURE__ */ React.createElement("rect", { x: "14", y: "12", width: "7", height: "9", rx: "1.5" }), /* @__PURE__ */ React.createElement("rect", { x: "3", y: "16", width: "7", height: "5", rx: "1.5" }));
       case "theater":
+      case "globe":
         return /* @__PURE__ */ React.createElement("svg", { ...props }, /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "9" }), /* @__PURE__ */ React.createElement("path", { d: "M3 12h18" }), /* @__PURE__ */ React.createElement("path", { d: "M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z" }));
       case "feed":
         return /* @__PURE__ */ React.createElement("svg", { ...props }, /* @__PURE__ */ React.createElement("path", { d: "M4 4h12a2 2 0 0 1 2 2v12a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V4z" }), /* @__PURE__ */ React.createElement("path", { d: "M8 8h6M8 12h6M8 16h4" }));
@@ -3076,7 +3108,7 @@
         cancelled = true;
       };
     }, []);
-    const COUNTRY_FILL = MAP_OVERLAYS && MAP_OVERLAYS.fills || {
+    const COUNTRY_FILL_RAW = MAP_OVERLAYS && MAP_OVERLAYS.fills || {
       "Iran": "rgba(244,63,94,.55)",
       "Israel": "rgba(244,63,94,.45)",
       "Lebanon": "rgba(251,146,60,.6)",
@@ -3090,13 +3122,8 @@
       "Iraq": "rgba(245,158,11,.20)",
       "United States of America": "rgba(99,102,241,.18)"
     };
-    const NORMALIZE_NAME = {
-      "United States of America": "USA",
-      "United Arab Emirates": "UAE",
-      "Dem. Rep. Korea": "North Korea",
-      "Korea, Democratic People's Republic of": "North Korea"
-    };
-    const drawerKey = (raw) => NORMALIZE_NAME[raw] || raw;
+    const COUNTRY_FILL = Object.fromEntries(Object.entries(COUNTRY_FILL_RAW).map(([k, v]) => [toAtlasName(k), v]));
+    const drawerKey = atlasToKey;
     const isClickable = (raw) => !!COUNTRY_KEYS[drawerKey(raw)];
     const W = 1e3, H = 440;
     const LAT_MAX = 78, LAT_MIN = -58;
@@ -3385,14 +3412,7 @@
           },
           l.name
         );
-      }), /* @__PURE__ */ React.createElement("g", { transform: `translate(16, ${H - 26})` }, [
-        { color: "rgba(244,63,94,.55)", label: "Active War" },
-        { color: "rgba(251,146,60,.6)", label: "Critical" },
-        { color: "rgba(234,179,8,.55)", label: "High" },
-        { color: "rgba(99,102,241,.55)", label: "Secondary" },
-        { color: "rgba(245,158,11,.18)", label: "Aligned / At-Risk" },
-        { color: "rgba(148,148,148,.45)", label: "Monitoring" }
-      ].map((l, i) => /* @__PURE__ */ React.createElement("g", { key: l.label, transform: `translate(${i * 118}, 0)` }, /* @__PURE__ */ React.createElement("rect", { width: "11", height: "11", rx: "2", fill: l.color, style: { stroke: RAISE_4 }, strokeWidth: ".5" }), /* @__PURE__ */ React.createElement("text", { x: "17", y: "9", fill: TEXT_BODY, fontSize: "11", fontFamily: SANS, fontWeight: "500" }, l.label)))))
+      }), /* @__PURE__ */ React.createElement("g", { transform: `translate(16, ${H - 26})` }, MAP_LEGEND.map((l, i) => /* @__PURE__ */ React.createElement("g", { key: l.label, transform: `translate(${i * 118}, 0)` }, /* @__PURE__ */ React.createElement("rect", { width: "11", height: "11", rx: "2", fill: l.color, style: { stroke: RAISE_4 }, strokeWidth: ".5" }), /* @__PURE__ */ React.createElement("text", { x: "17", y: "9", fill: TEXT_BODY, fontSize: "11", fontFamily: SANS, fontWeight: "500" }, l.label)))))
     )));
   }
   var STATUS_FILTERS = [
@@ -3690,14 +3710,6 @@
       /* @__PURE__ */ React.createElement(M, { style: { marginLeft: 8, fontSize: FS.xs, color: TEXT_DIM, fontWeight: 400 } }, "(", tlHidden, " remaining)")
     ), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.5 } }, "Search and filters cover all ", filtered.length, " events \u2014 browser Ctrl+F only reaches visible rows")));
   }
-  var ARC_FILTERS = [
-    { key: "iran", label: "Iran", color: "var(--c-iran)", match: /* @__PURE__ */ new Set(["iran-hormuz"]) },
-    { key: "us-brics", label: "US-BRICS", color: "var(--c-brics)", match: /* @__PURE__ */ new Set(["us-brics-rivalry", "us-china", "us-china-cold-war"]) },
-    { key: "russia-ukraine", label: "Russia-Ukraine", color: "var(--c-ukraine-war)", match: /* @__PURE__ */ new Set(["russia-ukraine-war", "russia-ukraine"]) },
-    { key: "cyber", label: "Cyber", color: BLUE, match: /* @__PURE__ */ new Set(["cyber-infrastructure"]) },
-    { key: "sanctions", label: "Sanctions", color: AMBER, match: /* @__PURE__ */ new Set(["sanctions-financial-warfare"]) },
-    { key: "markets", label: "Markets", color: GREEN, match: /* @__PURE__ */ new Set(["markets-risk-transmission", "markets"]) }
-  ];
   var arcMatches = (itemTheaters, activeArcKeys) => {
     if (!activeArcKeys || activeArcKeys.length === 0) return true;
     if (!Array.isArray(itemTheaters) || itemTheaters.length === 0) return false;
@@ -4812,6 +4824,72 @@
       ), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".06em" } }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}`, marginRight: 6 } }, "\u2190"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2192"), /* @__PURE__ */ React.createElement("span", { style: { margin: "0 8px" } }, "navigate"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "Esc"), /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 6 } }, "exit")))
     ));
   }
+  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"bea3eb5494e1"}`, document.baseURI).href;
+  var GLOBE_ATLAS_URL = new URL("vendor/world-atlas-50m.json", document.baseURI).href;
+  function GlobeStage({ active, openCountry }) {
+    const ref = useRef(null);
+    const inst = useRef(null);
+    const activeRef = useRef(active);
+    const openRef = useRef(openCountry);
+    activeRef.current = active;
+    openRef.current = openCountry;
+    const [err, setErr] = useState(null);
+    const [height, setHeight] = useState(null);
+    useEffect(() => {
+      let dead = false;
+      const atlas = fetch(GLOBE_ATLAS_URL).then((r) => r.ok ? r.json() : Promise.reject(new Error(`atlas HTTP ${r.status}`))).catch((e) => {
+        console.warn("[globe] atlas did not load:", e);
+        return null;
+      });
+      Promise.all([import(GLOBE_MODULE_URL), atlas]).then(([mod, topology]) => {
+        if (dead || !ref.current) return;
+        inst.current = mod.mountGlobe(ref.current, window.__DATA__, {
+          topology,
+          openCountry: (key) => openRef.current && openRef.current(key)
+        });
+        inst.current.setActive(activeRef.current);
+      }).catch((e) => {
+        if (!dead) setErr(String(e && e.message || e));
+      });
+      return () => {
+        dead = true;
+        if (inst.current) {
+          inst.current.destroy();
+          inst.current = null;
+        }
+      };
+    }, []);
+    useEffect(() => {
+      if (inst.current) inst.current.setActive(active);
+    }, [active]);
+    useLayoutEffect(() => {
+      if (!active) return;
+      const fit = () => {
+        const el = ref.current;
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + (window.scrollY || 0);
+        const bar = document.querySelector(".tabbar-mobile");
+        const status = document.querySelector('[aria-label="Status bar"]');
+        const bottom = (bar && bar.offsetHeight ? bar.offsetHeight : 0) + (status && status.offsetHeight && !(bar && bar.offsetHeight) ? status.offsetHeight : 0);
+        setHeight(Math.max(440, Math.floor(window.innerHeight - top - bottom)));
+      };
+      fit();
+      window.addEventListener("resize", fit);
+      return () => window.removeEventListener("resize", fit);
+    }, [active]);
+    return /* @__PURE__ */ React.createElement(
+      "section",
+      {
+        id: "panel-globe",
+        role: "tabpanel",
+        "aria-labelledby": "tab-globe",
+        "aria-hidden": !active,
+        style: { display: active ? "block" : "none", flex: 1, minWidth: 0, position: "relative" }
+      },
+      /* @__PURE__ */ React.createElement("div", { ref, style: { height: height || "calc(100vh - 160px)", width: "100%" } }),
+      err && /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: 24, textAlign: "center", color: TEXT_MID, fontFamily: SANS, fontSize: 13, background: "#04060c" } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { color: TEXT_HI, fontWeight: 600, marginBottom: 6 } }, "The Theater Globe could not load."), /* @__PURE__ */ React.createElement("div", null, err, ". Reload the page to try again; every other tab is unaffected.")))
+    );
+  }
   function App() {
     const [mktLive, setMktLive] = useState(() => {
       const c = priceCache.read();
@@ -4914,8 +4992,11 @@
       fetchUpdate(setMktLive, setGasLive, setWw3Live, setThemesLive, setBreaking, setNews, setRefreshing, setRefreshCount, setRefreshErr, setLastUpdate, setSourceStatus);
     }, []);
     const isMobile = useIsMobile(900);
-    const ptr = usePullToRefresh(doRefresh, isMobile);
-    const swipe = useSwipeTabs(tab, setTab, TABS, isMobile);
+    const pageGestures = isMobile && tab !== "globe";
+    const ptr = usePullToRefresh(doRefresh, pageGestures);
+    const swipe = useSwipeTabs(tab, setTab, TABS, pageGestures);
+    const globeVisited = useRef(false);
+    if (tab === "globe") globeVisited.current = true;
     useEffect(() => {
       doRefresh();
       const REFRESH_MS = 5 * 60 * 1e3;
@@ -5064,10 +5145,10 @@
         position: "relative"
       } }, /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: refreshing ? "spin" : "" }, /* @__PURE__ */ React.createElement("path", { d: "M3 12a9 9 0 0 1 15.5-6.36L21 8" }), /* @__PURE__ */ React.createElement("path", { d: "M21 3v5h-5" }), /* @__PURE__ */ React.createElement("path", { d: "M21 12a9 9 0 0 1-15.5 6.36L3 16" }), /* @__PURE__ */ React.createElement("path", { d: "M3 21v-5h5" }))),
       /* @__PURE__ */ React.createElement("span", { className: "btn-label-desktop" }, refreshing ? "Refreshing\u2026" : "Refresh")
-    ))), /* @__PURE__ */ React.createElement(MarketBar, { mkt: mktLive, ww3: ww3Live, tick: headerTick }), /* @__PURE__ */ React.createElement(BreakingTicker, { headlines: breaking, tick: headerTick, onClick: () => {
+    ))), tab !== "globe" && /* @__PURE__ */ React.createElement(MarketBar, { mkt: mktLive, ww3: ww3Live, tick: headerTick }), tab !== "globe" && /* @__PURE__ */ React.createElement(BreakingTicker, { headlines: breaking, tick: headerTick, onClick: () => {
       setFeedNav({ country: null, view: "news" });
       setTab("feed");
-    } }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement(SideNav, { tab, setTab, sources: sourceStatus }), /* @__PURE__ */ React.createElement(
+    } }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement(SideNav, { tab, setTab, sources: sourceStatus }), globeVisited.current && /* @__PURE__ */ React.createElement(GlobeStage, { active: tab === "globe", openCountry }), tab !== "globe" && /* @__PURE__ */ React.createElement(
       "main",
       {
         key: tab,
@@ -5098,7 +5179,7 @@
         onPaletteOpen: () => setPaletteOpen(true),
         onBriefingOpen: () => setBriefingOpen(true)
       }
-    ), /* @__PURE__ */ React.createElement(BottomTabBar, { tab, setTab }), isMobile && !glanceOpen && !briefingOpen && /* @__PURE__ */ React.createElement(
+    ), /* @__PURE__ */ React.createElement(BottomTabBar, { tab, setTab }), isMobile && !glanceOpen && !briefingOpen && tab !== "globe" && /* @__PURE__ */ React.createElement(
       "button",
       {
         className: "glance-fab",

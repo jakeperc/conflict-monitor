@@ -5,7 +5,7 @@
   "ww3_pct": 66,
   "ww3_now_label": "Nov 12 · prisoner deal; audit-corrected axes",
   "base_last_update": "11/12/2026 · 06:00 EST",
-  "last_built": "2026-11-12T15:50:52.317Z",
+  "last_built": "2026-11-13T09:07:03.895Z",
   "version": "2.0.0",
   "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
   "hormuz_status": {

@@ -5,8 +5,9 @@
  *
  *   brent_daily [{d, v}]        — Brent crude daily close (Yahoo BZ=F, same feed
  *                                 the app's live tile uses)
- *   gas_daily   [{d, nat, ca?, diesel?}] — AAA US national (+ California) average
- *                                 regular gasoline, plus the US national diesel
+ *   gas_daily   [{d, nat, ca?, oh?, cin?, diesel?}] — AAA US national (+ California,
+ *                                 Ohio, Cincinnati metro) average regular
+ *                                 gasoline, plus the US national diesel
  *                                 average, $/gal (same pages the app scrapes
  *                                 client-side for the live tiles)
  *
@@ -71,7 +72,7 @@ function proxyChain(url) {
     url,
     `https://api.codetabs.com/v1/proxy/?quest=${enc}`,
     `https://api.allorigins.win/raw?url=${enc}`,
-    `https://corsproxy.io/?url=${enc}`,
+    // corsproxy.io was dropped in Nov 2026: keyless requests now get HTTP 403.
   ];
 }
 
@@ -180,13 +181,14 @@ function extractAaaDieselLadder(html, anchorRegex) {
   return Object.keys(out).length > 0 ? out : null;
 }
 
-async function fetchAaaRegion(pagePath, parseLadder) {
+// `headlineFallback` is for the NATIONAL page only. Every gasprices.aaa.com page
+// carries the national banner, so on a state page a ladder parse miss must fail the
+// region (and try the next source), not report the national price as the state's.
+async function fetchAaaRegion(pagePath, parseLadder, { headlineFallback = false } = {}) {
   return fetchParsed(proxyChain(AAA_HOST + pagePath), 'text/html,application/xhtml+xml,*/*', (html) => {
-    // Prefer the region's anchored ladder "Current Avg." — the loose headline
-    // regex can catch the NATIONAL banner that AAA puts on every page (state
-    // pages included), which is the wrong number for a state fetch.
+    // Prefer the region's anchored ladder "Current Avg.".
     const ladder = parseLadder ? parseLadder(html) : null;
-    const price = (ladder && ladder.current != null) ? ladder.current : extractAaaPrice(html);
+    const price = (ladder && ladder.current != null) ? ladder.current : (headlineFallback ? extractAaaPrice(html) : null);
     if (price == null) return null;   // unparseable page → try the next source
     return { price, ladder, html };
   });
@@ -261,7 +263,7 @@ async function main() {
   // --- AAA gasoline: national + California --------------------------------
   let nat = null, ca = null;
   try {
-    nat = await fetchAaaRegion('/', (html) => extractAaaLadderAfter(html, /(?=Current Avg)/));
+    nat = await fetchAaaRegion('/', (html) => extractAaaLadderAfter(html, /(?=Current Avg)/), { headlineFallback: true });
   } catch (e) {
     warn(`AAA national fetch failed: ${e.message}`);
   }
@@ -270,6 +272,25 @@ async function main() {
   } catch (e) {
     warn(`AAA California fetch failed: ${e.message} — degrading to national-only`);
   }
+  // Ohio + the Cincinnati metro ride one page (AAA has no stable per-city URL).
+  // They seed the Economy tab's state comparison on first paint; the browser's
+  // live fetch refreshes them. Best-effort like everything else here.
+  let oh = null, cin = null;
+  try {
+    const page = await fetchParsed(proxyChain(AAA_HOST + '/?state=OH'), 'text/html,application/xhtml+xml,*/*', (html) => {
+      const ohL = extractAaaLadderAfter(html, /Ohio[\s\S]{0,80}average gas prices/i);
+      const cinL = extractAaaLadderAfter(html, /Cincinnati/i);
+      const r = {
+        oh: ohL && ohL.current != null ? { price: ohL.current, ladder: ohL } : null,
+        cin: cinL && cinL.current != null ? { price: cinL.current, ladder: cinL } : null,
+      };
+      return r.oh || r.cin ? r : null;
+    });
+    ({ oh, cin } = page);
+  } catch (e) {
+    warn(`AAA Ohio fetch failed: ${e.message} — Ohio/Cincinnati not advanced`);
+  }
+
   // The AAA homepage often serves a JS/bot shell server-side while the state
   // pages stay server-rendered — but every gasprices.aaa.com page carries the
   // "Today’s AAA National Average $X.XXXX" banner. Harvest national from the
@@ -294,11 +315,13 @@ async function main() {
     if (!diesel) warn('AAA diesel: no Diesel column found on the national page — leaving diesel unchanged');
   }
 
-  if (nat || ca || diesel) {
+  if (nat || ca || oh || cin || diesel) {
     if (!Array.isArray(markets.gas_daily)) markets.gas_daily = [];
     const today = { d: dateKey };
     if (nat) today.nat = Number(nat.price.toFixed(3));
     if (ca) today.ca = Number(ca.price.toFixed(3));
+    if (oh) today.oh = Number(oh.price.toFixed(3));
+    if (cin) today.cin = Number(cin.price.toFixed(3));
     if (diesel && diesel.current != null) today.diesel = Number(diesel.current.toFixed(3));
     upsertToday(markets.gas_daily, today);
 
@@ -310,11 +333,13 @@ async function main() {
       const d = isoOffset(dateKey, off);
       if (nat && nat.ladder) filled += fillField(markets.gas_daily, d, 'nat', nat.ladder[key]) ? 1 : 0;
       if (ca && ca.ladder) filled += fillField(markets.gas_daily, d, 'ca', ca.ladder[key]) ? 1 : 0;
+      if (oh && oh.ladder) filled += fillField(markets.gas_daily, d, 'oh', oh.ladder[key]) ? 1 : 0;
+      if (cin && cin.ladder) filled += fillField(markets.gas_daily, d, 'cin', cin.ladder[key]) ? 1 : 0;
       if (diesel) filled += fillField(markets.gas_daily, d, 'diesel', diesel[key]) ? 1 : 0;
     }
     markets.gas_daily = finalizeDaily(markets.gas_daily);
     changed = true;
-    log(`AAA gasoline: nat ${today.nat ?? '—'} / CA ${today.ca ?? '—'} / diesel ${today.diesel ?? '—'} $/gal` +
+    log(`AAA gasoline: nat ${today.nat ?? '—'} / CA ${today.ca ?? '—'} / OH ${today.oh ?? '—'} / Cin ${today.cin ?? '—'} / diesel ${today.diesel ?? '—'} $/gal` +
         ` (${markets.gas_daily.length} dated points, ${filled} ladder back-fills, as of ${dateKey})`);
   } else {
     warn('AAA gasoline: all regions failed — leaving gas_daily unchanged');

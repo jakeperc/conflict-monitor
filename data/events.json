@@ -48640,6 +48640,39 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-03-taiwans-national-security-council-chief-said",
+    "event_date": "2026-11-03",
+    "source_time": null,
+    "headline": "Taiwan's National Security Council chief said about 100 Chinese navy and coast guard ships were in the western Pacific on 3 November during unannounced drills around Taiwan; by 8-9 November Taiwan counted one aircraft and eight ships.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/asia-pacific/20261113-chinese-army-military-exercises-taiwan",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "taiwan",
+      "pla",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
     "id": "2026-11-04-irans-revolutionary-guard-said-four-non-compliant",
     "event_date": "2026-11-04",
     "source_time": null,
@@ -50964,6 +50997,45 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-11-finlands-military-said-it-detected-a",
+    "event_date": "2026-11-11",
+    "source_time": null,
+    "headline": "Finland's military said it detected a strike on a Russian warship in the Gulf of Finland; Ukraine's SBU said it hit the Kalibr-armed small corvette Naro-Fominsk during its drone attack on Ust-Luga, apparently the first Ukrainian strike on a ship in Baltic waters open to civilian traffic.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cmn0d33zz34zo",
+        "published_date": "2026-11-12"
+      },
+      {
+        "name": "Defense News",
+        "url": "https://www.defensenews.com/global/europe/2026/11/12/finland-says-it-detects-strike-on-russian-warship-in-baltic-sea/",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "baltic",
+      "naval",
+      "gulf-of-finland"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
     "id": "2026-11-11-two-russian-banderol-cruise-missiles-crossed",
     "event_date": "2026-11-11",
     "source_time": null,
@@ -51270,6 +51342,40 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-12-trump-told-vice-president-vance-on-12",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "Trump told Vice-President Vance on 12 November to stop working on Iran talks and focus on domestic politics, writing 'We don't need a deal with Iran'; Vance had been leading efforts to restart negotiations.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611129077",
+        "published_date": "2026-11-12"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cqn4e2py48kwo",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "diplomacy",
+      "us-policy"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-12-us-envoys-witkoff-and-kushner-arrived",
     "event_date": "2026-11-12",
     "source_time": null,
@@ -51308,5 +51414,1437 @@
     "chapter_label": null,
     "chapter_kicker": null,
     "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-a-russian-aerospace-forces-colonel-was",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "A Russian Aerospace Forces colonel was killed by a remotely detonated car bomb near St Petersburg, the day after Ukrainian drones hit the nearby port of Ust-Luga; no one has claimed the attack.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Euromaidan Press",
+        "url": "https://euromaidanpress.com/2026/11/12/russian-colonel-killed-by-a-remote-detonated-car-bomb-a-day-after-ukrainian-drones-hit-a-nearby-baltic-port/",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "targeted-killing",
+      "st-petersburg"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-a-london-court-convicted-two-iranian",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "A London court convicted two Iranian men of helping Iran's Revolutionary Guard intelligence by spying on Iran International journalists, the first National Security Act convictions of Iranian nationals; sentencing is due next month.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/two-iranian-men-found-guilty-in-uk-of-spying-on-dissident-journalists-on-irgcs-behalf/",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "united-kingdom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-jensen-huang-resigned-as-nvidias-chief",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "Jensen Huang resigned as Nvidia's chief executive after admitting an affair with a woman accused of spying for China; the board gave no reason and said it had no reason to believe security was compromised. A Senate committee has summoned him.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/11/12/nvidias-jensen-huang-resigns-over-relationship-with-suspected-chinese-spy",
+        "published_date": "2026-11-12"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "semiconductors"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
+    "id": "2026-11-12-the-pentagon-has-backed-a-permanent",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "The Pentagon has backed a permanent US troop presence in Poland, Poland's defence ministry said after Hegseth met his Polish counterpart; the White House is due to decide in early December.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Military Times",
+        "url": "https://www.militarytimes.com/news/pentagon-congress/2026/11/12/pentagon-greenlit-permanent-presence-of-us-troops-in-poland-official-says/",
+        "published_date": "2026-11-12"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "basing",
+      "poland",
+      "posture"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-12-a-company-making-drones-for-ukraine",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "A company making drones for Ukraine, Germany's Quantum Systems, confirmed that hostile actors hit it with a cyberattack in late October; it named no attacker.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/cyberattack-hits-german-drone-manufacturer-supplying-ukraine-in-late-october-company-confirms/",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "cyber-infrastructure",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "gray-zone",
+      "cyber",
+      "germany"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-polish-prosecutors-charged-a-ukrainian-man",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "Polish prosecutors charged a Ukrainian man with helping Russian intelligence blow up a freight train on a Ukraine supply line in November 2025; two alleged accomplices fled to Belarus.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Euromaidan Press",
+        "url": "https://euromaidanpress.com/2026/11/13/poland-charges-a-ukrainian-helper-in-russias-plot-to-blow-up-a-freight-train-on-ukraines-supply-line/",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "gray-zone",
+      "sabotage",
+      "poland"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-12-north-korean-statesponsored-hackers-have-stolen",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "North Korean state-sponsored hackers have stolen more than $400 million in cryptocurrency from over 900 victims using fake video calls, US authorities said; the FBI says the regime relies on such theft to fund its weapons program.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cqdj1ellpd70o",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "cyber-infrastructure",
+      "sanctions-financial-warfare"
+    ],
+    "tags": [
+      "north-korea",
+      "crypto-theft",
+      "cyber"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-12-nato-will-hold-no-leaders-summit",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "NATO will hold no leaders' summit in 2027 and is cutting ministerial meetings, after Albania's prime minister Edi Rama confirmed the planned Tirana summit is off; Rutte said 'we have summits when we need them'.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90204",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "nato"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-12-britains-prime-minister-andy-burnham-said",
+    "event_date": "2026-11-12",
+    "source_time": null,
+    "headline": "Britain's Prime Minister Andy Burnham said Europe's security architecture is for Europeans to decide and the UK deterrent stays committed to NATO, rejecting reported Russian demands that Britain stop extending it to Europe.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90171",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "nuclear",
+      "peace-terms"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-13-eu-leaders-named-france-germany-italy",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "EU leaders named France, Germany, Italy, Poland and Britain to represent Europe at future Ukraine peace talks. US negotiators said Putin had agreed to European participation, but the Kremlin said Europe must first show it is ready to contribute.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/14/us-envoy-kushner-says-he-aims-to-broker-europe-russia-talks-on-ukraine",
+        "published_date": "2026-11-14"
+      },
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/13/russia-says-europeans-can-join-ukraine-peace-talks-if-they-show-readiness-to-contribute-a94236",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "talks",
+      "europe"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-13-us-forces-shot-down-two-revolutionary",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "US forces shot down two Revolutionary Guard drones launched toward Bahrain, CENTCOM said, rejecting the Guard's claim to have destroyed a US radar there; the Guard called it retaliation for a strike on a telecom tower in Sirik that Iran did not attribute.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611137770",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "bahrain",
+      "drones",
+      "centcom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-three-commercial-ships-were-hit-by",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Three commercial ships were hit by drones off Romania's Black Sea coast on 13-14 November, Romanian authorities said; one, the Ukraine-bound Larissa 1, was struck inside Romanian territorial waters. Two of the ships caught fire near Sulina; no one was hurt and the drones' origin has not been identified.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/three-commercial-ships-struck-by-drones-near-romanias-black-sea-coast-over-two-days/",
+        "published_date": "2026-11-15"
+      },
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90153",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "black-sea",
+      "romania",
+      "shipping",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-13-bild-reported-that-russias-unofficial-demands",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Bild reported that Russia's unofficial demands, put to Europeans in Abu Dhabi, include a ban on NATO bases in the Baltic states and Finland leaving NATO, in return for removing nuclear weapons from Belarus; Russia has not confirmed them, and Finland's defence minister rejected the demand.",
+    "body": "",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3113194/russia-s-demands-for-ukraine-war-end-include-ban-on-nato-bases-in-baltics-german-media",
+        "published_date": "2026-11-13"
+      },
+      {
+        "name": "Euromaidan Press",
+        "url": "https://euromaidanpress.com/2026/11/14/russia-demands-britain-stop-shielding-the-rest-of-europe-with-its-nuclear-deterrent-as-a-price-for-peace-in-ukraine-telegraph/",
+        "published_date": "2026-11-14"
+      },
+      {
+        "name": "Politico",
+        "url": "https://www.politico.eu/article/finland-rejects-reported-russian-demand-to-leave-nato-as-part-of-peace-talks/",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "talks",
+      "baltic",
+      "nato"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-13-zelensky-said-us-negotiators-asked-in",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Zelensky said US negotiators asked in Abu Dhabi whether Ukraine would pull its troops out of Donbas in exchange for NATO membership; he said there was no concrete offer and Ukraine would not withdraw, but a deal could go to a referendum.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/14/three-killed-in-russia-as-ukraine-claims-us-floated-nato-membership-option",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "talks",
+      "donbas",
+      "nato"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-irans-revolutionary-guard-navy-said-an",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Iran's Revolutionary Guard navy said an LNG tanker hit a mine in Hormuz on an \"unauthorized\" route, and on 14 November that an oil tanker caught fire after hitting a mine in the eastern strait; neither claim was confirmed. At least 10 ships were hit in the first 10 days of November, Washington Institute data show.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/iran-says-tanker-carrying-lng-hit-mine-suffered-explosion-in-hormuz/",
+        "published_date": "2026-11-13"
+      },
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/oil-tanker-on-fire-after-hitting-mine-in-hormuz/",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "hormuz",
+      "mines",
+      "shipping"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-an-iaea-quarterly-report-says-inspectors",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "An IAEA quarterly report says inspectors have never visited Iran's underground Isfahan enrichment plant, declared in June 2025, and the agency does not know exactly where it is or whether it holds nuclear material.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611133720",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "iaea",
+      "nuclear",
+      "isfahan"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-us-air-force-security-forces-responded",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "US Air Force security forces responded to suspected unauthorised drone activity at RAF Lakenheath in England; no damage was reported and the drones' origin is unknown, Britain's defence ministry said.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/us-air-force-responds-to-suspected-drone-activity-at-military-base-in-uk/",
+        "published_date": "2026-11-13"
+      },
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/us-air-force-says-it-dealt-with-unauthorized-drone-activity-over-uk-airbase/",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "gray-zone",
+      "drones-over-bases",
+      "united-kingdom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-13-ukraines-general-staff-said-its-forces",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Ukraine's General Staff said its forces struck the Samara oil station where pipelines blend Russia's Urals export crude, and the Lipetsk-2 air base.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90120",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "deep-strike",
+      "oil"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-russian-attacks-killed-at-least-seven",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Russian attacks killed at least seven civilians and injured 80 across Ukraine in a day, with Zaporizhzhia among the worst hit; Russia launched 96 drones overnight.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/at-least-7-killed-80-injured-in-russian-attacks-across-ukraine-zaporizhzhia-among-worst-hit/",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "civilian-casualties"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-us-treasury-secretary-bessent-urged-the",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "US Treasury Secretary Bessent urged the Federal Reserve not to raise interest rates into what he called an energy supply shock from the Iran war.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/economy/2026/11/13/us-treasury-warns-against-rate-hikes-during-us-iran-war-energy-shock",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "markets-risk-transmission",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "macro",
+      "fed"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-russias-oil-export-revenue-rose-to",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Russia's oil export revenue rose to about $21.2bn in October, its highest since May, as the Iran war lifted prices, the IEA said; its Urals and ESPO blends topped $100 a barrel.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/russia-oil-revenues-hit-five-month-high-on-crude-rally-iea-says/",
+        "published_date": "2026-11-13"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "sanctions-financial-warfare",
+      "markets-risk-transmission",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "oil",
+      "iea",
+      "sanctions-effect"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-us-and-chinese-officials-held-the",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "US and Chinese officials held the first meeting of a new trade council on tariffs and farm trade, China's commerce ministry said, ahead of an expected Xi-Trump meeting at APEC in Shenzhen.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/china-us-discuss-tariffs-farm-trade-ahead-xi-trump-meeting",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "trade",
+      "apec"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
+    "id": "2026-11-13-an-eu-naval-force-boarded-the",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "An EU naval force boarded the crude tanker MIDAG in the Mediterranean on 13 November and found it was sailing under a false flag, EU foreign policy chief Kaja Kallas said; it is the EU's second such boarding after the Sun in August.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/eu-forces-board-suspected-russian-shadow-fleet-tanker-in-mediterranean-kallas-says/",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "sanctions-financial-warfare"
+    ],
+    "tags": [
+      "gray-zone",
+      "shadow-fleet"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-13-sudans-army-captured-al-khuwai-and-serif",
+    "event_date": "2026-11-13",
+    "source_time": null,
+    "headline": "Sudan's army captured Al-Khuwai and Serif Anjoush in West Kordofan on 13 November and named En Nahud, on the road to Darfur, as its next objective.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/sudanese-army-offensive-west-kordofan-captures-al-khuwai",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "sudan"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-14-the-white-house-said-trump-will",
+    "event_date": "2026-11-14",
+    "source_time": null,
+    "headline": "The White House said Trump will meet Xi Jinping and Vladimir Putin in the first three-way summit, on the sidelines of the APEC meeting in Shenzhen next week, with nuclear-arms cuts on the agenda; Russia confirmed it and China has not commented.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do",
+        "published_date": "2026-11-14"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/14/trump-xi-and-putin-to-hold-first-three-way-summit-in-china",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "summit",
+      "arms-control",
+      "apec"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "bilateral-us-china",
+      "crink"
+    ]
+  },
+  {
+    "id": "2026-11-14-estonia-detained-eight-latvian-residents-after",
+    "event_date": "2026-11-14",
+    "source_time": null,
+    "headline": "Estonia detained eight Latvian residents after a thwarted arson attack on drone maker Threod Systems on 14 November; its security service blamed Russia's GRU and said about 10 Estonian defence firms are targeted, and the government plans to close three road crossings with Russia from 1 December.",
+    "body": "",
+    "sources": [
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610196722/8-detained-after-gru-linked-arson-at-estonian-drone-company-threod-systems",
+        "published_date": "2026-11-15"
+      },
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610197171/security-service-russia-targeting-around-10-estonian-defense-companies",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610197091/estonia-s-proposed-eastern-border-closures-are-russophobia-russian-mfa-says",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/nov/15/estonia-to-close-all-border-crossings-with-russia-after-attack-on-drone-maker",
+        "published_date": "2026-11-15"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/15/estonia-to-close-border-crossings-with-russia-after-attack-on-drone-maker",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "gray-zone",
+      "sabotage",
+      "estonia"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-14-the-us-wants-japan-to-pay",
+    "event_date": "2026-11-14",
+    "source_time": null,
+    "headline": "The US wants Japan to pay ¥3 trillion over five years from 2027 for US forces stationed there, about three times the current total, sources told Japan Times; Tokyo estimates about ¥1.5 trillion.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/14/japan/politics/japan-triple-host-nation-support-us/",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "japan",
+      "burden-sharing"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-14-trump-is-considering-holding-off-on",
+    "event_date": "2026-11-14",
+    "source_time": null,
+    "headline": "Trump is considering holding off on new strikes on Iran unless Tehran or the Houthis carry out new provocations, Reuters reported, after Saudi Crown Prince Mohammed bin Salman and Turkey's Erdogan urged restraint.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611154375",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/trump-says-may-hold-iran-attacks-barring-new-provocations-0",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "us-policy"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-14-the-white-house-extended-its-jones",
+    "event_date": "2026-11-14",
+    "source_time": null,
+    "headline": "The White House extended its Jones Act waiver for 90 days from 16 November, letting foreign-flagged ships carry US crude, fuels, fertiliser and LNG between US ports, citing the Iran war's effect on energy costs.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/trump-to-extend-shipping-waiver-for-oil-fertilizer-for-90-days/",
+        "published_date": "2026-11-14"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "markets-risk-transmission"
+    ],
+    "tags": [
+      "energy",
+      "shipping"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-bahrain-issued-two-threat-alerts-its",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Bahrain's military said its air defences intercepted Iranian drones aimed at a US base on 15 November, Iran's second attack on the kingdom in three days; the Guard said it fired six drones at a US radar at Riffa air base, and Bahrain's foreign ministry condemned the attack.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cqn4e2py48kwo",
+        "published_date": "2026-11-15"
+      },
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/15/world/middleeast/bahrain-iran-israel.html",
+        "published_date": "2026-11-15"
+      },
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611154375",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/15/world/iran-bahrain-us-attack/",
+        "published_date": "2026-11-15"
+      },
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/blasts-sirens-in-bahrain-as-iran-announces-attack-on-us-base-3011984",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "bahrain",
+      "us-base",
+      "drones"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-the-aircraft-carrier-uss-theodore-roosevelt",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "The aircraft carrier USS Theodore Roosevelt entered US Central Command's area on 15 November, a US official told ABC News, joining the George H.W. Bush and George Washington in the region.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611154375",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/third-us-aircraft-carrier-arrives-iran-says-tankers-hit-mins",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "us-posture",
+      "carrier"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-yemens-saudi-backed-forces-said-they-were",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Yemen's Saudi-backed forces said they were withdrawing from the Bab al-Mandab area and Dhubab airport to defend Aden; Houthi media said the group had retaken the area it first seized in September, and Houthi forces are about 60 km from Aden.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cqvg2xgyvnjpo",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/middle-east/20261115-yemen-houthis-advance-to-within-60-kilometres-of-aden-military-sources-say",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "bab-al-mandab",
+      "houthis",
+      "chokepoint"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-the-saudi-led-coalition-said-it-intercepted",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "The Saudi-led coalition said it intercepted two missiles aimed at Riyadh on 15 November after the Houthis claimed to target King Khalid airport; no damage in Saudi Arabia was reported, and a Houthi strike near Aden killed eight people.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/houthi-attacks-kill-eight-yemen-strike-riyadh-airport",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping"
+    ],
+    "tags": [
+      "houthis",
+      "saudi-arabia"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-ukraines-general-staff-said-it-struck",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Ukraine's General Staff said it struck the Akhtubinsk military airfield in Astrakhan, about 650 km from the front, setting off a missile depot, and a drone launch base in Oryol.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90178",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "deep-strike"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-russia-launched-132-drones-at-ukraine",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Russia launched 132 drones at Ukraine overnight into 15 November, 78 of them jet-powered, in a mass attack on Odesa region; strikes killed four people and injured 69 across Ukraine over the day.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russia-launches-mass-attack-on-odesa-oblast-as-strikes-kill-4-injure-69-across-ukraine-over-past-day/",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "civilians",
+      "drones"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-israels-shin-bet-and-police-said",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Israel's Shin Bet and police said an Israeli man will be charged with spying for Iran after photographing military bases and police stations and sending their coordinates to Iranian operatives.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/man-to-be-charged-with-spying-for-iran-for-ideological-motives/",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "israel-lebanon-gaza",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-gadi-eisenkot-who-holds-the-mandate",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Gadi Eisenkot, who holds the mandate to form Israel's government, said caretaker Prime Minister Netanyahu 'cannot remain' after a report that Netanyahu's chief of staff steered police toward a pre-election complaint against an Arab party.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/middle-east/20261116-eisenkot-netanyahu-cannot-stay-in-office",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "israel-lebanon-gaza"
+    ],
+    "tags": [
+      "israel-politics"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-15-iraqs-government-threatened-military-action-if",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Iraq's government threatened military action if Kataib Hezbollah does not hand over its Jurf al-Sakhar stronghold, after Prime Minister al-Zaidi sacked nine officials over oil smuggling there; the group denies involvement.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/iraq-threatens-military-action-kataib-hezbollah-stronghold",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "iraq",
+      "militias"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-16-ukraine-attacked-the-crimean-bridge-overnight",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "Ukraine attacked the Crimean Bridge overnight into 16 November, forcing its closure and delaying four trains; Russia's defence ministry claimed it downed 1,336 Ukrainian drones across 17 regions, Crimea and nearby seas.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90199",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/ukraine-reportedly-strikes-crimean-bridge-forcing-temporary-traffic-halt/",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "crimea",
+      "drones"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-16-chinas-foreign-ministry-said-xi-jinping",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "China's foreign ministry said Xi Jinping will hold a China-Russia-US heads-of-state meeting with Putin and Trump in Shenzhen on 19 November, confirming the first three-way summit; spokeswoman Mao Ning said it will cover world peace and strategic stability.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/16/asia-pacific/politics/china-confirms-xi-trump-putin-summit/",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/asia-pacific/20261116-xi-trump-putin-discuss-world-peace-shenzhen-summit-china-says",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "summit",
+      "apec"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "bilateral-us-china",
+      "crink"
+    ]
+  },
+  {
+    "id": "2026-11-16-ukmto-said-a-tanker-leaving-the",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "UKMTO said a tanker leaving the Gulf through the Strait of Hormuz was hit by an unknown projectile on 16 November, starting an engine-room fire with no injuries; Iran's Guard separately claimed two tankers hit mines.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/british-authority-tanker-targeted-by-unknown-projectile-in-strait-of-hormuz-fire-erupts-3012196",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "shipping",
+      "hormuz"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-16-lithuania-has-handed-the-us-proposals",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "Lithuania has handed the US proposals for a permanent US military base, Defence Minister Robertas Kaunas said, modelled on Germany's brigade there; there is no US response yet.",
+    "body": "",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3116117/lithuania-submits-proposal-to-us-for-permanent-military-base",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "basing",
+      "nato"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-16-asean-and-china-failed-to-conclude",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "ASEAN and China failed to conclude a South China Sea code of conduct at the Manila summit; the Philippine foreign minister said about 80% of the draft is agreed but whether it is binding is unresolved.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/16/asean-china-fall-short-of-agreeing-on-south-china-sea-code",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 1,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "tags": [
+      "south-china-sea"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "lenses": [
+      "bilateral-us-china"
+    ]
   }
 ]

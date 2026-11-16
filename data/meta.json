@@ -1,16 +1,16 @@
 {
   "dashboard_title": "Global Conflict Monitor",
   "war_start": "2026-02-28T00:00:00",
-  "now": "2026-11-12T06:00:00-05:00",
+  "now": "2026-11-16T06:00:00-05:00",
   "ww3_pct": 66,
-  "ww3_now_label": "Nov 12 · prisoner deal; audit-corrected axes",
-  "base_last_update": "11/12/2026 · 06:00 EST",
-  "last_built": "2026-11-13T09:07:03.895Z",
+  "ww3_now_label": "Nov 16 · Bahrain hit confirmed; third US carrier",
+  "base_last_update": "11/16/2026 · 06:00 EST",
+  "last_built": "2026-11-16T09:29:46.644Z",
   "version": "2.0.0",
   "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
   "hormuz_status": {
     "label": "CONTESTED",
-    "note": "Trump calls further US strikes unlikely, but the blockade is enforced: US aircraft disabled the cargo ship Huda off Khor Fakkan on 7 November. Guard mine claims remain unconfirmed.",
-    "as_of": "2026-11-10"
+    "note": "A tanker leaving the Gulf was hit by an unknown projectile on 16 November, UKMTO said; the Guard again claims mine hits and says the Strait is closed, unconfirmed.",
+    "as_of": "2026-11-16"
   }
 }

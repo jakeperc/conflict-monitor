@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "Russia struck Kyiv after the talks and Ukraine hit Omsk and Ust-Luga; no US strike on Iran reported since 7 November."
+      "currentLabel": "Bahrain intercepted Iranian drones aimed at a US base; Yemen's government forces left the Bab al-Mandab area; Ukraine hit the Crimean Bridge."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "Abu Dhabi talks ended with a prisoner deal; US envoys met Putin's team in Moscow; the APEC three-leader meeting is unconfirmed."
+      "currentLabel": "China confirmed Xi will host Trump and Putin on 19 November; a third US carrier reached the Middle East."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "Iran showed a new underground missile site; no binding US-Russia arms limits are in force; Zaporizhzhia's power supply stays fragile."
+      "currentLabel": "The IAEA has never inspected Iran's Isfahan plant; no binding US-Russia arms limits are in force; nuclear cuts are on the US agenda for Shenzhen."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "Europe stays outside the US-Russia talks; a US soldier was arrested in Britain over Russia spying; US charges target an Iran plot at a British base."
+      "currentLabel": "NATO dropped its 2027 leaders' summit; Lithuania seeks a permanent US base; Estonia blames Russia for sabotage and moves to close crossings."
     }
   ]
 }

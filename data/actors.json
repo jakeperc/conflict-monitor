@@ -6,9 +6,9 @@
       "risk": 82,
       "level": "EXTREME",
       "alignment": "adversary",
-      "note": "Trump calls the war 'effectively over', but the blockade tightens and Tehran demands its seven conditions before talks.",
-      "details": "Trump said on 9 November, after meeting Qatar's prime minister, that the war is militarily 'effectively over' and further US strikes are 'quite unlikely', while warning the US remains ready. Rubio reported no progress in talks. Iran's security council secretary Rezaei told Washington to stop 'manufacturing fake news' and accept Iran's seven conditions; Tehran says sanctions and the blockade must end before talks.\n\nThe blockade is tightening: US aircraft disabled the cargo ship Huda running it off Khor Fakkan on 7 November, and CENTCOM set up Task Force Iron Gate to cut land and Caspian routes. The Guard says two tankers hit mines on an 'unauthorised' route; Reuters could not confirm it, and no ship has been named. A Guard spokesman said Iran's missile range limit 'has been lifted'.\n\nIran's confrontation is reaching Europe: France blamed the Guard's Shahid Kaveh cyber unit for sabotaging supermarket fridges and seeks warrants for two officials, and the US moved tankers from RAF Mildenhall over an Iran-linked threat.",
-      "as_of": "2026-11-10"
+      "note": "Fired drones at a US base in Bahrain on 15 November, intercepted; Trump says Washington no longer needs a deal.",
+      "details": "Iran fired drones at Bahrain twice in three days: US forces shot down two Guard drones on 13 November, and on 15 November Bahrain's defence ministry said it intercepted several more; the Guard said it targeted a US radar at Riffa air base and declared the Strait closed.\n\nWashington has answered with pressure rather than talks. On 12 November Trump wrote that the US no longer needs a deal with Iran and moved Vice-President Vance off the talks; Reuters reports he is weighing holding off on strikes unless provoked. A third US carrier entered the region on 15 November, and Treasury Secretary Bessent forecasts a 25% contraction in Iran's economy.\n\nThe blockade continues. A tanker leaving the Gulf was hit by an unknown projectile on 16 November (UKMTO), and the Guard claims new mine hits that no maritime authority has confirmed. An IAEA report says inspectors have never seen the Isfahan enrichment plant.",
+      "as_of": "2026-11-16"
     },
     {
       "name": "Israel",
@@ -16,9 +16,9 @@
       "risk": 80,
       "level": "EXTREME",
       "alignment": "ally",
-      "note": "Herzog gave Eisenkot the mandate to form a government; Netanyahu stays caretaker and calls for unity.",
+      "note": "Eisenkot, holding the mandate, says caretaker Netanyahu 'cannot remain' over alleged election meddling by an aide.",
       "details": "President Herzog gave opposition leader Gadi Eisenkot the mandate to form a government on 7 November, after more lawmakers recommended him than Netanyahu. He has 28 days, extendable by 14. The election left Netanyahu's bloc at 53 seats, Eisenkot's camp at 48 and Arab-majority parties at 19.\n\nNetanyahu remains caretaker prime minister with full authority over military decisions, including on Iran. He has called for a unity government; Eisenkot's side rejects it in its current form. Herzog says the next government must advance the US Gaza plan, and Trump told Netanyahu to stop obstructing it. Shin Bet reportedly found no evidence of foreign election interference.\n\nIsraeli drone strikes continue in southern Lebanon; one person was killed on 4 November.",
-      "as_of": "2026-11-10"
+      "as_of": "2026-11-16"
     },
     {
       "name": "Lebanon",
@@ -66,9 +66,9 @@
       "risk": 78,
       "level": "SEVERE",
       "alignment": "adversary",
-      "note": "Sat down with Ukraine and US envoys in Abu Dhabi while striking power plants; rejects any European role.",
+      "note": "Says Europe must show readiness before joining talks; confirmed a planned Trump-Xi-Putin meeting at APEC.",
       "details": "Russia's delegation, led by Vladimir Medinsky and including Sergei Ryabkov, met Ukraine's team with US envoys in Abu Dhabi on 10 November, the first such talks since February. The Kremlin says Europeans have no role in the talks. Russia still demands the rest of Donetsk, and US officials say sanctions relief and a Russia-Europe security framework are on their agenda.\n\nBefore the talks Russia struck the Trypillia thermal power plant near Kyiv. The IAEA said a drone killed a worker at the Russian-occupied Zaporizhzhia nuclear plant, which lost its only external power line for about 10 hours on 8 November; the IAEA did not say who launched it.\n\nCanada sanctioned 38 entities and 24 people tied to Russia's missile industry, cyber actors and crypto enablers. Trump expects to meet Putin and Xi at APEC in Shenzhen.",
-      "as_of": "2026-11-10"
+      "as_of": "2026-11-15"
     },
     {
       "name": "Saudi Arabia",
@@ -234,9 +234,9 @@
       "risk": 46,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Condemned Iran over Jordan, days after the Revolutionary Guard threatened tanker crews in Bahraini ports.",
-      "details": "Bahrain hosts the United States Fifth Fleet, which makes it structurally exposed in any American-Iranian exchange, and its position sharpened twice this week.\n\nFirst, the Revolutionary Guard warned the crews of oil tankers in Kuwaiti and Bahraini ports to abandon their vessels immediately because they would be targeted. That is the first threat in this war aimed at vessels inside the harbours of Gulf states that are not belligerents. No vessel has been hit in either port, and neither government has announced a closure or a change in port operations.\n\nSecond, Bahrain joined Saudi Arabia, Qatar and Egypt in condemning Iran's missile strike on Jordan on 9 September.\n\nThe combination is the whole of Manama's problem in miniature: it is the most militarily entangled of the small Gulf states, it has just been threatened directly, and its available response is a statement. Whether the threat to shipping in Gulf ports converts into an actual attack is the single question that would change this entry, and the first observable signs would be a port closure, a war-risk rate move specific to Bahraini calls, or a vessel actually struck at anchor.",
-      "as_of": "2026-09-09"
+      "note": "Its air defences intercepted Iranian drones aimed at a US base on 15 November, the second attack in three days.",
+      "details": "Bahrain hosts the US Fifth Fleet, which makes it the Gulf state most exposed to a US-Iranian exchange, and in November it became a direct target.\n\nOn 13 November US forces shot down two Revolutionary Guard drones launched toward Bahrain, with no damage. On 15 November Bahrain's defence ministry said its forces intercepted several Iranian aerial threats before they reached their targets, the interior ministry told residents to shelter, and the foreign ministry condemned the 'continued brutal Iranian attacks' and held Iran responsible. The Guard said it fired six drones at a US radar at Riffa air base. No injuries or damage were reported.\n\nThese were the first attacks on Bahrain since September, when the Guard told tanker crews in Bahraini and Kuwaiti ports to abandon their ships. Saudi Arabia, Qatar, Jordan and Egypt condemned the 15 November attack. Whether the US responds from Bahraini soil is the question that would change this entry.",
+      "as_of": "2026-11-16"
     },
     {
       "name": "Libya",
@@ -254,8 +254,8 @@
       "risk": 28,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-07",
-      "note": "Demanded Russia return Japan Tobacco's four businesses after Putin placed them under state control.",
+      "as_of": "2026-11-15",
+      "note": "Reportedly faces a US demand to triple payments for US forces to about ¥3 trillion over five years; Tokyo estimates ¥1.5 trillion.",
       "details": "Putin placed the Russian operations of Japan Tobacco International under state control on 5 November (Euronews; The Moscow Times); Tokyo demanded the return of four businesses. It follows a decree in October seizing several European firms' Russian assets.\n\nJapan's role in the region otherwise centres on Okinawa basing, a debate on a large defence-spending increase, and coordination with the US ahead of APEC."
     },
     {
@@ -264,8 +264,8 @@
       "risk": 36,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-10-26",
-      "note": "A drone sank the cargo ship Khoryv off Constanta, killing one; President Dan blames Russia's escalation.",
+      "as_of": "2026-11-15",
+      "note": "Investigating drone strikes on three ships off its coast on 13-14 November, one inside its territorial waters.",
       "details": "Romania's coast is now where the Black Sea war kills sailors. On 23 October the Comoros-flagged cargo ship Khoryv sank after a drone strike about 13 nautical miles off Constanta, just outside Romanian territorial waters; one sailor died, nine were rescued and three are missing. President Nicusor Dan said it was 'part of Russia's escalation process in its war in Ukraine'. Reuters counts at least seven cargo ships hit off Romania and Bulgaria in two weeks.\n\nRomanian F-16s shot down two jet-powered Geran drones over Romanian waters near Sulina on 17 October. NATO's council, meeting at Bucharest's request on 20 October, agreed to send more patrol aircraft, radars and drones to the Black Sea but no new command. Romania has proposed a rotating NATO Black Sea command it would host from 2028."
     },
     {
@@ -336,8 +336,8 @@
       "risk": 74,
       "level": "EXTREME",
       "alignment": "partner",
-      "as_of": "2026-11-10",
-      "note": "Opened US-mediated talks with Russia in Abu Dhabi as Russia hit power plants and a nuclear-plant worker was killed.",
+      "as_of": "2026-11-15",
+      "note": "Hit a Russian corvette in the Gulf of Finland as Europe named five negotiators for future talks.",
       "details": "Defence minister Rustem Umerov leads Ukraine's delegation at the Abu Dhabi talks, which opened on 10 November with US envoys mediating. Kyiv's agenda is a cessation of hostilities, security guarantees and humanitarian steps; a senior official said it has no particular expectations. Ukraine met European and US officials separately before the session.\n\nRussian forces struck the Trypillia thermal power plant near Kyiv on 9 November. The IAEA said a drone killed a worker at the occupied Zaporizhzhia nuclear plant after it lost its only external line for about 10 hours. Bulgaria confirmed six bodies aboard the tanker Wine Trader, hit off Romania on 15 October.\n\nNATO's top commander said in late October that no European-funded PURL deliveries have been delayed."
     },
     {
@@ -366,8 +366,8 @@
       "risk": 36,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-12",
-      "note": "Called Russia's claim of arresting Polish agents in Kaliningrad a provocation and disinformation; border forces remain reinforced.",
+      "as_of": "2026-11-15",
+      "note": "Warsaw says the Pentagon backed a permanent US troop presence; prosecutors charged a man over a Russian-directed train bombing.",
       "details": "On 11 November Russia's FSB said it had arrested two alleged Polish intelligence agents in the Kaliningrad region on espionage charges, warned seven Polish citizens and three Russians over contacts with Polish services, and barred the seven Poles from Russia. Polish government spokesman Jacek Dobrzyński called it a provocation and disinformation.\n\nEarlier in November Tusk sent forces and counter-terrorism police to the Kaliningrad border after Polish and NATO intelligence warned of sabotage or provocations. A Ukrainian drone on its way to Russia may have briefly crossed Polish airspace near Lithuania on the night of 10-11 November, Lithuanian officials said. At home, the constitutional court standoff between Tusk and President Nawrocki continues."
     },
     {
@@ -376,8 +376,8 @@
       "risk": 34,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-10",
-      "note": "President confirmed talks on renaming Taiwan's Vilnius office as Chinese diplomats prepare to return.",
+      "as_of": "2026-11-16",
+      "note": "Handed the US proposals for a permanent US military base, modelled on Germany's brigade there.",
       "details": "Lithuania's foreign ministry asked Taiwan in September to change the name of its representative office in Vilnius, and President Nauseda confirmed the talks were coordinated with him. Taiwan's deputy foreign minister said there are no plans to change the name. Chinese diplomats are expected in Lithuania this week to discuss normalising relations; China withdrew its diplomatic staff after the office opened under Taiwan's name in 2021 and imposed trade restrictions.\n\nThe US has also pressed Lithuania to let Belarusian potash through Klaipeda despite EU sanctions; Vilnius says the sanctions forbid transit."
     }
   ],
@@ -554,9 +554,9 @@
       "flag": "🇧🇭",
       "color": "var(--c-amber)",
       "goal": "Keep the Fifth Fleet’s home port out of the exchange while the war is fought from its neighbours’ soil.",
-      "move": "Condemned Iran over Jordan while its own ports sit under a Revolutionary Guard threat to tanker crews.",
-      "details": "Bahrain hosts the United States Fifth Fleet and has spent this war as the quietest of the exposed Gulf states. Two things this week changed what it is managing.\n\nThe Revolutionary Guard told crews of oil tankers in Bahraini and Kuwaiti ports to abandon their vessels or be targeted — the first threat in this war against ships inside the harbours of non-belligerent Gulf states. Manama has announced no port closure and no change in operations, and no vessel has been struck.\n\nOn 9 September Bahrain joined Saudi Arabia, Qatar and Egypt in condemning Iran's ballistic-missile strike on Jordan. For a government that has avoided naming Tehran throughout, that is a real shift in register, and it arrived only once a partner state's soil was hit rather than when its own shipping was threatened.\n\nBahrain's room for manoeuvre is the smallest of the Gulf states: it cannot credibly threaten Iran, it cannot distance itself from the American presence it hosts, and its economy runs through the same water everyone is fighting over.",
-      "as_of": "2026-09-09"
+      "move": "Intercepted Iranian drones aimed at a US base on 15 November and condemned the attacks; US forces downed two others on 13 November.",
+      "details": "Bahrain hosts the US Fifth Fleet and spent most of this war as the quietest of the exposed Gulf states. That changed in November: US forces downed two Guard drones aimed at Bahrain on 13 November, and on 15 November its own air defences intercepted more, aimed, the Guard said, at a US radar at Riffa.\n\nManama has moved from silence to naming Tehran: its foreign ministry condemned the attacks and held Iran fully responsible. It still cannot credibly threaten Iran or distance itself from the American presence it hosts, so its options are interception, statements and reliance on the US response.",
+      "as_of": "2026-11-16"
     },
     {
       "name": "South Korea",
@@ -610,9 +610,9 @@
       "name": "Yemen",
       "start": "2026-02-28",
       "threat": 85,
-      "status": "A Houthi attack damaged an Aramco tower in Riyadh on 8 November and set a pipeline fire near Medina; no casualties reported.",
+      "status": "Government forces withdrew from the Bab al-Mandab area to defend Aden on 15 November; the Houthis say they retook it and are about 60 km from the city.",
       "color": "#eab308",
-      "as_of": "2026-11-10"
+      "as_of": "2026-11-16"
     },
     {
       "flag": "🇺🇦",

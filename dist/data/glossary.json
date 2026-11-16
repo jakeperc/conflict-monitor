@@ -1348,6 +1348,33 @@
       "expansion": "Financial Crimes Enforcement Network",
       "definition": "A US Treasury bureau that fights money laundering. Under section 9714(a) of the 2020 Combating Russian Money Laundering Act it can bar US banks from dealing with a foreign firm, as it did with the crypto exchange MEXC Global in November 2026.",
       "category": "sanctions"
+    },
+    {
+      "term": "GRU",
+      "aliases": [
+        "GRU"
+      ],
+      "expansion": "Main Directorate of the General Staff of Russia's armed forces",
+      "definition": "Russia's military intelligence service, which European governments have blamed for sabotage, arson and assassination plots on their soil.",
+      "category": "institution"
+    },
+    {
+      "term": "APEC",
+      "aliases": [
+        "APEC"
+      ],
+      "expansion": "Asia-Pacific Economic Cooperation",
+      "definition": "A forum of 21 Pacific Rim economies, including the US, China and Russia, whose annual leaders' meeting often hosts bilateral summits.",
+      "category": "diplomacy"
+    },
+    {
+      "term": "New START",
+      "aliases": [
+        "New START"
+      ],
+      "expansion": "New Strategic Arms Reduction Treaty",
+      "definition": "The last treaty capping US and Russian deployed strategic nuclear warheads and launchers; it expired in February 2026 with no successor.",
+      "category": "nuclear"
     }
   ]
 }

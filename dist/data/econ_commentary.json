@@ -2,31 +2,31 @@
   "cards": [
     {
       "key": "equities",
-      "title": "Equities: Gulf Risk Reaches Saudi Arabia's Investment Calendar",
+      "title": "Equities: Treasury Presses the Fed as Oil Risk Persists",
       "color": "blue",
-      "body": "The S&P 500 trades at {SPX} and the Nasdaq 100 at {NDX}. The war's clearest financial signal this week came from Riyadh, not New York: Saudi Arabia postponed its Future Investment Initiative, due 26–29 October, to 2027 because of Houthi strikes, and government agencies in Riyadh told staff to work from home. Oil, at {BRENT} for Brent, remains the main channel to equities. Supply risk sits in unconfirmed Houthi claims on Yanbu and Shaybah and continued ship attacks around Hormuz; relief sits in the US waiver of Russia sanctions and the IEA stock release.",
-      "updated_at": "2026-10-20"
+      "body": "The S&P 500 trades at {SPX} and the Nasdaq 100 at {NDX}. On 13 November Treasury Secretary Bessent urged the Federal Reserve not to raise rates into what he called an energy supply shock from the Iran war. Oil, at {BRENT} for Brent, remains the main channel to equities: Iran's Guard claims new mine hits around Hormuz and fired drones at Bahrain, while the US pause in strikes on Iran has held since 7 November. Nvidia's chief executive resigned on 12 November after admitting an affair with a woman accused of spying for China; the board gave no reason. Trump is due to meet Xi in Shenzhen next week.",
+      "updated_at": "2026-11-15"
     },
     {
       "key": "oil",
-      "title": "Oil: Saudi Output Hits a Wartime High as Strikes Pause",
+      "title": "Oil: The Iran War Lifts Russia's Export Earnings",
       "color": "amber",
-      "body": "Brent trades at {BRENT}. OPEC's monthly report, published 11 November, says Saudi Arabia pumped 10.56 million barrels a day in October, its most since the war began in February, and OPEC+ output rose about 2 million barrels a day to 41.23 million. More supply from outside the Strait eases the pressure from a contested Hormuz. Brent fell from about $98 on 7 November to about $91 on 10 November after Trump called further strikes on Iran unlikely. The blockade still holds, and Houthi attacks on 8-9 November hit an Aramco tower in Riyadh and the East-West pipeline near Medina, the main route around Hormuz.",
-      "updated_at": "2026-11-12"
+      "body": "Brent trades at {BRENT}. The IEA said on 13 November that Russia earned about $21.2 billion from oil exports in October, its most since May and about 65% more than a year earlier, as Urals and ESPO topped $100 a barrel. Russian barrels do not need to cross Hormuz to reach China and India. Ukrainian strikes still weigh on Russian refining: on 13 November Ukraine said it hit the Samara station that blends Urals export crude. Around Hormuz, at least 10 ships were hit in the first 10 days of November.",
+      "updated_at": "2026-11-15"
     },
     {
       "key": "crypto",
-      "title": "Crypto: Treasury Hits Iranian Money Rails in Canada and MEXC",
+      "title": "Crypto: FBI Says North Korea Stole $400 Million With Fake Video Calls",
       "color": "violet",
-      "body": "Bitcoin trades at {BTC}. On 6 November the US Treasury sanctioned eight Canadian money-exchange businesses it says moved Iranian funds, including the crypto firm Cryptoyal, and a separate Treasury release, read only by its title, says MEXC was cut off from the US financial system. That is a direct strike on payment rails Iran uses to move money around its blockade. Nothing new has been announced on the $6.3 billion Binance theft the FBI attributes to North Korea.",
-      "updated_at": "2026-11-07"
+      "body": "Bitcoin trades at {BTC}. The FBI said this week that North Korean state hackers took more than $400 million in cryptocurrency from over 900 victims using fake video calls, and that the regime relies on such theft to fund its weapons program (BBC). That is a direct pathway from crypto theft to a sanctioned state's weapons funding. On 6 November the US Treasury sanctioned eight Canadian money-exchange businesses it says moved Iranian funds, including the crypto firm Cryptoyal. OFAC's list of recent actions for 10-15 November shows no designation tied to the $6.3 billion Binance theft the FBI attributes to North Korea.",
+      "updated_at": "2026-11-15"
     },
     {
       "key": "gold",
-      "title": "Gold: Flat While Oil Swings",
+      "title": "Gold: No War-Linked Driver Found",
       "color": "danger",
-      "body": "Gold trades at {GOLD}. The last dated check this card holds: on 18 September gold was $4,364.46 an ounce at 9 a.m. New York time, against $4,364.63 a day earlier (CNBC). That is flat, in a week when Brent swung between the high $90s and above $107 on Saudi pipeline and Hormuz news, and it is still not safe-haven behaviour. The card's standing explanation holds: gold is being priced against real yields and the cost of holding it, not against the probability of escalation. A genuine flight to safety would show up in gold before it shows up in oil.",
-      "updated_at": "2026-09-21"
+      "body": "Gold trades at {GOLD}. This run's research found no report tying gold's move to the war in the 12-15 November window. The card's last dated check is from 18 September, when gold was $4,364.46 an ounce at 9 a.m. New York time (CNBC), flat while Brent swung. Inference, not a sourced finding: gold appears to be tracking real yields and the cost of holding it rather than escalation risk.",
+      "updated_at": "2026-11-15"
     }
   ]
 }

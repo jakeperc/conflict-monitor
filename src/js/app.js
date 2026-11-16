@@ -3847,6 +3847,16 @@ function MapTab({ openCountry }) {
   const mapWrapRef = useRef(null);
   const svgRef = useRef(null);
   const isMobileMap = useIsMobile(900);
+  // Rendered map width in px: the label pass needs it to know which part of the map is
+  // on screen (zoom and pan are in container px) and where the zoom buttons sit.
+  const [mapPxW, setMapPxW] = useState(0);
+  useEffect(() => {
+    const wrap = mapWrapRef.current;
+    if (!wrap || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(([e]) => setMapPxW(Math.round(e.contentRect.width)));
+    ro.observe(wrap);
+    return () => ro.disconnect();
+  }, []);
 
   // Hide pinch-zoom hint after first interaction or 5 seconds
   useEffect(() => {
@@ -4117,6 +4127,9 @@ function MapTab({ openCountry }) {
   // overlap one already placed. Skipped labels appear once there is room; hotspot
   // detail is also on hover (<title>).
   const LS = 1 / (mapZoom.scale || 1);
+  // Labels are also kept inside the part of the map that is on screen (2026-11-16): a
+  // label that would cross the edge, or sit under the zoom buttons, tries its other
+  // placements and is otherwise skipped, instead of being cut off at the edge.
   const labelPlan = (() => {
     const placed = [];
     const hits = (b) => placed.some(p => b.x0 < p.x1 && b.x1 > p.x0 && b.y0 < p.y1 && b.y1 > p.y0);
@@ -4126,10 +4139,35 @@ function MapTab({ openCountry }) {
       const pad = 1.5 * LS;
       return { x0: x0 - pad, x1: x0 + w + pad, y0: y - fs * 0.82 - pad, y1: y + fs * 0.22 + pad };
     };
-    const place = (b) => { if (hits(b)) return false; placed.push(b); return true; };
+    // Visible map area in viewBox units. Zoom/pan are in container px; k converts px → units.
+    const sc = mapZoom.scale || 1;
+    const k = (mapPxW || W) / W;
+    const vx0 = -(mapZoom.x || 0) / (sc * k), vy0 = -(mapZoom.y || 0) / (sc * k);
+    const vx1 = vx0 + W / sc, vy1 = vy0 + H / sc;
+    const edge = 3 * LS;
+    const inView = (b) => b.x0 >= vx0 + edge && b.x1 <= vx1 - edge && b.y0 >= vy0 + edge && b.y1 <= vy1 - edge;
+    const place = (b) => { if (!inView(b) || hits(b)) return false; placed.push(b); return true; };
     const dot = (x, y, r) => placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+    // Screen-px rectangle (from the map's top-left) as an obstacle in viewBox units.
+    const pxBlock = (x0, y0, x1, y1) => placed.push({ x0: vx0 + x0 / (sc * k), x1: vx0 + x1 / (sc * k), y0: vy0 + y0 / (sc * k), y1: vy0 + y1 / (sc * k) });
     const MO = MAP_OVERLAYS || { arcs: [], hotspots: [] };
     const out = { country: {}, hotspot: {}, sub: {}, arcEnd: {} };
+
+    // 0. The zoom buttons and the zoom readout cover the map: buttons top right (bottom
+    //    right on phones, where touch styles make them 44px), readout the opposite corner.
+    if (mapPxW) {
+      const zoomed = sc > 1.05;
+      const nBtn = zoomed ? 3 : 2;
+      const bs = isMobileMap ? 44 : 30;
+      const run = 10 + nBtn * bs + (nBtn - 1) * 6 + 6; // along the row/column
+      const hPx = mapPxW * H / W;
+      if (isMobileMap) pxBlock(mapPxW - run, hPx - (bs + 16), mapPxW, hPx);
+      else pxBlock(mapPxW - (bs + 16), 0, mapPxW, run);
+      if (zoomed) {
+        if (isMobileMap) pxBlock(mapPxW - 130, 0, mapPxW, 30);
+        else pxBlock(mapPxW - 130, hPx - 30, mapPxW, hPx);
+      }
+    }
 
     // 1. Hormuz callout (always shown).
     placed.push(box(hormuzX + 5 + 20 * LS, hormuzY - 1 * LS, "HORMUZ", 11 * LS, "start"));
@@ -4148,14 +4186,23 @@ function MapTab({ openCountry }) {
     (MO.hotspots || []).forEach(h => { const [x, y] = project(h.pos[0], h.pos[1]); dot(x, y, 3.5); });
     (MO.arcs || []).forEach(a => { const [x, y] = project(a.to[0], a.to[1]); dot(x, y, 3); });
 
-    // 3. Hotspot names: preferred side first, then the other side.
+    // 3. Hotspot names: preferred side first, then the other side, then centred above or
+    //    below the marker and nudged inside the visible edge (no detail line there).
     (MO.hotspots || []).forEach(h => {
       const [x, y] = project(h.pos[0], h.pos[1]);
       const sides = h.labelSide === "start" ? ["start", "end"] : ["end", "start"];
+      const fs = 11 * LS;
+      const ty = y - 2 - 2 * LS;
       for (const side of sides) {
         const tx = side === "start" ? x - 7 - 2 * LS : x + 7 + 2 * LS;
         const anchor = side === "start" ? "end" : "start";
-        if (place(box(tx, y - 2 - 2 * LS, h.name, 11 * LS, anchor))) { out.hotspot[h.id] = { tx, anchor }; break; }
+        if (place(box(tx, ty, h.name, fs, anchor))) { out.hotspot[h.id] = { tx, ty, anchor, side: true }; break; }
+      }
+      if (out.hotspot[h.id]) return;
+      const half = String(h.name).length * fs * 0.72 / 2 + 1.5 * LS;
+      const tx = Math.min(Math.max(x, vx0 + edge + half), vx1 - edge - half);
+      for (const vy of [y - 6 - 4 * LS, y + 6 + 9 * LS]) {
+        if (place(box(tx, vy, h.name, fs, "middle"))) { out.hotspot[h.id] = { tx, ty: vy, anchor: "middle", side: false }; break; }
       }
     });
 
@@ -4172,7 +4219,7 @@ function MapTab({ openCountry }) {
     // 5. Hotspot detail lines, under a placed name only.
     (MO.hotspots || []).forEach(h => {
       const n = out.hotspot[h.id];
-      if (!n || !h.sub) return;
+      if (!n || !n.side || !h.sub) return;
       const [, y] = project(h.pos[0], h.pos[1]);
       out.sub[h.id] = place(box(n.tx, y + 2 + 6 * LS, h.sub, 8 * LS, n.anchor, 0.52));
     });
@@ -4249,7 +4296,9 @@ function MapTab({ openCountry }) {
           {/* Pinch-zoom hint (mobile) */}
           {isMobileMap && <div className={`map-zoom-hint${hintVisible ? "" : " hidden"}`}>Pinch to zoom</div>}
           {/* Zoom controls (all devices) — wheel/pinch also zoom; drag pans when zoomed */}
-          <div style={{ position:"absolute", top:10, right:10, zIndex:6, display:"flex", flexDirection:"column", gap:6 }}>
+          {/* Phones: one row in the bottom-right corner (South Pacific). A 44px column at top
+              right covered most of the map's height and the East Asia hotspots. */}
+          <div style={{ position:"absolute", ...(isMobileMap ? { bottom:10 } : { top:10 }), right:10, zIndex:6, display:"flex", flexDirection: isMobileMap ? "row-reverse" : "column", gap:6 }}>
             {[
               { label:"+", title:"Zoom in",  onClick:() => zoomAtCenter(1.5) },
               { label:"−", title:"Zoom out", onClick:() => zoomAtCenter(1/1.5) },
@@ -4283,7 +4332,7 @@ function MapTab({ openCountry }) {
             )}
           </div>
           {mapZoom.scale > 1.05 && (
-            <div style={{ position:"absolute", bottom:8, right:10, zIndex:6, pointerEvents:"none", fontSize:10, color:TEXT_DIM, background:"var(--map-bg)", padding:"2px 7px", borderRadius:6, opacity:.85, fontFamily:SANS }}>
+            <div style={{ position:"absolute", ...(isMobileMap ? { top:8 } : { bottom:8 }), right:10, zIndex:6, pointerEvents:"none", fontSize:10, color:TEXT_DIM, background:"var(--map-bg)", padding:"2px 7px", borderRadius:6, opacity:.85, fontFamily:SANS }}>
               {mapZoom.scale.toFixed(1)}× · drag to pan
             </div>
           )}
@@ -4476,7 +4525,7 @@ function MapTab({ openCountry }) {
                         <circle cx={x} cy={y} r="3" fill="none" stroke={h.color} strokeWidth="1.2" opacity=".85" />
                         <circle cx={x} cy={y} r="1.4" fill={h.color} />
                         <circle cx={x - .4} cy={y - .4} r="0.5" fill="rgba(255,255,255,.9)" />
-                        {lp && <text x={lp.tx} y={y - 2 - 2 * LS} fill={h.color} fontSize={11 * LS} fontFamily={SANS} fontWeight="600" letterSpacing=".06em" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.name}</text>}
+                        {lp && <text x={lp.tx} y={lp.ty} fill={h.color} fontSize={11 * LS} fontFamily={SANS} fontWeight="600" letterSpacing=".06em" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.name}</text>}
                         {lp && h.sub && labelPlan.sub[h.id] && (
                           <text x={lp.tx} y={y + 2 + 6 * LS} fill={h.color} fontSize={8 * LS} fontFamily={SANS} fontWeight="500" opacity=".8" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.sub}</text>
                         )}

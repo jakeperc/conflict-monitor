@@ -16,6 +16,7 @@
         "properties": {
           "key":   { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "label": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "theater": { "type": "string", "maxLength": 40, "description": "War this group belongs to; Overview groups tiles into one section per theater." },
           "rows": {
             "type": "array",
             "minItems": 1,

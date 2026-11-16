@@ -305,7 +305,6 @@
     .header-actions { gap: 8px !important; }
   }
   @media (max-width: 560px) {
-    .lead-facts-row { grid-template-columns: 1fr !important; }
     .ladder-trigger { display: none !important; }
     .ladder-label { width: auto !important; flex: 1 !important; min-width: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   }

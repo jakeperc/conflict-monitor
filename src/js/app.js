@@ -146,6 +146,21 @@ const WW3_SERIES = window.__DATA__.ww3_series || [];
 // Peak/floor read the plotted trajectory (current, audited values), not the
 // legacy per-build sparkline, which keeps values later re-scored.
 const WW3_SERIES_VALUES = WW3_SERIES.length ? WW3_SERIES.map(p => p.v) : WW3_HISTORY;
+// Overview sparkline window: the trailing 30 days of WW3_SERIES. When the
+// series has no point exactly on the window's first day, the last real point
+// before it is included at its own date (never moved or invented), so the
+// window can start a few days earlier than 30. WW3_WINDOW_START is the date
+// of the first plotted point.
+const WW3_WINDOW_DAYS = 30;
+const ww3Window = (() => {
+  const s = new Date(NOW.getFullYear(), NOW.getMonth(), NOW.getDate() - WW3_WINDOW_DAYS);
+  const startIso = `${s.getFullYear()}-${String(s.getMonth() + 1).padStart(2, "0")}-${String(s.getDate()).padStart(2, "0")}`;
+  const sorted = WW3_SERIES.filter(p => p && p.d && Number.isFinite(p.v)).slice().sort((a, b) => a.d.localeCompare(b.d));
+  const inWin = sorted.filter(p => p.d >= startIso);
+  const before = sorted.filter(p => p.d < startIso).pop();
+  return before && (!inWin.length || inWin[0].d > startIso) ? [before, ...inWin] : inWin;
+})();
+const WW3_WINDOW_START = ww3Window.length ? new Date(`${ww3Window[0].d}T00:00:00`) : WAR_START;
 const BRENT_SERIES = window.__DATA__.brent_series || [];
 const GAS_NAT_SERIES = window.__DATA__.gas_nat_series || [];
 const HORMUZ_SERIES = window.__DATA__.hormuz_series || [];
@@ -1166,6 +1181,42 @@ function StaleChip({ asOf, floor = 7 }) {
   );
 }
 
+// Human Cost helpers (2026-11-16). Sections follow each group's `theater` field in
+// data/human_cost.json, in first-seen order; groups without one share an unnamed section.
+function humanCostSections(groups) {
+  const out = [];
+  (groups || []).forEach(g => {
+    const name = g.theater || "";
+    let sec = out.find(x => x.name === name);
+    if (!sec) { sec = { name, tiles: [] }; out.push(sec); }
+    (g.rows || []).forEach(row => sec.tiles.push({ g, row }));
+  });
+  return out;
+}
+function fmtHcDate(iso) {
+  const d = new Date(`${iso}T00:00:00Z`);
+  return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric", timeZone:"UTC" });
+}
+// Compact verification tag for tile footers: colored dot + short word, same color
+// families as BasisChip. "Reported" matches the footnote's own wording.
+function BasisTag({ basis }) {
+  if (!basis) return null;
+  const MAP = {
+    "identified":         [GREEN,    "Identified"],
+    "confirmed":          [GREEN,    "Confirmed"],
+    "reported-aggregate": [AMBER,    "Reported"],
+    "disputed":           [DANGER,   "Disputed"],
+    "editorial-estimate": [TEXT_DIM, "Editorial estimate"],
+  };
+  const [color, label] = MAP[basis] || [TEXT_DIM, String(basis).replace(/-/g, " ")];
+  return (
+    <span style={{ display:"inline-flex", alignItems:"center", gap:5, color, fontWeight:600, letterSpacing:".04em", whiteSpace:"nowrap" }}>
+      <span style={{ width:6, height:6, borderRadius:"50%", background:color, flexShrink:0 }} />
+      {label}
+    </span>
+  );
+}
+
 // BasisChip: a small verification-tier chip beside a figure. identified/confirmed →
 // green; reported-aggregate → amber (the "REPORTED" family); disputed → danger
 // outline; editorial-estimate → dim neutral. Label = basis with hyphens→spaces, caps.
@@ -1906,7 +1957,7 @@ function BreakingTicker({ headlines, tick = 0, onClick }) {
 
 const TABS = ["overview","globe","feed","actors","economy","analysis","outlook"];
 const TAB_LABELS = { overview:"Overview", globe:"Globe", feed:"Feed", actors:"Actors", economy:"Economy", analysis:"Analysis", outlook:"Outlook" };
-const TAB_HINTS = { overview:"Situation report", globe:"3D theater + replay", feed:"News + timeline", actors:"Players, theaters & moves", economy:"Markets + gas", analysis:"AI strategy", outlook:"Forecasts + track record" };
+const TAB_HINTS = { overview:"Situation report", globe:"3D theater + replay", feed:"News + timeline", actors:"Players, map & coalitions", economy:"Markets + gas", analysis:"AI strategy", outlook:"Forecasts + track record" };
 
 const Icon = ({ name, size = 16, color = "currentColor" }) => {
   const props = { width:size, height:size, viewBox:"0 0 24 24", fill:"none", stroke:color, strokeWidth:1.75, strokeLinecap:"round", strokeLinejoin:"round" };
@@ -2611,6 +2662,128 @@ function Next7Strip({ setTab }) {
   );
 }
 
+// The header's WW3 button asks Overview to open its "Why N%?" expander. Overview
+// may not be mounted yet when the request is made (another tab is showing), so
+// the request is a pending flag Overview consumes on mount, plus an event for
+// when it is already mounted.
+const OPEN_WHY_REQUEST = { pending: false };
+function requestOpenWhy() {
+  OPEN_WHY_REQUEST.pending = true;
+  window.dispatchEvent(new Event("gcm:open-why"));
+}
+
+// GlobePreviewCard — Overview's pointer to the Theater Globe. A static, light 2D
+// thumbnail of the same board the Globe draws (map_overlays fills, arcs and
+// hotspots, as of the overlay file's date). It never loads the 3D bundle; the
+// whole card opens the Globe tab. Uses the same 110m atlas URL as the Actors map,
+// so the browser fetches it once.
+const PREVIEW_ATLAS_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json";
+function GlobePreviewCard({ setTab }) {
+  const [atlas, setAtlas] = useState(null);
+  const [atlasErr, setAtlasErr] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    fetch(PREVIEW_ATLAS_URL)
+      .then(r => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
+      .then(topo => {
+        if (cancelled) return;
+        if (!window.topojson) throw new Error("topojson-client not loaded");
+        setAtlas(window.topojson.feature(topo, topo.objects.countries));
+      })
+      .catch(() => { if (!cancelled) setAtlasErr(true); });
+    return () => { cancelled = true; };
+  }, []);
+
+  const MO = MAP_OVERLAYS || { arcs: [], hotspots: [], fills: {} };
+  const arcs = MO.arcs || [], hotspots = MO.hotspots || [];
+  const fills = Object.fromEntries(Object.entries(MO.fills || {}).map(([k, v]) => [toAtlasName(k), v]));
+  const asOf = MO.as_of
+    ? new Date(`${MO.as_of}T00:00:00`).toLocaleDateString("en-US", { month:"short", day:"numeric" })
+    : null;
+
+  // Equirectangular, cropped to 72°N..40°S (the board's latitudes).
+  const W = 1000, LAT_MAX = 72, LAT_MIN = -40;
+  const H = Math.round(W * (LAT_MAX - LAT_MIN) / 360);
+  const project = (lng, lat) => [(lng + 180) / 360 * W, (LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * H];
+  const geoPath = (geo) => {
+    const polys = geo.type === "Polygon" ? [geo.coordinates] : geo.coordinates;
+    let d = "";
+    for (const poly of polys) for (const ring of poly) {
+      let prevX = null;
+      ring.forEach(([lng, lat], i) => {
+        const [x, y] = project(lng, Math.max(LAT_MIN - 5, Math.min(LAT_MAX + 5, lat)));
+        d += (i === 0 || (prevX !== null && Math.abs(x - prevX) > W / 2) ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+        prevX = x;
+      });
+      d += "Z ";
+    }
+    return d;
+  };
+  const arcPath = (a) => {
+    const [x1, y1] = project(a.from[0], a.from[1]);
+    const [x2, y2] = project(a.to[0], a.to[1]);
+    const mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - Math.hypot(x2 - x1, y2 - y1) * 0.25;
+    return `M${x1.toFixed(1)},${y1.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`;
+  };
+  // Frame the board (the Atlantic to the western Pacific, the Arctic coast to the
+  // Horn of Africa) rather than the whole world; `slice` fills the card from it.
+  const [vx0, vy0] = project(-25, 66), [vx1, vy1] = project(150, -12);
+  const viewBox = `${vx0.toFixed(0)} ${vy0.toFixed(0)} ${(vx1 - vx0).toFixed(0)} ${(vy1 - vy0).toFixed(0)}`;
+  const open = () => setTab && setTab("globe");
+
+  return (
+    <Card
+      className="card-hover globe-preview"
+      role="link"
+      tabIndex={0}
+      aria-label="Open the Theater Globe"
+      onClick={open}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } }}
+      style={{ padding:0, overflow:"hidden", cursor:"pointer", display:"grid", gridTemplateColumns:"minmax(0, 1.6fr) minmax(0, 1fr)" }}
+    >
+      <div style={{ position:"relative", background:"var(--map-bg)", minHeight:150 }}>
+        {atlas ? (
+          <svg viewBox={viewBox} preserveAspectRatio="xMidYMid slice" aria-hidden="true"
+               style={{ position:"absolute", inset:0, width:"100%", height:"100%", display:"block" }}>
+            {atlas.features.map((f, i) => {
+              const name = f.properties && f.properties.name;
+              const fill = fills[name];
+              return <path key={f.id || i} d={geoPath(f.geometry)} fill={fill || "rgba(127,127,127,.10)"}
+                           style={{ stroke: fill ? "rgba(127,127,127,.5)" : "rgba(127,127,127,.2)" }} strokeWidth={fill ? 0.6 : 0.4} />;
+            })}
+            {arcs.filter(a => a.from && a.to).map(a => (
+              <path key={a.id} d={arcPath(a)} fill="none" style={{ stroke: a.colorLit || a.color }} strokeWidth="1.6" strokeLinecap="round" opacity=".85" />
+            ))}
+            {hotspots.filter(h => h.pos).map(h => {
+              const [x, y] = project(h.pos[0], h.pos[1]);
+              return (
+                <g key={h.id}>
+                  <circle cx={x} cy={y} r="9" fill={h.color} opacity=".22" />
+                  <circle cx={x} cy={y} r="3.6" fill={h.color} />
+                </g>
+              );
+            })}
+          </svg>
+        ) : (
+          <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", fontSize:11, color:TEXT_DIM, fontFamily:SANS }}>
+            {atlasErr ? "Map preview unavailable" : ""}
+          </div>
+        )}
+      </div>
+      <div style={{ padding:"18px 20px", display:"flex", flexDirection:"column", gap:10, justifyContent:"center", minWidth:0 }}>
+        <Eyebrow mb={0} color={BLUE}>Theater Globe</Eyebrow>
+        <div style={{ fontSize:14, color:TEXT_BODY, lineHeight:1.5 }}>
+          The board in 3D, with a day-by-day replay of the WW3 index since Feb 28.
+        </div>
+        <div style={{ fontSize:12, color:TEXT_DIM, fontVariantNumeric:"tabular-nums", lineHeight:1.5 }}>
+          {hotspots.length} hotspots · {arcs.length} active arcs{asOf ? ` · as of ${asOf}` : ""}
+        </div>
+        <span style={{ color:BLUE, fontSize:13, fontWeight:600, letterSpacing:".02em" }}>Open Theater Globe →</span>
+      </div>
+    </Card>
+  );
+}
+
 function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
   const conflictDay = Math.floor((NOW - WAR_START) / 86400000);
   const [expanded, setExpanded] = useState({});
@@ -2636,14 +2809,6 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
     ? new Date(`${HORMUZ_NOW.d}T00:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric" })
     : null;
   const ww3Color = ww3 > 60 ? DANGER : ww3 > 40 ? AMBER : GREEN;
-  // Cincinnati has no bundled history (AAA publishes none) — it self-builds from
-  // the live gasSeries cache, so its mini-chart tracks from first real capture
-  // forward (no synthetic backfill, per rule #1).
-  const cinSeries = (() => {
-    try {
-      return gasSeries.read().filter(r => r && r.cin != null && r.date).map(r => ({ d: r.date, v: r.cin }));
-    } catch { return []; }
-  })();
   // National diesel: dated history from gas_daily.diesel (update-markets.js) plus
   // the reader's own gasSeries cache; AAA publishes no pre-war diesel baseline, so
   // the footer change is vs AAA's own month-ago reference from the live fetch.
@@ -2657,6 +2822,23 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
   const dominantAxis = axesForDriver.length ? axesForDriver.reduce((m, a) => (a.score > m.score ? a : m), axesForDriver[0]) : null;
   // Full 10-rung ladder detail is collapsed by default (compact strip shown instead).
   const [showLadder, setShowLadder] = useState(false);
+  // "Why N%?" expander: the ladder strip + four axes, folded under the hero.
+  // The header's WW3 button opens it via requestOpenWhy() (works from any tab).
+  const [showWhy, setShowWhy] = useState(false);
+  useEffect(() => {
+    const go = () => {
+      if (!OPEN_WHY_REQUEST.pending) return;
+      OPEN_WHY_REQUEST.pending = false;
+      setShowWhy(true);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const el = document.getElementById("ov-why");
+        if (el) el.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
+      }));
+    };
+    go();
+    window.addEventListener("gcm:open-why", go);
+    return () => window.removeEventListener("gcm:open-why", go);
+  }, []);
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
@@ -2720,25 +2902,34 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
               </span>
             </div>
           </div>
-          {/* Full annotated trajectory — dated, event-anchored; dots only on
-              important days, red=escalating / green=de-escalating. */}
-          <div style={{ margin:"6px 0 0", position:"relative" }}>
+          {/* 30-day sparkline — the recent trend only. The full annotated
+              trajectory since Feb 28 lives on the Globe's replay timeline. */}
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", gap:10, fontSize:11, color:TEXT_DIM, fontFamily:SANS, marginBottom:2 }}>
+            <span style={{ letterSpacing:".08em", textTransform:"uppercase", fontWeight:600 }}>Last 30 days</span>
+            <span style={{ fontVariantNumeric:"tabular-nums" }}>since {WW3_WINDOW_START.toLocaleDateString("en-US", { month:"short", day:"numeric" })}</span>
+          </div>
+          <div style={{ position:"relative" }}>
             <EventSeriesChart
-              series={WW3_SERIES}
+              series={ww3Window}
+              start={WW3_WINDOW_START}
+              variant="mini"
               color={ww3Color}
-              height={200}
-              yMin={0} yMax={70}
-              gridYs={[0, 20, 40, 60]}
+              height={56}
               unit="%"
+              format={(v) => `${Math.round(v)}`}
             />
           </div>
-          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:11, color:TEXT_DIM, marginTop:6, lineHeight:1.4, fontFamily:SANS }}>
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", gap:10, flexWrap:"wrap", fontSize:11, color:TEXT_DIM, marginTop:6, lineHeight:1.4, fontFamily:SANS }}>
             <span>Day {conflictDay} · Operation Epic Fury</span>
-            <span style={{ fontVariantNumeric:"tabular-nums" }}>since 2026-02-28 · {WW3_SERIES.filter(p => p.t).length} milestones</span>
+            <button
+              onClick={() => setTab && setTab("globe")}
+              className="pressable"
+              style={{ background:"none", border:"none", padding:0, color:BLUE, fontSize:12, fontWeight:600, letterSpacing:".02em", cursor:"pointer", fontFamily:SANS }}
+            >Full trajectory since Feb 28 on the Globe →</button>
           </div>
         </div>
         {/* Secondary KPIs: Hormuz / Brent / US Gas / US Diesel / Cincinnati */}
-        <div className="kpi-grid-secondary" style={{ display:"grid", gridTemplateColumns:"repeat(5, 1fr)", borderTop:`1px solid ${BORDER}` }}>
+        <div className="kpi-grid-secondary" style={{ display:"grid", gridTemplateColumns:"repeat(4, 1fr)", borderTop:`1px solid ${BORDER}` }}>
           <KpiCell
             label="Hormuz"
             badge={<SourceBadge kind="scenario" />}
@@ -2813,30 +3004,122 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
                     : (<span style={{ color:TEXT_DIM }}>national avg{gas?.asOf ? ` · ${staleness(gas.asOf).label}` : ""}</span>))
               : (<span style={{ color:TEXT_DIM }}>awaiting AAA…</span>)}
             small
-            border
           />
-          <KpiCell
-            label="Cincinnati"
-            badge={<SourceBadge kind={gas?.fromCache ? "scenario" : "live"} />}
-            info="Cincinnati metro average for regular unleaded. Source: AAA metro page (live via CORS proxy), with a fallback to the Cincinnati row on the AAA Ohio state page. Pre-war Cincinnati baseline ~$3.10."
-            value={gas?.cincinnati != null ? fmt.money(gas.cincinnati, 3) : null}
-            loading={gas?.cincinnati == null}
-            valueColor={AMBER}
-            subDisplay={(cinSeries.length + (gas?.cincinnati != null ? 1 : 0)) >= 2
-              ? (<div style={{ width:"100%", marginTop:2 }}>
-                  <EventSeriesChart series={cinSeries} variant="mini" height={34} color={AMBER}
-                    start={new Date(`${cinSeries[0].d}T00:00:00`)}
-                    format={(v) => `$${(+v).toFixed(2)}`}
-                    live={gas?.cincinnati != null ? { v: gas.cincinnati, label: gas?.asOf ? staleness(gas.asOf).label : "live" } : null} />
-                </div>)
-              : (<span style={{ fontSize:10.5, color:TEXT_DIM, fontFamily:SANS, fontStyle:"italic", display:"block", marginTop:4, lineHeight:1.4 }}>
-                  {cinSeries.length === 1 ? `tracking since ${new Date(`${cinSeries[0].d}T00:00:00`).toLocaleDateString("en-US", { month:"short", day:"numeric" })}` : "building history — AAA has no back-data"}
-                </span>)}
-            footer={gas?.cincinnati != null
-              ? (<><span style={{ color:AMBER, fontWeight:600 }}>{gas?.national != null ? `${gas.cincinnati < gas.national ? "−" : "+"}$${Math.abs(gas.cincinnati - gas.national).toFixed(3)}` : "—"}</span> <span style={{ color:TEXT_DIM }}>vs national{gas?.asOf ? ` · ${staleness(gas.asOf).label}` : ""}</span></>)
-              : (<span style={{ color:TEXT_DIM }}>awaiting AAA metro…</span>)}
-            small
-          />
+        </div>
+        {/* "Why N%?" — the escalation ladder + four-axis decomposition behind the
+            number, folded under the hero (rule 11: dense detail one expand away). */}
+        <div id="ov-why" style={{ borderTop:`1px solid ${BORDER}`, position:"relative", scrollMarginTop:80 }}>
+          <button
+            onClick={() => setShowWhy(v => !v)}
+            className="pressable"
+            aria-expanded={showWhy}
+            aria-controls="ov-why-panel"
+            style={{
+              width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:12,
+              padding:"13px 20px", background:"none", border:"none", cursor:"pointer",
+              fontFamily:SANS, textAlign:"left", color:TEXT_BODY,
+            }}
+          >
+            <span style={{ display:"flex", alignItems:"baseline", gap:10, flexWrap:"wrap", minWidth:0 }}>
+              <span style={{ fontSize:13, fontWeight:600, color:TEXT_HI }}>Why {ww3}%?</span>
+              <span style={{ fontSize:12, color:TEXT_DIM }}>Escalation ladder and the four axes behind the number</span>
+            </span>
+            <span aria-hidden="true" style={{
+              width:24, height:24, borderRadius:6, flexShrink:0,
+              display:"inline-flex", alignItems:"center", justifyContent:"center",
+              background:RAISE_2, border:`1px solid ${BORDER}`, fontSize:14, color:TEXT_MID, lineHeight:1,
+            }}>{showWhy ? "−" : "+"}</span>
+          </button>
+          {showWhy && (
+            <div id="ov-why-panel" style={{ padding:"4px 20px 20px" }}>
+              {/* Compact rung strip — 10 segments: passed rungs tinted danger, the current
+                  rung amber (raised), rungs above dim. Each segment titled with its pct + rung name. */}
+              {(() => {
+                const curPct = Math.floor(ww3 / 10) * 10;
+                return (
+                  <>
+                    <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>Escalation ladder · WW3 probability thresholds</div>
+                    <div style={{ display:"flex", gap:3, alignItems:"flex-end" }}>
+                      {ESCALATION_LADDER.map(rung => {
+                        const current = rung.pct === curPct;
+                        const passed = rung.pct < curPct;
+                        return (
+                          <div
+                            key={rung.pct}
+                            title={`${rung.pct}% · ${rung.label}`}
+                            style={{
+                              flex:1, height: current ? 16 : 9, borderRadius:3,
+                              background: current ? AMBER : passed ? alpha(DANGER, .25) : RAISE_2,
+                              border: `1px solid ${current ? alpha(AMBER, .55) : passed ? alpha(DANGER, .18) : BORDER}`,
+                              boxShadow: current ? `0 0 10px ${alpha(AMBER, .45)}` : "none",
+                              cursor:"help", transition:"background .25s ease, height .25s ease",
+                            }}
+                          />
+                        );
+                      })}
+                    </div>
+                    <div style={{ marginTop:8, fontSize:12, color:TEXT_MID, fontFamily:SANS, fontVariantNumeric:"tabular-nums" }}>
+                      <span style={{ color:AMBER, fontWeight:600 }}>{currentRung.pct}%</span> · {currentRung.label}
+                    </div>
+                  </>
+                );
+              })()}
+
+              {/* Four-axis decomposition — the rungs above are a composite descriptor;
+                  the orthogonal axes below show what's actually driving the number. */}
+              <div style={{ marginTop:20, paddingTop:16, borderTop:`1px solid ${BORDER}` }}>
+                <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>
+                  Composite of four orthogonal axes
+                </div>
+                <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+                  {ESCALATION_AXES.map(axis => <AxisBar key={axis.key} axis={axis} />)}
+                </div>
+                <div style={{ display:"flex", gap:8, marginTop:16, fontSize:11.5, color:TEXT_DIM, lineHeight:1.55 }}>
+                  <span style={{ flexShrink:0, color:TEXT_MID }}>ⓘ</span>
+                  <span>The axes are not points on the same line — alliance cohesion can degrade without WMD posture moving, and vice versa. WW3% weights Great-Power Involvement most heavily (matches the ≥2 P5 in direct kinetic conflict definition on the hero tooltip). The 10-rung ladder above is a composite descriptor of the joint state, not a single dimension.</span>
+                </div>
+              </div>
+
+              {/* Full annotated 10-rung ladder — collapsed by default. */}
+              <button
+                onClick={() => setShowLadder(v => !v)}
+                className="pressable"
+                style={{
+                  marginTop:16, background:"none", border:"none", padding:0,
+                  color:AMBER, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
+                  display:"inline-flex", alignItems:"center", gap:6, alignSelf:"flex-start",
+                }}
+              >{showLadder ? "− Hide full ladder" : "+ Show full 10-rung ladder"}</button>
+              {showLadder && (
+                <div style={{ marginTop:14, display:"flex", flexDirection:"column", gap:3 }}>
+                {ESCALATION_LADDER.map(rung => {
+                  const current = rung.pct === Math.floor(ww3 / 10) * 10;
+                  const passed = rung.pct < Math.floor(ww3 / 10) * 10;
+                  const labelColor = passed ? DANGER : current ? AMBER : TEXT_MID;
+                  return (
+                    <div
+                      key={rung.pct}
+                      className={current ? "glow-rung" : ""}
+                      style={{
+                        display:"flex", alignItems:"center", gap:14, padding:"9px 12px", borderRadius:8,
+                        background: current ? alpha(AMBER, .10) : passed ? alpha(DANGER, .04) : "transparent",
+                        border: `1px solid ${current ? alpha(AMBER, .32) : passed ? alpha(DANGER, .10) : "transparent"}`,
+                        position:"relative",
+                        transition:"background .25s ease, border-color .25s ease",
+                      }}
+                    >
+                      <M style={{ fontSize:13, fontWeight:600, color:labelColor, width:42, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{rung.pct}%</M>
+                      <div style={{ width:1, height:20, background:BORDER, flexShrink:0 }} />
+                      <span className="ladder-label" style={{ fontSize:13, fontWeight:600, color:labelColor, width:180, flexShrink:0 }}>{rung.label}</span>
+                      <span className="ladder-trigger" style={{ fontSize:13, color: passed ? TEXT_DIM : current ? TEXT_BODY : TEXT_DIM, lineHeight:1.4 }}>{rung.trigger}</span>
+                      {current && <span style={{ marginLeft:"auto", flexShrink:0, fontSize:FS.xs, fontWeight:600, color:AMBER, letterSpacing:".1em", padding:"3px 9px", borderRadius:999, background:alpha(AMBER, .18), border:`1px solid ${alpha(AMBER, .45)}`, boxShadow:`0 0 12px ${alpha(AMBER, .35)}` }}>CURRENT</span>}
+                    </div>
+                  );
+                })}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </Card>
 
@@ -2854,9 +3137,6 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
         </div>
       </Card>
       </RevealOnView>
-
-      {/* Next 7 Days — soonest-resolving open forecasts, between the day's changes and the leads */}
-      <Next7Strip setTab={setTab} />
 
       {/* Lead Developments — salience-ordered: the day's lead arc full-width, quieter arcs compact below */}
       <SectionHeader>
@@ -2891,112 +3171,19 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
         ))}
       </div>
 
-      {/* Escalation ladder — decomposes the hero number and the RUNG pill, so it sits high */}
-      <SectionHeader>
-        <Eyebrow mb={0} color={TEXT_DIM}>Escalation Ladder</Eyebrow>
-      </SectionHeader>
-      <RevealOnView delay={240}>
-      <Card id="ov-escalation">
-        <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", fontWeight:600, textTransform:"uppercase", marginBottom:14 }}>Escalation Ladder · WW3 Probability Thresholds</div>
+      {/* Next 7 Days — soonest-resolving open forecasts. Sits after the leads so
+          reported developments (fact) come before forecasts (inference). */}
+      <Next7Strip setTab={setTab} />
 
-        {/* Compact rung strip — 10 segments: passed rungs tinted danger, the current
-            rung amber (raised), rungs above dim. Full annotated detail lives in the
-            collapsed expander below. Each segment titled with its pct + rung name. */}
-        {(() => {
-          const curPct = Math.floor(ww3 / 10) * 10;
-          return (
-            <>
-              <div style={{ display:"flex", gap:3, alignItems:"flex-end" }}>
-                {ESCALATION_LADDER.map(rung => {
-                  const current = rung.pct === curPct;
-                  const passed = rung.pct < curPct;
-                  return (
-                    <div
-                      key={rung.pct}
-                      title={`${rung.pct}% · ${rung.label}`}
-                      style={{
-                        flex:1, height: current ? 16 : 9, borderRadius:3,
-                        background: current ? AMBER : passed ? alpha(DANGER, .25) : RAISE_2,
-                        border: `1px solid ${current ? alpha(AMBER, .55) : passed ? alpha(DANGER, .18) : BORDER}`,
-                        boxShadow: current ? `0 0 10px ${alpha(AMBER, .45)}` : "none",
-                        cursor:"help", transition:"background .25s ease, height .25s ease",
-                      }}
-                    />
-                  );
-                })}
-              </div>
-              <div style={{ marginTop:8, fontSize:12, color:TEXT_MID, fontFamily:SANS, fontVariantNumeric:"tabular-nums" }}>
-                <span style={{ color:AMBER, fontWeight:600 }}>{currentRung.pct}%</span> · {currentRung.label}
-              </div>
-            </>
-          );
-        })()}
-
-        {/* Four-axis decomposition — the rungs above are a composite descriptor;
-            the orthogonal axes below show what's actually driving the number. */}
-        <div style={{ marginTop:22, paddingTop:18, borderTop:`1px solid ${BORDER}` }}>
-          <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>
-            Composite of four orthogonal axes
-          </div>
-          <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-            {ESCALATION_AXES.map(axis => <AxisBar key={axis.key} axis={axis} />)}
-          </div>
-          <div style={{ display:"flex", gap:8, marginTop:16, fontSize:11.5, color:TEXT_DIM, lineHeight:1.55 }}>
-            <span style={{ flexShrink:0, color:TEXT_MID }}>ⓘ</span>
-            <span>The axes are not points on the same line — alliance cohesion can degrade without WMD posture moving, and vice versa. WW3% weights Great-Power Involvement most heavily (matches the ≥2 P5 in direct kinetic conflict definition on the hero tooltip). The 10-rung ladder above is a composite descriptor of the joint state, not a single dimension.</span>
-          </div>
-        </div>
-
-        {/* Full annotated 10-rung ladder — collapsed by default; the strip above is
-            the at-a-glance view. Rung rows preserved verbatim from the always-on list. */}
-        <button
-          onClick={() => setShowLadder(v => !v)}
-          className="pressable"
-          style={{
-            marginTop:16, background:"none", border:"none", padding:0,
-            color:AMBER, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
-            display:"inline-flex", alignItems:"center", gap:6, alignSelf:"flex-start",
-          }}
-        >{showLadder ? "− Hide full ladder" : "+ Show full 10-rung ladder"}</button>
-        {showLadder && (
-          <div style={{ marginTop:14, display:"flex", flexDirection:"column", gap:3 }}>
-          {ESCALATION_LADDER.map(rung => {
-            const current = rung.pct === Math.floor(ww3 / 10) * 10;
-            const passed = rung.pct < Math.floor(ww3 / 10) * 10;
-            const labelColor = passed ? DANGER : current ? AMBER : TEXT_MID;
-            return (
-              <div
-                key={rung.pct}
-                className={current ? "glow-rung" : ""}
-                style={{
-                  display:"flex", alignItems:"center", gap:14, padding:"9px 12px", borderRadius:8,
-                  background: current ? alpha(AMBER, .10) : passed ? alpha(DANGER, .04) : "transparent",
-                  border: `1px solid ${current ? alpha(AMBER, .32) : passed ? alpha(DANGER, .10) : "transparent"}`,
-                  position:"relative",
-                  transition:"background .25s ease, border-color .25s ease",
-                }}
-              >
-                <M style={{ fontSize:13, fontWeight:600, color:labelColor, width:42, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{rung.pct}%</M>
-                <div style={{ width:1, height:20, background:BORDER, flexShrink:0 }} />
-                <span className="ladder-label" style={{ fontSize:13, fontWeight:600, color:labelColor, width:180, flexShrink:0 }}>{rung.label}</span>
-                <span className="ladder-trigger" style={{ fontSize:13, color: passed ? TEXT_DIM : current ? TEXT_BODY : TEXT_DIM, lineHeight:1.4 }}>{rung.trigger}</span>
-                {current && <span style={{ marginLeft:"auto", flexShrink:0, fontSize:FS.xs, fontWeight:600, color:AMBER, letterSpacing:".1em", padding:"3px 9px", borderRadius:999, background:alpha(AMBER, .18), border:`1px solid ${alpha(AMBER, .45)}`, boxShadow:`0 0 12px ${alpha(AMBER, .35)}` }}>CURRENT</span>}
-              </div>
-            );
-          })}
-          </div>
-        )}
-      </Card>
-      </RevealOnView>
-
-      {/* World Map — geographic context, below the ladder */}
+      {/* Theater Globe preview — static 2D thumbnail of the board; opens the Globe tab.
+          The interactive 2D map (zoom, coalitions, Hormuz marker) lives on Actors. */}
       <RevealOnView delay={320}>
-      <MapTab openCountry={openCountry} />
+      <GlobePreviewCard setTab={setTab} />
       </RevealOnView>
 
-      {/* Stats — split into Human Cost + Market Impact, with sources */}
+      {/* Human Cost — casualty and displacement ledger, with sources */}
       <RevealOnView delay={400}>
-      <div className="stat-grid-4" style={{ display:"grid", gridTemplateColumns:"3fr 2fr", gap:12 }}>
+      <div>
         {HUMAN_COST && (
         <Card style={{ padding:20 }}>
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:18, flexWrap:"wrap" }}>
@@ -3004,22 +3191,34 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             <SourceBadge kind="scenario" />
             <InfoTip>Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.</InfoTip>
           </div>
-          <div style={{ display:"flex", flexDirection:"column" }}>
-            {(HUMAN_COST.groups || []).map((g, gi) => (
-              <div key={g.key || g.label} style={{ paddingTop:gi > 0 ? 13 : 0, paddingBottom:13, borderBottom:`1px solid ${BORDER}` }}>
-                <Eyebrow mb={9}>{g.label}</Eyebrow>
-                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4px 12px" }}>
-                  {(g.rows || []).map(row => (
-                    <div key={row.k}>
-                      <div style={{ display:"flex", alignItems:"center", flexWrap:"wrap", gap:2, marginBottom:3 }}>
-                        <span style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".07em", textTransform:"uppercase", fontWeight:600 }}>{row.k}</span>
-                        <BasisChip basis={row.basis} />
+          {/* Redesigned 2026-11-16: one tile per figure, grouped by war. Each tile is
+              label → number → context → footer (verification level · as-of date), and
+              the footer is pinned to the tile bottom so a row of tiles lines up. The
+              verification chip moved to the footer, so it can no longer wrap or
+              overflow beside a long label. */}
+          <div style={{ display:"flex", flexDirection:"column", gap:20 }}>
+            {humanCostSections(HUMAN_COST.groups).map(sec => (
+              <div key={sec.name}>
+                {sec.name && <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:10 }}>{sec.name}</div>}
+                <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(145px, 1fr))", gap:10 }}>
+                  {sec.tiles.map(({ g, row }) => (
+                    <div key={`${g.key}-${row.k}`} title={row.note || undefined} style={{
+                      display:"flex", flexDirection:"column", minWidth:0,
+                      padding:"14px 14px 12px", borderRadius:10,
+                      background:RAISE_1, border:`1px solid ${BORDER}`,
+                      cursor: row.note ? "help" : "default",
+                    }}>
+                      <div style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600, lineHeight:1.35 }}>
+                        <span style={{ color:TEXT_BODY }}>{g.label}</span> · {row.k}
                       </div>
-                      <div className="display" title={row.note || undefined} style={{ fontSize:22, fontWeight:600, color:DANGER, letterSpacing:"-.015em", fontVariantNumeric:"tabular-nums", lineHeight:1, fontVariationSettings:"'opsz' 22", cursor: row.note ? "help" : "default" }}>
+                      <div className="display" style={{ fontSize:26, fontWeight:600, color:DANGER, letterSpacing:"-.02em", fontVariantNumeric:"tabular-nums", lineHeight:1, marginTop:10, fontVariationSettings:"'opsz' 26" }}>
                         {row.value}
                       </div>
-                      {row.secondary && <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:4, lineHeight:1.4 }}>{row.secondary}</div>}
-                      {row.as_of && <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:3 }}>as of {row.as_of}</div>}
+                      {row.secondary && <div style={{ fontSize:12, color:TEXT_MID, marginTop:8, lineHeight:1.45 }}>{row.secondary}</div>}
+                      <div style={{ marginTop:"auto", paddingTop:12, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"4px 8px", flexWrap:"wrap", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.3 }}>
+                        <BasisTag basis={row.basis} />
+                        {row.as_of && <span style={{ fontVariantNumeric:"tabular-nums", whiteSpace:"nowrap" }}>{fmtHcDate(row.as_of)}</span>}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -3027,48 +3226,12 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             ))}
           </div>
           {HUMAN_COST.footnote && (
-            <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, lineHeight:1.5, letterSpacing:".02em" }}>
+            <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, paddingTop:14, borderTop:`1px solid ${BORDER}`, lineHeight:1.55, letterSpacing:".01em" }}>
               {HUMAN_COST.footnote}
             </div>
           )}
         </Card>
         )}
-        <Card style={{ padding:20 }}>
-          <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:18 }}>
-            <Eyebrow mb={0}>Market Impact</Eyebrow>
-            <SourceBadge kind="live" />
-          </div>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10 }}>
-            {[
-              { l:"S&P 500", sym:"SPX",   v: mkt.SPX.price   != null ? fmt.num(Math.round(mkt.SPX.price))           : null, c:mkt.SPX.chg },
-              { l:"BRENT",   sym:"BRENT", v: mkt.BRENT.price != null ? fmt.money(mkt.BRENT.price)                    : null, c:mkt.BRENT.chg },
-              { l:"GOLD",    sym:"GOLD",  v: mkt.GOLD.price  != null ? `$${fmt.compact(Math.round(mkt.GOLD.price))}` : null, c:mkt.GOLD.chg },
-              { l:"BTC",     sym:"BTC",   v: mkt.BTC.price   != null ? `$${fmt.compact(Math.round(mkt.BTC.price))}`  : null, c:mkt.BTC.chg },
-            ].map(s => {
-              const live = isLive(mkt, s.sym);
-              return (
-                <div key={s.l} style={{ padding:"12px 14px", background:RAISE_1, border:`1px solid ${BORDER}`, borderRadius:10 }}>
-                  <Eyebrow mb={8}>{s.l}</Eyebrow>
-                  {live ? (
-                    <div className="display" style={{ fontSize:22, fontWeight:600, color:TEXT_HI, letterSpacing:"-.02em", fontVariantNumeric:"tabular-nums", fontVariationSettings:"'opsz' 22", lineHeight:1 }}>{s.v}</div>
-                  ) : (
-                    <PriceSkeleton w={80} h={20} radius={6} />
-                  )}
-                  <div style={{ fontSize:11.5, marginTop:6, fontWeight:500, fontVariantNumeric:"tabular-nums", fontFamily:SANS, minHeight:14 }}>
-                    {live ? (
-                      <span style={{ color: s.c >= 0 ? GREEN : DANGER }}>{fmt.arrow(s.c)} {fmt.signedPct(s.c)}</span>
-                    ) : (
-                      <span style={{ color:TEXT_DIM, fontStyle:"italic", fontSize:11 }}>awaiting live feed…</span>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, lineHeight:1.5, letterSpacing:".02em" }}>
-            Live · Yahoo Finance (equities, oil, gold) · CoinGecko (BTC)
-          </div>
-        </Card>
       </div>
       </RevealOnView>
 
@@ -3231,7 +3394,7 @@ function GasChart() {
   // Live series is read once per render — buildGasSeries reads localStorage,
   // which is fast and the chart re-renders on parent state changes anyway.
   const series = buildGasSeries();
-  const W = 600, H = 220, padL = 42, padR = 12, padT = 14, padB = 32;
+  const W = 600, H = 220, padL = 42, padR = 50, padT = 14, padB = 32; // padR = gutter for end labels
   const innerW = W - padL - padR, innerH = H - padT - padB;
   const yMin = 3.0;
   // Diesel runs above every gasoline series, so the ceiling follows the data
@@ -3302,11 +3465,9 @@ function GasChart() {
         ))}
 
         <line x1={padL} x2={W - padR} y1={yOf(3.42)} y2={yOf(3.42)} stroke={TEXT_DIM} strokeDasharray="3 3" strokeWidth=".7" opacity=".6" />
-        <text x={W - padR - 4} y={yOf(3.42) - 4} fill={TEXT_DIM} fontSize="11" fontFamily="monospace" textAnchor="end">{DIESEL_PREWAR ? "GAS " : ""}PRE-WAR $3.42</text>
         {DIESEL_PREWAR && (
           <>
             <line x1={padL} x2={W - padR} y1={yOf(DIESEL_PREWAR.v)} y2={yOf(DIESEL_PREWAR.v)} stroke={CYAN} strokeDasharray="3 3" strokeWidth=".7" opacity=".6" />
-            <text x={W - padR - 4} y={yOf(DIESEL_PREWAR.v) - 4} fill={CYAN} fontSize="11" fontFamily="monospace" textAnchor="end" opacity=".85">DIESEL PRE-WAR ${DIESEL_PREWAR.v.toFixed(2)}</text>
           </>
         )}
 
@@ -3327,17 +3488,35 @@ function GasChart() {
           </g>
         ))}
 
-        {/* End labels (always shown) — only render labels for series with data at the tail */}
+        {/* End labels (always shown), in the right gutter beside each line's last
+            point. Values that sit close together are pushed apart (12px minimum, in
+            price order) so they never overlap; a short leader ties each label back
+            to its line when it had to move. The pre-war reference lines are named
+            in the legend instead, which keeps this gutter for live values. */}
         {(() => {
           const last = series.length - 1;
           const w = series[last];
+          const GAP = 12, top = padT + 4, bottom = H - padB;
+          const items = [
+            ["dsl", CYAN], ["ca", DANGER], ["nat", AMBER], ["oh", BLUE], ["cin", GREEN],
+          ].filter(([k]) => w[k] != null).map(([k, color]) => ({ k, color, v: w[k], y0: yOf(w[k]) }))
+           .sort((a, b) => a.y0 - b.y0);
+          items.forEach((it, i) => { it.y = Math.max(it.y0, i ? items[i - 1].y + GAP : top); });
+          for (let i = items.length - 1; i >= 0; i--) {
+            const cap = i === items.length - 1 ? bottom : items[i + 1].y - GAP;
+            if (items[i].y > cap) items[i].y = cap;
+          }
+          const lx = xOf(last) + 10;
           return (
             <g opacity={hover ? .25 : 1} style={{ transition:"opacity .15s ease" }}>
-              {w.nat != null && <text x={xOf(last) - 6} y={yOf(w.nat) - 8} fill={AMBER}  fontSize="11" fontFamily="monospace" textAnchor="end" fontWeight="700">${w.nat.toFixed(2)}</text>}
-              {w.ca  != null && <text x={xOf(last) - 6} y={yOf(w.ca)  - 8} fill={DANGER} fontSize="11" fontFamily="monospace" textAnchor="end" fontWeight="700">${w.ca.toFixed(2)}</text>}
-              {w.oh  != null && <text x={xOf(last) - 6} y={yOf(w.oh)  + 14} fill={BLUE}  fontSize="11" fontFamily="monospace" textAnchor="end" fontWeight="700">${w.oh.toFixed(2)}</text>}
-              {w.cin != null && <text x={xOf(last) - 6} y={yOf(w.cin) + 26} fill={GREEN} fontSize="11" fontFamily="monospace" textAnchor="end" fontWeight="700">${w.cin.toFixed(2)}</text>}
-              {w.dsl != null && <text x={xOf(last) - 6} y={yOf(w.dsl) - 20} fill={CYAN} fontSize="11" fontFamily="monospace" textAnchor="end" fontWeight="700">${w.dsl.toFixed(2)}</text>}
+              {items.map(it => (
+                <g key={it.k}>
+                  {Math.abs(it.y - it.y0) > 1.5 && (
+                    <line x1={xOf(last) + 4} y1={it.y0} x2={lx - 2} y2={it.y} stroke={it.color} strokeWidth=".8" opacity=".6" />
+                  )}
+                  <text x={lx} y={it.y + 3.5} fill={it.color} fontSize="11" fontFamily="monospace" textAnchor="start" fontWeight="700">${it.v.toFixed(2)}</text>
+                </g>
+              ))}
             </g>
           );
         })()}
@@ -3457,9 +3636,30 @@ function GasTab({ gas }) {
   ];
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
-      <Card style={{ textAlign:"center", padding:36 }}>
+      {/* Order (2026-11-16): price history first, then the two national averages
+          side by side (stacking on narrow screens), then the state comparison. */}
+      <Card>
+        {/* Stacked layout: centered title, then legend chips on a single row
+            (wrapping if needed), then the chart. Reads cleanly on both
+            mobile (where the legend used to wrap awkwardly with Cincinnati
+            on its own line) and desktop. */}
+        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:14, marginBottom:16 }}>
+          <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, textAlign:"center" }}>Price History Since Feb 28 (War Start)</div>
+          <div style={{ display:"flex", gap:16, flexWrap:"wrap", justifyContent:"center" }}>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:AMBER, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>National</span></div>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:DANGER, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>California</span></div>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:BLUE, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Ohio</span></div>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:GREEN, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Cincinnati</span></div>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:CYAN, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Diesel (national)</span></div>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:0, borderTop:`1.5px dashed ${TEXT_DIM}` }} /><span style={{ fontSize:12, color:TEXT_DIM }}>Pre-war: gas $3.42{DIESEL_PREWAR ? ` · diesel $${DIESEL_PREWAR.v.toFixed(2)}` : ""}</span></div>
+          </div>
+        </div>
+        <GasChart />
+      </Card>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:18 }}>
+      <Card style={{ textAlign:"center", padding:28 }}>
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>US National Average · Regular Unleaded</div>
-        <div style={{ fontSize:84, fontWeight:600, color:AMBER, lineHeight:1, letterSpacing:"-.03em", fontVariantNumeric:"tabular-nums" }}>
+        <div style={{ fontSize:64, fontWeight:600, color:AMBER, lineHeight:1, letterSpacing:"-.03em", fontVariantNumeric:"tabular-nums" }}>
           {natLoaded ? `$${gas.national.toFixed(3)}` : <PriceSkeleton w={180} h={70} radius={8} />}
         </div>
         <div style={{ fontSize:14, color:DANGER, marginTop:14, fontWeight:500, fontVariantNumeric:"tabular-nums" }}>
@@ -3467,9 +3667,9 @@ function GasTab({ gas }) {
         </div>
         <div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>Source: AAA · Live</div>
       </Card>
-      <Card style={{ textAlign:"center", padding:36 }}>
+      <Card style={{ textAlign:"center", padding:28 }}>
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>US National Average · Diesel</div>
-        <div style={{ fontSize:84, fontWeight:600, color:CYAN, lineHeight:1, letterSpacing:"-.03em", fontVariantNumeric:"tabular-nums" }}>
+        <div style={{ fontSize:64, fontWeight:600, color:CYAN, lineHeight:1, letterSpacing:"-.03em", fontVariantNumeric:"tabular-nums" }}>
           {dslLoaded ? `$${gas.diesel.toFixed(3)}` : <PriceSkeleton w={180} h={70} radius={8} />}
         </div>
         <div style={{ fontSize:14, marginTop:14, fontWeight:500, fontVariantNumeric:"tabular-nums", display:"flex", justifyContent:"center", gap:18, flexWrap:"wrap" }}>
@@ -3494,6 +3694,7 @@ function GasTab({ gas }) {
           {DIESEL_SOURCE && DIESEL_SOURCE.through ? ` · chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : ""}
         </div>
       </Card>
+      </div>
       <Card>
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:16 }}>State Comparison</div>
         <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
@@ -3514,23 +3715,6 @@ function GasTab({ gas }) {
             );
           })}
         </div>
-      </Card>
-      <Card>
-        {/* Stacked layout: centered title, then legend chips on a single row
-            (wrapping if needed), then the chart. Reads cleanly on both
-            mobile (where the legend used to wrap awkwardly with Cincinnati
-            on its own line) and desktop. */}
-        <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:14, marginBottom:16 }}>
-          <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, textAlign:"center" }}>Price History Since Feb 28 (War Start)</div>
-          <div style={{ display:"flex", gap:16, flexWrap:"wrap", justifyContent:"center" }}>
-            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:AMBER, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>National</span></div>
-            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:DANGER, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>California</span></div>
-            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:BLUE, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Ohio</span></div>
-            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:GREEN, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Cincinnati</span></div>
-            <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:CYAN, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Diesel (national)</span></div>
-          </div>
-        </div>
-        <GasChart />
       </Card>
     </div>
   );
@@ -3905,6 +4089,79 @@ function MapTab({ openCountry }) {
   ];
 
   const [hormuzX, hormuzY] = project(56.25, 26.57);
+  const hormuzStatusText = [HORMUZ_STATUS ? HORMUZ_STATUS.label : null, HORMUZ_NOW ? `${Math.round(HORMUZ_NOW.v)}/day` : null].filter(Boolean).join(" · ") || "—";
+
+  // ── Label layout (2026-11-16) ──
+  // At world zoom the Middle East holds a dozen labels inside a few degrees, and the
+  // map zooms by CSS scale, so text used to grow with the map and stayed jumbled at
+  // every zoom. Now: (1) label text and offsets are divided by the zoom scale (LS), so
+  // they keep their on-screen size and spread apart as you zoom in; (2) a greedy
+  // collision pass places labels in priority order — Hormuz, country names, hotspot
+  // names, strike-target names, hotspot detail lines — and skips any that would
+  // overlap one already placed. Skipped labels appear once there is room; hotspot
+  // detail is also on hover (<title>).
+  const LS = 1 / (mapZoom.scale || 1);
+  const labelPlan = (() => {
+    const placed = [];
+    const hits = (b) => placed.some(p => b.x0 < p.x1 && b.x1 > p.x0 && b.y0 < p.y1 && b.y1 > p.y0);
+    const box = (x, y, text, fs, anchor, wf = 0.72) => {
+      const w = String(text).length * fs * wf;
+      const x0 = anchor === "middle" ? x - w / 2 : anchor === "end" ? x - w : x;
+      const pad = 1.5 * LS;
+      return { x0: x0 - pad, x1: x0 + w + pad, y0: y - fs * 0.82 - pad, y1: y + fs * 0.22 + pad };
+    };
+    const place = (b) => { if (hits(b)) return false; placed.push(b); return true; };
+    const dot = (x, y, r) => placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+    const MO = MAP_OVERLAYS || { arcs: [], hotspots: [] };
+    const out = { country: {}, hotspot: {}, sub: {}, arcEnd: {} };
+
+    // 1. Hormuz callout (always shown).
+    placed.push(box(hormuzX + 5 + 20 * LS, hormuzY - 1 * LS, "HORMUZ", 11 * LS, "start"));
+    placed.push(box(hormuzX + 5 + 20 * LS, hormuzY + 9 * LS, hormuzStatusText, 11 * LS, "start", 0.62));
+
+    // 2. Country names. They sit on their country, often on top of a strike marker
+    //    inside it, so markers do not block them — only other text does.
+    labels.forEach(l => {
+      const [x, y] = project(l.pos[0], l.pos[1]);
+      out.country[l.name] = place(box(x + (l.dx || 0) * LS, y, l.name, l.size * LS, l.anchor || "middle"));
+    });
+
+    // Markers become obstacles for every label placed after this point, so
+    // hotspot and target names never cover a marker.
+    dot(hormuzX, hormuzY, 5);
+    (MO.hotspots || []).forEach(h => { const [x, y] = project(h.pos[0], h.pos[1]); dot(x, y, 3.5); });
+    (MO.arcs || []).forEach(a => { const [x, y] = project(a.to[0], a.to[1]); dot(x, y, 3); });
+
+    // 3. Hotspot names: preferred side first, then the other side.
+    (MO.hotspots || []).forEach(h => {
+      const [x, y] = project(h.pos[0], h.pos[1]);
+      const sides = h.labelSide === "start" ? ["start", "end"] : ["end", "start"];
+      for (const side of sides) {
+        const tx = side === "start" ? x - 7 - 2 * LS : x + 7 + 2 * LS;
+        const anchor = side === "start" ? "end" : "start";
+        if (place(box(tx, y - 2 - 2 * LS, h.name, 11 * LS, anchor))) { out.hotspot[h.id] = { tx, anchor }; break; }
+      }
+    });
+
+    // 4. Strike-target names at arc ends: right of the marker, then left.
+    (MO.arcs || []).filter(a => a.endLabel).forEach(a => {
+      const [x, y] = project(a.to[0], a.to[1]);
+      for (const side of ["right", "left"]) {
+        const tx = side === "right" ? x + 5 + 2 * LS : x - 5 - 2 * LS;
+        const anchor = side === "right" ? "start" : "end";
+        if (place(box(tx, y + 3 * LS, a.endLabel, 9 * LS, anchor))) { out.arcEnd[a.id] = { tx, anchor }; break; }
+      }
+    });
+
+    // 5. Hotspot detail lines, under a placed name only.
+    (MO.hotspots || []).forEach(h => {
+      const n = out.hotspot[h.id];
+      if (!n || !h.sub) return;
+      const [, y] = project(h.pos[0], h.pos[1]);
+      out.sub[h.id] = place(box(n.tx, y + 2 + 6 * LS, h.sub, 8 * LS, n.anchor, 0.52));
+    });
+    return out;
+  })();
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
@@ -4184,8 +4441,8 @@ function MapTab({ openCountry }) {
                         <circle cx={end[0]} cy={end[1]} r="4" fill="none" stroke={arc.color} strokeWidth="0.9" opacity=".55" />
                         <circle cx={end[0]} cy={end[1]} r="1.9" fill={arc.color} opacity=".95" />
                         <circle cx={end[0] - .5} cy={end[1] - .5} r="0.65" fill="rgba(255,255,255,.9)" />
-                        {arc.endLabel && (
-                          <text x={end[0] + 7} y={end[1] + 3} fill={arc.color} fontSize="9" fontFamily={SANS} fontWeight="600" letterSpacing=".08em" style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 }}>{arc.endLabel}</text>
+                        {arc.endLabel && labelPlan.arcEnd[arc.id] && (
+                          <text x={labelPlan.arcEnd[arc.id].tx} y={end[1] + 3 * LS} fill={arc.color} fontSize={9 * LS} fontFamily={SANS} fontWeight="600" letterSpacing=".08em" textAnchor={labelPlan.arcEnd[arc.id].anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{arc.endLabel}</text>
                         )}
                       </g>
                     );
@@ -4194,18 +4451,18 @@ function MapTab({ openCountry }) {
                   {/* Hotspot markers (chokepoints, grey zones — Hormuz keeps its own treatment below) */}
                   {hotspots.map(h => {
                     const [x, y] = project(h.pos[0], h.pos[1]);
-                    const tx = h.labelSide === "start" ? x - 8 : x + 8;
-                    const anchor = h.labelSide === "start" ? "end" : "start";
+                    const lp = labelPlan.hotspot[h.id];
                     return (
                       <g key={`hotspot-${h.id}`}>
+                        <title>{h.sub ? `${h.name} — ${h.sub}` : h.name}</title>
                         <circle cx={x} cy={y} r="12" fill={`url(#${h.bloom})`} className="living-halo" style={{ animationDelay: `${h.delay}s`, animationDuration: "6.4s" }} />
                         <circle cx={x} cy={y} r="5" fill="none" stroke={h.color} strokeWidth="1.0" className="living-ring" style={{ animationDelay: `${h.delay}s`, animationDuration: "3.2s" }} />
                         <circle cx={x} cy={y} r="3" fill="none" stroke={h.color} strokeWidth="1.2" opacity=".85" />
                         <circle cx={x} cy={y} r="1.4" fill={h.color} />
                         <circle cx={x - .4} cy={y - .4} r="0.5" fill="rgba(255,255,255,.9)" />
-                        <text x={tx} y={y - 4} fill={h.color} fontSize="11" fontFamily={SANS} fontWeight="600" letterSpacing=".06em" textAnchor={anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 }}>{h.name}</text>
-                        {h.sub && (
-                          <text x={tx} y={y + 7} fill={h.color} fontSize="8" fontFamily={SANS} fontWeight="500" opacity=".8" textAnchor={anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 }}>{h.sub}</text>
+                        {lp && <text x={lp.tx} y={y - 2 - 2 * LS} fill={h.color} fontSize={11 * LS} fontFamily={SANS} fontWeight="600" letterSpacing=".06em" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.name}</text>}
+                        {lp && h.sub && labelPlan.sub[h.id] && (
+                          <text x={lp.tx} y={y + 2 + 6 * LS} fill={h.color} fontSize={8 * LS} fontFamily={SANS} fontWeight="500" opacity=".8" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.sub}</text>
                         )}
                       </g>
                     );
@@ -4231,27 +4488,28 @@ function MapTab({ openCountry }) {
               <circle cx={hormuzX} cy={hormuzY} r="4.5" fill="none" stroke={DANGER} strokeWidth="1.4" />
               <circle cx={hormuzX} cy={hormuzY} r="1.8" fill={DANGER} />
               <circle cx={hormuzX - .5} cy={hormuzY - .5} r="0.6" fill="rgba(255,255,255,.9)" />
-              <line x1={hormuzX + 5} y1={hormuzY} x2={hormuzX + 22} y2={hormuzY} stroke={DANGER} strokeWidth=".7" />
-              <text x={hormuzX + 25} y={hormuzY - 1} fill={DANGER} fontSize="11" fontFamily={SANS} fontWeight="600" style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 }}>HORMUZ</text>
-              <text x={hormuzX + 25} y={hormuzY + 9} fill={DANGER} fontSize="11" fontFamily={SANS} fontWeight="500" style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 }}>{[HORMUZ_STATUS ? HORMUZ_STATUS.label : null, HORMUZ_NOW ? `${Math.round(HORMUZ_NOW.v)}/day` : null].filter(Boolean).join(" · ") || "—"}</text>
+              <line x1={hormuzX + 5} y1={hormuzY} x2={hormuzX + 5 + 17 * LS} y2={hormuzY} stroke={DANGER} strokeWidth={.7 * LS} />
+              <text x={hormuzX + 5 + 20 * LS} y={hormuzY - 1 * LS} fill={DANGER} fontSize={11 * LS} fontFamily={SANS} fontWeight="600" style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>HORMUZ</text>
+              <text x={hormuzX + 5 + 20 * LS} y={hormuzY + 9 * LS} fill={DANGER} fontSize={11 * LS} fontFamily={SANS} fontWeight="500" style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{hormuzStatusText}</text>
               <circle cx={hormuzX} cy={hormuzY} r="14" fill="transparent" />
             </g>
 
             {/* Country labels */}
             {labels.map(l => {
+              if (!labelPlan.country[l.name]) return null;
               const [x, y] = project(l.pos[0], l.pos[1]);
               return (
                 <text
                   key={l.name}
-                  x={x + (l.dx || 0)}
+                  x={x + (l.dx || 0) * LS}
                   y={y}
                   fill={l.color}
-                  fontSize={l.size}
+                  fontSize={l.size * LS}
                   fontFamily={SANS}
                   fontWeight="600"
                   textAnchor={l.anchor || "middle"}
                   letterSpacing=".06em"
-                  style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2.5, strokeLinejoin:"round" }}
+                  style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2.5 * LS, strokeLinejoin:"round" }}
                 >
                   {l.name}
                 </text>
@@ -4855,6 +5113,11 @@ function ActorsTab({ openCountry }) {
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
+      {/* Interactive 2D map — moved here from Overview 2026-11-12, at the top of Actors.
+          Keeps the coalitions overlay, zoom/pan, the Hormuz marker and country drawers;
+          Overview now shows a static Globe preview instead. */}
+      <MapTab openCountry={openCountry} />
+
       <div style={{ display:"flex", alignItems:"center", gap:10, paddingLeft:2 }}>
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", fontWeight:600, textTransform:"uppercase" }}>Geopolitical Actors · Theaters &amp; Players</div>
         <SourceBadge kind="scenario" />
@@ -5191,6 +5454,10 @@ function CalibrationPanel({ cal }) {
         <div>
           <M className="display" style={{ fontSize:30, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{hits}<span style={{ fontSize:16, color:TEXT_DIM, fontWeight:500 }}>/{cal.total_resolved}</span></M>
           <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>called correctly</div>
+        </div>
+        <div>
+          <M className="display" style={{ fontSize:30, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{cal.total_resolved ? `${Math.round((hits / cal.total_resolved) * 100)}%` : "—"}</M>
+          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>correct</div>
         </div>
         <div>
           <M className="display" style={{ fontSize:30, fontWeight:600, color:brierColor, letterSpacing:"-.025em", lineHeight:1 }}>{brier == null ? "—" : brier.toFixed(2)}</M>
@@ -6799,8 +7066,8 @@ function App() {
             <M style={{ fontSize:14, color:TEXT_HI, fontWeight:600, fontVariantNumeric:"tabular-nums", letterSpacing:"-.01em" }}>{conflictDay}</M>
           </button>
           <button
-            onClick={() => { setTab("overview"); requestAnimationFrame(() => window.scrollTo({ top: 9999, behavior:"smooth" })); }}
-            title="Go to escalation ladder"
+            onClick={() => { setTab("overview"); requestOpenWhy(); }}
+            title="Why this number? Escalation ladder and axes"
             style={{
               display:"flex", flexDirection:"column", alignItems:"flex-start", gap:1,
               padding:"6px 14px",

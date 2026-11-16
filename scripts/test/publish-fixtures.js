@@ -316,7 +316,15 @@ const CASES = {
     let r = publish(W); word(r, "REFUSED", 1); expect(/redo/.test(r.line), r.line);
     fs.rmSync(path.join(W.project, "automation", "plans", `redo-request-${today}.md`));
     update(W, { logResult: "FAIL" });
+    r = publish(W); word(r, "REFUSED", 1); expect(/passing test run/.test(r.line), r.line);
+    update(W, { logResult: "run 1: PASS -> edited -> run 2: FAIL (events.json)" });
     r = publish(W); word(r, "REFUSED", 1); expect(/passing test run/.test(r.line), r.line); unchanged(W, head);
+  },
+  "a test step that failed, was fixed and passed on a retry publishes"() {
+    const W = world(); const head = originHead(W);
+    update(W, { logResult: "run 1: FAIL (events.json status 'claimed' x2) -> fixed -> run 2: PASS" });
+    const r = publish(W); word(r, "PUBLISHED", 0);
+    expect(originHead(W) !== head, "origin did not move");
   },
   "failed push is kept, retried once, then left for a hand push"() {
     // Fetch keeps working; only the push fails (a guard block or a refused key looks like this).

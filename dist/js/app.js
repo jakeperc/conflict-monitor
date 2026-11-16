@@ -135,6 +135,12 @@
   var BRICS_LEAD = window.__DATA__.brics_lead;
   var UKRAINE_LEAD = window.__DATA__.ukraine_lead;
   var LEAD_TLDR = IRAN_LEAD;
+  var ARC_RECORDS = {
+    "iran-hormuz": { lead: IRAN_LEAD, accent: IRAN },
+    "us-brics-rivalry": { lead: BRICS_LEAD, accent: BRICS, accentText: BRICS_TEXT },
+    "russia-ukraine-war": { lead: UKRAINE_LEAD, accent: UKRAINE_WAR }
+  };
+  var factText = (f) => f && typeof f === "object" ? [f.l, f.v].filter(Boolean).join(": ") : String(f || "");
   var COUNTRY_KEYS = window.__DATA__.country_keys;
   var OUTLOOK = window.__DATA__.outlook || { forecasts: [], indicators: [], gaps: [], calibration: null };
   var EVENT_FIRST_SEEN = window.__DATA__.event_first_seen || {};
@@ -190,7 +196,7 @@
     } }, disputed ? "DISPUTED" : "REPORTED");
   };
   function KpiCell({ label, badge, info, value, valueColor = TEXT_HI, subDisplay, footer, border, small, loading }) {
-    return /* @__PURE__ */ React.createElement("div", { className: "kpi-cell", style: { padding: "24px 22px", borderRight: border ? `1px solid ${BORDER}` : "none", display: "flex", flexDirection: "column", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0, color: TEXT_MID }, label), badge, info && /* @__PURE__ */ React.createElement(InfoTip, null, info)), loading ? /* @__PURE__ */ React.createElement(PriceSkeleton, { w: small ? 100 : 130, h: small ? 22 : 28, radius: 6 }) : /* @__PURE__ */ React.createElement("div", { className: "display", style: {
+    return /* @__PURE__ */ React.createElement("div", { className: "kpi-cell", style: { padding: "24px 22px", borderRight: border ? `1px solid ${BORDER}` : "none", display: "flex", flexDirection: "column", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { className: "kpi-cell-head", style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", rowGap: 6, minWidth: 0 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0, color: TEXT_MID, style: { whiteSpace: "nowrap" } }, label), (badge || info) && /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 8, whiteSpace: "nowrap" } }, badge, info && /* @__PURE__ */ React.createElement(InfoTip, null, info))), loading ? /* @__PURE__ */ React.createElement(PriceSkeleton, { w: small ? 100 : 130, h: small ? 22 : 28, radius: 6 }) : /* @__PURE__ */ React.createElement("div", { className: "display", style: {
       fontSize: small ? 22 : 30,
       fontWeight: 600,
       color: valueColor,
@@ -1027,7 +1033,7 @@
         alignItems: "center",
         gap: 14,
         flexShrink: 0
-      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 32, lineHeight: 1 } }, d.risk?.flag || "\u{1F310}"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 22, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.015em", lineHeight: 1.1, fontVariationSettings: "'opsz' 22" } }, country), d.risk && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 12, alignItems: "center", marginTop: 6 } }, /* @__PURE__ */ React.createElement(SeverityInline, { level: d.risk.level, size: 9.5 }), /* @__PURE__ */ React.createElement("span", { style: { width: 3, height: 3, borderRadius: "50%", background: TEXT_DIM } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, fontWeight: 600, color: riskCol, fontVariantNumeric: "tabular-nums", letterSpacing: ".02em" } }, barLabel(d.risk), " ", d.risk.risk))), /* @__PURE__ */ React.createElement(
+      } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 32, lineHeight: 1 } }, d.risk?.flag || "\u{1F310}"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 22, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.015em", lineHeight: 1.1, fontVariationSettings: "'opsz' 22" } }, country), d.risk && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 12, alignItems: "center", marginTop: 6 } }, /* @__PURE__ */ React.createElement(SeverityInline, { level: d.risk.level, size: 10.5 }), /* @__PURE__ */ React.createElement("span", { style: { width: 3, height: 3, borderRadius: "50%", background: TEXT_DIM } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, fontWeight: 600, color: riskCol, fontVariantNumeric: "tabular-nums", letterSpacing: ".02em" } }, barLabel(d.risk), " ", d.risk.risk))), /* @__PURE__ */ React.createElement(
         "button",
         {
           onClick: onClose,
@@ -1266,6 +1272,9 @@
       },
       children
     );
+  }
+  function ByWidth({ wide = null, compact = null }) {
+    return useIsMobile(900) ? compact : wide;
   }
   function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefresh, openCountry, openBriefing }) {
     const [query, setQuery] = useState("");
@@ -1551,16 +1560,17 @@
     const isTablet = useIsMobile(1280) && !isMobile;
     const rotate = isMobile || isTablet;
     const reduce = useReducedMotion();
-    const GROUP_SIZE = isMobile ? 3 : isTablet ? 7 : chips.length;
+    const isNarrow = useIsMobile(360);
+    const GROUP_SIZE = isNarrow ? 2 : isMobile ? 3 : isTablet ? 7 : chips.length;
     const start = rotate ? tick * GROUP_SIZE % chips.length : 0;
     const tickKey = tick;
     const visibleChips = rotate ? Array.from({ length: GROUP_SIZE }, (_, i) => chips[(start + i) % chips.length]) : chips;
-    return /* @__PURE__ */ React.createElement("div", { style: { position: "relative", flexShrink: 0 } }, /* @__PURE__ */ React.createElement("span", { className: "ticker-fade-l", style: { display: "none" } }), /* @__PURE__ */ React.createElement("span", { className: "ticker-fade-r", style: { display: "none" } }), /* @__PURE__ */ React.createElement("div", { style: { height: 52, background: SURFACE, borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", overflowX: "hidden", overflowY: "hidden", padding: "0 18px", whiteSpace: "nowrap", justifyContent: rotate ? "space-around" : "space-between" } }, visibleChips.map((ch, i) => {
+    return /* @__PURE__ */ React.createElement("div", { style: { position: "relative", flexShrink: 0 } }, /* @__PURE__ */ React.createElement("span", { className: "ticker-fade-l", style: { display: "none" } }), /* @__PURE__ */ React.createElement("span", { className: "ticker-fade-r", style: { display: "none" } }), /* @__PURE__ */ React.createElement("div", { style: { height: 52, background: SURFACE, borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", overflowX: "hidden", overflowY: "hidden", padding: isMobile ? "0 12px" : "0 18px", whiteSpace: "nowrap", justifyContent: isMobile ? "space-between" : rotate ? "space-around" : "space-between" } }, visibleChips.map((ch, i) => {
       const recent = pulseSet.current[ch.l] && Date.now() - pulseSet.current[ch.l] < 1500;
       const isLoading = ch.v == null;
       const rotateClass = rotate && !reduce ? "brkr" : "choreographed";
       const animDelay = rotate ? "0ms" : `${280 + i * 45}ms`;
-      return /* @__PURE__ */ React.createElement(React.Fragment, { key: rotate ? `${tickKey}-${ch.l}` : ch.l }, /* @__PURE__ */ React.createElement("div", { className: rotateClass, style: { animationDelay: animDelay, display: "flex", flexDirection: "column", justifyContent: "center", padding: isMobile ? "0 18px" : isTablet ? "0 12px" : "0 10px", flexShrink: rotate ? 0 : 1, minWidth: isMobile ? 80 : isTablet ? 70 : 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: SANS, fontSize: FS.xs, fontWeight: 600, color: TEXT_DIM, letterSpacing: ".10em", marginBottom: 3, textTransform: "uppercase" } }, ch.l), /* @__PURE__ */ React.createElement("div", { className: recent ? "value-pulse" : "", style: { display: "flex", alignItems: "baseline", gap: 6, padding: "1px 4px", margin: "-1px -4px", minHeight: 18 } }, isLoading ? /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 58, h: 14 }) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 14, fontWeight: 600, color: ch.hi || TEXT_HI, letterSpacing: "-.005em" } }, ch.v), ch.c !== null && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, fontWeight: 500, color: ch.c >= 0 ? GREEN : DANGER } }, fmt.signedPct(ch.c))))), i < visibleChips.length - 1 && /* @__PURE__ */ React.createElement("div", { style: { width: 1, height: 24, background: RAISE_2, flexShrink: 0 } }));
+      return /* @__PURE__ */ React.createElement(React.Fragment, { key: rotate ? `${tickKey}-${ch.l}` : ch.l }, /* @__PURE__ */ React.createElement("div", { className: rotateClass, style: { animationDelay: animDelay, display: "flex", flexDirection: "column", justifyContent: "center", padding: isMobile ? "0 4px" : isTablet ? "0 12px" : "0 10px", flex: isMobile ? "1 1 0" : void 0, flexShrink: rotate ? 0 : 1, minWidth: isMobile ? 0 : isTablet ? 70 : 0, overflow: isMobile ? "hidden" : void 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontFamily: SANS, fontSize: FS.xs, fontWeight: 600, color: TEXT_DIM, letterSpacing: ".10em", marginBottom: 3, textTransform: "uppercase" } }, ch.l), /* @__PURE__ */ React.createElement("div", { className: recent ? "value-pulse" : "", style: { display: "flex", alignItems: "baseline", gap: 6, padding: "1px 4px", margin: "-1px -4px", minHeight: 18 } }, isLoading ? /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 58, h: 14 }) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 14, fontWeight: 600, color: ch.hi || TEXT_HI, letterSpacing: "-.005em" } }, ch.v), ch.c !== null && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, fontWeight: 500, color: ch.c >= 0 ? GREEN : DANGER } }, fmt.signedPct(ch.c))))), i < visibleChips.length - 1 && /* @__PURE__ */ React.createElement("div", { style: { width: 1, height: 24, background: RAISE_2, flexShrink: 0 } }));
     })));
   }
   function BreakingTicker({ headlines, tick = 0, onClick }) {
@@ -1642,7 +1652,9 @@
         "button",
         {
           onClick: () => setOpen((v) => !v),
+          className: "freshness-btn",
           title: "Data freshness \u2014 click for source details",
+          "aria-label": "Updated " + ageText + " \u2014 data freshness details",
           style: {
             display: "flex",
             alignItems: "center",
@@ -1666,7 +1678,7 @@
         } }),
         React.createElement(
           M,
-          { style: { fontSize: FS.xs, color: TEXT_BODY, fontWeight: 500, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" } },
+          { className: "freshness-label", style: { fontSize: FS.xs, color: TEXT_BODY, fontWeight: 500, fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" } },
           "Updated ",
           ageText
         ),
@@ -2157,7 +2169,11 @@
   };
   function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setShowFull, setTab, dominant = false, delay = 950 }) {
     const at = accentText || accent;
-    return /* @__PURE__ */ React.createElement(Card, { className: "choreographed lead-card", style: { animationDelay: `${delay}ms`, borderLeft: `3px solid ${accent}`, padding: "22px 26px", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 7, height: 7, borderRadius: "50%", background: accent, animation: "ping 1.6s ease infinite", boxShadow: `0 0 0 2px ${alpha(accent, 0.13)}, 0 0 8px ${alpha(accent, 0.53)}` } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: at, letterSpacing: ".18em", fontWeight: 700, textTransform: "uppercase" } }, lead.kicker), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), dominant && /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: at, background: alpha(accent, 0.12), border: `1px solid ${alpha(accent, 0.3)}`, padding: "2px 8px", borderRadius: 999, lineHeight: 1.2 } }, "Today's lead")), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".06em", fontVariantNumeric: "tabular-nums" } }, lead.updated_at || "\u2014")), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 22, fontWeight: 600, color: TEXT_HI, lineHeight: 1.2, letterSpacing: "-.018em", marginBottom: 14, fontVariationSettings: "'opsz' 22" } }, lead.title), /* @__PURE__ */ React.createElement("div", { className: "lead-card-summary", style: { fontSize: 14.5, color: TEXT_HI, lineHeight: 1.6, marginBottom: 14, fontWeight: 450 } }, linkifyText(lead.summary, openCountry)), /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement(Card, { className: "choreographed lead-card", style: { animationDelay: `${delay}ms`, borderLeft: `3px solid ${accent}`, padding: "22px 26px", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", rowGap: 6 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 7, height: 7, borderRadius: "50%", background: accent, animation: "ping 1.6s ease infinite", boxShadow: `0 0 0 2px ${alpha(accent, 0.13)}, 0 0 8px ${alpha(accent, 0.53)}` } }), (() => {
+      const k = String(lead.kicker || "");
+      const cut = k.indexOf("\xB7");
+      return /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: at, letterSpacing: ".18em", fontWeight: 700, textTransform: "uppercase", whiteSpace: "nowrap" } }, cut > 0 ? /* @__PURE__ */ React.createElement(React.Fragment, null, k.slice(0, cut).trim(), /* @__PURE__ */ React.createElement("span", { className: "lead-kicker-tail" }, " \xB7 ", k.slice(cut + 1).trim())) : k);
+    })(), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), dominant && /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: at, background: alpha(accent, 0.12), border: `1px solid ${alpha(accent, 0.3)}`, padding: "2px 8px", borderRadius: 999, lineHeight: 1.2 } }, "Today's lead")), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".06em", fontVariantNumeric: "tabular-nums" } }, lead.updated_at || "\u2014")), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 22, fontWeight: 600, color: TEXT_HI, lineHeight: 1.2, letterSpacing: "-.018em", marginBottom: 14, fontVariationSettings: "'opsz' 22" } }, lead.title), /* @__PURE__ */ React.createElement("div", { className: "lead-card-summary", style: { fontSize: 14.5, color: TEXT_HI, lineHeight: 1.6, marginBottom: 14, fontWeight: 450 } }, linkifyText(lead.summary, openCountry)), /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: () => setShowFull((v) => !v),
@@ -2203,23 +2219,6 @@
         whiteSpace: "nowrap",
         textAlign: "center"
       } }, lens.state_label), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11.5, color: TEXT_BODY, lineHeight: 1.5, fontWeight: 450 } }, lens.oneline));
-    })), /* @__PURE__ */ React.createElement("div", { className: "lead-facts-row", style: { display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10, marginBottom: 18 } }, lead.facts.map((f, i) => {
-      const isPrimary = i === 0;
-      return /* @__PURE__ */ React.createElement(
-        "div",
-        {
-          key: f.l,
-          style: {
-            padding: "12px 14px",
-            background: isPrimary ? `linear-gradient(135deg, ${alpha(accent, 0.06)}, transparent 80%)` : RAISE_1,
-            border: `1px solid ${isPrimary ? alpha(accent, 0.22) : BORDER}`,
-            borderRadius: 10,
-            position: "relative"
-          }
-        },
-        /* @__PURE__ */ React.createElement(Eyebrow, { mb: 6, color: isPrimary ? at : TEXT_DIM }, scrubCodes(f.l)),
-        /* @__PURE__ */ React.createElement(M, { style: { fontSize: 13.5, color: isPrimary ? at : TEXT_HI, fontWeight: 600, fontVariantNumeric: "tabular-nums", letterSpacing: "-.005em" } }, scrubCodes(f.v))
-      );
     })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 4, fontSize: FS.xs, fontWeight: 700, color: AMBER, letterSpacing: ".14em", width: 92, textTransform: "uppercase" } }, "Changed 24h"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyText(lead.changed, openCountry))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 4, fontSize: FS.xs, fontWeight: 700, color: at, letterSpacing: ".14em", width: 92, textTransform: "uppercase" } }, "Watch"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyText(lead.watch, openCountry)))), setTab && /* @__PURE__ */ React.createElement(
       "button",
       {
@@ -2242,7 +2241,7 @@
           gap: 6
         }
       },
-      "See full strategic analysis \u2192"
+      "See sources and full analysis \u2192"
     )));
   }
   function Next7Strip({ setTab }) {
@@ -2254,7 +2253,7 @@
       const dl = fmtResolve(f.deadline);
       const p = typeof f.probability === "number" ? f.probability : 0;
       const pc = probColor(p);
-      return /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", alignItems: "center", gap: 12, padding: "9px 0", borderTop: i > 0 ? `1px solid ${BORDER}` : "none" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: AMBER, fontWeight: 600, fontVariantNumeric: "tabular-nums", width: 46, flexShrink: 0 } }, dl ? dl.label : "\u2014"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0, fontSize: 13, color: TEXT_HI, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, f.question), /* @__PURE__ */ React.createElement("span", { style: {
+      return /* @__PURE__ */ React.createElement("div", { key: i, className: "next7-row", style: { display: "flex", alignItems: "center", gap: 12, padding: "9px 0", borderTop: i > 0 ? `1px solid ${BORDER}` : "none" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: AMBER, fontWeight: 600, fontVariantNumeric: "tabular-nums", width: 46, flexShrink: 0 } }, dl ? dl.label : "\u2014"), /* @__PURE__ */ React.createElement("div", { className: "next7-q", style: { flex: 1, minWidth: 0, fontSize: 13, color: TEXT_HI, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, f.question), /* @__PURE__ */ React.createElement("span", { style: {
         flexShrink: 0,
         fontSize: 12,
         fontWeight: 700,
@@ -2532,7 +2531,7 @@
       KpiCell,
       {
         label: "Brent",
-        badge: /* @__PURE__ */ React.createElement(SourceBadge, { kind: mkt.BRENT.fromCache ? "scenario" : "live" }),
+        badge: /* @__PURE__ */ React.createElement(PriceSourceBadge, { live: !mkt.BRENT.fromCache, dated: !!mkt.BRENT.dated }),
         info: "Brent crude oil front-month futures. Primary: Yahoo Finance (BZ=F). Fallback: Stooq daily close. Pre-war baseline: $74.21. Bid-ask reflects geopolitical risk premium + Saudi surge capacity. If both fail, the last-known-good cached price is shown with a freshness label.",
         value: fmt.money(mkt.BRENT.price),
         valueColor: AMBER,
@@ -2545,10 +2544,10 @@
             height: 34,
             color: AMBER,
             format: (v) => `$${(+v).toFixed(0)}`,
-            live: mkt.BRENT.price != null ? { v: mkt.BRENT.price, label: mkt.BRENT.asOf ? staleness(mkt.BRENT.asOf).label : "live" } : null
+            live: mkt.BRENT.price != null ? { v: mkt.BRENT.price, label: mktAgeLabel(mkt.BRENT) || "live" } : null
           }
         )),
-        footer: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: mkt.BRENT.chg != null && mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight: 600 } }, fmt.arrow(mkt.BRENT.chg), " ", fmt.signedPct(mkt.BRENT.chg)), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\xB7 pre-war $74", mkt.BRENT.asOf ? ` \xB7 ${staleness(mkt.BRENT.asOf).label}` : "")),
+        footer: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: mkt.BRENT.chg != null && mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight: 600 } }, fmt.arrow(mkt.BRENT.chg), " ", fmt.signedPct(mkt.BRENT.chg)), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\xB7 pre-war $74", mktAgeLabel(mkt.BRENT) ? ` \xB7 ${mktAgeLabel(mkt.BRENT)}` : "")),
         small: true,
         border: true
       }
@@ -2556,7 +2555,7 @@
       KpiCell,
       {
         label: "US Gas Avg",
-        badge: /* @__PURE__ */ React.createElement(SourceBadge, { kind: gas?.fromCache ? "scenario" : "live" }),
+        badge: /* @__PURE__ */ React.createElement(PriceSourceBadge, { live: gasIsLive(gas, "national"), dated: gas?.at?.national?.src === "build" }),
         info: "US national average for regular unleaded. Source: AAA national average (live via CORS proxy). Pre-war baseline: $3.42. \u0394 reflects refined product passthrough from Brent/WTI.",
         value: gas?.national != null ? fmt.money(gas.national, 3) : null,
         loading: gas?.national == null,
@@ -2569,10 +2568,10 @@
             height: 34,
             color: AMBER,
             format: (v) => `$${(+v).toFixed(2)}`,
-            live: gas?.national != null ? { v: gas.national, label: gas?.asOf ? staleness(gas.asOf).label : "live" } : null
+            live: gas?.national != null ? { v: gas.national, label: gasAgeLabel(gas, "national") || "live" } : null
           }
         )),
-        footer: gas?.national != null ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: AMBER, fontWeight: 600 } }, "+", ((gas.national - 3.42) / 3.42 * 100).toFixed(0), "%"), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "since Feb 28", gas?.asOf ? ` \xB7 ${staleness(gas.asOf).label}` : "")) : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "awaiting AAA\u2026"),
+        footer: gas?.national != null ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: AMBER, fontWeight: 600 } }, "+", ((gas.national - 3.42) / 3.42 * 100).toFixed(0), "%"), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "since Feb 28", gasAgeLabel(gas, "national") ? ` \xB7 ${gasAgeLabel(gas, "national")}` : "")) : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "awaiting AAA\u2026"),
         small: true,
         border: true
       }
@@ -2580,7 +2579,7 @@
       KpiCell,
       {
         label: "US Diesel",
-        badge: /* @__PURE__ */ React.createElement(SourceBadge, { kind: gas?.fromCache ? "scenario" : "live" }),
+        badge: /* @__PURE__ */ React.createElement(PriceSourceBadge, { live: gasIsLive(gas, "diesel"), dated: gas?.at?.diesel?.src === "build" }),
         info: `US national average for diesel. Current: AAA national average (live via CORS proxy) \u2014 the Diesel column of the same AAA table as regular gas. History behind the chart: EIA weekly U.S. retail diesel average${DIESEL_SOURCE && DIESEL_SOURCE.through ? ` through ${DIESEL_SOURCE.through}` : ""}, replaced by AAA daily captures as they accumulate.${DIESEL_PREWAR ? ` Pre-war baseline: $${DIESEL_PREWAR.v.toFixed(2)} (EIA, week ending ${DIESEL_PREWAR.d}) \u2014 a different survey from AAA, typically within a few cents.` : ""}`,
         value: gas?.diesel != null ? fmt.money(gas.diesel, 3) : null,
         loading: gas?.diesel == null,
@@ -2594,10 +2593,10 @@
             color: AMBER,
             start: /* @__PURE__ */ new Date(`${dieselSeries[0].d}T00:00:00`),
             format: (v) => `$${(+v).toFixed(2)}`,
-            live: gas?.diesel != null ? { v: gas.diesel, label: gas?.asOf ? staleness(gas.asOf).label : "live" } : null
+            live: gas?.diesel != null ? { v: gas.diesel, label: gasAgeLabel(gas, "diesel") || "live" } : null
           }
         )) : /* @__PURE__ */ React.createElement("span", { style: { fontSize: 10.5, color: TEXT_DIM, fontFamily: SANS, fontStyle: "italic", display: "block", marginTop: 4, lineHeight: 1.4 } }, dieselSeries.length === 1 ? `tracking since ${(/* @__PURE__ */ new Date(`${dieselSeries[0].d}T00:00:00`)).toLocaleDateString("en-US", { month: "short", day: "numeric" })}` : "building history \u2014 trend starts with the next daily AAA capture"),
-        footer: gas?.diesel != null ? dieselPre != null ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: dieselPre >= 0 ? AMBER : GREEN, fontWeight: 600 } }, dieselPre >= 0 ? "+" : "", dieselPre.toFixed(0), "%"), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "since pre-war", gas?.asOf ? ` \xB7 ${staleness(gas.asOf).label}` : "")) : dieselMonth ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: dieselMonth.pct >= 0 ? AMBER : GREEN, fontWeight: 600 } }, dieselMonth.pct >= 0 ? "+" : "", dieselMonth.pct.toFixed(0), "%"), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "vs month ago", gas?.asOf ? ` \xB7 ${staleness(gas.asOf).label}` : "")) : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "national avg", gas?.asOf ? ` \xB7 ${staleness(gas.asOf).label}` : "") : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "awaiting AAA\u2026"),
+        footer: gas?.diesel != null ? dieselPre != null ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: dieselPre >= 0 ? AMBER : GREEN, fontWeight: 600 } }, dieselPre >= 0 ? "+" : "", dieselPre.toFixed(0), "%"), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "since pre-war", gasAgeLabel(gas, "diesel") ? ` \xB7 ${gasAgeLabel(gas, "diesel")}` : "")) : dieselMonth ? /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: dieselMonth.pct >= 0 ? AMBER : GREEN, fontWeight: 600 } }, dieselMonth.pct >= 0 ? "+" : "", dieselMonth.pct.toFixed(0), "%"), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "vs month ago", gasAgeLabel(gas, "diesel") ? ` \xB7 ${gasAgeLabel(gas, "diesel")}` : "")) : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "national avg", gasAgeLabel(gas, "diesel") ? ` \xB7 ${gasAgeLabel(gas, "diesel")}` : "") : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "awaiting AAA\u2026"),
         small: true
       }
     )), /* @__PURE__ */ React.createElement("div", { id: "ov-why", style: { borderTop: `1px solid ${BORDER}`, position: "relative", scrollMarginTop: 80 } }, /* @__PURE__ */ React.createElement(
@@ -2737,7 +2736,16 @@
         setShowFull: setLeadOpen(it.id),
         setTab
       }
-    ))), /* @__PURE__ */ React.createElement(Next7Strip, { setTab }), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 320 }, /* @__PURE__ */ React.createElement(GlobePreviewCard, { setTab })), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 400 }, /* @__PURE__ */ React.createElement("div", null, HUMAN_COST && /* @__PURE__ */ React.createElement(Card, { style: { padding: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0 }, HUMAN_COST.title), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), /* @__PURE__ */ React.createElement(InfoTip, null, "Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 20 } }, humanCostSections(HUMAN_COST.groups).map((sec) => /* @__PURE__ */ React.createElement("div", { key: sec.name }, sec.name && /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_MID, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 10 } }, sec.name), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(145px, 1fr))", gap: 10 } }, sec.tiles.map(({ g, row }) => /* @__PURE__ */ React.createElement("div", { key: `${g.key}-${row.k}`, title: row.note || void 0, style: {
+    ))), /* @__PURE__ */ React.createElement(Next7Strip, { setTab }), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 320 }, /* @__PURE__ */ React.createElement(GlobePreviewCard, { setTab })), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 400 }, /* @__PURE__ */ React.createElement("div", null, HUMAN_COST && /* @__PURE__ */ React.createElement(Card, { style: { padding: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0 }, HUMAN_COST.title), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), (() => {
+      const tip = "Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.";
+      return /* @__PURE__ */ React.createElement(
+        ByWidth,
+        {
+          wide: /* @__PURE__ */ React.createElement(InfoTip, null, tip),
+          compact: /* @__PURE__ */ React.createElement(InfoTip, null, HUMAN_COST.footnote ? `${HUMAN_COST.footnote} ${tip}` : tip)
+        }
+      );
+    })()), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 20 } }, humanCostSections(HUMAN_COST.groups).map((sec) => /* @__PURE__ */ React.createElement("div", { key: sec.name }, sec.name && /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_MID, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 10 } }, sec.name), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(145px, 1fr))", gap: 10 } }, sec.tiles.map(({ g, row }) => /* @__PURE__ */ React.createElement("div", { key: `${g.key}-${row.k}`, title: row.note || void 0, style: {
       display: "flex",
       flexDirection: "column",
       minWidth: 0,
@@ -2746,7 +2754,7 @@
       background: RAISE_1,
       border: `1px solid ${BORDER}`,
       cursor: row.note ? "help" : "default"
-    } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, lineHeight: 1.35 } }, /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_BODY } }, g.label), " \xB7 ", row.k), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 26, fontWeight: 600, color: DANGER, letterSpacing: "-.02em", fontVariantNumeric: "tabular-nums", lineHeight: 1, marginTop: 10, fontVariationSettings: "'opsz' 26" } }, row.value), row.secondary && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_MID, marginTop: 8, lineHeight: 1.45 } }, row.secondary), /* @__PURE__ */ React.createElement("div", { style: { marginTop: "auto", paddingTop: 12, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "4px 8px", flexWrap: "wrap", fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.3 } }, /* @__PURE__ */ React.createElement(BasisTag, { basis: row.basis }), row.as_of && /* @__PURE__ */ React.createElement("span", { style: { fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" } }, fmtHcDate(row.as_of))))))))), HUMAN_COST.footnote && /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, marginTop: 18, paddingTop: 14, borderTop: `1px solid ${BORDER}`, lineHeight: 1.55, letterSpacing: ".01em" } }, HUMAN_COST.footnote)))), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 480 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase", marginBottom: 12, paddingLeft: 2 } }, "Developing Themes"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, themes.map((th, i) => /* @__PURE__ */ React.createElement(Card, { key: i, className: "card-hover", style: { cursor: "pointer", padding: "16px 20px" }, onClick: () => setExpanded((e) => ({ ...e, [i]: !e[i] })) }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.005em" } }, th.title), /* @__PURE__ */ React.createElement("span", { style: {
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, lineHeight: 1.35 } }, /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_BODY } }, g.label), " \xB7 ", row.k), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 26, fontWeight: 600, color: DANGER, letterSpacing: "-.02em", fontVariantNumeric: "tabular-nums", lineHeight: 1, marginTop: 10, fontVariationSettings: "'opsz' 26" } }, row.value), row.secondary && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_MID, marginTop: 8, lineHeight: 1.45 } }, row.secondary), /* @__PURE__ */ React.createElement("div", { style: { marginTop: "auto", paddingTop: 12, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "4px 8px", flexWrap: "wrap", fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.3 } }, /* @__PURE__ */ React.createElement(BasisTag, { basis: row.basis }), row.as_of && /* @__PURE__ */ React.createElement("span", { style: { fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" } }, fmtHcDate(row.as_of))))))))), HUMAN_COST.footnote && /* @__PURE__ */ React.createElement(ByWidth, { wide: /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, marginTop: 18, paddingTop: 14, borderTop: `1px solid ${BORDER}`, lineHeight: 1.55, letterSpacing: ".01em" } }, HUMAN_COST.footnote) })))), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 480 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase", marginBottom: 12, paddingLeft: 2 } }, "Developing Themes"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, themes.map((th, i) => /* @__PURE__ */ React.createElement(Card, { key: i, className: "card-hover", style: { cursor: "pointer", padding: "16px 20px" }, onClick: () => setExpanded((e) => ({ ...e, [i]: !e[i] })) }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.005em" } }, th.title), /* @__PURE__ */ React.createElement("span", { style: {
       width: 24,
       height: 24,
       borderRadius: 6,
@@ -2810,12 +2818,14 @@
           ...existing,
           nat: r.nat ?? existing.nat,
           ca: r.ca ?? existing.ca,
+          oh: r.oh ?? existing.oh,
+          cin: r.cin ?? existing.cin,
           dsl: r.diesel ?? existing.dsl
         });
       } else {
         const dt = /* @__PURE__ */ new Date(r.d + "T00:00:00Z");
         const week = dt.toLocaleString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-        map.set(r.d, { date: r.d, week, nat: r.nat ?? null, ca: r.ca ?? null, oh: null, cin: null, dsl: r.diesel ?? null });
+        map.set(r.d, { date: r.d, week, nat: r.nat ?? null, ca: r.ca ?? null, oh: r.oh ?? null, cin: r.cin ?? null, dsl: r.diesel ?? null });
       }
     }
     for (const r of gasSeries.read()) {
@@ -2864,7 +2874,8 @@
     const [hover, setHover] = useState(null);
     const svgRef = useRef(null);
     const series = buildGasSeries();
-    const W = 600, H = 220, padL = 42, padR = 50, padT = 14, padB = 32;
+    const narrow = useIsMobile(640);
+    const W = narrow ? 380 : 600, H = narrow ? 250 : 220, padL = 42, padR = 50, padT = 14, padB = 32;
     const innerW = W - padL - padR, innerH = H - padT - padB;
     const yMin = 3;
     const hasDsl = series.some((r) => r.dsl != null);
@@ -2900,7 +2911,7 @@
       setHover({ idx, x: xOf(idx), w, pxX: e.clientX - r.left, pxW: r.width });
     };
     const onLeave = () => setHover(null);
-    const labelStride = Math.max(1, Math.ceil(series.length / 10));
+    const labelStride = Math.max(1, Math.ceil(series.length / (narrow ? 5 : 10)));
     return /* @__PURE__ */ React.createElement("div", { style: { position: "relative", width: "100%" } }, /* @__PURE__ */ React.createElement(
       "svg",
       {
@@ -2979,14 +2990,24 @@
     const dslPre = dslLoaded && DIESEL_PREWAR ? (gas.diesel - DIESEL_PREWAR.v) / DIESEL_PREWAR.v * 100 : null;
     const fmtShort = (iso) => (/* @__PURE__ */ new Date(`${iso}T00:00:00Z`)).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
     const bars = [
-      { label: "National Avg", val: gas?.national, max: 6.5, color: AMBER },
-      { label: "California", val: gas?.california, max: 6.5, color: DANGER },
-      { label: "Ohio", val: gas?.ohio, max: 6.5, color: BLUE },
-      { label: "Cincinnati", val: gas?.cincinnati, max: 6.5, color: GREEN }
+      { label: "National Avg", field: "national", val: gas?.national, max: 6.5, color: AMBER },
+      { label: "California", field: "california", val: gas?.california, max: 6.5, color: DANGER },
+      { label: "Ohio", field: "ohio", val: gas?.ohio, max: 6.5, color: BLUE },
+      { label: "Cincinnati", field: "cincinnati", val: gas?.cincinnati, max: 6.5, color: GREEN }
     ];
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 18 } }, /* @__PURE__ */ React.createElement(Card, null, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, textAlign: "center" } }, "Price History Since Feb 28 (War Start)"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: AMBER, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "National")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: DANGER, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "California")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: BLUE, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "Ohio")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: GREEN, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "Cincinnati")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: CYAN, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "Diesel (national)")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 0, borderTop: `1.5px dashed ${TEXT_DIM}` } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_DIM } }, "Pre-war: gas $3.42", DIESEL_PREWAR ? ` \xB7 diesel $${DIESEL_PREWAR.v.toFixed(2)}` : "")))), /* @__PURE__ */ React.createElement(GasChart, null)), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 18 } }, /* @__PURE__ */ React.createElement(Card, { style: { textAlign: "center", padding: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 12 } }, "US National Average \xB7 Regular Unleaded"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 64, fontWeight: 600, color: AMBER, lineHeight: 1, letterSpacing: "-.03em", fontVariantNumeric: "tabular-nums" } }, natLoaded ? `$${gas.national.toFixed(3)}` : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 180, h: 70, radius: 8 })), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: DANGER, marginTop: 14, fontWeight: 500, fontVariantNumeric: "tabular-nums" } }, natLoaded ? `\u2191 +${increase}% since Feb 28 baseline ($3.42)` : "Awaiting live AAA data\u2026"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, marginTop: 10 } }, "Source: AAA \xB7 Live")), /* @__PURE__ */ React.createElement(Card, { style: { textAlign: "center", padding: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 12 } }, "US National Average \xB7 Diesel"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 64, fontWeight: 600, color: CYAN, lineHeight: 1, letterSpacing: "-.03em", fontVariantNumeric: "tabular-nums" } }, dslLoaded ? `$${gas.diesel.toFixed(3)}` : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 180, h: 70, radius: 8 })), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, marginTop: 14, fontWeight: 500, fontVariantNumeric: "tabular-nums", display: "flex", justifyContent: "center", gap: 18, flexWrap: "wrap" } }, !dslLoaded ? /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "Awaiting live AAA data\u2026") : /* @__PURE__ */ React.createElement(React.Fragment, null, dslPre != null && /* @__PURE__ */ React.createElement("span", { style: { color: dslPre >= 0 ? DANGER : GREEN } }, dslPre >= 0 ? "\u2191 +" : "\u2193 ", dslPre.toFixed(1), "% ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 400 } }, "since pre-war ($", DIESEL_PREWAR.v.toFixed(2), " \xB7 EIA, week of ", fmtShort(DIESEL_PREWAR.d), ")")), [["month ago", dslMonth], ["week ago", dslWeek]].map(([lbl, ch]) => ch && /* @__PURE__ */ React.createElement("span", { key: lbl, style: { color: ch.pct >= 0 ? DANGER : GREEN } }, ch.pct >= 0 ? "\u2191 +" : "\u2193 ", ch.pct.toFixed(1), "% ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 400 } }, "vs ", lbl, " ($", ch.ref.toFixed(2), ")"))), dslPre == null && !dslMonth && !dslWeek && /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 400 } }, "AAA reference prices unavailable"))), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, marginTop: 10 } }, "Source: AAA \xB7 Live \xB7 national average, diesel grade", DIESEL_SOURCE && DIESEL_SOURCE.through ? ` \xB7 chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : ""))), /* @__PURE__ */ React.createElement(Card, null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 16 } }, "State Comparison"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 14 } }, bars.map((b) => {
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 18 } }, /* @__PURE__ */ React.createElement(Card, null, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, textAlign: "center" } }, "Price History Since Feb 28 (War Start)"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: "8px 16px", flexWrap: "wrap", justifyContent: "center", width: "100%" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: AMBER, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "National")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: DANGER, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "California")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: BLUE, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "Ohio")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: GREEN, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "Cincinnati")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 2, background: CYAN, borderRadius: 2 } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_BODY } }, "Diesel (national)")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 6 } }, /* @__PURE__ */ React.createElement("div", { style: { width: 14, height: 0, borderTop: `1.5px dashed ${TEXT_DIM}` } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_DIM } }, "Pre-war: gas $3.42", DIESEL_PREWAR ? ` \xB7 diesel $${DIESEL_PREWAR.v.toFixed(2)}` : "")))), /* @__PURE__ */ React.createElement(GasChart, null)), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 18 } }, /* @__PURE__ */ React.createElement(Card, { style: { textAlign: "center", padding: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 12 } }, "US National Average \xB7 Regular Unleaded"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 64, fontWeight: 600, color: AMBER, lineHeight: 1, letterSpacing: "-.03em", fontVariantNumeric: "tabular-nums" } }, natLoaded ? `$${gas.national.toFixed(3)}` : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 180, h: 70, radius: 8 })), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: DANGER, marginTop: 14, fontWeight: 500, fontVariantNumeric: "tabular-nums" } }, natLoaded ? `\u2191 +${increase}% since Feb 28 baseline ($3.42)` : "Loading AAA data\u2026"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, marginTop: 10 } }, "Source: AAA", natLoaded ? ` \xB7 ${gasAgeLabel(gas, "national")}` : "")), /* @__PURE__ */ React.createElement(Card, { style: { textAlign: "center", padding: 28 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 12 } }, "US National Average \xB7 Diesel"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 64, fontWeight: 600, color: CYAN, lineHeight: 1, letterSpacing: "-.03em", fontVariantNumeric: "tabular-nums" } }, dslLoaded ? `$${gas.diesel.toFixed(3)}` : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 180, h: 70, radius: 8 })), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, marginTop: 14, fontWeight: 500, fontVariantNumeric: "tabular-nums", display: "flex", justifyContent: "center", gap: 18, flexWrap: "wrap" } }, !dslLoaded ? /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "Loading AAA data\u2026") : /* @__PURE__ */ React.createElement(React.Fragment, null, dslPre != null && /* @__PURE__ */ React.createElement("span", { style: { color: dslPre >= 0 ? DANGER : GREEN } }, dslPre >= 0 ? "\u2191 +" : "\u2193 ", dslPre.toFixed(1), "% ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 400 } }, "since pre-war ($", DIESEL_PREWAR.v.toFixed(2), " \xB7 EIA, week of ", fmtShort(DIESEL_PREWAR.d), ")")), [["month ago", dslMonth], ["week ago", dslWeek]].map(([lbl, ch]) => ch && /* @__PURE__ */ React.createElement("span", { key: lbl, style: { color: ch.pct >= 0 ? DANGER : GREEN } }, ch.pct >= 0 ? "\u2191 +" : "\u2193 ", ch.pct.toFixed(1), "% ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 400 } }, "vs ", lbl, " ($", ch.ref.toFixed(2), ")"))), dslPre == null && !dslMonth && !dslWeek && /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 400 } }, "AAA reference prices unavailable"))), (() => {
+      const age = dslLoaded ? ` \xB7 ${gasAgeLabel(gas, "diesel")}` : "";
+      const history = DIESEL_SOURCE && DIESEL_SOURCE.through ? `chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : "";
+      return /* @__PURE__ */ React.createElement(
+        ByWidth,
+        {
+          wide: /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, marginTop: 10 } }, "Source: AAA", age, " \xB7 national average, diesel grade", history ? ` \xB7 ${history}` : ""),
+          compact: /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, marginTop: 10, display: "inline-flex", alignItems: "center" } }, "Source: AAA", age, /* @__PURE__ */ React.createElement(InfoTip, null, `National average, diesel grade.${history ? ` ${history.charAt(0).toUpperCase()}${history.slice(1)}.` : ""}`))
+        }
+      );
+    })())), /* @__PURE__ */ React.createElement(Card, null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 16 } }, "State Comparison"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 14 } }, bars.map((b) => {
       const loaded = b.val != null;
-      return /* @__PURE__ */ React.createElement("div", { key: b.label }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14, color: TEXT_HI, fontWeight: 500 } }, b.label), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 14, fontWeight: 600, color: b.color } }, loaded ? `$${b.val.toFixed(3)}` : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 56, h: 14 }))), /* @__PURE__ */ React.createElement("div", { style: { height: 8, background: RAISE_2, borderRadius: 999, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: loaded ? `${b.val / b.max * 100}%` : "0%", height: "100%", background: b.color, borderRadius: 999, transition: "width .4s ease" } })));
+      return /* @__PURE__ */ React.createElement("div", { key: b.label }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 14, color: TEXT_HI, fontWeight: 500 } }, b.label, loaded && !gasIsLive(gas, b.field) && gasAgeLabel(gas, b.field) ? /* @__PURE__ */ React.createElement("span", { style: { fontSize: 12, color: TEXT_DIM, fontWeight: 400 } }, " \xB7 ", gasAgeLabel(gas, b.field)) : null), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 14, fontWeight: 600, color: b.color } }, loaded ? `$${b.val.toFixed(3)}` : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 56, h: 14 }))), /* @__PURE__ */ React.createElement("div", { style: { height: 8, background: RAISE_2, borderRadius: 999, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: loaded ? `${b.val / b.max * 100}%` : "0%", height: "100%", background: b.color, borderRadius: 999, transition: "width .4s ease" } })));
     }))));
   }
   var ECON_COLOR = { blue: BLUE, amber: AMBER, violet: VIOLET, danger: DANGER, green: GREEN };
@@ -3082,6 +3103,16 @@
     const mapWrapRef = useRef(null);
     const svgRef = useRef(null);
     const isMobileMap = useIsMobile(900);
+    const mapHeadCompact = useIsMobile(900);
+    const mapAsOf = MAP_OVERLAYS && MAP_OVERLAYS.as_of;
+    const [mapPxW, setMapPxW] = useState(0);
+    useEffect(() => {
+      const wrap = mapWrapRef.current;
+      if (!wrap || typeof ResizeObserver === "undefined") return;
+      const ro = new ResizeObserver(([e]) => setMapPxW(Math.round(e.contentRect.width)));
+      ro.observe(wrap);
+      return () => ro.disconnect();
+    }, []);
     useEffect(() => {
       if (!isMobileMap) return;
       const t = setTimeout(() => setHintVisible(false), 5e3);
@@ -3333,14 +3364,34 @@
         const pad = 1.5 * LS;
         return { x0: x0 - pad, x1: x0 + w + pad, y0: y - fs * 0.82 - pad, y1: y + fs * 0.22 + pad };
       };
+      const sc = mapZoom.scale || 1;
+      const k = (mapPxW || W) / W;
+      const vx0 = -(mapZoom.x || 0) / (sc * k), vy0 = -(mapZoom.y || 0) / (sc * k);
+      const vx1 = vx0 + W / sc, vy1 = vy0 + H / sc;
+      const edge = 3 * LS;
+      const inView = (b) => b.x0 >= vx0 + edge && b.x1 <= vx1 - edge && b.y0 >= vy0 + edge && b.y1 <= vy1 - edge;
       const place = (b) => {
-        if (hits(b)) return false;
+        if (!inView(b) || hits(b)) return false;
         placed.push(b);
         return true;
       };
       const dot = (x, y, r) => placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+      const pxBlock = (x0, y0, x1, y1) => placed.push({ x0: vx0 + x0 / (sc * k), x1: vx0 + x1 / (sc * k), y0: vy0 + y0 / (sc * k), y1: vy0 + y1 / (sc * k) });
       const MO = MAP_OVERLAYS || { arcs: [], hotspots: [] };
       const out = { country: {}, hotspot: {}, sub: {}, arcEnd: {} };
+      if (mapPxW) {
+        const zoomed = sc > 1.05;
+        const nBtn = zoomed ? 3 : 2;
+        const bs = isMobileMap ? 44 : 30;
+        const run = 10 + nBtn * bs + (nBtn - 1) * 6 + 6;
+        const hPx = mapPxW * H / W;
+        if (isMobileMap) pxBlock(mapPxW - run, hPx - (bs + 16), mapPxW, hPx);
+        else pxBlock(mapPxW - (bs + 16), 0, mapPxW, run);
+        if (zoomed) {
+          if (isMobileMap) pxBlock(mapPxW - 130, 0, mapPxW, 30);
+          else pxBlock(mapPxW - 130, hPx - 30, mapPxW, hPx);
+        }
+      }
       placed.push(box(hormuzX + 5 + 20 * LS, hormuzY - 1 * LS, "HORMUZ", 11 * LS, "start"));
       placed.push(box(hormuzX + 5 + 20 * LS, hormuzY + 9 * LS, hormuzStatusText, 11 * LS, "start", 0.62));
       labels.forEach((l) => {
@@ -3359,11 +3410,22 @@
       (MO.hotspots || []).forEach((h) => {
         const [x, y] = project(h.pos[0], h.pos[1]);
         const sides = h.labelSide === "start" ? ["start", "end"] : ["end", "start"];
+        const fs = 11 * LS;
+        const ty = y - 2 - 2 * LS;
         for (const side of sides) {
-          const tx = side === "start" ? x - 7 - 2 * LS : x + 7 + 2 * LS;
+          const tx2 = side === "start" ? x - 7 - 2 * LS : x + 7 + 2 * LS;
           const anchor = side === "start" ? "end" : "start";
-          if (place(box(tx, y - 2 - 2 * LS, h.name, 11 * LS, anchor))) {
-            out.hotspot[h.id] = { tx, anchor };
+          if (place(box(tx2, ty, h.name, fs, anchor))) {
+            out.hotspot[h.id] = { tx: tx2, ty, anchor, side: true };
+            break;
+          }
+        }
+        if (out.hotspot[h.id]) return;
+        const half = String(h.name).length * fs * 0.72 / 2 + 1.5 * LS;
+        const tx = Math.min(Math.max(x, vx0 + edge + half), vx1 - edge - half);
+        for (const vy of [y - 6 - 4 * LS, y + 6 + 9 * LS]) {
+          if (place(box(tx, vy, h.name, fs, "middle"))) {
+            out.hotspot[h.id] = { tx, ty: vy, anchor: "middle", side: false };
             break;
           }
         }
@@ -3381,13 +3443,17 @@
       });
       (MO.hotspots || []).forEach((h) => {
         const n = out.hotspot[h.id];
-        if (!n || !h.sub) return;
+        if (!n || !n.side || !h.sub) return;
         const [, y] = project(h.pos[0], h.pos[1]);
         out.sub[h.id] = place(box(n.tx, y + 2 + 6 * LS, h.sub, 8 * LS, n.anchor, 0.52));
       });
       return out;
     })();
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement(Card, { style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 10 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Global Conflict Zones \xB7 Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement(Card, { className: "card-flush", style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: mapHeadCompact ? "10px 14px" : "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: mapHeadCompact ? "nowrap" : "wrap", gap: 10 } }, mapHeadCompact ? (
+      // Phones: the full title and the projection note took five lines above the map;
+      // the short title keeps one line and the rest is behind the info button.
+      /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", whiteSpace: "nowrap", flexShrink: 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600 } }, "Global Conflict Zones"), /* @__PURE__ */ React.createElement(InfoTip, null, `Operation Epic Fury, US-BRICS Rivalry, Russia-Ukraine and other active theaters. Equirectangular projection \xB7 Natural Earth 1:110m${mapAsOf ? ` \xB7 overlays as of ${mapAsOf}` : ""}.`))
+    ) : /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Global Conflict Zones \xB7 Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: () => setShowCoalitions((v) => !v),
@@ -3403,11 +3469,12 @@
           padding: "4px 10px",
           borderRadius: 999,
           cursor: "pointer",
-          textTransform: "uppercase"
+          textTransform: "uppercase",
+          whiteSpace: "nowrap"
         }
       },
-      showCoalitions ? "\u2713 Coalitions" : "Show Coalitions"
-    ), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".06em" } }, `Equirectangular \xB7 Natural Earth 1:110m${MAP_OVERLAYS && MAP_OVERLAYS.as_of ? ` \xB7 Overlays as of ${MAP_OVERLAYS.as_of}` : ""}`))), showCoalitions && /* @__PURE__ */ React.createElement("div", { style: { padding: "8px 22px", borderBottom: `1px solid ${BORDER}`, background: RAISE_1, display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".10em", textTransform: "uppercase", fontWeight: 600 } }, "Legend"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "rgba(185,28,60,.40)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " BRICS+"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "rgba(155,20,50,.55)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " CRINK extra (NK)"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "rgba(99,102,241,.32)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " US Allies (NATO + Quad + JK-PH)"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "linear-gradient(45deg, rgba(99,102,241,.32) 50%, rgba(185,28,60,.30) 50%)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " Ambivalent (India: BRICS+ \u2227 Quad)")), /* @__PURE__ */ React.createElement(
+      showCoalitions ? "\u2713 Coalitions" : mapHeadCompact ? "Coalitions" : "Show Coalitions"
+    ), !mapHeadCompact && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".06em" } }, `Equirectangular \xB7 Natural Earth 1:110m${mapAsOf ? ` \xB7 Overlays as of ${mapAsOf}` : ""}`))), showCoalitions && /* @__PURE__ */ React.createElement("div", { style: { padding: "8px 22px", borderBottom: `1px solid ${BORDER}`, background: RAISE_1, display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".10em", textTransform: "uppercase", fontWeight: 600 } }, "Legend"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "rgba(185,28,60,.40)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " BRICS+"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "rgba(155,20,50,.55)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " CRINK extra (NK)"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "rgba(99,102,241,.32)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " US Allies (NATO + Quad + JK-PH)"), /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 5, fontSize: FS.xs, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement("span", { style: { width: 14, height: 10, background: "linear-gradient(45deg, rgba(99,102,241,.32) 50%, rgba(185,28,60,.30) 50%)", border: "1px solid rgba(127,127,127,.55)", borderRadius: 2 } }), " Ambivalent (India: BRICS+ \u2227 Quad)")), /* @__PURE__ */ React.createElement(
       "div",
       {
         ref: mapWrapRef,
@@ -3442,7 +3509,7 @@
         transform: "translate3d(0,0,0)"
       } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 18 } }, hover.flag), /* @__PURE__ */ React.createElement("span", { style: { fontSize: 13, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.005em" } }, hover.name), hover.level && /* @__PURE__ */ React.createElement(SeverityPill, { level: hover.level, size: 10 }), hover.score != null && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, fontWeight: 600, color: SEV_COLOR[hover.level] || TEXT_HI, fontVariantNumeric: "tabular-nums" } }, hover.score)), /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, marginTop: 4, letterSpacing: ".06em" } }, "Click to open dossier")),
       isMobileMap && /* @__PURE__ */ React.createElement("div", { className: `map-zoom-hint${hintVisible ? "" : " hidden"}` }, "Pinch to zoom"),
-      /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", top: 10, right: 10, zIndex: 6, display: "flex", flexDirection: "column", gap: 6 } }, [
+      /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", ...isMobileMap ? { bottom: 10 } : { top: 10 }, right: 10, zIndex: 6, display: "flex", flexDirection: isMobileMap ? "row-reverse" : "column", gap: 6 } }, [
         { label: "+", title: "Zoom in", onClick: () => zoomAtCenter(1.5) },
         { label: "\u2212", title: "Zoom out", onClick: () => zoomAtCenter(1 / 1.5) }
       ].map((b) => /* @__PURE__ */ React.createElement(
@@ -3494,7 +3561,7 @@
         },
         /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "10" }), /* @__PURE__ */ React.createElement("line", { x1: "22", y1: "12", x2: "18", y2: "12" }), /* @__PURE__ */ React.createElement("line", { x1: "6", y1: "12", x2: "2", y2: "12" }), /* @__PURE__ */ React.createElement("line", { x1: "12", y1: "6", x2: "12", y2: "2" }), /* @__PURE__ */ React.createElement("line", { x1: "12", y1: "22", x2: "12", y2: "18" }))
       )),
-      mapZoom.scale > 1.05 && /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", bottom: 8, right: 10, zIndex: 6, pointerEvents: "none", fontSize: 10, color: TEXT_DIM, background: "var(--map-bg)", padding: "2px 7px", borderRadius: 6, opacity: 0.85, fontFamily: SANS } }, mapZoom.scale.toFixed(1), "\xD7 \xB7 drag to pan"),
+      mapZoom.scale > 1.05 && /* @__PURE__ */ React.createElement("div", { style: { position: "absolute", ...isMobileMap ? { top: 8 } : { bottom: 8 }, right: 10, zIndex: 6, pointerEvents: "none", fontSize: 10, color: TEXT_DIM, background: "var(--map-bg)", padding: "2px 7px", borderRadius: 6, opacity: 0.85, fontFamily: SANS } }, mapZoom.scale.toFixed(1), "\xD7 \xB7 drag to pan"),
       /* @__PURE__ */ React.createElement("svg", { ref: svgRef, viewBox: `0 0 ${W} ${H}`, style: { position: "absolute", inset: 0, width: "100%", height: "100%", transform: mapZoom.scale > 1 ? `translate(${mapZoom.x}px, ${mapZoom.y}px) scale(${mapZoom.scale})` : void 0, transformOrigin: "0 0", transition: dragging ? "none" : "transform .18s ease" }, shapeRendering: "geometricPrecision" }, /* @__PURE__ */ React.createElement("g", { style: { stroke: RAISE_1 }, strokeWidth: ".5", fill: "none" }, [-60, -30, 0, 30, 60].map((lat) => {
         const [, y] = project(0, lat);
         return /* @__PURE__ */ React.createElement("line", { key: `lat${lat}`, x1: "0", y1: y, x2: W, y2: y });
@@ -3611,7 +3678,7 @@
         }), hotspots.map((h) => {
           const [x, y] = project(h.pos[0], h.pos[1]);
           const lp = labelPlan.hotspot[h.id];
-          return /* @__PURE__ */ React.createElement("g", { key: `hotspot-${h.id}` }, /* @__PURE__ */ React.createElement("title", null, h.sub ? `${h.name} \u2014 ${h.sub}` : h.name), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "12", fill: `url(#${h.bloom})`, className: "living-halo", style: { animationDelay: `${h.delay}s`, animationDuration: "6.4s" } }), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "5", fill: "none", stroke: h.color, strokeWidth: "1.0", className: "living-ring", style: { animationDelay: `${h.delay}s`, animationDuration: "3.2s" } }), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "3", fill: "none", stroke: h.color, strokeWidth: "1.2", opacity: ".85" }), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "1.4", fill: h.color }), /* @__PURE__ */ React.createElement("circle", { cx: x - 0.4, cy: y - 0.4, r: "0.5", fill: "rgba(255,255,255,.9)" }), lp && /* @__PURE__ */ React.createElement("text", { x: lp.tx, y: y - 2 - 2 * LS, fill: h.color, fontSize: 11 * LS, fontFamily: SANS, fontWeight: "600", letterSpacing: ".06em", textAnchor: lp.anchor, style: { paintOrder: "stroke", stroke: "var(--map-bg)", strokeWidth: 2 * LS } }, h.name), lp && h.sub && labelPlan.sub[h.id] && /* @__PURE__ */ React.createElement("text", { x: lp.tx, y: y + 2 + 6 * LS, fill: h.color, fontSize: 8 * LS, fontFamily: SANS, fontWeight: "500", opacity: ".8", textAnchor: lp.anchor, style: { paintOrder: "stroke", stroke: "var(--map-bg)", strokeWidth: 2 * LS } }, h.sub));
+          return /* @__PURE__ */ React.createElement("g", { key: `hotspot-${h.id}` }, /* @__PURE__ */ React.createElement("title", null, h.sub ? `${h.name} \u2014 ${h.sub}` : h.name), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "12", fill: `url(#${h.bloom})`, className: "living-halo", style: { animationDelay: `${h.delay}s`, animationDuration: "6.4s" } }), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "5", fill: "none", stroke: h.color, strokeWidth: "1.0", className: "living-ring", style: { animationDelay: `${h.delay}s`, animationDuration: "3.2s" } }), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "3", fill: "none", stroke: h.color, strokeWidth: "1.2", opacity: ".85" }), /* @__PURE__ */ React.createElement("circle", { cx: x, cy: y, r: "1.4", fill: h.color }), /* @__PURE__ */ React.createElement("circle", { cx: x - 0.4, cy: y - 0.4, r: "0.5", fill: "rgba(255,255,255,.9)" }), lp && /* @__PURE__ */ React.createElement("text", { x: lp.tx, y: lp.ty, fill: h.color, fontSize: 11 * LS, fontFamily: SANS, fontWeight: "600", letterSpacing: ".06em", textAnchor: lp.anchor, style: { paintOrder: "stroke", stroke: "var(--map-bg)", strokeWidth: 2 * LS } }, h.name), lp && h.sub && labelPlan.sub[h.id] && /* @__PURE__ */ React.createElement("text", { x: lp.tx, y: y + 2 + 6 * LS, fill: h.color, fontSize: 8 * LS, fontFamily: SANS, fontWeight: "500", opacity: ".8", textAnchor: lp.anchor, style: { paintOrder: "stroke", stroke: "var(--map-bg)", strokeWidth: 2 * LS } }, h.sub));
         }), /* @__PURE__ */ React.createElement("circle", { cx: hormuzX, cy: hormuzY, r: "15", fill: `url(#${hormuzBloom})`, className: "living-halo", style: { animationDuration: "4.6s" } }));
       })(), /* @__PURE__ */ React.createElement("g", { style: { cursor: "pointer" }, onClick: () => openCountry && openCountry("Iran") }, /* @__PURE__ */ React.createElement("circle", { cx: hormuzX, cy: hormuzY, r: "9", fill: "none", stroke: DANGER, strokeWidth: "1", opacity: ".5" }, /* @__PURE__ */ React.createElement("animate", { attributeName: "r", values: "5.5;14;5.5", dur: "3.2s", repeatCount: "indefinite", calcMode: "spline", keyTimes: "0;0.5;1", keySplines: "0.4 0 0.2 1;0.4 0 0.2 1" }), /* @__PURE__ */ React.createElement("animate", { attributeName: "opacity", values: ".65;0;.65", dur: "3.2s", repeatCount: "indefinite", calcMode: "spline", keyTimes: "0;0.5;1", keySplines: "0.4 0 0.2 1;0.4 0 0.2 1" })), /* @__PURE__ */ React.createElement("circle", { cx: hormuzX, cy: hormuzY, r: "9", fill: "none", stroke: DANGER, strokeWidth: "0.8", opacity: ".35" }, /* @__PURE__ */ React.createElement("animate", { attributeName: "r", values: "5.5;14;5.5", dur: "3.2s", begin: "1.6s", repeatCount: "indefinite", calcMode: "spline", keyTimes: "0;0.5;1", keySplines: "0.4 0 0.2 1;0.4 0 0.2 1" }), /* @__PURE__ */ React.createElement("animate", { attributeName: "opacity", values: ".5;0;.5", dur: "3.2s", begin: "1.6s", repeatCount: "indefinite", calcMode: "spline", keyTimes: "0;0.5;1", keySplines: "0.4 0 0.2 1;0.4 0 0.2 1" })), /* @__PURE__ */ React.createElement("circle", { cx: hormuzX, cy: hormuzY, r: "4.5", fill: "none", stroke: DANGER, strokeWidth: "1.4" }), /* @__PURE__ */ React.createElement("circle", { cx: hormuzX, cy: hormuzY, r: "1.8", fill: DANGER }), /* @__PURE__ */ React.createElement("circle", { cx: hormuzX - 0.5, cy: hormuzY - 0.5, r: "0.6", fill: "rgba(255,255,255,.9)" }), /* @__PURE__ */ React.createElement("line", { x1: hormuzX + 5, y1: hormuzY, x2: hormuzX + 5 + 17 * LS, y2: hormuzY, stroke: DANGER, strokeWidth: 0.7 * LS }), /* @__PURE__ */ React.createElement("text", { x: hormuzX + 5 + 20 * LS, y: hormuzY - 1 * LS, fill: DANGER, fontSize: 11 * LS, fontFamily: SANS, fontWeight: "600", style: { paintOrder: "stroke", stroke: "var(--map-bg)", strokeWidth: 2 * LS } }, "HORMUZ"), /* @__PURE__ */ React.createElement("text", { x: hormuzX + 5 + 20 * LS, y: hormuzY + 9 * LS, fill: DANGER, fontSize: 11 * LS, fontFamily: SANS, fontWeight: "500", style: { paintOrder: "stroke", stroke: "var(--map-bg)", strokeWidth: 2 * LS } }, hormuzStatusText), /* @__PURE__ */ React.createElement("circle", { cx: hormuzX, cy: hormuzY, r: "14", fill: "transparent" })), labels.map((l) => {
         if (!labelPlan.country[l.name]) return null;
@@ -3656,7 +3723,7 @@
       if (!statusMatches(n.status, statuses)) return false;
       return true;
     });
-    return /* @__PURE__ */ React.createElement(Card, { style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Intelligence Feed \xB7 Most Recent First"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "live", label: "GDELT" })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, filtered.length, " of ", news.length)), filtered.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 22px", textAlign: "center", fontSize: 13, color: TEXT_MID } }, "No items match the current filters."), filtered.map((item, i) => /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement(Card, { className: "card-flush", style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Intelligence Feed \xB7 Most Recent First"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "live", label: "GDELT" })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, filtered.length, " of ", news.length)), filtered.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 22px", textAlign: "center", fontSize: 13, color: TEXT_MID } }, "No items match the current filters."), filtered.map((item, i) => /* @__PURE__ */ React.createElement(
       "div",
       {
         key: i,
@@ -3886,7 +3953,7 @@
             }
           }
         ),
-        /* @__PURE__ */ React.createElement("div", { className: "tl-content", style: { flex: 1, paddingBottom: 10, paddingRight: 24 } }, /* @__PURE__ */ React.createElement(SeverityInline, { level: sevLabel(ev.sev), size: 9.5 }), ev.status && ev.status !== "confirmed" && /* @__PURE__ */ React.createElement(React.Fragment, null, " ", /* @__PURE__ */ React.createElement(StatusBadge, { status: ev.status })), /* @__PURE__ */ React.createElement("div", { "aria-label": ev.desc, style: { fontSize: 14, color: TEXT_BODY, lineHeight: 1.65, marginTop: 6 } }, showInstant ? /* @__PURE__ */ React.createElement("span", null, linkifyCountries(ev.desc, openCountry)) : words.map((w, wi) => /\s+/.test(w) ? /* @__PURE__ */ React.createElement("span", { key: wi }, w) : /* @__PURE__ */ React.createElement(
+        /* @__PURE__ */ React.createElement("div", { className: "tl-content", style: { flex: 1, paddingBottom: 10, paddingRight: 24 } }, /* @__PURE__ */ React.createElement(SeverityInline, { level: sevLabel(ev.sev), size: 10.5 }), ev.status && ev.status !== "confirmed" && /* @__PURE__ */ React.createElement(React.Fragment, null, " ", /* @__PURE__ */ React.createElement(StatusBadge, { status: ev.status })), /* @__PURE__ */ React.createElement("div", { "aria-label": ev.desc, style: { fontSize: 14, color: TEXT_BODY, lineHeight: 1.65, marginTop: 6 } }, showInstant ? /* @__PURE__ */ React.createElement("span", null, linkifyCountries(ev.desc, openCountry)) : words.map((w, wi) => /\s+/.test(w) ? /* @__PURE__ */ React.createElement("span", { key: wi }, w) : /* @__PURE__ */ React.createElement(
           "span",
           {
             key: wi,
@@ -3955,7 +4022,7 @@
     const sources = Array.from(new Set(news.map((n) => (n.s || "").toUpperCase()))).filter(Boolean).sort();
     const SEV_OPTIONS = ["extreme", "critical", "high"];
     const toggleSev = (s) => setSeverities((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement(Card, { style: { padding: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 12, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(FilterChip, { active: view === "news", onClick: () => setView("news"), color: BLUE }, "News (24h) \xB7 ", newsCountForSeverity(WW3_PCT)), /* @__PURE__ */ React.createElement(FilterChip, { active: view === "timeline", onClick: () => setView("timeline"), color: BLUE }, "Full Timeline"), /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 18, background: BORDER, margin: "0 4px" } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, marginRight: 2 } }, "Arc"), ARC_FILTERS.map((a) => /* @__PURE__ */ React.createElement(FilterChip, { key: a.key, active: arcs.includes(a.key), onClick: () => toggleArc(a.key), color: a.color }, a.label)), arcs.length > 0 && /* @__PURE__ */ React.createElement("button", { onClick: () => setArcs([]), style: { background: "none", border: "none", color: TEXT_MID, fontSize: 11, cursor: "pointer", marginLeft: 4 } }, "clear"), /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 18, background: BORDER, margin: "0 4px" } }), /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, marginRight: 2 } }, "Status"), STATUS_FILTERS.map((sf) => /* @__PURE__ */ React.createElement(FilterChip, { key: sf.key, active: statuses.includes(sf.key), onClick: () => toggleStatus(sf.key), color: sf.color }, sf.label)), statuses.length > 0 && /* @__PURE__ */ React.createElement("button", { onClick: () => setStatuses([]), style: { background: "none", border: "none", color: TEXT_MID, fontSize: 11, cursor: "pointer", marginLeft: 4 } }, "clear"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), country && /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement(Card, { style: { padding: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 12, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(FilterChip, { active: view === "news", onClick: () => setView("news"), color: BLUE }, "News (24h) \xB7 ", newsCountForSeverity(WW3_PCT)), /* @__PURE__ */ React.createElement(FilterChip, { active: view === "timeline", onClick: () => setView("timeline"), color: BLUE }, "Full Timeline"), /* @__PURE__ */ React.createElement("span", { className: "feed-filter-divider", style: { width: 1, height: 18, background: BORDER, margin: "0 4px" } }), /* @__PURE__ */ React.createElement("div", { className: "feed-filter-group", style: { display: "contents" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, marginRight: 2 } }, "Arc"), ARC_FILTERS.map((a) => /* @__PURE__ */ React.createElement(FilterChip, { key: a.key, active: arcs.includes(a.key), onClick: () => toggleArc(a.key), color: a.color }, a.label)), arcs.length > 0 && /* @__PURE__ */ React.createElement("button", { onClick: () => setArcs([]), style: { background: "none", border: "none", color: TEXT_MID, fontSize: 11, cursor: "pointer", marginLeft: 4 } }, "clear")), /* @__PURE__ */ React.createElement("span", { className: "feed-filter-divider", style: { width: 1, height: 18, background: BORDER, margin: "0 4px" } }), /* @__PURE__ */ React.createElement("div", { className: "feed-filter-group", style: { display: "contents" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, marginRight: 2 } }, "Status"), STATUS_FILTERS.map((sf) => /* @__PURE__ */ React.createElement(FilterChip, { key: sf.key, active: statuses.includes(sf.key), onClick: () => toggleStatus(sf.key), color: sf.color }, sf.label)), statuses.length > 0 && /* @__PURE__ */ React.createElement("button", { onClick: () => setStatuses([]), style: { background: "none", border: "none", color: TEXT_MID, fontSize: 11, cursor: "pointer", marginLeft: 4 } }, "clear")), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), country && /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: () => setCountry(null),
@@ -4018,7 +4085,7 @@
       },
       /* @__PURE__ */ React.createElement("option", { value: "ALL" }, "All sources"),
       sources.map((s) => /* @__PURE__ */ React.createElement("option", { key: s, value: s }, s))
-    ))), view === "timeline" && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, marginRight: 4 } }, "Severity"), SEV_OPTIONS.map((s) => /* @__PURE__ */ React.createElement(
+    ))), view === "timeline" && /* @__PURE__ */ React.createElement("div", { className: "feed-filter-group", style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, marginRight: 4 } }, "Severity"), SEV_OPTIONS.map((s) => /* @__PURE__ */ React.createElement(
       FilterChip,
       {
         key: s,
@@ -4046,7 +4113,7 @@
           style: { padding: 18, cursor: clickable ? "pointer" : "default", borderLeft: `3px solid ${alignCol}` },
           onClick: clickable ? () => openCountry && openCountry(c.name) : void 0
         },
-        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 16, marginBottom: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 28, lineHeight: 1, flexShrink: 0 } }, c.flag), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 8, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { className: "display", style: { fontSize: 17, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.012em", fontVariationSettings: "'opsz' 17" } }, c.name), /* @__PURE__ */ React.createElement(SeverityInline, { level: c.level, size: 9.5 }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", lineHeight: 1 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, fontWeight: 600, color: alignCol, letterSpacing: ".12em", textTransform: "uppercase", marginBottom: 2 } }, barLabel(c)), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 22, fontWeight: 600, color: col, letterSpacing: "-.025em", fontVariantNumeric: "tabular-nums", fontVariationSettings: "'opsz' 22" }, className: "display" }, c.risk))), /* @__PURE__ */ React.createElement("div", { style: { height: 5, background: RAISE_2, borderRadius: 999, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${c.risk}%`, height: "100%", background: col, borderRadius: 999, transition: "width .6s cubic-bezier(.2,.8,.2,1)" } })))),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 16, marginBottom: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 28, lineHeight: 1, flexShrink: 0 } }, c.flag), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 8, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { className: "display", style: { fontSize: 17, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.012em", fontVariationSettings: "'opsz' 17" } }, c.name), /* @__PURE__ */ React.createElement(SeverityInline, { level: c.level, size: 10.5 }), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", lineHeight: 1 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, fontWeight: 600, color: alignCol, letterSpacing: ".12em", textTransform: "uppercase", marginBottom: 2 } }, barLabel(c)), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 22, fontWeight: 600, color: col, letterSpacing: "-.025em", fontVariantNumeric: "tabular-nums", fontVariationSettings: "'opsz' 22" }, className: "display" }, c.risk))), /* @__PURE__ */ React.createElement("div", { style: { height: 5, background: RAISE_2, borderRadius: 999, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${c.risk}%`, height: "100%", background: col, borderRadius: 999, transition: "width .6s cubic-bezier(.2,.8,.2,1)" } })))),
         /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, paddingLeft: 44, fontWeight: 450 } }, c.note)
       );
     }));
@@ -4054,7 +4121,7 @@
   function ActorsTab({ openCountry }) {
     const [sortBy, setSortBy] = useState("risk");
     const theaterOnly = THEATERS.filter((t) => !Object.values(THEATER_BY_ACTOR).includes(t.name));
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 18 } }, /* @__PURE__ */ React.createElement(MapTab, { openCountry }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, paddingLeft: 2 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase" } }, "Geopolitical Actors \xB7 Theaters & Players"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: 12 } }, CHESS_PLAYERS.map((p) => {
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 18 } }, /* @__PURE__ */ React.createElement(MapTab, { openCountry }), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, paddingLeft: 2 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase" } }, "Geopolitical Actors \xB7 Theaters & Players"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" })), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(360px, 100%), 1fr))", gap: 12 } }, CHESS_PLAYERS.map((p) => {
       const key = p.name === "United States" ? "USA" : p.name.includes("Hezbollah") ? "Lebanon" : p.name.includes("Houthis") ? null : p.name;
       const clickable = key && !!COUNTRY_KEYS[key];
       const theaterName = THEATER_BY_ACTOR[p.name];
@@ -4067,7 +4134,7 @@
           style: { borderLeft: `3px solid ${p.color}`, cursor: clickable ? "pointer" : "default", padding: "18px 20px" },
           onClick: clickable ? () => openCountry && openCountry(key) : void 0
         },
-        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, minWidth: 0 } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 24, lineHeight: 1, flexShrink: 0 } }, p.flag), /* @__PURE__ */ React.createElement("span", { className: "display", style: { fontSize: 16, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.012em", fontVariationSettings: "'opsz' 16", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" } }, p.name)), theater ? /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".06em", fontWeight: 500 } }, "DAY ", daysSince(theater.start)), theater.as_of && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM } }, "as of ", theater.as_of), /* @__PURE__ */ React.createElement(StaleChip, { asOf: theater.as_of })) : p.as_of ? /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM } }, "as of ", p.as_of), !p.stale_ok && /* @__PURE__ */ React.createElement(StaleChip, { asOf: p.as_of })) : null),
+        /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, rowGap: 8, flexWrap: "wrap", marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, minWidth: 0, maxWidth: "100%" } }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 24, lineHeight: 1, flexShrink: 0 } }, p.flag), /* @__PURE__ */ React.createElement("span", { className: "display", style: { fontSize: 16, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.012em", fontVariationSettings: "'opsz' 16", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" } }, p.name)), theater ? /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".06em", fontWeight: 500 } }, "DAY ", daysSince(theater.start)), theater.as_of && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM } }, "as of ", theater.as_of), /* @__PURE__ */ React.createElement(StaleChip, { asOf: theater.as_of })) : p.as_of ? /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM } }, "as of ", p.as_of), !p.stale_ok && /* @__PURE__ */ React.createElement(StaleChip, { asOf: p.as_of })) : null),
         theater && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, marginBottom: 10, lineHeight: 1.55 } }, theater.status), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 14 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: p.color, fontWeight: 600, letterSpacing: ".08em", textTransform: "uppercase" } }, "Threat"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 5, background: BORDER, borderRadius: 999, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${theater.threat}%`, height: "100%", background: p.color, borderRadius: 999 } })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: p.color, fontWeight: 600, fontVariantNumeric: "tabular-nums" } }, theater.threat, "%"))),
         /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 14 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 6 }, "Objective"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyCountries(p.goal, openCountry))),
         /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 6, color: p.color }, "Current Move"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyCountries(p.move, openCountry)))
@@ -4103,6 +4170,14 @@
       return t > acc.t ? { t, label: c.updated_at } : acc;
     }, { t: -1, label: "\u2014" });
     const cardRefs = useRef({});
+    const recordFor = (arc) => {
+      const r = ARC_RECORDS[arc];
+      return r && Array.isArray(r.lead && r.lead.facts) && r.lead.facts.some((f) => factText(f).trim()) ? r : null;
+    };
+    const firstCardOfArc = {};
+    AI_CARDS.forEach((c) => {
+      if (!(c.arc in firstCardOfArc)) firstCardOfArc[c.arc] = c.lens;
+    });
     useEffect(() => {
       if (!targetArc) return;
       const hit = AI_CARDS.find((c) => c.arc === targetArc);
@@ -4110,30 +4185,60 @@
         if (onConsumeTarget) onConsumeTarget();
         return;
       }
+      const key = recordFor(targetArc) ? `record:${targetArc}` : hit.lens;
+      const ring = (recordFor(targetArc) || {}).accent || hit.color;
       const t = setTimeout(() => {
-        const el = cardRefs.current[hit.lens];
+        const el = cardRefs.current[key];
         if (el) {
           if (el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
-          el.style.boxShadow = `0 0 0 2px ${hit.color}, 0 0 22px ${alpha(hit.color, 0.35)}`;
+          el.style.boxShadow = `0 0 0 2px ${ring}, 0 0 22px ${alpha(ring, 0.35)}`;
           setTimeout(() => {
-            if (cardRefs.current[hit.lens]) cardRefs.current[hit.lens].style.boxShadow = "";
+            if (cardRefs.current[key]) cardRefs.current[key].style.boxShadow = "";
           }, 2400);
         }
         if (onConsumeTarget) onConsumeTarget();
       }, 70);
       return () => clearTimeout(t);
     }, [targetArc]);
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: alpha(VIOLET, 0.08), border: `1px solid ${alpha(VIOLET, 0.22)}`, borderRadius: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 8, height: 8, borderRadius: "50%", background: VIOLET, animation: "ping 1.5s ease infinite", flexShrink: 0 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: VIOLET, letterSpacing: ".06em", fontWeight: 600 } }, "AI Strategic Analysis \xB7 Claude Opus 4.7"), /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 14, background: alpha(VIOLET, 0.25) } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: TEXT_BODY, fontWeight: 500 } }, "Epic Fury \xB7 US-BRICS Rivalry \xB7 Russia-Ukraine"), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, marginLeft: "auto", fontVariantNumeric: "tabular-nums" } }, "Latest card: ", latest.label)), AI_CARDS.map((c) => /* @__PURE__ */ React.createElement(
-      "div",
-      {
-        key: c.lens,
-        ref: (el) => {
-          cardRefs.current[c.lens] = el;
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { className: "ai-head", style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 12, rowGap: 6, padding: "14px 18px", background: alpha(VIOLET, 0.08), border: `1px solid ${alpha(VIOLET, 0.22)}`, borderRadius: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 8, height: 8, borderRadius: "50%", background: VIOLET, animation: "ping 1.5s ease infinite", flexShrink: 0 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: VIOLET, letterSpacing: ".06em", fontWeight: 600 } }, "AI Strategic Analysis \xB7 Claude Opus 4.7"), /* @__PURE__ */ React.createElement("span", { className: "ai-head-divider", style: { width: 1, height: 14, background: alpha(VIOLET, 0.25) } }), /* @__PURE__ */ React.createElement(M, { className: "ai-head-arcs", style: { fontSize: 12, color: TEXT_BODY, fontWeight: 500 } }, "Epic Fury \xB7 US-BRICS Rivalry \xB7 Russia-Ukraine"), /* @__PURE__ */ React.createElement(M, { className: "ai-head-latest", style: { fontSize: 11, color: TEXT_DIM, marginLeft: "auto", fontVariantNumeric: "tabular-nums" } }, "Latest card: ", latest.label)), AI_CARDS.map((c) => {
+      const rec = firstCardOfArc[c.arc] === c.lens ? recordFor(c.arc) : null;
+      return /* @__PURE__ */ React.createElement(React.Fragment, { key: c.lens }, rec && /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          ref: (el) => {
+            cardRefs.current[`record:${c.arc}`] = el;
+          },
+          style: { borderRadius: 14, scrollMarginTop: 80, transition: "box-shadow .35s ease" }
         },
-        style: { borderRadius: 14, scrollMarginTop: 80, transition: "box-shadow .35s ease" }
-      },
-      /* @__PURE__ */ React.createElement(AICard, { c })
-    )));
+        /* @__PURE__ */ React.createElement(LeadRecord, { lead: rec.lead, accent: rec.accent, accentText: rec.accentText })
+      ), /* @__PURE__ */ React.createElement(
+        "div",
+        {
+          ref: (el) => {
+            cardRefs.current[c.lens] = el;
+          },
+          style: { borderRadius: 14, scrollMarginTop: 80, transition: "box-shadow .35s ease" }
+        },
+        /* @__PURE__ */ React.createElement(AICard, { c })
+      ));
+    }));
+  }
+  var RECORD_NOTE = "What was reported, with its date and source. The analysis cards below interpret it.";
+  var OUTLOOK_NOTE = "Named, dated, falsifiable calls \u2014 scored against what actually happened.";
+  function LeadRecord({ lead, accent, accentText }) {
+    const at = accentText || accent;
+    const arcName = String(lead.kicker || "").split("\xB7")[0].trim();
+    const items = lead.facts.map(factText).filter((s) => s.trim());
+    return /* @__PURE__ */ React.createElement(Card, { style: { borderLeft: `3px solid ${accent}` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 4, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: at, letterSpacing: ".14em", fontWeight: 600, textTransform: "uppercase" } }, arcName ? `${arcName} \xB7 ` : "", "Sourced record"), /* @__PURE__ */ React.createElement(ByWidth, { compact: /* @__PURE__ */ React.createElement(InfoTip, null, RECORD_NOTE) }), lead.updated_at && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, lead.updated_at)), /* @__PURE__ */ React.createElement(
+      ByWidth,
+      {
+        wide: /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_DIM, lineHeight: 1.5, marginBottom: 12 } }, RECORD_NOTE),
+        compact: /* @__PURE__ */ React.createElement("div", { style: { height: 8 } })
+      }
+    ), /* @__PURE__ */ React.createElement("ul", { style: { listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 8 } }, items.map((s, i) => {
+      const m = s.match(/^(\d{1,2}(?:\s*[-–]\s*\d{1,2})?\s+[A-Z][a-z]+(?:\s+\d{4})?):\s+(.*)$/s);
+      return /* @__PURE__ */ React.createElement("li", { key: i, className: "record-item", style: { display: "flex", gap: 12, alignItems: "baseline", fontSize: 13.5, lineHeight: 1.55, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement(M, { className: "record-date", style: { flexShrink: 0, width: 96, fontSize: 11, fontWeight: 600, color: TEXT_MID, letterSpacing: ".04em", fontVariantNumeric: "tabular-nums" } }, m ? m[1] : ""), /* @__PURE__ */ React.createElement("span", null, scrubCodes(m ? m[2] : s)));
+    })));
   }
   function AICard({ c }) {
     const [expanded, setExpanded] = useState(false);
@@ -4226,14 +4331,14 @@
     const sig = typeof ind.signal === "number" ? ind.signal : 0;
     const thr = typeof ind.threshold === "number" ? ind.threshold : null;
     const hasDetail = !!(thr != null || ind.watch_window_end || ind.latest_evidence || ind.theater);
-    return /* @__PURE__ */ React.createElement(Card, { className: hasDetail ? "card-hover" : void 0, style: { padding: "10px 14px", borderLeft: `3px solid ${alpha(col, 0.55)}` } }, /* @__PURE__ */ React.createElement("div", { onClick: hasDetail ? () => setOpen((v) => !v) : void 0, style: { display: "flex", alignItems: "center", gap: 10, cursor: hasDetail ? "pointer" : "default" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: col, flexShrink: 0, minWidth: 46 } }, esc ? "Esc" : "De-esc"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0, fontSize: 12.5, color: TEXT_HI, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, linkifyText(ind.indicator, openCountry)), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: col, fontWeight: 600, fontVariantNumeric: "tabular-nums", flexShrink: 0 } }, Math.round(sig * 100), "%"), hasDetail && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, flexShrink: 0, width: 9, textAlign: "center" } }, open ? "\u2212" : "+")), open && hasDetail && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 10, paddingTop: 10, borderTop: `1px solid ${BORDER}`, display: "flex", flexDirection: "column", gap: 9 } }, ind.theater && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(OutTheaterChip, { name: ind.theater })), /* @__PURE__ */ React.createElement("div", { style: { position: "relative", height: 6, background: RAISE_2, borderRadius: 999 } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${Math.round(sig * 100)}%`, height: "100%", background: col, borderRadius: 999, transition: "width .6s cubic-bezier(.2,.8,.2,1)" } }), thr != null && /* @__PURE__ */ React.createElement("div", { title: `Activates at ${Math.round(thr * 100)}%`, style: { position: "absolute", left: `${Math.round(thr * 100)}%`, top: -3, width: 2, height: 12, background: TEXT_HI, opacity: 0.45, borderRadius: 2 } })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: col, fontWeight: 600, fontVariantNumeric: "tabular-nums" } }, "signal ", Math.round(sig * 100), "%", thr != null && /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 500 } }, " \xB7 fires at ", Math.round(thr * 100), "%")), ind.watch_window_end && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, "watch thru ", (/* @__PURE__ */ new Date(ind.watch_window_end + "T00:00:00")).toLocaleDateString("en-US", { month: "short", day: "numeric" }))), ind.latest_evidence && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_BODY, lineHeight: 1.55 } }, linkifyText(ind.latest_evidence, openCountry))));
+    return /* @__PURE__ */ React.createElement(Card, { className: hasDetail ? "card-hover" : void 0, style: { padding: "10px 14px", borderLeft: `3px solid ${alpha(col, 0.55)}` } }, /* @__PURE__ */ React.createElement("div", { onClick: hasDetail ? () => setOpen((v) => !v) : void 0, style: { display: "flex", alignItems: "center", gap: 10, cursor: hasDetail ? "pointer" : "default" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: col, flexShrink: 0, minWidth: 46 } }, esc ? "Esc" : "De-esc"), /* @__PURE__ */ React.createElement("div", { className: `row-title${open ? " is-open" : ""}`, style: { flex: 1, minWidth: 0, fontSize: 12.5, color: TEXT_HI, fontWeight: 500, lineHeight: 1.45, ...open ? {} : { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } } }, linkifyText(ind.indicator, openCountry)), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: col, fontWeight: 600, fontVariantNumeric: "tabular-nums", flexShrink: 0 } }, Math.round(sig * 100), "%"), hasDetail && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, flexShrink: 0, width: 9, textAlign: "center" } }, open ? "\u2212" : "+")), open && hasDetail && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 10, paddingTop: 10, borderTop: `1px solid ${BORDER}`, display: "flex", flexDirection: "column", gap: 9 } }, ind.theater && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(OutTheaterChip, { name: ind.theater })), /* @__PURE__ */ React.createElement("div", { style: { position: "relative", height: 6, background: RAISE_2, borderRadius: 999 } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${Math.round(sig * 100)}%`, height: "100%", background: col, borderRadius: 999, transition: "width .6s cubic-bezier(.2,.8,.2,1)" } }), thr != null && /* @__PURE__ */ React.createElement("div", { title: `Activates at ${Math.round(thr * 100)}%`, style: { position: "absolute", left: `${Math.round(thr * 100)}%`, top: -3, width: 2, height: 12, background: TEXT_HI, opacity: 0.45, borderRadius: 2 } })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: col, fontWeight: 600, fontVariantNumeric: "tabular-nums" } }, "signal ", Math.round(sig * 100), "%", thr != null && /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 500 } }, " \xB7 fires at ", Math.round(thr * 100), "%")), ind.watch_window_end && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, "watch thru ", (/* @__PURE__ */ new Date(ind.watch_window_end + "T00:00:00")).toLocaleDateString("en-US", { month: "short", day: "numeric" }))), ind.latest_evidence && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_BODY, lineHeight: 1.55 } }, linkifyText(ind.latest_evidence, openCountry))));
   }
   var GAP_PRI = { critical: { c: DANGER, label: "Critical" }, important: { c: AMBER, label: "Important" }, monitoring: { c: BLUE, label: "Monitoring" } };
   function GapRow({ g, openCountry }) {
     const [open, setOpen] = useState(false);
     const pri = GAP_PRI[g.priority] || { c: TEXT_MID, label: g.priority };
     const hasDetail = !!(g.why_it_matters || g.collection_status || g.theater);
-    return /* @__PURE__ */ React.createElement(Card, { className: hasDetail ? "card-hover" : void 0, style: { padding: "10px 14px", borderLeft: `3px solid ${alpha(pri.c, 0.55)}` } }, /* @__PURE__ */ React.createElement("div", { onClick: hasDetail ? () => setOpen((v) => !v) : void 0, style: { display: "flex", alignItems: "center", gap: 10, cursor: hasDetail ? "pointer" : "default" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: pri.c, flexShrink: 0, minWidth: 64 } }, pri.label), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0, fontSize: 12.5, color: TEXT_HI, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } }, linkifyText(g.question, openCountry)), g.days_open != null && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, flexShrink: 0, fontVariantNumeric: "tabular-nums" } }, "open ", g.days_open, "d"), hasDetail && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, flexShrink: 0, width: 9, textAlign: "center" } }, open ? "\u2212" : "+")), open && hasDetail && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 10, paddingTop: 10, borderTop: `1px solid ${BORDER}`, display: "flex", flexDirection: "column", gap: 8 } }, g.theater && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(OutTheaterChip, { name: g.theater })), g.why_it_matters && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_BODY, lineHeight: 1.6 } }, linkifyText(g.why_it_matters, openCountry)), g.collection_status && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, lineHeight: 1.55, fontStyle: "italic" } }, linkifyText(g.collection_status, openCountry))));
+    return /* @__PURE__ */ React.createElement(Card, { className: hasDetail ? "card-hover" : void 0, style: { padding: "10px 14px", borderLeft: `3px solid ${alpha(pri.c, 0.55)}` } }, /* @__PURE__ */ React.createElement("div", { onClick: hasDetail ? () => setOpen((v) => !v) : void 0, style: { display: "flex", alignItems: "center", gap: 10, cursor: hasDetail ? "pointer" : "default" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", color: pri.c, flexShrink: 0, minWidth: 64 } }, pri.label), /* @__PURE__ */ React.createElement("div", { className: `row-title${open ? " is-open" : ""}`, style: { flex: 1, minWidth: 0, fontSize: 12.5, color: TEXT_HI, fontWeight: 500, lineHeight: 1.45, ...open ? {} : { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } } }, linkifyText(g.question, openCountry)), g.days_open != null && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, flexShrink: 0, fontVariantNumeric: "tabular-nums" } }, "open ", g.days_open, "d"), hasDetail && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, flexShrink: 0, width: 9, textAlign: "center" } }, open ? "\u2212" : "+")), open && hasDetail && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 10, paddingTop: 10, borderTop: `1px solid ${BORDER}`, display: "flex", flexDirection: "column", gap: 8 } }, g.theater && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(OutTheaterChip, { name: g.theater })), g.why_it_matters && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_BODY, lineHeight: 1.6 } }, linkifyText(g.why_it_matters, openCountry)), g.collection_status && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, lineHeight: 1.55, fontStyle: "italic" } }, linkifyText(g.collection_status, openCountry))));
   }
   function OutlookTab({ openCountry }) {
     const data = OUTLOOK || {};
@@ -4249,9 +4354,16 @@
     const sortedGaps = [...gaps].sort((a, b) => (PRI_ORDER[a.priority] ?? 3) - (PRI_ORDER[b.priority] ?? 3) || (b.days_open || 0) - (a.days_open || 0));
     const SectionHead = ({ children, count }) => /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, paddingLeft: 2, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase" } }, children), count != null && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, count), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }));
     const empty = openForecasts.length === 0 && indicators.length === 0 && sortedGaps.length === 0 && !(data.calibration && data.calibration.total_resolved);
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: alpha(BLUE, 0.07), border: `1px solid ${alpha(BLUE, 0.22)}`, borderRadius: 12, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", color: BLUE } }, /* @__PURE__ */ React.createElement(Icon, { name: "outlook", size: 18 })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: BLUE, letterSpacing: ".06em", fontWeight: 600 } }, "Outlook \xB7 Forecasts & Track Record"), /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 14, background: alpha(BLUE, 0.25) } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: TEXT_BODY, fontWeight: 500 } }, "Named, dated, falsifiable calls \u2014 scored against what actually happened.")), /* @__PURE__ */ React.createElement(CalibrationPanel, { cal: data.calibration }), openForecasts.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } }, /* @__PURE__ */ React.createElement(SectionHead, { count: openForecasts.length }, "Open Forecasts \xB7 Soonest First"), (showAllFc ? openForecasts : openForecasts.slice(0, FC_CAP)).map((f, i) => /* @__PURE__ */ React.createElement(ForecastRow, { key: i, f, openCountry })), openForecasts.length > FC_CAP && /* @__PURE__ */ React.createElement("button", { onClick: () => setShowAllFc((v) => !v), className: "pressable", style: { background: "none", border: "none", padding: 0, marginTop: 2, color: BLUE, fontSize: 12, fontWeight: 600, cursor: "pointer", display: "inline-flex", alignSelf: "flex-start" } }, showAllFc ? "\u2212 Show fewer" : `+ Show all ${openForecasts.length} forecasts`)), (escalators.length > 0 || deescalators.length > 0) && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } }, /* @__PURE__ */ React.createElement(SectionHead, { count: indicators.length }, "Leading Indicators \xB7 Escalation & De-escalation"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6 } }, escalators.map((ind, i) => /* @__PURE__ */ React.createElement(IndicatorRow, { key: `e${i}`, ind, openCountry })), deescalators.map((ind, i) => /* @__PURE__ */ React.createElement(IndicatorRow, { key: `d${i}`, ind, openCountry })))), sortedGaps.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } }, /* @__PURE__ */ React.createElement(SectionHead, { count: sortedGaps.length }, "Open Questions \xB7 What We're Still Confirming"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6 } }, sortedGaps.map((g, i) => /* @__PURE__ */ React.createElement(GapRow, { key: i, g, openCountry })))), empty && /* @__PURE__ */ React.createElement(Card, { style: { padding: 24 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_DIM } }, "No forecasts, indicators, or intelligence gaps are currently being tracked.")));
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: alpha(BLUE, 0.07), border: `1px solid ${alpha(BLUE, 0.22)}`, borderRadius: 12, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", color: BLUE } }, /* @__PURE__ */ React.createElement(Icon, { name: "outlook", size: 18 })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: BLUE, letterSpacing: ".06em", fontWeight: 600 } }, "Outlook \xB7 Forecasts & Track Record"), /* @__PURE__ */ React.createElement(
+      ByWidth,
+      {
+        wide: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 14, background: alpha(BLUE, 0.25) } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: TEXT_BODY, fontWeight: 500 } }, OUTLOOK_NOTE)),
+        compact: /* @__PURE__ */ React.createElement(InfoTip, null, OUTLOOK_NOTE)
+      }
+    )), /* @__PURE__ */ React.createElement(CalibrationPanel, { cal: data.calibration }), openForecasts.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } }, /* @__PURE__ */ React.createElement(SectionHead, { count: openForecasts.length }, "Open Forecasts \xB7 Soonest First"), (showAllFc ? openForecasts : openForecasts.slice(0, FC_CAP)).map((f, i) => /* @__PURE__ */ React.createElement(ForecastRow, { key: i, f, openCountry })), openForecasts.length > FC_CAP && /* @__PURE__ */ React.createElement("button", { onClick: () => setShowAllFc((v) => !v), className: "pressable", style: { background: "none", border: "none", padding: 0, marginTop: 2, color: BLUE, fontSize: 12, fontWeight: 600, cursor: "pointer", display: "inline-flex", alignSelf: "flex-start" } }, showAllFc ? "\u2212 Show fewer" : `+ Show all ${openForecasts.length} forecasts`)), (escalators.length > 0 || deescalators.length > 0) && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } }, /* @__PURE__ */ React.createElement(SectionHead, { count: indicators.length }, "Leading Indicators \xB7 Escalation & De-escalation"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6 } }, escalators.map((ind, i) => /* @__PURE__ */ React.createElement(IndicatorRow, { key: `e${i}`, ind, openCountry })), deescalators.map((ind, i) => /* @__PURE__ */ React.createElement(IndicatorRow, { key: `d${i}`, ind, openCountry })))), sortedGaps.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 12 } }, /* @__PURE__ */ React.createElement(SectionHead, { count: sortedGaps.length }, "Open Questions \xB7 What We're Still Confirming"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6 } }, sortedGaps.map((g, i) => /* @__PURE__ */ React.createElement(GapRow, { key: i, g, openCountry })))), empty && /* @__PURE__ */ React.createElement(Card, { style: { padding: 24 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_DIM } }, "No forecasts, indicators, or intelligence gaps are currently being tracked.")));
   }
   var FETCH_TIMEOUT_MS = 8e3;
+  var STOOQ_TIMEOUT_MS = 5e3;
   async function fetchWithTimeout(url, ms = FETCH_TIMEOUT_MS, opts = {}) {
     const ac = new AbortController();
     const t = setTimeout(() => ac.abort(), ms);
@@ -4325,12 +4437,18 @@
       }
     },
     upsertToday(values) {
-      gasSeries.upsertRows([{ date: (/* @__PURE__ */ new Date()).toISOString().slice(0, 10), ...values }]);
+      gasSeries.upsertRows([{ date: dateOffsetISO(0), ...values }]);
     }
   };
+  function easternTodayISO() {
+    try {
+      return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(/* @__PURE__ */ new Date());
+    } catch (_) {
+      return (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
+    }
+  }
   function dateOffsetISO(daysAgo) {
-    const d = /* @__PURE__ */ new Date();
-    d.setUTCHours(0, 0, 0, 0);
+    const d = /* @__PURE__ */ new Date(easternTodayISO() + "T00:00:00Z");
     d.setUTCDate(d.getUTCDate() - daysAgo);
     return d.toISOString().slice(0, 10);
   }
@@ -4344,16 +4462,130 @@
     if (ms < 864e5) return { live: false, label: `${Math.round(ms / 36e5)}h ago`, stale: true };
     return { live: false, label: "stale", stale: true };
   }
+  var GAS_FIELDS = ["national", "california", "ohio", "cincinnati", "diesel"];
+  var GAS_DAILY_FIELD = { national: "nat", california: "ca", ohio: "oh", cincinnati: "cin", diesel: "diesel" };
+  var fmtDay = (iso) => (/* @__PURE__ */ new Date(`${iso}T00:00:00Z`)).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+  function easternDayOf(ts) {
+    try {
+      return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(ts));
+    } catch (_) {
+      return new Date(ts).toISOString().slice(0, 10);
+    }
+  }
+  function isoMinusDays(iso, n) {
+    const d = /* @__PURE__ */ new Date(`${iso}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() - n);
+    return d.toISOString().slice(0, 10);
+  }
+  function gasSeedFromBuild() {
+    const rows = (GAS_DAILY || []).filter((r) => r && /^\d{4}-\d{2}-\d{2}$/.test(r.d || ""));
+    if (!rows.length) return null;
+    const byDate = new Map(rows.map((r) => [r.d, r]));
+    const out = { at: {} };
+    for (const f of GAS_FIELDS) {
+      const key = GAS_DAILY_FIELD[f];
+      let best = null;
+      for (const r of rows) if (r[key] != null && isFinite(r[key]) && (!best || r.d > best.d)) best = r;
+      if (best) {
+        out[f] = best[key];
+        out.at[f] = { d: best.d, src: "build" };
+      }
+    }
+    if (out.diesel != null) {
+      const d = out.at.diesel.d;
+      const ref = (n) => byDate.get(isoMinusDays(d, n))?.diesel ?? null;
+      out.dieselLadder = { current: out.diesel, yesterday: ref(1), weekAgo: ref(7), monthAgo: ref(30) };
+    }
+    return out;
+  }
+  function seedGasState() {
+    const g = { ...GAS, at: {} };
+    const b = gasSeedFromBuild();
+    const c = priceCache.read().gas;
+    for (const f of GAS_FIELDS) {
+      const cv = c?.[f];
+      const cts = c?.at?.[f] ?? c?.asOf;
+      const buildDay = b?.at?.[f]?.d;
+      if (cv != null && cts && (!buildDay || easternDayOf(cts) >= buildDay)) {
+        g[f] = cv;
+        g.at[f] = { ts: cts, src: "cache" };
+      } else if (b && b[f] != null) {
+        g[f] = b[f];
+        g.at[f] = b.at[f];
+      }
+    }
+    g.dieselLadder = g.at.diesel?.src === "cache" ? c?.dieselLadder ?? null : b?.dieselLadder ?? null;
+    g.loaded = g.national != null;
+    return g;
+  }
+  function brentSeedFromBuild() {
+    const last = BRENT_SERIES.length ? BRENT_SERIES[BRENT_SERIES.length - 1] : null;
+    return last && last.v > 0 && last.d ? { price: last.v, chg: null, loaded: true, dated: last.d, fromCache: true } : null;
+  }
+  function gasAgeLabel(gas, field = "national") {
+    const a = gas?.at?.[field];
+    if (a?.ts) return staleness(a.ts).label;
+    if (a?.d) return `as of ${fmtDay(a.d)}`;
+    return "";
+  }
+  var gasIsLive = (gas, field = "national") => gas?.at?.[field]?.src === "live";
+  function mktAgeLabel(e) {
+    if (e?.asOf) return staleness(e.asOf).label;
+    if (e?.dated) return `as of ${fmtDay(e.dated)}`;
+    return "";
+  }
+  function PriceSourceBadge({ live, dated }) {
+    return live ? /* @__PURE__ */ React.createElement(SourceBadge, { kind: "live" }) : /* @__PURE__ */ React.createElement(SourceBadge, { kind: "cached", label: dated ? "Dated" : "Cached" });
+  }
   var YF_SYMBOLS = ["^GSPC", "^DJI", "^IXIC", "GC=F", "CL=F", "BZ=F"];
   var YF_TILE = { "^GSPC": "SPX", "^DJI": "DOW", "^IXIC": "NDX", "GC=F": "GOLD", "CL=F": "WTI", "BZ=F": "BRENT" };
   var STOOQ_MAP = { "^GSPC": "^spx", "^DJI": "^dji", "^IXIC": "^ndq", "GC=F": "gc.f", "CL=F": "cl.f", "BZ=F": "cb.f" };
   var YF_CHART = (s) => `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}`;
   var YF_SPARK = (syms) => `https://query1.finance.yahoo.com/v8/finance/spark?symbols=${syms.map(encodeURIComponent).join(",")}&range=1d&interval=5m`;
-  var YF_PROXIES = [
-    (url) => "https://corsproxy.io/?" + encodeURIComponent(url),
-    (url) => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-    (url) => "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(url)
+  var PROXY_ORIGIN_KEY = (() => {
+    try {
+      return "&_o=" + encodeURIComponent(location.host || "local");
+    } catch {
+      return "";
+    }
+  })();
+  var CORS_PROXIES = [
+    { id: "allorigins-raw", make: (u) => "https://api.allorigins.win/raw?url=" + encodeURIComponent(u) + PROXY_ORIGIN_KEY },
+    { id: "codetabs", make: (u) => "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(u) },
+    {
+      id: "allorigins-get",
+      make: (u) => "https://api.allorigins.win/get?url=" + encodeURIComponent(u) + PROXY_ORIGIN_KEY,
+      unwrap: async (r) => {
+        const j = await r.json();
+        if (!j || typeof j.contents !== "string" || !j.contents) throw new Error("allorigins-get: empty contents");
+        return new Response(j.contents);
+      }
+    }
   ];
+  var PROXY_TIMEOUT_MS = 9e3;
+  var PROXY_HEDGE_MS = 1500;
+  var PROXY_PREF_KEY = "ww3dash.proxyPref.v1";
+  var proxyPref = (() => {
+    try {
+      return localStorage.getItem(PROXY_PREF_KEY);
+    } catch {
+      return null;
+    }
+  })();
+  function rememberProxy(id) {
+    if (proxyPref === id) return;
+    proxyPref = id;
+    try {
+      localStorage.setItem(PROXY_PREF_KEY, id);
+    } catch (_) {
+    }
+  }
+  function proxyOrder(startAt) {
+    const n = CORS_PROXIES.length;
+    const rotated = CORS_PROXIES.map((_, k) => CORS_PROXIES[(startAt + k) % n]);
+    const i = rotated.findIndex((p) => p.id === proxyPref);
+    return i > 0 ? [rotated[i], ...rotated.slice(0, i), ...rotated.slice(i + 1)] : rotated;
+  }
   async function mapLimit(items, limit, fn) {
     const results = new Array(items.length);
     let next = 0;
@@ -4370,25 +4602,52 @@
     await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
     return results;
   }
-  async function tryProxies(buildUrl, parse, timeout = FETCH_TIMEOUT_MS, startAt = 0) {
-    let lastErr;
-    const n = YF_PROXIES.length;
-    for (let k = 0; k < n; k++) {
-      const proxyMaker = YF_PROXIES[(startAt + k) % n];
-      try {
-        const r = await fetchWithTimeout(proxyMaker(buildUrl), timeout);
-        if (!r.ok) {
-          lastErr = new Error("status " + r.status);
-          continue;
-        }
-        const parsed = await parse(r);
-        if (parsed != null) return parsed;
-        lastErr = new Error("parse returned null");
-      } catch (e) {
-        lastErr = e;
-      }
-    }
-    throw lastErr || new Error("all proxies failed");
+  function tryProxies(target, parse, startAt = 0) {
+    const order = proxyOrder(startAt);
+    return new Promise((resolve, reject) => {
+      const ctrls = [];
+      let launched = 0, failed = 0, done = false, hedgeTimer = null, lastErr = null;
+      const finish = () => {
+        done = true;
+        clearTimeout(hedgeTimer);
+        for (const c of ctrls) c.abort();
+      };
+      const launch = () => {
+        if (done || launched >= order.length) return;
+        const p = order[launched++];
+        const ac = new AbortController();
+        ctrls.push(ac);
+        clearTimeout(hedgeTimer);
+        if (launched < order.length) hedgeTimer = setTimeout(launch, PROXY_HEDGE_MS);
+        const killer = setTimeout(() => ac.abort(), PROXY_TIMEOUT_MS);
+        (async () => {
+          const r = await fetch(p.make(target), { signal: ac.signal });
+          if (!r.ok) throw new Error(p.id + " HTTP " + r.status);
+          const parsed = await parse(p.unwrap ? await p.unwrap(r) : r);
+          if (parsed == null) throw new Error(p.id + ": page did not parse");
+          return parsed;
+        })().then(
+          (v) => {
+            clearTimeout(killer);
+            if (done) return;
+            rememberProxy(p.id);
+            finish();
+            resolve(v);
+          },
+          (e) => {
+            clearTimeout(killer);
+            if (done) return;
+            lastErr = e;
+            failed++;
+            if (failed >= order.length) {
+              finish();
+              reject(lastErr);
+            } else if (failed >= launched) launch();
+          }
+        );
+      };
+      launch();
+    });
   }
   async function fetchYahooSpark() {
     return tryProxies(YF_SPARK(YF_SYMBOLS), async (r) => {
@@ -4428,13 +4687,13 @@
         regularMarketPrice: meta.regularMarketPrice,
         regularMarketChangePercent: chgPct
       };
-    }, FETCH_TIMEOUT_MS, startAt);
+    }, startAt);
   }
   async function fetchStooq(sym) {
     const ss = STOOQ_MAP[sym];
     if (!ss) throw new Error("stooq: no mapping for " + sym);
     const url = `https://stooq.com/q/l/?s=${encodeURIComponent(ss)}&f=sd2t2ohlcv&h&e=csv`;
-    const r = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
+    const r = await fetchWithTimeout(url, STOOQ_TIMEOUT_MS);
     if (!r.ok) throw new Error("stooq " + r.status);
     const text = await r.text();
     const lines = text.trim().split(/\r?\n/);
@@ -4458,19 +4717,33 @@
     const tile = YF_TILE[sym];
     const c = tile ? priceCache.read()[tile] : null;
     if (c && c.price != null) {
-      return { symbol: sym, regularMarketPrice: c.price, regularMarketChangePercent: c.chg ?? 0, _fromCache: true, _asOf: c.asOf };
+      return { symbol: sym, regularMarketPrice: c.price, regularMarketChangePercent: c.chg ?? null, _fromCache: true, _asOf: c.asOf };
     }
     throw new Error(sym + ": all sources failed (Yahoo+Stooq+cache empty)");
   }
-  async function fetchYahooMarkets() {
+  async function fetchYahooMarkets(onQuotes) {
     const collected = /* @__PURE__ */ new Map();
+    const emit = (qs) => {
+      if (onQuotes && qs.length) {
+        try {
+          onQuotes(qs);
+        } catch (_) {
+        }
+      }
+    };
     try {
-      for (const q of await fetchYahooSpark()) collected.set(q.symbol, q);
+      const spark = await fetchYahooSpark();
+      for (const q of spark) collected.set(q.symbol, q);
+      emit(spark);
     } catch (_) {
     }
     const missing = YF_SYMBOLS.filter((s) => !collected.has(s));
     if (missing.length) {
-      const filled = await mapLimit(missing, 2, (s, i) => fetchSymbolResilient(s, i));
+      const filled = await mapLimit(missing, 2, async (s, i) => {
+        const q = await fetchSymbolResilient(s, i);
+        emit([q]);
+        return q;
+      });
       for (const q of filled) if (q) collected.set(q.symbol, q);
     }
     const ok = Array.from(collected.values());
@@ -4529,50 +4802,48 @@
   function extractAaaMetroLadder(html, metro) {
     return extractAaaLadderAfter(html, new RegExp(metro, "i"));
   }
-  async function fetchAaaRegion(path, parseLadder, parseDiesel) {
+  function aaaRegionFromLadder(ladder) {
+    return ladder && ladder.current != null ? { price: ladder.current, ladder } : null;
+  }
+  async function fetchAaaPage(path, parse) {
     return tryProxies(AAA_HOST + path, async (r) => {
-      const html = await r.text();
-      const ladder = parseLadder ? parseLadder(html) : null;
-      const price = ladder && ladder.current != null ? ladder.current : extractAaaPrice(html);
-      if (price == null) return null;
-      let diesel = null;
-      try {
-        diesel = parseDiesel ? parseDiesel(html) : null;
-      } catch (_) {
-      }
-      return { price, ladder, diesel };
+      const out = parse(await r.text());
+      return out && Object.values(out).some(Boolean) ? out : null;
     });
   }
-  async function fetchAaaCincinnatiRegion() {
-    try {
-      return await tryProxies(AAA_HOST + "/?state=OH", async (r) => {
-        const html = await r.text();
-        const ladder = extractAaaMetroLadder(html, "Cincinnati");
-        const price = ladder?.current ?? null;
+  async function fetchAaaGas(onRegions) {
+    const out = {};
+    const page = (path, parse) => fetchAaaPage(path, parse).then((regions) => {
+      for (const [k, v] of Object.entries(regions)) if (v) out[k] = v;
+      if (onRegions) {
+        try {
+          onRegions(regions);
+        } catch (_) {
+        }
+      }
+    });
+    await Promise.allSettled([
+      // National: the anchored ladder, else the "Today's AAA National Average"
+      // headline (correct on the national page). Diesel rides the same table; a
+      // missing Diesel column must not fail regular gas, so it is optional.
+      page("/", (html) => {
+        const ladder = extractAaaNationalLadder(html);
+        const price = ladder?.current ?? extractAaaPrice(html);
         if (price == null) return null;
-        return { price, ladder };
-      });
-    } catch (_) {
-    }
-    return null;
-  }
-  async function fetchAaaGas() {
-    const [nat, ca, oh, cin] = await Promise.allSettled([
-      fetchAaaRegion("/", (html) => extractAaaNationalLadder(html), (html) => extractAaaNationalDiesel(html)),
-      fetchAaaRegion("/?state=CA", (html) => extractAaaStateLadder(html, "California")),
-      fetchAaaRegion("/?state=OH", (html) => extractAaaStateLadder(html, "Ohio")),
-      fetchAaaCincinnatiRegion()
+        let diesel = null;
+        try {
+          diesel = extractAaaNationalDiesel(html);
+        } catch (_) {
+        }
+        return { national: { price, ladder, diesel } };
+      }),
+      page("/?state=CA", (html) => ({ california: aaaRegionFromLadder(extractAaaStateLadder(html, "California")) })),
+      page("/?state=OH", (html) => ({
+        ohio: aaaRegionFromLadder(extractAaaStateLadder(html, "Ohio")),
+        cincinnati: aaaRegionFromLadder(extractAaaMetroLadder(html, "Cincinnati"))
+      }))
     ]);
-    const unpack = (r) => r.status === "fulfilled" && r.value ? r.value : null;
-    const out = {
-      national: unpack(nat),
-      california: unpack(ca),
-      ohio: unpack(oh),
-      cincinnati: unpack(cin)
-    };
-    if (!out.national && !out.california && !out.ohio && !out.cincinnati) {
-      throw new Error("All AAA regions failed");
-    }
+    if (!Object.keys(out).length) throw new Error("All AAA regions failed");
     return out;
   }
   function aaaLadderToRows(ladder, fieldName) {
@@ -4635,116 +4906,111 @@
     setRefreshing(true);
     setRefreshErr(null);
     if (setSourceStatus) setSourceStatus((s) => ({ ...s, crypto: "loading", markets: "loading", news: "loading", gas: "loading" }));
-    const [cgRes, yfRes, aaaRes, gdRes] = await Promise.allSettled([
-      // 1. CoinGecko — BTC + ETH (free, no key, CORS enabled). Timeout via AbortController
-      //    so a stalled CoinGecko request can't hold the whole pipeline open.
-      fetchWithTimeout("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true").then((r) => r.ok ? r.json() : Promise.reject("CoinGecko " + r.status)),
-      // 2. Yahoo Finance via proxy chain — SPX, DOW, NASDAQ, GOLD, WTI, BRENT
-      fetchYahooMarkets(),
-      // 3. AAA via proxy chain — national + CA + OH gas averages
-      fetchAaaGas(),
-      // 4. GDELT — Iran/Middle East news (free, no key, CORS enabled). Retries on 429/5xx.
-      fetchGdeltNews()
-    ]);
-    let updateCount = 0;
-    const errors = [];
-    let cryptoOK = false;
-    if (cgRes.status === "fulfilled") {
-      const cg = cgRes.value;
+    const mark = (k, ok) => {
+      if (setSourceStatus) setSourceStatus((s) => ({ ...s, [k]: ok ? "ok" : "fail" }));
+    };
+    const cryptoP = fetchWithTimeout("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true").then((r) => r.ok ? r.json() : Promise.reject("CoinGecko " + r.status)).then((cg) => {
       const btc = cg?.bitcoin?.usd, eth = cg?.ethereum?.usd;
-      if (Number.isFinite(btc) && Number.isFinite(eth)) {
-        setMkt((prev) => ({
-          ...prev,
-          BTC: { price: btc, chg: numOrNull(cg.bitcoin.usd_24h_change), loaded: true },
-          ETH: { price: eth, chg: numOrNull(cg.ethereum.usd_24h_change), loaded: true }
-        }));
-        updateCount++;
-        cryptoOK = true;
-      }
-    }
-    if (!cryptoOK) errors.push("Crypto");
+      if (!Number.isFinite(btc) || !Number.isFinite(eth)) return false;
+      setMkt((prev) => ({
+        ...prev,
+        BTC: { price: btc, chg: numOrNull(cg.bitcoin.usd_24h_change), loaded: true },
+        ETH: { price: eth, chg: numOrNull(cg.ethereum.usd_24h_change), loaded: true }
+      }));
+      return true;
+    }).catch(() => false).then((ok) => {
+      mark("crypto", ok);
+      return ok;
+    });
     let marketsOK = false;
-    if (yfRes.status === "fulfilled") {
-      const quotes = yfRes.value?.quoteResponse?.result || [];
-      const valid = quotes.filter((q) => YF_TILE[q.symbol] && q.regularMarketPrice > 0);
-      if (valid.length > 0) {
-        const now = Date.now();
-        const cachePatch = {};
+    const applyQuotes = (quotes) => {
+      const valid = (quotes || []).filter((q) => q && YF_TILE[q.symbol] && q.regularMarketPrice > 0);
+      if (!valid.length) return;
+      const now = Date.now();
+      const cachePatch = {};
+      for (const q of valid) {
+        if (q._fromCache) continue;
+        cachePatch[YF_TILE[q.symbol]] = { price: q.regularMarketPrice, chg: numOrNull(q.regularMarketChangePercent), asOf: now };
+      }
+      if (Object.keys(cachePatch).length) priceCache.write(cachePatch);
+      setMkt((prev) => {
+        const n = { ...prev };
         for (const q of valid) {
-          if (q._fromCache) continue;
-          cachePatch[YF_TILE[q.symbol]] = {
+          const tile = YF_TILE[q.symbol];
+          if (q._fromCache && prev[tile]?.loaded && (!prev[tile].fromCache || prev[tile].dated && q._asOf && easternDayOf(q._asOf) < prev[tile].dated)) continue;
+          n[tile] = {
             price: q.regularMarketPrice,
             chg: numOrNull(q.regularMarketChangePercent),
-            asOf: now
+            loaded: true,
+            asOf: q._fromCache ? q._asOf ?? now : now,
+            fromCache: !!q._fromCache
           };
         }
-        if (Object.keys(cachePatch).length) priceCache.write(cachePatch);
-        setMkt((prev) => {
-          const n = { ...prev };
-          for (const q of valid) {
-            n[YF_TILE[q.symbol]] = {
-              price: q.regularMarketPrice,
-              chg: numOrNull(q.regularMarketChangePercent),
-              loaded: true,
-              asOf: q._fromCache ? q._asOf ?? now : now,
-              fromCache: !!q._fromCache
-            };
-          }
-          return n;
-        });
-        updateCount++;
-        marketsOK = true;
-      }
-    }
-    if (!marketsOK) errors.push("Markets");
+        return n;
+      });
+      marketsOK = true;
+    };
+    const marketsP = fetchYahooMarkets(applyQuotes).catch(() => {
+    }).then(() => {
+      mark("markets", marketsOK);
+      return marketsOK;
+    });
     let gasOK = false;
-    if (aaaRes.status === "fulfilled" && aaaRes.value) {
-      const a = aaaRes.value;
+    const applyGasRegions = (regions) => {
       const now = Date.now();
-      const price = (region) => region?.price ?? null;
-      const dieselLadder = a.national?.diesel ?? null;
-      const prices = {
-        national: price(a.national),
-        california: price(a.california),
-        ohio: price(a.ohio),
-        cincinnati: price(a.cincinnati),
-        diesel: dieselLadder?.current ?? null
-      };
-      setGas((prev) => ({
-        ...prev,
-        national: prices.national ?? prev.national,
-        california: prices.california ?? prev.california,
-        ohio: prices.ohio ?? prev.ohio,
-        cincinnati: prices.cincinnati ?? prev.cincinnati,
-        diesel: prices.diesel ?? prev.diesel,
-        dieselLadder: dieselLadder ?? prev.dieselLadder,
-        asOf: now,
-        loaded: true,
-        fromCache: false
-        // a live fetch just landed — clear the cache-hydrate flag
-      }));
-      priceCache.write({ gas: { ...prices, dieselLadder, asOf: now } });
+      const patch = {};
       const rows = [];
       const today = dateOffsetISO(0);
       const todayRow = { date: today };
-      if (prices.national != null) todayRow.nat = prices.national;
-      if (prices.california != null) todayRow.ca = prices.california;
-      if (prices.ohio != null) todayRow.oh = prices.ohio;
-      if (prices.cincinnati != null) todayRow.cin = prices.cincinnati;
-      if (prices.diesel != null) todayRow.dsl = prices.diesel;
-      if (Object.keys(todayRow).length > 1) rows.push(todayRow);
-      rows.push(...aaaLadderToRows(a.national?.ladder, "nat"));
-      rows.push(...aaaLadderToRows(dieselLadder, "dsl"));
-      rows.push(...aaaLadderToRows(a.california?.ladder, "ca"));
-      rows.push(...aaaLadderToRows(a.ohio?.ladder, "oh"));
-      rows.push(...aaaLadderToRows(a.cincinnati?.ladder, "cin"));
-      if (rows.length > 0) gasSeries.upsertRows(rows);
-      if (prices.national != null) {
-        updateCount++;
-        gasOK = true;
+      const FIELD_SERIES = { national: "nat", california: "ca", ohio: "oh", cincinnati: "cin" };
+      for (const [field, key] of Object.entries(FIELD_SERIES)) {
+        const r = regions[field];
+        if (!r || r.price == null) continue;
+        patch[field] = r.price;
+        todayRow[key] = r.price;
+        rows.push(...aaaLadderToRows(r.ladder, key));
       }
-    }
-    if (!gasOK) errors.push("Gas");
+      const dieselLadder = regions.national?.diesel ?? null;
+      if (dieselLadder?.current != null) {
+        patch.diesel = dieselLadder.current;
+        patch.dieselLadder = dieselLadder;
+        todayRow.dsl = dieselLadder.current;
+        rows.push(...aaaLadderToRows(dieselLadder, "dsl"));
+      }
+      const fields = Object.keys(patch).filter((k) => k !== "dieselLadder");
+      if (!fields.length) return;
+      const atPatch = {};
+      for (const f of fields) atPatch[f] = { ts: now, src: "live" };
+      setGas((prev) => {
+        const at = { ...prev.at || {}, ...atPatch };
+        const next = { ...prev, ...patch, at };
+        next.loaded = next.national != null;
+        return next;
+      });
+      const prevCache = priceCache.read().gas || {};
+      const cacheAt = { ...prevCache.at || {} };
+      for (const f of fields) cacheAt[f] = now;
+      priceCache.write({ gas: { ...prevCache, ...patch, at: cacheAt } });
+      if (Object.keys(todayRow).length > 1) rows.unshift(todayRow);
+      if (rows.length > 0) gasSeries.upsertRows(rows);
+      if (patch.national != null) gasOK = true;
+    };
+    const gasP = fetchAaaGas(applyGasRegions).catch(() => {
+    }).then(() => {
+      mark("gas", gasOK);
+      return gasOK;
+    });
+    const newsP = fetchGdeltNews();
+    const [cryptoRes, , , gdRes] = await Promise.allSettled([cryptoP, marketsP, gasP, newsP]);
+    const cryptoOK = cryptoRes.status === "fulfilled" && cryptoRes.value === true;
+    let updateCount = 0;
+    const errors = [];
+    if (cryptoOK) updateCount++;
+    else errors.push("Crypto");
+    if (marketsOK) updateCount++;
+    else errors.push("Markets");
+    if (gasOK) updateCount++;
+    else errors.push("Gas");
     let newsOK = false;
     let newsErrReason = null;
     if (gdRes.status === "fulfilled") {
@@ -4858,10 +5124,7 @@
     if (!active) return null;
     const slides = [
       // 1. Lead
-      () => /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 920, width: "100%" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 18 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 9, height: 9, borderRadius: "50%", background: IRAN, animation: "ping 1.6s ease infinite" } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: IRAN, letterSpacing: ".22em", fontWeight: 700, textTransform: "uppercase" } }, "Lead Development"), /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 14, background: RAISE_3 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: TEXT_DIM, letterSpacing: ".06em", fontVariantNumeric: "tabular-nums" } }, BASE_LAST_UPDATE, " \xB7 Day ", conflictDay)), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 46, fontWeight: 600, color: TEXT_HI, lineHeight: 1.12, letterSpacing: "-.022em", marginBottom: 24, fontVariationSettings: "'opsz' 46" } }, LEAD_TLDR.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 18, color: TEXT_BODY, lineHeight: 1.6, marginBottom: 32, fontWeight: 450 } }, LEAD_TLDR.summary), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 } }, LEAD_TLDR.facts.map((f, i) => {
-        const isPrimary = i === 0;
-        return /* @__PURE__ */ React.createElement("div", { key: f.l, style: { padding: "18px 20px", background: isPrimary ? `linear-gradient(135deg, ${alpha(DANGER, 0.08)}, transparent 70%)` : RAISE_1, border: `1px solid ${isPrimary ? alpha(DANGER, 0.32) : BORDER}`, borderRadius: 14 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 8, color: isPrimary ? DANGER : TEXT_DIM }, f.l), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 14.5, color: isPrimary ? DANGER : TEXT_HI, fontWeight: 600, fontVariantNumeric: "tabular-nums", letterSpacing: "-.01em", lineHeight: 1.5 } }, f.v));
-      }))),
+      () => /* @__PURE__ */ React.createElement("div", { style: { maxWidth: 920, width: "100%" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 18 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 9, height: 9, borderRadius: "50%", background: IRAN, animation: "ping 1.6s ease infinite" } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: IRAN, letterSpacing: ".22em", fontWeight: 700, textTransform: "uppercase" } }, "Lead Development"), /* @__PURE__ */ React.createElement("span", { style: { width: 1, height: 14, background: RAISE_3 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: TEXT_DIM, letterSpacing: ".06em", fontVariantNumeric: "tabular-nums" } }, BASE_LAST_UPDATE, " \xB7 Day ", conflictDay)), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 46, fontWeight: 600, color: TEXT_HI, lineHeight: 1.12, letterSpacing: "-.022em", marginBottom: 24, fontVariationSettings: "'opsz' 46" } }, LEAD_TLDR.title), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 18, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, LEAD_TLDR.summary)),
       // 2. WW3 + Ladder
       () => {
         const currentIdx = ESCALATION_LADDER.findIndex((r) => r.pct === Math.floor(ww3 / 10) * 10);
@@ -5044,7 +5307,7 @@
       ), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".06em" } }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}`, marginRight: 6 } }, "\u2190"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2192"), /* @__PURE__ */ React.createElement("span", { style: { margin: "0 8px" } }, "navigate"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "Esc"), /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 6 } }, "exit")))
     ));
   }
-  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"c8fd6f415fe9"}`, document.baseURI).href;
+  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"5cf31570982d"}`, document.baseURI).href;
   var GLOBE_ATLAS_URL = new URL("vendor/world-atlas-50m.json", document.baseURI).href;
   function GlobeStage({ active, openCountry }) {
     const ref = useRef(null);
@@ -5117,26 +5380,14 @@
       for (const tile of ["SPX", "DOW", "NDX", "GOLD", "WTI", "BRENT"]) {
         const e = c?.[tile];
         if (e && e.price != null) {
-          seed[tile] = { price: e.price, chg: e.chg ?? 0, loaded: true, asOf: e.asOf, fromCache: true };
+          seed[tile] = { price: e.price, chg: e.chg ?? null, loaded: true, asOf: e.asOf, fromCache: true };
         }
       }
+      const b = brentSeedFromBuild();
+      if (b && (!seed.BRENT?.loaded || !seed.BRENT.asOf || easternDayOf(seed.BRENT.asOf) < b.dated)) seed.BRENT = b;
       return seed;
     });
-    const [gasLive, setGasLive] = useState(() => {
-      const c = priceCache.read().gas;
-      if (!c) return GAS;
-      return {
-        national: c.national ?? null,
-        california: c.california ?? null,
-        ohio: c.ohio ?? null,
-        cincinnati: c.cincinnati ?? null,
-        diesel: c.diesel ?? null,
-        dieselLadder: c.dieselLadder ?? null,
-        asOf: c.asOf,
-        loaded: c.national != null,
-        fromCache: true
-      };
-    });
+    const [gasLive, setGasLive] = useState(seedGasState);
     const [ww3Live, setWw3Live] = useState(WW3_PCT);
     const [themesLive, setThemesLive] = useState(INIT_THEMES);
     const [breaking, setBreaking] = useState(INIT_BREAKING);

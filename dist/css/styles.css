@@ -381,6 +381,9 @@
     .stat-grid-4 { grid-template-columns: minmax(0, 1fr) !important; gap: 12px !important; }
     /* Card padding: tighten */
     .card { padding: 16px !important; border-radius: 10px !important; }
+    /* Globe preview (Overview): thumbnail above the text, no outer padding */
+    .globe-preview.card { padding: 0 !important; grid-template-columns: minmax(0, 1fr) !important; }
+    .globe-preview > :first-child { min-height: 150px !important; }
     /* Lead Development title and body: scale down */
     .display { letter-spacing: -.015em !important; }
     /* Touch targets: ensure 44px minimum where it matters */

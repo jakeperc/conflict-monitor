@@ -1,11 +1,12 @@
 {
-  "title": "Human Cost · Iran War",
-  "scope_note": "Iran-arc theaters only (Iran, Lebanon, US forces). The Iran and Lebanon figures are undifferentiated health-ministry totals — no institution publishes a military/civilian split. The US row differs: it counts individually identified deaths, with wider compilations shown separately.",
-  "updated_at": "2026-09-19",
+  "title": "Human Cost",
+  "scope_note": "Iran arc (Iran, Lebanon, US forces) and the Russia-Ukraine war. Iran and Lebanon are health-ministry totals with no military/civilian split. Ukraine civilians are UN-verified; both militaries are open-source counts of named dead, a floor rather than a full toll.",
+  "updated_at": "2026-11-16",
   "groups": [
     {
       "key": "iran",
       "label": "Iran",
+      "theater": "Iran war",
       "rows": [
         {
           "k": "All deaths",
@@ -20,6 +21,7 @@
     {
       "key": "lebanon",
       "label": "Lebanon",
+      "theater": "Iran war",
       "rows": [
         {
           "k": "All deaths",
@@ -34,6 +36,7 @@
     {
       "key": "us",
       "label": "US Forces",
+      "theater": "Iran war",
       "rows": [
         {
           "k": "KIA",
@@ -50,6 +53,44 @@
           "as_of": "2026-09-18",
           "note": "More than 830 wounded per the Defense Casualty Analysis System, as relayed by AP via The New Arab on 18 September. Earlier: 417 to 30 June (IG report) and 774 in late August (Military Times). The database itself was not read.",
           "secondary": "774 in late August (Military Times); 417 to 30 June (inspector general report)"
+        }
+      ]
+    },
+    {
+      "key": "ukraine",
+      "label": "Ukraine",
+      "theater": "Russia-Ukraine war",
+      "rows": [
+        {
+          "k": "Civilians killed",
+          "value": "16,874",
+          "secondary": "51,173 injured · 820 children killed · UN-verified since Feb 2022",
+          "basis": "confirmed",
+          "as_of": "2026-08-13",
+          "note": "UN Human Rights Monitoring Mission total since 24 Feb 2022, through July, published 13 Aug (UN News); the UN says the real toll is likely higher. Its later monthly reports add 372 killed in August and 328 in September but state no new cumulative total."
+        },
+        {
+          "k": "Military deaths",
+          "value": "115,952",
+          "secondary": "named in the UALosses database · 105,788 missing",
+          "basis": "identified",
+          "as_of": "2026-10-25",
+          "note": "Ukrainian soldiers confirmed dead by name in the volunteer UALosses database, 24 Feb 2022 to 25 Oct 2026. Kyiv publishes no regular official total, so this is a floor, not the full toll."
+        }
+      ]
+    },
+    {
+      "key": "russia",
+      "label": "Russian Forces",
+      "theater": "Russia-Ukraine war",
+      "rows": [
+        {
+          "k": "Military deaths",
+          "value": "286,000",
+          "secondary": "Mediazona with BBC Russian · 7,983 officers",
+          "basis": "reported-aggregate",
+          "as_of": "2026-11-06",
+          "note": "Mediazona figure, confirmed by 6 November, from a count of named dead in open sources run with the BBC Russian Service. Its per-name list did not load, so the total is shown as reported. Open sources catch only part of the real toll."
         }
       ]
     }

@@ -3847,6 +3847,8 @@ function MapTab({ openCountry }) {
   const mapWrapRef = useRef(null);
   const svgRef = useRef(null);
   const isMobileMap = useIsMobile(900);
+  const mapHeadCompact = useIsMobile(640);
+  const mapAsOf = MAP_OVERLAYS && MAP_OVERLAYS.as_of;
   // Rendered map width in px: the label pass needs it to know which part of the map is
   // on screen (zoom and pan are in container px) and where the zoom buttons sit.
   const [mapPxW, setMapPxW] = useState(0);
@@ -4229,8 +4231,17 @@ function MapTab({ openCountry }) {
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
       <Card className="card-flush" style={{ padding:0, overflow:"hidden" }}>
-        <div style={{ padding:"14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
-          <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones · Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters</M>
+        <div style={{ padding: mapHeadCompact ? "10px 14px" : "14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap: mapHeadCompact ? "nowrap" : "wrap", gap:10 }}>
+          {mapHeadCompact ? (
+            // Phones: the full title and the projection note took five lines above the map;
+            // the short title keeps one line and the rest is behind the info button.
+            <span style={{ display:"inline-flex", alignItems:"center", whiteSpace:"nowrap", flexShrink:0 }}>
+              <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones</M>
+              <InfoTip>{`Operation Epic Fury, US-BRICS Rivalry, Russia-Ukraine and other active theaters. Equirectangular projection · Natural Earth 1:110m${mapAsOf ? ` · overlays as of ${mapAsOf}` : ""}.`}</InfoTip>
+            </span>
+          ) : (
+            <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones · Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters</M>
+          )}
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
             <button
               onClick={() => setShowCoalitions(v => !v)}
@@ -4241,9 +4252,10 @@ function MapTab({ openCountry }) {
                 background: showCoalitions ? "var(--c-brics)" : RAISE_1,
                 border:`1px solid ${showCoalitions ? "var(--c-brics)" : RAISE_4}`,
                 padding:"4px 10px", borderRadius:999, cursor:"pointer", textTransform:"uppercase",
+                whiteSpace:"nowrap",
               }}
-            >{showCoalitions ? "✓ Coalitions" : "Show Coalitions"}</button>
-            <M style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".06em" }}>{`Equirectangular · Natural Earth 1:110m${MAP_OVERLAYS && MAP_OVERLAYS.as_of ? ` · Overlays as of ${MAP_OVERLAYS.as_of}` : ""}`}</M>
+            >{showCoalitions ? "✓ Coalitions" : mapHeadCompact ? "Coalitions" : "Show Coalitions"}</button>
+            {!mapHeadCompact && <M style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".06em" }}>{`Equirectangular · Natural Earth 1:110m${mapAsOf ? ` · Overlays as of ${mapAsOf}` : ""}`}</M>}
           </div>
         </div>
         {showCoalitions && (

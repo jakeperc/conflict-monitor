@@ -506,7 +506,9 @@ export function mountGlobe(root, DATA, opts = {}) {
       ctx.beginPath(); ctx.moveTo(x1 + .5, ym - 4); ctx.lineTo(x1 + .5, ym + 5); ctx.stroke(); ctx.restore();
       const long = `SPARSE FILE · ${SPARSE_N} EVENTS BEFORE ${fmtShort.format(dateOf(DENSE)).toUpperCase()}`, short = `SPARSE · ${SPARSE_N} EVENTS`;
       const fits = t => ctx.measureText(t).width < x1 - x0 - 6; const txt = fits(long) ? long : fits(short) ? short : fits('SPARSE FILE') ? 'SPARSE FILE' : '';
-      if (txt) { ctx.fillStyle = '#7d818a'; ctx.fillText(txt, x0 + 2, ym - 8); }
+      // Skip the label when the lane is too short to keep it clear of the "EVENTS PER" caption
+      // (short phone-height strips drew one on top of the other); the dashed bracket still shows.
+      if (txt && ym - 8 >= yA + 5 + 11) { ctx.fillStyle = '#7d818a'; ctx.fillText(txt, x0 + 2, ym - 8); }
     }
     const bw = pw / nb, w = Math.max(1, bw - (bw >= 3 ? 1 : 0)), usable = hA - 13;
     for (let b = 0; b < nb; b++) {

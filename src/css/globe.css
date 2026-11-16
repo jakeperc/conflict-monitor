@@ -202,6 +202,10 @@
 .globe-root #g-glfail[hidden]{display:none}
 .globe-root #g-boot{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font:500 10.5px var(--font-data);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 
+/* Phones: the brand eyebrow repeats the site header and was cut to "GLOBAL CONFLICT MONI…". */
+@container globe (max-width: 480px){
+  .globe-root #g-brand .eyebrow{display:none}
+}
 @container globe (max-width: 999px){
   .globe-root #g-app{--dock-h:188px}
   .globe-root .rail{bottom:auto}

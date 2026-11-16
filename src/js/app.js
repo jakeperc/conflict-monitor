@@ -304,10 +304,14 @@ const StatusBadge = ({ status }) => {
 function KpiCell({ label, badge, info, value, valueColor = TEXT_HI, subDisplay, footer, border, small, loading }) {
   return (
     <div className="kpi-cell" style={{ padding:"24px 22px", borderRight: border ? `1px solid ${BORDER}` : "none", display:"flex", flexDirection:"column", gap:8 }}>
-      <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-        <Eyebrow mb={0} color={TEXT_MID}>{label}</Eyebrow>
-        {badge}
-        {info && <InfoTip>{info}</InfoTip>}
+      <div className="kpi-cell-head" style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap", rowGap:6, minWidth:0 }}>
+        <Eyebrow mb={0} color={TEXT_MID} style={{ whiteSpace:"nowrap" }}>{label}</Eyebrow>
+        {(badge || info) && (
+          <span style={{ display:"inline-flex", alignItems:"center", gap:8, whiteSpace:"nowrap" }}>
+            {badge}
+            {info && <InfoTip>{info}</InfoTip>}
+          </span>
+        )}
       </div>
       {loading ? (
         <PriceSkeleton w={small ? 100 : 130} h={small ? 22 : 28} radius={6} />
@@ -1321,7 +1325,7 @@ function CountryDrawer({ country, onClose, onNavigate }) {
             <div className="display" style={{ fontSize:22, fontWeight:600, color:TEXT_HI, letterSpacing:"-.015em", lineHeight:1.1, fontVariationSettings:"'opsz' 22" }}>{country}</div>
             {d.risk && (
               <div style={{ display:"flex", gap:12, alignItems:"center", marginTop:6 }}>
-                <SeverityInline level={d.risk.level} size={9.5} />
+                <SeverityInline level={d.risk.level} size={10.5} />
                 <span style={{ width:3, height:3, borderRadius:"50%", background:TEXT_DIM }} />
                 <M style={{ fontSize:12, fontWeight:600, color:riskCol, fontVariantNumeric:"tabular-nums", letterSpacing:".02em" }}>{barLabel(d.risk)} {d.risk.risk}</M>
               </div>
@@ -1902,7 +1906,9 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
   const isTablet = useIsMobile(1280) && !isMobile;
   const rotate = isMobile || isTablet;
   const reduce = useReducedMotion();
-  const GROUP_SIZE = isMobile ? 3 : isTablet ? 7 : chips.length;
+  // Below 360px three tickers clip their percent change, so show two.
+  const isNarrow = useIsMobile(360);
+  const GROUP_SIZE = isNarrow ? 2 : isMobile ? 3 : isTablet ? 7 : chips.length;
   const start = rotate ? (tick * GROUP_SIZE) % chips.length : 0;
   const tickKey = tick;
   const visibleChips = rotate
@@ -1912,7 +1918,7 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
     <div style={{ position:"relative", flexShrink:0 }}>
       <span className="ticker-fade-l" style={{ display:"none" }} />
       <span className="ticker-fade-r" style={{ display:"none" }} />
-      <div style={{ height:52, background:SURFACE, borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", overflowX:"hidden", overflowY:"hidden", padding:"0 18px", whiteSpace:"nowrap", justifyContent: rotate ? "space-around" : "space-between" }}>
+      <div style={{ height:52, background:SURFACE, borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", overflowX:"hidden", overflowY:"hidden", padding: isMobile ? "0 12px" : "0 18px", whiteSpace:"nowrap", justifyContent: isMobile ? "space-between" : rotate ? "space-around" : "space-between" }}>
         {visibleChips.map((ch, i) => {
           const recent = pulseSet.current[ch.l] && Date.now() - pulseSet.current[ch.l] < 1500;
           const isLoading = ch.v == null;
@@ -1920,7 +1926,7 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
           const animDelay = rotate ? "0ms" : `${280 + i * 45}ms`;
           return (
             <React.Fragment key={rotate ? `${tickKey}-${ch.l}` : ch.l}>
-              <div className={rotateClass} style={{ animationDelay: animDelay, display:"flex", flexDirection:"column", justifyContent:"center", padding: isMobile ? "0 18px" : isTablet ? "0 12px" : "0 10px", flexShrink: rotate ? 0 : 1, minWidth: isMobile ? 80 : isTablet ? 70 : 0 }}>
+              <div className={rotateClass} style={{ animationDelay: animDelay, display:"flex", flexDirection:"column", justifyContent:"center", padding: isMobile ? "0 4px" : isTablet ? "0 12px" : "0 10px", flex: isMobile ? "1 1 0" : undefined, flexShrink: rotate ? 0 : 1, minWidth: isMobile ? 0 : isTablet ? 70 : 0, overflow: isMobile ? "hidden" : undefined }}>
                 <span style={{ fontFamily:SANS, fontSize:FS.xs, fontWeight:600, color:TEXT_DIM, letterSpacing:".10em", marginBottom:3, textTransform:"uppercase" }}>{ch.l}</span>
                 <div className={recent ? "value-pulse" : ""} style={{ display:"flex", alignItems:"baseline", gap:6, padding:"1px 4px", margin:"-1px -4px", minHeight:18 }}>
                   {isLoading ? (
@@ -2496,9 +2502,19 @@ function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setSho
   return (
     <Card className="choreographed lead-card" style={{ animationDelay:`${delay}ms`, borderLeft:`3px solid ${accent}`, padding:"22px 26px", display:"flex", flexDirection:"column" }}>
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14, flexWrap:"wrap", gap:8 }}>
-        <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:10, flexWrap:"wrap", rowGap:6 }}>
           <span style={{ width:7, height:7, borderRadius:"50%", background:accent, animation:"ping 1.6s ease infinite", boxShadow:`0 0 0 2px ${alpha(accent, .13)}, 0 0 8px ${alpha(accent, .53)}` }} />
-          <M style={{ fontSize:FS.xs, color:at, letterSpacing:".18em", fontWeight:700, textTransform:"uppercase" }}>{lead.kicker}</M>
+          {(() => {
+            // "Epic Fury · Lead Development": on phones the tail repeats the section header above,
+            // so it is hidden there and the arc name stays on one line.
+            const k = String(lead.kicker || "");
+            const cut = k.indexOf("·");
+            return (
+              <M style={{ fontSize:FS.xs, color:at, letterSpacing:".18em", fontWeight:700, textTransform:"uppercase", whiteSpace:"nowrap" }}>
+                {cut > 0 ? <>{k.slice(0, cut).trim()}<span className="lead-kicker-tail"> · {k.slice(cut + 1).trim()}</span></> : k}
+              </M>
+            );
+          })()}
           <SourceBadge kind="scenario" />
           {dominant && <span style={{ fontSize:FS.xs, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:at, background:alpha(accent, .12), border:`1px solid ${alpha(accent, .3)}`, padding:"2px 8px", borderRadius:999, lineHeight:1.2 }}>Today's lead</span>}
         </div>
@@ -4878,7 +4894,7 @@ function TimelineList({ severities, country, arcs, statuses, openCountry, priorV
               }}
             />
             <div className="tl-content" style={{ flex:1, paddingBottom:10, paddingRight:24 }}>
-              <SeverityInline level={sevLabel(ev.sev)} size={9.5} />
+              <SeverityInline level={sevLabel(ev.sev)} size={10.5} />
               {ev.status && ev.status !== 'confirmed' && <>{' '}<StatusBadge status={ev.status} /></>}
               <div aria-label={ev.desc} style={{ fontSize:14, color:TEXT_BODY, lineHeight:1.65, marginTop:6 }}>
                 {showInstant ? (
@@ -5093,7 +5109,7 @@ function RiskList({ openCountry, sortBy }) {
               <div style={{ flex:1, minWidth:0 }}>
                 <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8, flexWrap:"wrap" }}>
                   <span className="display" style={{ fontSize:17, fontWeight:600, color:TEXT_HI, letterSpacing:"-.012em", fontVariationSettings:"'opsz' 17" }}>{c.name}</span>
-                  <SeverityInline level={c.level} size={9.5} />
+                  <SeverityInline level={c.level} size={10.5} />
                   <div style={{ flex:1 }} />
                   <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", lineHeight:1 }}>
                     <M style={{ fontSize:FS.xs, fontWeight:600, color:alignCol, letterSpacing:".12em", textTransform:"uppercase", marginBottom:2 }}>{barLabel(c)}</M>
@@ -5303,12 +5319,12 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
-      <div style={{ display:"flex", alignItems:"center", gap:12, padding:"14px 18px", background:alpha(VIOLET, .08), border:`1px solid ${alpha(VIOLET, .22)}`, borderRadius:12 }}>
+      <div className="ai-head" style={{ display:"flex", alignItems:"center", flexWrap:"wrap", gap:12, rowGap:6, padding:"14px 18px", background:alpha(VIOLET, .08), border:`1px solid ${alpha(VIOLET, .22)}`, borderRadius:12 }}>
         <span style={{ width:8, height:8, borderRadius:"50%", background:VIOLET, animation:"ping 1.5s ease infinite", flexShrink:0 }} />
         <M style={{ fontSize:12, color:VIOLET, letterSpacing:".06em", fontWeight:600 }}>AI Strategic Analysis · Claude Opus 4.7</M>
-        <span style={{ width:1, height:14, background:alpha(VIOLET, .25) }} />
-        <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Epic Fury · US-BRICS Rivalry · Russia-Ukraine</M>
-        <M style={{ fontSize:11, color:TEXT_DIM, marginLeft:"auto", fontVariantNumeric:"tabular-nums" }}>Latest card: {latest.label}</M>
+        <span className="ai-head-divider" style={{ width:1, height:14, background:alpha(VIOLET, .25) }} />
+        <M className="ai-head-arcs" style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Epic Fury · US-BRICS Rivalry · Russia-Ukraine</M>
+        <M className="ai-head-latest" style={{ fontSize:11, color:TEXT_DIM, marginLeft:"auto", fontVariantNumeric:"tabular-nums" }}>Latest card: {latest.label}</M>
       </div>
       {AI_CARDS.map(c => {
         const rec = firstCardOfArc[c.arc] === c.lens ? recordFor(c.arc) : null;
@@ -5355,8 +5371,8 @@ function LeadRecord({ lead, accent, accentText }) {
         {items.map((s, i) => {
           const m = s.match(/^(\d{1,2}(?:\s*[-–]\s*\d{1,2})?\s+[A-Z][a-z]+(?:\s+\d{4})?):\s+(.*)$/s);
           return (
-            <li key={i} style={{ display:"flex", gap:12, alignItems:"baseline", fontSize:13.5, lineHeight:1.55, color:TEXT_BODY }}>
-              <M style={{ flexShrink:0, width:96, fontSize:11, fontWeight:600, color:TEXT_MID, letterSpacing:".04em", fontVariantNumeric:"tabular-nums" }}>{m ? m[1] : ""}</M>
+            <li key={i} className="record-item" style={{ display:"flex", gap:12, alignItems:"baseline", fontSize:13.5, lineHeight:1.55, color:TEXT_BODY }}>
+              <M className="record-date" style={{ flexShrink:0, width:96, fontSize:11, fontWeight:600, color:TEXT_MID, letterSpacing:".04em", fontVariantNumeric:"tabular-nums" }}>{m ? m[1] : ""}</M>
               <span>{scrubCodes(m ? m[2] : s)}</span>
             </li>
           );

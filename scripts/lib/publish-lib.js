@@ -182,7 +182,9 @@ function completedRun(dates) {
     const t = fs.readFileSync(f, "utf8");
     const verdict = (t.match(/^arbiter_verdict:\s*([\w-]+)/m) || [])[1] || null;
     const tests = t.match(/^npm test\b.*$/gm) || t.match(/^validate:html:.*$/gm) || [];
-    const last = tests[tests.length - 1] || "";
+    // A retried test step is logged on one line ("run 1: FAIL (...) -> fixed -> run 2: PASS"): judge only the result
+    // after the last "->", so a failed first run that was fixed and re-run does not mask the passing final run.
+    const last = (tests[tests.length - 1] || "").split("->").pop();
     const pass = /\bPASS\b/.test(last) && !/\bFAIL/.test(last);
     const redo = fs.existsSync(path.join(P.plans, `redo-request-${d}.md`));
     const ok = (verdict === "passed" || verdict === "edited") && pass && !redo;

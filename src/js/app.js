@@ -200,6 +200,17 @@ const UKRAINE_LEAD = window.__DATA__.ukraine_lead;
 // Hero will explicitly render IRAN_LEAD, BRICS_LEAD, and UKRAINE_LEAD side-by-side.
 const LEAD_TLDR = IRAN_LEAD;
 
+// Each lead's `facts` (dated, sourced sentences) is the record behind that arc's analysis.
+// It renders on the Analysis tab above the arc's first card, not on the Overview lead card,
+// which already tells the same events in its summary and "Changed 24h".
+const ARC_RECORDS = {
+  "iran-hormuz":        { lead: IRAN_LEAD,    accent: IRAN },
+  "us-brics-rivalry":   { lead: BRICS_LEAD,   accent: BRICS, accentText: BRICS_TEXT },
+  "russia-ukraine-war": { lead: UKRAINE_LEAD, accent: UKRAINE_WAR },
+};
+// A fact is a sentence; legacy { l, v } pairs are joined so they still read.
+const factText = (f) => (f && typeof f === "object" ? [f.l, f.v].filter(Boolean).join(": ") : String(f || ""));
+
 // Country lookup — joins risk + chess + news/timeline keywords for cross-tab drawer
 const COUNTRY_KEYS = window.__DATA__.country_keys;
 
@@ -2475,8 +2486,8 @@ const AXIS_HELP = {
 };
 
 // Lead Development card — one pillar's TL;DR. Collapsed: kicker, plain-news title, summary.
-// Expanded ("Read full briefing"): cohesion/lenses (BRICS) + facts + changed/watch — a mid-depth tier.
-// The deepest prose (lead.full-equivalent) lives on the Analysis tab, reached via "See full strategic analysis →".
+// Expanded ("Read full briefing"): cohesion/lenses (BRICS) + changed/watch — a mid-depth tier.
+// The deepest prose (lead.full-equivalent) lives on the Analysis tab, reached via "See sources and full analysis →" (with the dated, sourced facts).
 // Used for IRAN_LEAD (DANGER accent), BRICS_LEAD (crimson), and UKRAINE_LEAD.
 function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setShowFull, setTab, dominant = false, delay = 950 }) {
   const at = accentText || accent; // text-safe accent — use for text/labels; fills/borders use accent
@@ -2561,26 +2572,8 @@ function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setSho
               })}
             </div>
           )}
-          <div className="lead-facts-row" style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:10, marginBottom:18 }}>
-            {lead.facts.map((f, i) => {
-              const isPrimary = i === 0;
-              return (
-                <div
-                  key={f.l}
-                  style={{
-                    padding:"12px 14px",
-                    background: isPrimary ? `linear-gradient(135deg, ${alpha(accent, .06)}, transparent 80%)` : RAISE_1,
-                    border:`1px solid ${isPrimary ? alpha(accent, .22) : BORDER}`,
-                    borderRadius:10,
-                    position:"relative",
-                  }}
-                >
-                  <Eyebrow mb={6} color={isPrimary ? at : TEXT_DIM}>{scrubCodes(f.l)}</Eyebrow>
-                  <M style={{ fontSize:13.5, color: isPrimary ? at : TEXT_HI, fontWeight:600, fontVariantNumeric:"tabular-nums", letterSpacing:"-.005em" }}>{scrubCodes(f.v)}</M>
-                </div>
-              );
-            })}
-          </div>
+          {/* The lead's dated, sourced facts render on the Analysis tab (LeadRecord), reached
+              via the button below; here they only repeated the summary and Changed 24h. */}
           <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:16 }}>
             <div style={{ display:"flex", gap:14, alignItems:"flex-start" }}>
               <span style={{ flexShrink:0, marginTop:4, fontSize:FS.xs, fontWeight:700, color:AMBER, letterSpacing:".14em", width:92, textTransform:"uppercase" }}>Changed 24h</span>
@@ -2602,7 +2595,7 @@ function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setSho
                 padding:"7px 12px", borderRadius:999, cursor:"pointer",
                 display:"inline-flex", alignItems:"center", gap:6,
               }}
-            >See full strategic analysis →</button>
+            >See sources and full analysis →</button>
           )}
         </div>
       )}
@@ -5267,17 +5260,28 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
   // can't clobber them: the wrapper's React style never sets boxShadow, so React
   // leaves our imperative value alone until we clear it.
   const cardRefs = useRef({});
+  // Each arc with a lead gets its sourced record (the lead's dated facts) above its first
+  // analysis card: fact first, then the confidence-labelled inference. The Overview
+  // "See sources and full analysis" link lands on that record.
+  const recordFor = (arc) => {
+    const r = ARC_RECORDS[arc];
+    return r && Array.isArray(r.lead && r.lead.facts) && r.lead.facts.some(f => factText(f).trim()) ? r : null;
+  };
+  const firstCardOfArc = {};
+  AI_CARDS.forEach(c => { if (!(c.arc in firstCardOfArc)) firstCardOfArc[c.arc] = c.lens; });
   useEffect(() => {
     if (!targetArc) return;
     const hit = AI_CARDS.find(c => c.arc === targetArc);
     if (!hit) { if (onConsumeTarget) onConsumeTarget(); return; }
+    const key = recordFor(targetArc) ? `record:${targetArc}` : hit.lens;
+    const ring = (recordFor(targetArc) || {}).accent || hit.color;
     // Small defer lets the freshly-mounted Analysis panel paint before we scroll.
     const t = setTimeout(() => {
-      const el = cardRefs.current[hit.lens];
+      const el = cardRefs.current[key];
       if (el) {
         if (el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
-        el.style.boxShadow = `0 0 0 2px ${hit.color}, 0 0 22px ${alpha(hit.color, .35)}`;
-        setTimeout(() => { if (cardRefs.current[hit.lens]) cardRefs.current[hit.lens].style.boxShadow = ""; }, 2400);
+        el.style.boxShadow = `0 0 0 2px ${ring}, 0 0 22px ${alpha(ring, .35)}`;
+        setTimeout(() => { if (cardRefs.current[key]) cardRefs.current[key].style.boxShadow = ""; }, 2400);
       }
       if (onConsumeTarget) onConsumeTarget();
     }, 70);
@@ -5293,16 +5297,59 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
         <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Epic Fury · US-BRICS Rivalry · Russia-Ukraine</M>
         <M style={{ fontSize:11, color:TEXT_DIM, marginLeft:"auto", fontVariantNumeric:"tabular-nums" }}>Latest card: {latest.label}</M>
       </div>
-      {AI_CARDS.map(c => (
-        <div
-          key={c.lens}
-          ref={el => { cardRefs.current[c.lens] = el; }}
-          style={{ borderRadius:14, scrollMarginTop:80, transition:"box-shadow .35s ease" }}
-        >
-          <AICard c={c} />
-        </div>
-      ))}
+      {AI_CARDS.map(c => {
+        const rec = firstCardOfArc[c.arc] === c.lens ? recordFor(c.arc) : null;
+        return (
+          <React.Fragment key={c.lens}>
+            {rec && (
+              <div
+                ref={el => { cardRefs.current[`record:${c.arc}`] = el; }}
+                style={{ borderRadius:14, scrollMarginTop:80, transition:"box-shadow .35s ease" }}
+              >
+                <LeadRecord lead={rec.lead} accent={rec.accent} accentText={rec.accentText} />
+              </div>
+            )}
+            <div
+              ref={el => { cardRefs.current[c.lens] = el; }}
+              style={{ borderRadius:14, scrollMarginTop:80, transition:"box-shadow .35s ease" }}
+            >
+              <AICard c={c} />
+            </div>
+          </React.Fragment>
+        );
+      })}
     </div>
+  );
+}
+
+// An arc's sourced record on the Analysis tab: the lead's dated facts, each with its source,
+// shown before that arc's confidence-labelled analysis so fact and inference stay apart.
+// A leading date ("15 November:", "15-16 November:") is set apart for scanning.
+function LeadRecord({ lead, accent, accentText }) {
+  const at = accentText || accent;
+  const arcName = String(lead.kicker || "").split("·")[0].trim();
+  const items = lead.facts.map(factText).filter(s => s.trim());
+  return (
+    <Card style={{ borderLeft:`3px solid ${accent}` }}>
+      <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:4, flexWrap:"wrap" }}>
+        <M style={{ fontSize:FS.xs, color:at, letterSpacing:".14em", fontWeight:600, textTransform:"uppercase" }}>{arcName ? `${arcName} · ` : ""}Sourced record</M>
+        {lead.updated_at && <M style={{ fontSize:FS.xs, color:TEXT_DIM, fontVariantNumeric:"tabular-nums" }}>{lead.updated_at}</M>}
+      </div>
+      <div style={{ fontSize:12.5, color:TEXT_DIM, lineHeight:1.5, marginBottom:12 }}>
+        What was reported, with its date and source. The analysis cards below interpret it.
+      </div>
+      <ul style={{ listStyle:"none", margin:0, padding:0, display:"flex", flexDirection:"column", gap:8 }}>
+        {items.map((s, i) => {
+          const m = s.match(/^(\d{1,2}(?:\s*[-–]\s*\d{1,2})?\s+[A-Z][a-z]+(?:\s+\d{4})?):\s+(.*)$/s);
+          return (
+            <li key={i} style={{ display:"flex", gap:12, alignItems:"baseline", fontSize:13.5, lineHeight:1.55, color:TEXT_BODY }}>
+              <M style={{ flexShrink:0, width:96, fontSize:11, fontWeight:600, color:TEXT_MID, letterSpacing:".04em", fontVariantNumeric:"tabular-nums" }}>{m ? m[1] : ""}</M>
+              <span>{scrubCodes(m ? m[2] : s)}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </Card>
   );
 }
 
@@ -6567,21 +6614,9 @@ function BriefingMode({ active, onClose, ww3, mkt, gas, conflictDay }) {
         <div className="display" style={{ fontSize:46, fontWeight:600, color:TEXT_HI, lineHeight:1.12, letterSpacing:"-.022em", marginBottom:24, fontVariationSettings:"'opsz' 46" }}>
           {LEAD_TLDR.title}
         </div>
-        <div style={{ fontSize:18, color:TEXT_BODY, lineHeight:1.6, marginBottom:32, fontWeight:450 }}>
+        {/* Slide = headline + summary. The lead's sourced facts live on the Analysis tab. */}
+        <div style={{ fontSize:18, color:TEXT_BODY, lineHeight:1.6, fontWeight:450 }}>
           {LEAD_TLDR.summary}
-        </div>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:14 }}>
-          {LEAD_TLDR.facts.map((f, i) => {
-            const isPrimary = i === 0;
-            return (
-              <div key={f.l} style={{ padding:"18px 20px", background: isPrimary ? `linear-gradient(135deg, ${alpha(DANGER, .08)}, transparent 70%)` : RAISE_1, border:`1px solid ${isPrimary ? alpha(DANGER, .32) : BORDER}`, borderRadius:14 }}>
-                <Eyebrow mb={8} color={isPrimary ? DANGER : TEXT_DIM}>{f.l}</Eyebrow>
-                <M style={{ fontSize:14.5, color: isPrimary ? DANGER : TEXT_HI, fontWeight:600, fontVariantNumeric:"tabular-nums", letterSpacing:"-.01em", lineHeight:1.5 }}>
-                  {f.v}
-                </M>
-              </div>
-            );
-          })}
         </div>
       </div>
     ),
@@ -7011,7 +7046,7 @@ function App() {
   const [sourceStatus, setSourceStatus] = useState({ crypto:"idle", markets:"idle", gas:"idle", news:"idle" });
   const [drawerCountry, setDrawerCountry] = useState(null);
   const [feedNav, setFeedNav]           = useState({ country:null, view:null });
-  // When a lead card's "See full strategic analysis →" deep-links into the Analysis
+  // When a lead card's "See sources and full analysis →" deep-links into the Analysis
   // tab, this holds the target arc (e.g. "iran-hormuz") so AITab can scroll to +
   // highlight the matching card. Cleared once consumed.
   const [analysisTarget, setAnalysisTarget] = useState(null);
@@ -7063,7 +7098,7 @@ function App() {
     // Save outgoing tab's position (desktop only)
     if (!isMobileScroll()) scrollMemory.current[tab] = getScroll();
 
-    // Deep-link target for the Analysis tab (set by lead-card "See full strategic
+    // Deep-link target for the Analysis tab (set by lead-card "See sources and full
     // analysis →"); AITab consumes it to scroll/highlight the matching arc card.
     setAnalysisTarget(arcTarget);
 

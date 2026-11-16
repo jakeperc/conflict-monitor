@@ -122,8 +122,12 @@ function renderKeyDevelopments(keyDevs) {
 
 function renderPillar(lead, pillarId) {
   if (!lead || typeof lead !== 'object') return '';
-  const facts = Array.isArray(lead.facts) && lead.facts.length
-    ? `<dl>${lead.facts.map((f) => `<dt>${cleanText(f.l || '')}</dt><dd>${cleanText(f.v || '')}</dd>`).join('')}</dl>`
+  // facts are dated, sourced sentences (legacy items may be { l, v } pairs). They are the
+  // record behind the analysis, so they follow what changed / what to watch.
+  const factText = (f) => (f && typeof f === 'object' ? [f.l, f.v].filter(Boolean).join(': ') : String(f || ''));
+  const factItems = Array.isArray(lead.facts) ? lead.facts.map(factText).filter((s) => s.trim()) : [];
+  const facts = factItems.length
+    ? `<h3>Sourced record</h3><ul>${factItems.map((s) => `<li>${cleanText(s)}</li>`).join('')}</ul>`
     : '';
   const bottom = lead.bottom_line ? `<p class="bottom-line"><strong>Bottom line:</strong> ${cleanText(lead.bottom_line)}</p>` : '';
   const changed = lead.changed ? `<h3>What changed</h3><p>${cleanText(lead.changed)}</p>` : '';
@@ -135,9 +139,9 @@ function renderPillar(lead, pillarId) {
       ${kicker}
       ${bottom}
       <p>${cleanText(lead.summary || '')}</p>
-      ${facts}
       ${changed}
       ${watch}
+      ${facts}
     </article>`;
 }
 

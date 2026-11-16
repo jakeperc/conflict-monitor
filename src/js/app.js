@@ -1632,6 +1632,12 @@ function InfoTip({ children, label, side = "bottom" }) {
   );
 }
 
+// Phones and tablets (≤900px, the bottom-tab layout) get `compact`, wider screens `wide`.
+// Used to move explanatory notes behind an info button where they cost several lines.
+function ByWidth({ wide = null, compact = null }) {
+  return useIsMobile(900) ? compact : wide;
+}
+
 // Command palette — ⌘K for quick search across countries, tabs, actions.
 function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefresh, openCountry, openBriefing }) {
   const [query, setQuery] = useState("");
@@ -3200,7 +3206,14 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:18, flexWrap:"wrap" }}>
             <Eyebrow mb={0}>{HUMAN_COST.title}</Eyebrow>
             <SourceBadge kind="scenario" />
-            <InfoTip>Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.</InfoTip>
+            {(() => {
+              const tip = "Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.";
+              // Phones/tablets: the verification-level footnote (about 170px on a phone) joins this popover.
+              return <ByWidth
+                wide={<InfoTip>{tip}</InfoTip>}
+                compact={<InfoTip>{HUMAN_COST.footnote ? `${HUMAN_COST.footnote} ${tip}` : tip}</InfoTip>}
+              />;
+            })()}
           </div>
           {/* Redesigned 2026-11-16: one tile per figure, grouped by war. Each tile is
               label → number → context → footer (verification level · as-of date), and
@@ -3237,9 +3250,11 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             ))}
           </div>
           {HUMAN_COST.footnote && (
-            <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, paddingTop:14, borderTop:`1px solid ${BORDER}`, lineHeight:1.55, letterSpacing:".01em" }}>
-              {HUMAN_COST.footnote}
-            </div>
+            <ByWidth wide={
+              <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, paddingTop:14, borderTop:`1px solid ${BORDER}`, lineHeight:1.55, letterSpacing:".01em" }}>
+                {HUMAN_COST.footnote}
+              </div>
+            } />
           )}
         </Card>
         )}
@@ -3705,10 +3720,15 @@ function GasTab({ gas }) {
             </>
           )}
         </div>
-        <div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>
-          Source: AAA{dslLoaded ? ` · ${gasAgeLabel(gas, "diesel")}` : ""} · national average, diesel grade
-          {DIESEL_SOURCE && DIESEL_SOURCE.through ? ` · chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : ""}
-        </div>
+        {(() => {
+          const age = dslLoaded ? ` · ${gasAgeLabel(gas, "diesel")}` : "";
+          const history = DIESEL_SOURCE && DIESEL_SOURCE.through ? `chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : "";
+          // Phones/tablets: the source and its age stay visible; the method detail is behind the info button.
+          return <ByWidth
+            wide={<div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>Source: AAA{age} · national average, diesel grade{history ? ` · ${history}` : ""}</div>}
+            compact={<div style={{ fontSize:12, color:TEXT_DIM, marginTop:10, display:"inline-flex", alignItems:"center" }}>Source: AAA{age}<InfoTip>{`National average, diesel grade.${history ? ` ${history.charAt(0).toUpperCase()}${history.slice(1)}.` : ""}`}</InfoTip></div>}
+          />;
+        })()}
       </Card>
       </div>
       <Card>
@@ -3847,7 +3867,7 @@ function MapTab({ openCountry }) {
   const mapWrapRef = useRef(null);
   const svgRef = useRef(null);
   const isMobileMap = useIsMobile(900);
-  const mapHeadCompact = useIsMobile(640);
+  const mapHeadCompact = useIsMobile(900); // phones and tablets
   const mapAsOf = MAP_OVERLAYS && MAP_OVERLAYS.as_of;
   // Rendered map width in px: the label pass needs it to know which part of the map is
   // on screen (zoom and pan are in container px) and where the zoom buttons sit.
@@ -5415,6 +5435,8 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
 // An arc's sourced record on the Analysis tab: the lead's dated facts, each with its source,
 // shown before that arc's confidence-labelled analysis so fact and inference stay apart.
 // A leading date ("15 November:", "15-16 November:") is set apart for scanning.
+const RECORD_NOTE = "What was reported, with its date and source. The analysis cards below interpret it.";
+const OUTLOOK_NOTE = "Named, dated, falsifiable calls — scored against what actually happened.";
 function LeadRecord({ lead, accent, accentText }) {
   const at = accentText || accent;
   const arcName = String(lead.kicker || "").split("·")[0].trim();
@@ -5423,11 +5445,13 @@ function LeadRecord({ lead, accent, accentText }) {
     <Card style={{ borderLeft:`3px solid ${accent}` }}>
       <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:4, flexWrap:"wrap" }}>
         <M style={{ fontSize:FS.xs, color:at, letterSpacing:".14em", fontWeight:600, textTransform:"uppercase" }}>{arcName ? `${arcName} · ` : ""}Sourced record</M>
+        <ByWidth compact={<InfoTip>{RECORD_NOTE}</InfoTip>} />
         {lead.updated_at && <M style={{ fontSize:FS.xs, color:TEXT_DIM, fontVariantNumeric:"tabular-nums" }}>{lead.updated_at}</M>}
       </div>
-      <div style={{ fontSize:12.5, color:TEXT_DIM, lineHeight:1.5, marginBottom:12 }}>
-        What was reported, with its date and source. The analysis cards below interpret it.
-      </div>
+      <ByWidth
+        wide={<div style={{ fontSize:12.5, color:TEXT_DIM, lineHeight:1.5, marginBottom:12 }}>{RECORD_NOTE}</div>}
+        compact={<div style={{ height:8 }} />}
+      />
       <ul style={{ listStyle:"none", margin:0, padding:0, display:"flex", flexDirection:"column", gap:8 }}>
         {items.map((s, i) => {
           const m = s.match(/^(\d{1,2}(?:\s*[-–]\s*\d{1,2})?\s+[A-Z][a-z]+(?:\s+\d{4})?):\s+(.*)$/s);
@@ -5738,8 +5762,13 @@ function OutlookTab({ openCountry }) {
       <div style={{ display:"flex", alignItems:"center", gap:12, padding:"14px 18px", background:alpha(BLUE,.07), border:`1px solid ${alpha(BLUE,.22)}`, borderRadius:12, flexWrap:"wrap" }}>
         <span style={{ display:"inline-flex", color:BLUE }}><Icon name="outlook" size={18} /></span>
         <M style={{ fontSize:12, color:BLUE, letterSpacing:".06em", fontWeight:600 }}>Outlook · Forecasts &amp; Track Record</M>
-        <span style={{ width:1, height:14, background:alpha(BLUE,.25) }} />
-        <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Named, dated, falsifiable calls — scored against what actually happened.</M>
+        <ByWidth
+          wide={<>
+            <span style={{ width:1, height:14, background:alpha(BLUE,.25) }} />
+            <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>{OUTLOOK_NOTE}</M>
+          </>}
+          compact={<InfoTip>{OUTLOOK_NOTE}</InfoTip>}
+        />
       </div>
 
       <CalibrationPanel cal={data.calibration} />

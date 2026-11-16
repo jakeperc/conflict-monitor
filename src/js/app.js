@@ -2947,7 +2947,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
           />
           <KpiCell
             label="Brent"
-            badge={<SourceBadge kind={mkt.BRENT.fromCache ? "scenario" : "live"} />}
+            badge={<PriceSourceBadge live={!mkt.BRENT.fromCache} dated={!!mkt.BRENT.dated} />}
             info="Brent crude oil front-month futures. Primary: Yahoo Finance (BZ=F). Fallback: Stooq daily close. Pre-war baseline: $74.21. Bid-ask reflects geopolitical risk premium + Saudi surge capacity. If both fail, the last-known-good cached price is shown with a freshness label."
             value={fmt.money(mkt.BRENT.price)}
             valueColor={AMBER}
@@ -2955,15 +2955,15 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             subDisplay={<div style={{ width:"100%", marginTop:2 }}>
               <EventSeriesChart series={BRENT_SERIES} variant="mini" height={34} color={AMBER}
                 format={(v) => `$${(+v).toFixed(0)}`}
-                live={mkt.BRENT.price != null ? { v: mkt.BRENT.price, label: mkt.BRENT.asOf ? staleness(mkt.BRENT.asOf).label : "live" } : null} />
+                live={mkt.BRENT.price != null ? { v: mkt.BRENT.price, label: mktAgeLabel(mkt.BRENT) || "live" } : null} />
             </div>}
-            footer={<><span style={{ color: mkt.BRENT.chg != null && mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight:600 }}>{fmt.arrow(mkt.BRENT.chg)} {fmt.signedPct(mkt.BRENT.chg)}</span> <span style={{ color:TEXT_DIM }}>· pre-war $74{mkt.BRENT.asOf ? ` · ${staleness(mkt.BRENT.asOf).label}` : ""}</span></>}
+            footer={<><span style={{ color: mkt.BRENT.chg != null && mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight:600 }}>{fmt.arrow(mkt.BRENT.chg)} {fmt.signedPct(mkt.BRENT.chg)}</span> <span style={{ color:TEXT_DIM }}>· pre-war $74{mktAgeLabel(mkt.BRENT) ? ` · ${mktAgeLabel(mkt.BRENT)}` : ""}</span></>}
             small
             border
           />
           <KpiCell
             label="US Gas Avg"
-            badge={<SourceBadge kind={gas?.fromCache ? "scenario" : "live"} />}
+            badge={<PriceSourceBadge live={gasIsLive(gas, "national")} dated={gas?.at?.national?.src === "build"} />}
             info="US national average for regular unleaded. Source: AAA national average (live via CORS proxy). Pre-war baseline: $3.42. Δ reflects refined product passthrough from Brent/WTI."
             value={gas?.national != null ? fmt.money(gas.national, 3) : null}
             loading={gas?.national == null}
@@ -2971,17 +2971,17 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             subDisplay={<div style={{ width:"100%", marginTop:2 }}>
               <EventSeriesChart series={GAS_NAT_SERIES} variant="mini" height={34} color={AMBER}
                 format={(v) => `$${(+v).toFixed(2)}`}
-                live={gas?.national != null ? { v: gas.national, label: gas?.asOf ? staleness(gas.asOf).label : "live" } : null} />
+                live={gas?.national != null ? { v: gas.national, label: gasAgeLabel(gas, "national") || "live" } : null} />
             </div>}
             footer={gas?.national != null
-              ? (<><span style={{ color:AMBER, fontWeight:600 }}>+{(((gas.national-3.42)/3.42)*100).toFixed(0)}%</span> <span style={{ color:TEXT_DIM }}>since Feb 28{gas?.asOf ? ` · ${staleness(gas.asOf).label}` : ""}</span></>)
+              ? (<><span style={{ color:AMBER, fontWeight:600 }}>+{(((gas.national-3.42)/3.42)*100).toFixed(0)}%</span> <span style={{ color:TEXT_DIM }}>since Feb 28{gasAgeLabel(gas, "national") ? ` · ${gasAgeLabel(gas, "national")}` : ""}</span></>)
               : (<span style={{ color:TEXT_DIM }}>awaiting AAA…</span>)}
             small
             border
           />
           <KpiCell
             label="US Diesel"
-            badge={<SourceBadge kind={gas?.fromCache ? "scenario" : "live"} />}
+            badge={<PriceSourceBadge live={gasIsLive(gas, "diesel")} dated={gas?.at?.diesel?.src === "build"} />}
             info={`US national average for diesel. Current: AAA national average (live via CORS proxy) — the Diesel column of the same AAA table as regular gas. History behind the chart: EIA weekly U.S. retail diesel average${DIESEL_SOURCE && DIESEL_SOURCE.through ? ` through ${DIESEL_SOURCE.through}` : ""}, replaced by AAA daily captures as they accumulate.${DIESEL_PREWAR ? ` Pre-war baseline: $${DIESEL_PREWAR.v.toFixed(2)} (EIA, week ending ${DIESEL_PREWAR.d}) — a different survey from AAA, typically within a few cents.` : ""}`}
             value={gas?.diesel != null ? fmt.money(gas.diesel, 3) : null}
             loading={gas?.diesel == null}
@@ -2991,17 +2991,17 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
                   <EventSeriesChart series={dieselSeries} variant="mini" height={34} color={AMBER}
                     start={new Date(`${dieselSeries[0].d}T00:00:00`)}
                     format={(v) => `$${(+v).toFixed(2)}`}
-                    live={gas?.diesel != null ? { v: gas.diesel, label: gas?.asOf ? staleness(gas.asOf).label : "live" } : null} />
+                    live={gas?.diesel != null ? { v: gas.diesel, label: gasAgeLabel(gas, "diesel") || "live" } : null} />
                 </div>)
               : (<span style={{ fontSize:10.5, color:TEXT_DIM, fontFamily:SANS, fontStyle:"italic", display:"block", marginTop:4, lineHeight:1.4 }}>
                   {dieselSeries.length === 1 ? `tracking since ${new Date(`${dieselSeries[0].d}T00:00:00`).toLocaleDateString("en-US", { month:"short", day:"numeric" })}` : "building history — trend starts with the next daily AAA capture"}
                 </span>)}
             footer={gas?.diesel != null
               ? (dieselPre != null
-                  ? (<><span style={{ color: dieselPre >= 0 ? AMBER : GREEN, fontWeight:600 }}>{dieselPre >= 0 ? "+" : ""}{dieselPre.toFixed(0)}%</span> <span style={{ color:TEXT_DIM }}>since pre-war{gas?.asOf ? ` · ${staleness(gas.asOf).label}` : ""}</span></>)
+                  ? (<><span style={{ color: dieselPre >= 0 ? AMBER : GREEN, fontWeight:600 }}>{dieselPre >= 0 ? "+" : ""}{dieselPre.toFixed(0)}%</span> <span style={{ color:TEXT_DIM }}>since pre-war{gasAgeLabel(gas, "diesel") ? ` · ${gasAgeLabel(gas, "diesel")}` : ""}</span></>)
                   : dieselMonth
-                    ? (<><span style={{ color: dieselMonth.pct >= 0 ? AMBER : GREEN, fontWeight:600 }}>{dieselMonth.pct >= 0 ? "+" : ""}{dieselMonth.pct.toFixed(0)}%</span> <span style={{ color:TEXT_DIM }}>vs month ago{gas?.asOf ? ` · ${staleness(gas.asOf).label}` : ""}</span></>)
-                    : (<span style={{ color:TEXT_DIM }}>national avg{gas?.asOf ? ` · ${staleness(gas.asOf).label}` : ""}</span>))
+                    ? (<><span style={{ color: dieselMonth.pct >= 0 ? AMBER : GREEN, fontWeight:600 }}>{dieselMonth.pct >= 0 ? "+" : ""}{dieselMonth.pct.toFixed(0)}%</span> <span style={{ color:TEXT_DIM }}>vs month ago{gasAgeLabel(gas, "diesel") ? ` · ${gasAgeLabel(gas, "diesel")}` : ""}</span></>)
+                    : (<span style={{ color:TEXT_DIM }}>national avg{gasAgeLabel(gas, "diesel") ? ` · ${gasAgeLabel(gas, "diesel")}` : ""}</span>))
               : (<span style={{ color:TEXT_DIM }}>awaiting AAA…</span>)}
             small
           />
@@ -3328,12 +3328,14 @@ function buildGasSeries() {
         ...existing,
         nat: r.nat ?? existing.nat,
         ca:  r.ca  ?? existing.ca,
+        oh:  r.oh  ?? existing.oh,
+        cin: r.cin ?? existing.cin,
         dsl: r.diesel ?? existing.dsl,
       });
     } else {
       const dt = new Date(r.d + "T00:00:00Z");
       const week = dt.toLocaleString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-      map.set(r.d, { date: r.d, week, nat: r.nat ?? null, ca: r.ca ?? null, oh: null, cin: null, dsl: r.diesel ?? null });
+      map.set(r.d, { date: r.d, week, nat: r.nat ?? null, ca: r.ca ?? null, oh: r.oh ?? null, cin: r.cin ?? null, dsl: r.diesel ?? null });
     }
   }
   for (const r of gasSeries.read()) {
@@ -3629,10 +3631,10 @@ function GasTab({ gas }) {
   const dslPre = (dslLoaded && DIESEL_PREWAR) ? ((gas.diesel - DIESEL_PREWAR.v) / DIESEL_PREWAR.v) * 100 : null;
   const fmtShort = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month:"short", day:"numeric", timeZone:"UTC" });
   const bars = [
-    { label:"National Avg", val:gas?.national,   max:6.5, color:AMBER },
-    { label:"California",   val:gas?.california, max:6.5, color:DANGER },
-    { label:"Ohio",         val:gas?.ohio,       max:6.5, color:BLUE },
-    { label:"Cincinnati",   val:gas?.cincinnati, max:6.5, color:GREEN },
+    { label:"National Avg", field:"national",   val:gas?.national,   max:6.5, color:AMBER },
+    { label:"California",   field:"california", val:gas?.california, max:6.5, color:DANGER },
+    { label:"Ohio",         field:"ohio",       val:gas?.ohio,       max:6.5, color:BLUE },
+    { label:"Cincinnati",   field:"cincinnati", val:gas?.cincinnati, max:6.5, color:GREEN },
   ];
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
@@ -3663,9 +3665,9 @@ function GasTab({ gas }) {
           {natLoaded ? `$${gas.national.toFixed(3)}` : <PriceSkeleton w={180} h={70} radius={8} />}
         </div>
         <div style={{ fontSize:14, color:DANGER, marginTop:14, fontWeight:500, fontVariantNumeric:"tabular-nums" }}>
-          {natLoaded ? `↑ +${increase}% since Feb 28 baseline ($3.42)` : "Awaiting live AAA data…"}
+          {natLoaded ? `↑ +${increase}% since Feb 28 baseline ($3.42)` : "Loading AAA data…"}
         </div>
-        <div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>Source: AAA · Live</div>
+        <div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>Source: AAA{natLoaded ? ` · ${gasAgeLabel(gas, "national")}` : ""}</div>
       </Card>
       <Card style={{ textAlign:"center", padding:28 }}>
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>US National Average · Diesel</div>
@@ -3673,7 +3675,7 @@ function GasTab({ gas }) {
           {dslLoaded ? `$${gas.diesel.toFixed(3)}` : <PriceSkeleton w={180} h={70} radius={8} />}
         </div>
         <div style={{ fontSize:14, marginTop:14, fontWeight:500, fontVariantNumeric:"tabular-nums", display:"flex", justifyContent:"center", gap:18, flexWrap:"wrap" }}>
-          {!dslLoaded ? <span style={{ color:TEXT_DIM }}>Awaiting live AAA data…</span> : (
+          {!dslLoaded ? <span style={{ color:TEXT_DIM }}>Loading AAA data…</span> : (
             <>
               {dslPre != null && (
                 <span style={{ color: dslPre >= 0 ? DANGER : GREEN }}>
@@ -3690,7 +3692,7 @@ function GasTab({ gas }) {
           )}
         </div>
         <div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>
-          Source: AAA · Live · national average, diesel grade
+          Source: AAA{dslLoaded ? ` · ${gasAgeLabel(gas, "diesel")}` : ""} · national average, diesel grade
           {DIESEL_SOURCE && DIESEL_SOURCE.through ? ` · chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : ""}
         </div>
       </Card>
@@ -3703,7 +3705,7 @@ function GasTab({ gas }) {
             return (
               <div key={b.label}>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:6 }}>
-                  <span style={{ fontSize:14, color:TEXT_HI, fontWeight:500 }}>{b.label}</span>
+                  <span style={{ fontSize:14, color:TEXT_HI, fontWeight:500 }}>{b.label}{loaded && !gasIsLive(gas, b.field) && gasAgeLabel(gas, b.field) ? <span style={{ fontSize:12, color:TEXT_DIM, fontWeight:400 }}> · {gasAgeLabel(gas, b.field)}</span> : null}</span>
                   <M style={{ fontSize:14, fontWeight:600, color:b.color }}>
                     {loaded ? `$${b.val.toFixed(3)}` : <PriceSkeleton w={56} h={14} />}
                   </M>
@@ -5650,6 +5652,7 @@ function OutlookTab({ openCountry }) {
 //   3. No localStorage cache → cold reload showed skeleton until the first fetch
 //   4. No periodic refresh → a failed initial mount fetch never recovered
 const FETCH_TIMEOUT_MS = 8000;
+const STOOQ_TIMEOUT_MS = 5000;
 async function fetchWithTimeout(url, ms = FETCH_TIMEOUT_MS, opts = {}) {
   const ac = new AbortController();
   const t = setTimeout(() => ac.abort(), ms);
@@ -5719,15 +5722,24 @@ const gasSeries = {
     } catch (_) {}
   },
   upsertToday(values) {
-    gasSeries.upsertRows([{ date: new Date().toISOString().slice(0, 10), ...values }]);
+    gasSeries.upsertRows([{ date: dateOffsetISO(0), ...values }]);
   },
 };
 
 // Compute backdated YYYY-MM-DD strings from today, used to anchor AAA's
 // Current/Yesterday/Week Ago/Month Ago/Year Ago ladder into the chart series.
+// "Today" is AAA's day (US Eastern), not UTC: from 00:00 UTC (evening in the US)
+// a UTC date would file today's AAA average under tomorrow.
+function easternTodayISO() {
+  try {
+    // en-CA formats as YYYY-MM-DD.
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  } catch (_) {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
 function dateOffsetISO(daysAgo) {
-  const d = new Date();
-  d.setUTCHours(0, 0, 0, 0);
+  const d = new Date(easternTodayISO() + "T00:00:00Z");
   d.setUTCDate(d.getUTCDate() - daysAgo);
   return d.toISOString().slice(0, 10);
 }
@@ -5746,6 +5758,94 @@ function staleness(asOf) {
   if (ms < 1_800_000)    return { live: false, label: `${Math.round(ms/60000)}m ago`, stale: false };
   if (ms < 86_400_000)   return { live: false, label: `${Math.round(ms/3_600_000)}h ago`, stale: true };
   return { live: false, label: "stale", stale: true };
+}
+
+// ── First paint from the build's dated data ────────────────────────────────
+// The build ships the pipeline's own server-side AAA capture (markets.json
+// gas_daily) and the dated Brent series. Gas averages move once a day, so the
+// latest dated row is the real figure; seeding from it means a first-time visitor
+// sees prices at once instead of skeletons while the proxies answer. Every seeded
+// value carries its date ("as of Nov 16"), never a live label, and a live fetch
+// replaces it in place. A newer localStorage capture wins over an older build row.
+const GAS_FIELDS = ["national", "california", "ohio", "cincinnati", "diesel"];
+const GAS_DAILY_FIELD = { national: "nat", california: "ca", ohio: "oh", cincinnati: "cin", diesel: "diesel" };
+const fmtDay = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month:"short", day:"numeric", timeZone:"UTC" });
+function easternDayOf(ts) {
+  try {
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(ts));
+  } catch (_) { return new Date(ts).toISOString().slice(0, 10); }
+}
+function isoMinusDays(iso, n) {
+  const d = new Date(`${iso}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - n);
+  return d.toISOString().slice(0, 10);
+}
+function gasSeedFromBuild() {
+  const rows = (GAS_DAILY || []).filter(r => r && /^\d{4}-\d{2}-\d{2}$/.test(r.d || ""));
+  if (!rows.length) return null;
+  const byDate = new Map(rows.map(r => [r.d, r]));
+  // Each field takes its own latest dated value, so a day where one region failed
+  // server-side doesn't blank that tile.
+  const out = { at: {} };
+  for (const f of GAS_FIELDS) {
+    const key = GAS_DAILY_FIELD[f];
+    let best = null;
+    for (const r of rows) if (r[key] != null && isFinite(r[key]) && (!best || r.d > best.d)) best = r;
+    if (best) { out[f] = best[key]; out.at[f] = { d: best.d, src: "build" }; }
+  }
+  // Diesel references for the "vs week / month ago" footers: the dated rows 7 and
+  // 30 days back (the same AAA ladder points update-markets.js back-fills).
+  if (out.diesel != null) {
+    const d = out.at.diesel.d;
+    const ref = (n) => byDate.get(isoMinusDays(d, n))?.diesel ?? null;
+    out.dieselLadder = { current: out.diesel, yesterday: ref(1), weekAgo: ref(7), monthAgo: ref(30) };
+  }
+  return out;
+}
+function seedGasState() {
+  const g = { ...GAS, at: {} };
+  const b = gasSeedFromBuild();
+  const c = priceCache.read().gas;
+  for (const f of GAS_FIELDS) {
+    const cv = c?.[f];
+    const cts = c?.at?.[f] ?? c?.asOf; // older caches carry one shared asOf
+    const buildDay = b?.at?.[f]?.d;
+    if (cv != null && cts && (!buildDay || easternDayOf(cts) >= buildDay)) {
+      g[f] = cv; g.at[f] = { ts: cts, src: "cache" };
+    } else if (b && b[f] != null) {
+      g[f] = b[f]; g.at[f] = b.at[f];
+    }
+  }
+  g.dieselLadder = g.at.diesel?.src === "cache" ? (c?.dieselLadder ?? null) : (b?.dieselLadder ?? null);
+  g.loaded = g.national != null;
+  return g;
+}
+// Latest dated Brent point from the build (update-markets.js brent_daily merged
+// with editorial anchors), used when the reader has no newer cached quote.
+function brentSeedFromBuild() {
+  const last = BRENT_SERIES.length ? BRENT_SERIES[BRENT_SERIES.length - 1] : null;
+  return last && last.v > 0 && last.d ? { price: last.v, chg: null, loaded: true, dated: last.d, fromCache: true } : null;
+}
+
+// Freshness of one gas field: "live" / "4m ago" for fetched or cached values,
+// "as of Nov 16" for a dated build value, "" when there is no value.
+function gasAgeLabel(gas, field = "national") {
+  const a = gas?.at?.[field];
+  if (a?.ts) return staleness(a.ts).label;
+  if (a?.d) return `as of ${fmtDay(a.d)}`;
+  return "";
+}
+const gasIsLive = (gas, field = "national") => gas?.at?.[field]?.src === "live";
+// The same for a market tile entry ({asOf} from a fetch or cache, {dated} from the build).
+function mktAgeLabel(e) {
+  if (e?.asOf) return staleness(e.asOf).label;
+  if (e?.dated) return `as of ${fmtDay(e.dated)}`;
+  return "";
+}
+// Source pill for a price tile: "Live" when fetched this session, otherwise
+// "Cached" (reader's last-known-good) or "Dated" (the build's dated close).
+function PriceSourceBadge({ live, dated }) {
+  return live ? <SourceBadge kind="live" /> : <SourceBadge kind="cached" label={dated ? "Dated" : "Cached"} />;
 }
 
 // Yahoo Finance via CORS-proxy chain. Synthesises the legacy v7/quote shape from
@@ -5771,11 +5871,46 @@ const YF_TILE = { "^GSPC":"SPX", "^DJI":"DOW", "^IXIC":"NDX", "GC=F":"GOLD", "CL
 const STOOQ_MAP = { "^GSPC":"^spx", "^DJI":"^dji", "^IXIC":"^ndq", "GC=F":"gc.f", "CL=F":"cl.f", "BZ=F":"cb.f" };
 const YF_CHART = (s) => `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}`;
 const YF_SPARK = (syms) => `https://query1.finance.yahoo.com/v8/finance/spark?symbols=${syms.map(encodeURIComponent).join(",")}&range=1d&interval=5m`;
-const YF_PROXIES = [
-  (url) => "https://corsproxy.io/?" + encodeURIComponent(url),
-  (url) => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-  (url) => "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(url),
+// Free CORS proxies, used for Yahoo and AAA (neither sends CORS headers). corsproxy.io
+// was dropped in Nov 2026: it now answers every keyless request with HTTP 403
+// ("keyless_legacy_url"), and as the head of the chain it cost every fetch a wasted
+// round trip. allorigins' /get endpoint wraps the page in JSON ({contents}); `unwrap`
+// turns that back into a plain Response so the parsers stay proxy-agnostic.
+// allorigins caches responses together with the Access-Control-Allow-Origin of the
+// first requester, so a page cached for another site is rejected by the browser.
+// `_o` keys its cache to this site's origin.
+const PROXY_ORIGIN_KEY = (() => { try { return "&_o=" + encodeURIComponent(location.host || "local"); } catch { return ""; } })();
+const CORS_PROXIES = [
+  { id: "allorigins-raw", make: (u) => "https://api.allorigins.win/raw?url=" + encodeURIComponent(u) + PROXY_ORIGIN_KEY },
+  { id: "codetabs",       make: (u) => "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(u) },
+  { id: "allorigins-get", make: (u) => "https://api.allorigins.win/get?url=" + encodeURIComponent(u) + PROXY_ORIGIN_KEY,
+    unwrap: async (r) => {
+      const j = await r.json();
+      if (!j || typeof j.contents !== "string" || !j.contents) throw new Error("allorigins-get: empty contents");
+      return new Response(j.contents);
+    } },
 ];
+// Per-attempt ceiling, and how long to wait on one proxy before starting the next in
+// parallel ("hedging"). A healthy proxy answers in 1-3 s; a sick one used to hold a
+// region for 8 s per proxy, in series. Now the worst case is ~3 s of stagger plus one
+// timeout, and the common case is the first proxy's latency.
+const PROXY_TIMEOUT_MS = 9000;
+const PROXY_HEDGE_MS = 1500;
+// Remember the proxy that last answered, so the next fetch (and the next visit) tries
+// it first instead of re-discovering which ones are up.
+const PROXY_PREF_KEY = "ww3dash.proxyPref.v1";
+let proxyPref = (() => { try { return localStorage.getItem(PROXY_PREF_KEY); } catch { return null; } })();
+function rememberProxy(id) {
+  if (proxyPref === id) return;
+  proxyPref = id;
+  try { localStorage.setItem(PROXY_PREF_KEY, id); } catch (_) {}
+}
+function proxyOrder(startAt) {
+  const n = CORS_PROXIES.length;
+  const rotated = CORS_PROXIES.map((_, k) => CORS_PROXIES[(startAt + k) % n]);
+  const i = rotated.findIndex(p => p.id === proxyPref);
+  return i > 0 ? [rotated[i], ...rotated.slice(0, i), ...rotated.slice(i + 1)] : rotated;
+}
 
 // Concurrency-limited map — runs `fn` over items with at most `limit` in flight, so
 // the per-symbol fallback can't re-create the all-at-once burst. A failing item
@@ -5794,24 +5929,45 @@ async function mapLimit(items, limit, fn) {
   return results;
 }
 
-// Single-URL fallback across the proxy chain. Each proxy gets one timed shot;
-// returns the first success. `startAt` rotates which proxy is tried first so a set of
-// per-symbol calls spreads its load across all three proxies instead of all starting
-// on corsproxy.io. Replaces the old "all-or-nothing per proxy" pattern.
-async function tryProxies(buildUrl, parse, timeout = FETCH_TIMEOUT_MS, startAt = 0) {
-  let lastErr;
-  const n = YF_PROXIES.length;
-  for (let k = 0; k < n; k++) {
-    const proxyMaker = YF_PROXIES[(startAt + k) % n];
-    try {
-      const r = await fetchWithTimeout(proxyMaker(buildUrl), timeout);
-      if (!r.ok) { lastErr = new Error("status " + r.status); continue; }
-      const parsed = await parse(r);
-      if (parsed != null) return parsed;
-      lastErr = new Error("parse returned null");
-    } catch (e) { lastErr = e; }
-  }
-  throw lastErr || new Error("all proxies failed");
+// Single-URL fetch across the proxy chain, hedged: the first proxy starts at once,
+// the next starts after PROXY_HEDGE_MS if nothing has answered (or immediately when
+// the one before it fails), and the first proxy to return a page that parses wins.
+// The losers are aborted. A 200 that does not parse (a bot wall, an error page) counts
+// as a failure, so it never displaces a real answer. `startAt` rotates the order so a
+// batch of per-symbol calls spreads its load across the proxies.
+function tryProxies(target, parse, startAt = 0) {
+  const order = proxyOrder(startAt);
+  return new Promise((resolve, reject) => {
+    const ctrls = [];
+    let launched = 0, failed = 0, done = false, hedgeTimer = null, lastErr = null;
+    const finish = () => { done = true; clearTimeout(hedgeTimer); for (const c of ctrls) c.abort(); };
+    const launch = () => {
+      if (done || launched >= order.length) return;
+      const p = order[launched++];
+      const ac = new AbortController();
+      ctrls.push(ac);
+      clearTimeout(hedgeTimer);
+      if (launched < order.length) hedgeTimer = setTimeout(launch, PROXY_HEDGE_MS);
+      const killer = setTimeout(() => ac.abort(), PROXY_TIMEOUT_MS);
+      (async () => {
+        const r = await fetch(p.make(target), { signal: ac.signal });
+        if (!r.ok) throw new Error(p.id + " HTTP " + r.status);
+        const parsed = await parse(p.unwrap ? await p.unwrap(r) : r);
+        if (parsed == null) throw new Error(p.id + ": page did not parse");
+        return parsed;
+      })().then(
+        (v) => { clearTimeout(killer); if (done) return; rememberProxy(p.id); finish(); resolve(v); },
+        (e) => {
+          clearTimeout(killer);
+          if (done) return;
+          lastErr = e; failed++;
+          if (failed >= order.length) { finish(); reject(lastErr); }
+          else if (failed >= launched) launch(); // nothing left in flight: don't wait out the stagger
+        },
+      );
+    };
+    launch();
+  });
 }
 
 // Batched spark fetch — ALL symbols in one proxied request. Tolerates both spark
@@ -5859,7 +6015,7 @@ async function fetchYahooSymbol(sym, startAt = 0) {
       regularMarketPrice: meta.regularMarketPrice,
       regularMarketChangePercent: chgPct,
     };
-  }, FETCH_TIMEOUT_MS, startAt);
+  }, startAt);
 }
 
 // Stooq fallback (no key, daily CSV, permissive CORS so no proxy needed). A real
@@ -5869,7 +6025,9 @@ async function fetchStooq(sym) {
   const ss = STOOQ_MAP[sym];
   if (!ss) throw new Error("stooq: no mapping for " + sym);
   const url = `https://stooq.com/q/l/?s=${encodeURIComponent(ss)}&f=sd2t2ohlcv&h&e=csv`;
-  const r = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
+  // Short ceiling: Stooq is a last resort and, when it is down, it hangs rather
+  // than refusing, which used to hold a symbol for the full default timeout.
+  const r = await fetchWithTimeout(url, STOOQ_TIMEOUT_MS);
   if (!r.ok) throw new Error("stooq " + r.status);
   const text = await r.text();
   // CSV header line + one data line. Columns: Symbol,Date,Time,Open,High,Low,Close,Volume
@@ -5892,24 +6050,33 @@ async function fetchSymbolResilient(sym, startAt = 0) {
   const tile = YF_TILE[sym];
   const c = tile ? priceCache.read()[tile] : null;
   if (c && c.price != null) {
-    return { symbol: sym, regularMarketPrice: c.price, regularMarketChangePercent: c.chg ?? 0, _fromCache: true, _asOf: c.asOf };
+    return { symbol: sym, regularMarketPrice: c.price, regularMarketChangePercent: c.chg ?? null, _fromCache: true, _asOf: c.asOf };
   }
   throw new Error(sym + ": all sources failed (Yahoo+Stooq+cache empty)");
 }
 
-async function fetchYahooMarkets() {
+async function fetchYahooMarkets(onQuotes) {
   // One batched spark request first — removes the six-way proxy burst that was
   // dropping NASDAQ/GOLD/BRENT. Then fill only what spark missed, throttled and
   // proxy-rotated so the fill can't recreate the burst; each filled symbol still
-  // falls through Yahoo -> Stooq -> cache.
+  // falls through Yahoo -> Stooq -> cache. `onQuotes` receives each batch as soon
+  // as it lands, so the tiles fill progressively instead of waiting for the
+  // slowest symbol.
   const collected = new Map();
+  const emit = (qs) => { if (onQuotes && qs.length) { try { onQuotes(qs); } catch (_) {} } };
   try {
-    for (const q of await fetchYahooSpark()) collected.set(q.symbol, q);
+    const spark = await fetchYahooSpark();
+    for (const q of spark) collected.set(q.symbol, q);
+    emit(spark);
   } catch (_) { /* spark unavailable — the per-symbol fill below covers every symbol */ }
 
   const missing = YF_SYMBOLS.filter(s => !collected.has(s));
   if (missing.length) {
-    const filled = await mapLimit(missing, 2, (s, i) => fetchSymbolResilient(s, i));
+    const filled = await mapLimit(missing, 2, async (s, i) => {
+      const q = await fetchSymbolResilient(s, i);
+      emit([q]);
+      return q;
+    });
     for (const q of filled) if (q) collected.set(q.symbol, q);
   }
 
@@ -5998,59 +6165,54 @@ function extractAaaMetroLadder(html, metro) {
   return extractAaaLadderAfter(html, new RegExp(metro, "i"));
 }
 
-// Parse one AAA page → { price, ladder }. Ladder is best-effort and may be
-// null if the page format ever changes.
-async function fetchAaaRegion(path, parseLadder, parseDiesel) {
+// Build one region's result from its anchored ladder: { price, ladder }, or null.
+// The price is the ladder's "Current Avg." only. There is deliberately no fallback
+// to the page headline here: every gasprices.aaa.com page carries the NATIONAL
+// banner, so a state page whose ladder failed to parse would otherwise show the
+// national price under the state's name.
+function aaaRegionFromLadder(ladder) {
+  return ladder && ladder.current != null ? { price: ladder.current, ladder } : null;
+}
+
+// Fetch one AAA page and parse every region it carries. `parse(html)` returns an
+// object of region results, or null when none parsed (so the next proxy is tried).
+async function fetchAaaPage(path, parse) {
   return tryProxies(AAA_HOST + path, async (r) => {
-    const html = await r.text();
-    // Prefer the region's anchored ladder "Current Avg." — the loose headline
-    // regex can catch the NATIONAL banner AAA puts on every page (state pages
-    // included), which is the wrong number for a state fetch.
-    const ladder = parseLadder ? parseLadder(html) : null;
-    const price = (ladder && ladder.current != null) ? ladder.current : extractAaaPrice(html);
-    if (price == null) return null;
-    // Diesel rides the same page; a missing Diesel column must not fail the
-    // regular-gas fetch, so it is optional and null on any parse miss.
-    let diesel = null;
-    try { diesel = parseDiesel ? parseDiesel(html) : null; } catch (_) {}
-    return { price, ladder, diesel };
+    const out = parse(await r.text());
+    return out && Object.values(out).some(Boolean) ? out : null;
   });
 }
 
-async function fetchAaaCincinnatiRegion() {
-  // The Cincinnati price + ladder live on the Ohio state page. AAA does not
-  // serve a stable per-city URL (?city=… returns the national homepage).
-  try {
-    return await tryProxies(AAA_HOST + "/?state=OH", async (r) => {
-      const html = await r.text();
-      const ladder = extractAaaMetroLadder(html, "Cincinnati");
-      const price = ladder?.current ?? null;
+// AAA gas: three pages fetched in parallel. The Ohio page carries both the Ohio
+// state ladder and the Cincinnati metro ladder (AAA has no stable per-city URL), so
+// it is fetched once, not twice. `onRegions` receives each page's regions as soon
+// as that page lands, so the national tiles never wait on a slow state page.
+// Resolves with every region that parsed; rejects only if none did.
+async function fetchAaaGas(onRegions) {
+  const out = {};
+  const page = (path, parse) => fetchAaaPage(path, parse).then((regions) => {
+    for (const [k, v] of Object.entries(regions)) if (v) out[k] = v;
+    if (onRegions) { try { onRegions(regions); } catch (_) {} }
+  });
+  await Promise.allSettled([
+    // National: the anchored ladder, else the "Today's AAA National Average"
+    // headline (correct on the national page). Diesel rides the same table; a
+    // missing Diesel column must not fail regular gas, so it is optional.
+    page("/", (html) => {
+      const ladder = extractAaaNationalLadder(html);
+      const price = ladder?.current ?? extractAaaPrice(html);
       if (price == null) return null;
-      return { price, ladder };
-    });
-  } catch (_) {}
-  return null;
-}
-
-async function fetchAaaGas() {
-  // Four independent fallback chains in parallel. Settles partial results so a
-  // single dead region (e.g. Cincinnati metro) doesn't void the others.
-  const [nat, ca, oh, cin] = await Promise.allSettled([
-    fetchAaaRegion("/",           html => extractAaaNationalLadder(html), html => extractAaaNationalDiesel(html)),
-    fetchAaaRegion("/?state=CA",  html => extractAaaStateLadder(html, "California")),
-    fetchAaaRegion("/?state=OH",  html => extractAaaStateLadder(html, "Ohio")),
-    fetchAaaCincinnatiRegion(),
+      let diesel = null;
+      try { diesel = extractAaaNationalDiesel(html); } catch (_) {}
+      return { national: { price, ladder, diesel } };
+    }),
+    page("/?state=CA", (html) => ({ california: aaaRegionFromLadder(extractAaaStateLadder(html, "California")) })),
+    page("/?state=OH", (html) => ({
+      ohio:       aaaRegionFromLadder(extractAaaStateLadder(html, "Ohio")),
+      cincinnati: aaaRegionFromLadder(extractAaaMetroLadder(html, "Cincinnati")),
+    })),
   ]);
-  const unpack = (r) => r.status === "fulfilled" && r.value ? r.value : null;
-  const out = {
-    national:   unpack(nat),
-    california: unpack(ca),
-    ohio:       unpack(oh),
-    cincinnati: unpack(cin),
-  };
-  if (!out.national && !out.california && !out.ohio && !out.cincinnati) {
-    throw new Error("All AAA regions failed");
-  }
+  if (!Object.keys(out).length) throw new Error("All AAA regions failed");
   return out;
 }
 
@@ -6137,143 +6299,141 @@ async function fetchUpdate(setMkt, setGas, setWw3, setThemes, setBreaking, setNe
   setRefreshing(true);
   setRefreshErr(null);
   if (setSourceStatus) setSourceStatus(s => ({ ...s, crypto:"loading", markets:"loading", news:"loading", gas:"loading" }));
+  const mark = (k, ok) => { if (setSourceStatus) setSourceStatus(s => ({ ...s, [k]: ok ? "ok" : "fail" })); };
 
-  // Run all free sources in parallel — each fails independently
-  const [cgRes, yfRes, aaaRes, gdRes] = await Promise.allSettled([
-    // 1. CoinGecko — BTC + ETH (free, no key, CORS enabled). Timeout via AbortController
-    //    so a stalled CoinGecko request can't hold the whole pipeline open.
-    fetchWithTimeout("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true")
-      .then(r => r.ok ? r.json() : Promise.reject("CoinGecko " + r.status)),
-
-    // 2. Yahoo Finance via proxy chain — SPX, DOW, NASDAQ, GOLD, WTI, BRENT
-    fetchYahooMarkets(),
-
-    // 3. AAA via proxy chain — national + CA + OH gas averages
-    fetchAaaGas(),
-
-    // 4. GDELT — Iran/Middle East news (free, no key, CORS enabled). Retries on 429/5xx.
-    fetchGdeltNews(),
-  ]);
-
-  let updateCount = 0;
-  const errors = [];
+  // All free sources run in parallel and each one APPLIES its result the moment it
+  // lands. The old version awaited all four before touching state, so the gas tiles
+  // waited on GDELT's retry backoff and the slowest Yahoo symbol.
 
   // ── Crypto ─────────────────────────────────────────────────────────────────
-  let cryptoOK = false;
-  if (cgRes.status === "fulfilled") {
-    const cg = cgRes.value;
-    const btc = cg?.bitcoin?.usd, eth = cg?.ethereum?.usd;
-    // Require a real numeric price before marking the tile live — a malformed-but-200
-    // body (e.g. {bitcoin:{},ethereum:{}}) must stay a skeleton, not show "—" as live.
-    if (Number.isFinite(btc) && Number.isFinite(eth)) {
+  // CoinGecko — BTC + ETH (free, no key, CORS enabled), behind a timeout so a
+  // stalled request can't hold the refresh open.
+  const cryptoP = fetchWithTimeout("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true")
+    .then(r => r.ok ? r.json() : Promise.reject("CoinGecko " + r.status))
+    .then(cg => {
+      const btc = cg?.bitcoin?.usd, eth = cg?.ethereum?.usd;
+      // Require a real numeric price before marking the tile live — a malformed-but-200
+      // body (e.g. {bitcoin:{},ethereum:{}}) must stay a skeleton, not show "—" as live.
+      if (!Number.isFinite(btc) || !Number.isFinite(eth)) return false;
       setMkt(prev => ({
         ...prev,
         BTC: { price: btc, chg: numOrNull(cg.bitcoin.usd_24h_change),  loaded: true },
         ETH: { price: eth, chg: numOrNull(cg.ethereum.usd_24h_change), loaded: true },
       }));
-      updateCount++; cryptoOK = true;
-    }
-  }
-  if (!cryptoOK) errors.push("Crypto");
+      return true;
+    })
+    .catch(() => false)
+    .then(ok => { mark("crypto", ok); return ok; });
 
   // ── Stocks / Commodities ───────────────────────────────────────────────────
+  // Yahoo via the proxy chain (SPX, DOW, NASDAQ, GOLD, WTI, BRENT), applied batch
+  // by batch as fetchYahooMarkets reports them.
   let marketsOK = false;
-  if (yfRes.status === "fulfilled") {
-    const quotes = yfRes.value?.quoteResponse?.result || [];
+  const applyQuotes = (quotes) => {
     // Only quotes we can map to a tile with a usable price count as ingest. Gating on
     // this (not raw quotes.length) keeps the refresh timestamp + "Updated" label honest.
-    const valid = quotes.filter(q => YF_TILE[q.symbol] && q.regularMarketPrice > 0);
-    if (valid.length > 0) {
-      const now = Date.now();
-      // Persist every freshly-fetched symbol as last-known-good (computed synchronously
-      // so it doesn't depend on React flushing setMkt first). Cache-sourced quotes
-      // (_fromCache) are skipped so their original asOf isn't bumped — re-stamping a
-      // stale value would make it look fresh.
-      const cachePatch = {};
+    const valid = (quotes || []).filter(q => q && YF_TILE[q.symbol] && q.regularMarketPrice > 0);
+    if (!valid.length) return;
+    const now = Date.now();
+    // Persist every freshly-fetched symbol as last-known-good. Cache-sourced quotes
+    // (_fromCache) are skipped so their original asOf isn't bumped — re-stamping a
+    // stale value would make it look fresh.
+    const cachePatch = {};
+    for (const q of valid) {
+      if (q._fromCache) continue;
+      cachePatch[YF_TILE[q.symbol]] = { price: q.regularMarketPrice, chg: numOrNull(q.regularMarketChangePercent), asOf: now };
+    }
+    if (Object.keys(cachePatch).length) priceCache.write(cachePatch);
+    setMkt(prev => {
+      const n = { ...prev };
       for (const q of valid) {
-        if (q._fromCache) continue;
-        cachePatch[YF_TILE[q.symbol]] = {
+        const tile = YF_TILE[q.symbol];
+        // A cached quote never overwrites a live value from this session, or a newer dated close.
+        if (q._fromCache && prev[tile]?.loaded && (!prev[tile].fromCache || (prev[tile].dated && q._asOf && easternDayOf(q._asOf) < prev[tile].dated))) continue;
+        n[tile] = {
           price: q.regularMarketPrice,
-          chg:   numOrNull(q.regularMarketChangePercent),
-          asOf:  now,
+          chg: numOrNull(q.regularMarketChangePercent),
+          loaded: true,
+          asOf: q._fromCache ? (q._asOf ?? now) : now,
+          fromCache: !!q._fromCache,
         };
       }
-      if (Object.keys(cachePatch).length) priceCache.write(cachePatch);
-      setMkt(prev => {
-        const n = { ...prev };
-        for (const q of valid) {
-          n[YF_TILE[q.symbol]] = {
-            price: q.regularMarketPrice,
-            chg: numOrNull(q.regularMarketChangePercent),
-            loaded: true,
-            asOf: q._fromCache ? (q._asOf ?? now) : now,
-            fromCache: !!q._fromCache,
-          };
-        }
-        return n;
-      });
-      updateCount++; marketsOK = true;
-    }
-  }
-  if (!marketsOK) errors.push("Markets");
+      return n;
+    });
+    marketsOK = true;
+  };
+  const marketsP = fetchYahooMarkets(applyQuotes)
+    .catch(() => {})
+    .then(() => { mark("markets", marketsOK); return marketsOK; });
 
   // ── Gas (AAA) ──────────────────────────────────────────────────────────────
-  // Per-URL fallback in fetchAaaGas means partial success is the norm. Each
-  // region returns { price, ladder } — the headline `price` drives the live
-  // tiles, and the 5-point `ladder` (Current/Yesterday/WeekAgo/MonthAgo/YearAgo)
-  // is translated into back-dated chart rows so Ohio + Cincinnati get visible
-  // historical curves instead of a single dot. All ladder values are real AAA
-  // snapshots, not synthesis.
+  // fetchAaaGas reports each page's regions as it lands. Each region carries
+  // { price, ladder }: the price drives the live tiles, and the 5-point ladder
+  // (Current/Yesterday/WeekAgo/MonthAgo/YearAgo) becomes back-dated chart rows so
+  // Ohio + Cincinnati get historical curves. All ladder values are real AAA
+  // snapshots, not synthesis. Freshness is tracked per field (gas.at), so a live
+  // California price never makes a dated national price look live.
   let gasOK = false;
-  if (aaaRes.status === "fulfilled" && aaaRes.value) {
-    const a = aaaRes.value;
+  const applyGasRegions = (regions) => {
     const now = Date.now();
-    const price = (region) => region?.price ?? null;
-    // National diesel: a ladder object {current, yesterday, weekAgo, monthAgo,
-    // yearAgo} straight from AAA's national table, or null on a parse miss.
-    const dieselLadder = a.national?.diesel ?? null;
-    const prices = {
-      national:   price(a.national),
-      california: price(a.california),
-      ohio:       price(a.ohio),
-      cincinnati: price(a.cincinnati),
-      diesel:     dieselLadder?.current ?? null,
-    };
-    setGas(prev => ({
-      ...prev,
-      national:   prices.national   ?? prev.national,
-      california: prices.california ?? prev.california,
-      ohio:       prices.ohio       ?? prev.ohio,
-      cincinnati: prices.cincinnati ?? prev.cincinnati,
-      diesel:       prices.diesel ?? prev.diesel,
-      dieselLadder: dieselLadder  ?? prev.dieselLadder,
-      asOf:       now,
-      loaded:     true,
-      fromCache:  false, // a live fetch just landed — clear the cache-hydrate flag
-    }));
-    priceCache.write({ gas: { ...prices, dieselLadder, asOf: now } });
-    // Build the series rows: today's tip (all 4) plus every ladder point for
-    // every region that returned one. gasSeries.upsertRows deduplicates by
-    // date and merges fields, so multiple regions hitting the same backdate
-    // (e.g. all four "Week Ago") collapse into one row.
+    const patch = {};
     const rows = [];
     const today = dateOffsetISO(0);
     const todayRow = { date: today };
-    if (prices.national   != null) todayRow.nat = prices.national;
-    if (prices.california != null) todayRow.ca  = prices.california;
-    if (prices.ohio       != null) todayRow.oh  = prices.ohio;
-    if (prices.cincinnati != null) todayRow.cin = prices.cincinnati;
-    if (prices.diesel     != null) todayRow.dsl = prices.diesel;
-    if (Object.keys(todayRow).length > 1) rows.push(todayRow);
-    rows.push(...aaaLadderToRows(a.national?.ladder,   "nat"));
-    rows.push(...aaaLadderToRows(dieselLadder,         "dsl"));
-    rows.push(...aaaLadderToRows(a.california?.ladder, "ca"));
-    rows.push(...aaaLadderToRows(a.ohio?.ladder,       "oh"));
-    rows.push(...aaaLadderToRows(a.cincinnati?.ladder, "cin"));
+    const FIELD_SERIES = { national: "nat", california: "ca", ohio: "oh", cincinnati: "cin" };
+    for (const [field, key] of Object.entries(FIELD_SERIES)) {
+      const r = regions[field];
+      if (!r || r.price == null) continue;
+      patch[field] = r.price;
+      todayRow[key] = r.price;
+      rows.push(...aaaLadderToRows(r.ladder, key));
+    }
+    // National diesel: {current, yesterday, weekAgo, monthAgo, yearAgo} from the
+    // national table, or null on a parse miss.
+    const dieselLadder = regions.national?.diesel ?? null;
+    if (dieselLadder?.current != null) {
+      patch.diesel = dieselLadder.current;
+      patch.dieselLadder = dieselLadder;
+      todayRow.dsl = dieselLadder.current;
+      rows.push(...aaaLadderToRows(dieselLadder, "dsl"));
+    }
+    const fields = Object.keys(patch).filter(k => k !== "dieselLadder");
+    if (!fields.length) return;
+    const atPatch = {};
+    for (const f of fields) atPatch[f] = { ts: now, src: "live" };
+    setGas(prev => {
+      const at = { ...(prev.at || {}), ...atPatch };
+      const next = { ...prev, ...patch, at };
+      next.loaded = next.national != null;
+      return next;
+    });
+    // Merge into the last-known-good cache (per-field timestamps) rather than
+    // replacing it, so a refresh where only some regions answered keeps the rest.
+    const prevCache = priceCache.read().gas || {};
+    const cacheAt = { ...(prevCache.at || {}) };
+    for (const f of fields) cacheAt[f] = now;
+    priceCache.write({ gas: { ...prevCache, ...patch, at: cacheAt } });
+    // Today's tip plus every ladder point. gasSeries.upsertRows dedupes by date and
+    // merges fields, so regions hitting the same backdate collapse into one row.
+    if (Object.keys(todayRow).length > 1) rows.unshift(todayRow);
     if (rows.length > 0) gasSeries.upsertRows(rows);
-    if (prices.national != null) { updateCount++; gasOK = true; }
-  }
-  if (!gasOK) errors.push("Gas");
+    if (patch.national != null) gasOK = true;
+  };
+  const gasP = fetchAaaGas(applyGasRegions)
+    .catch(() => {})
+    .then(() => { mark("gas", gasOK); return gasOK; });
+
+  // GDELT — Iran/Middle East news (free, no key, CORS enabled). Retries on 429/5xx.
+  const newsP = fetchGdeltNews();
+
+  const [cryptoRes, , , gdRes] = await Promise.allSettled([cryptoP, marketsP, gasP, newsP]);
+  const cryptoOK = cryptoRes.status === "fulfilled" && cryptoRes.value === true;
+
+  let updateCount = 0;
+  const errors = [];
+  if (cryptoOK) updateCount++; else errors.push("Crypto");
+  if (marketsOK) updateCount++; else errors.push("Markets");
+  if (gasOK) updateCount++; else errors.push("Gas");
 
   // ── News ───────────────────────────────────────────────────────────────────
   let newsOK = false;
@@ -6829,26 +6989,16 @@ function App() {
     for (const tile of ["SPX", "DOW", "NDX", "GOLD", "WTI", "BRENT"]) {
       const e = c?.[tile];
       if (e && e.price != null) {
-        seed[tile] = { price: e.price, chg: e.chg ?? 0, loaded: true, asOf: e.asOf, fromCache: true };
+        seed[tile] = { price: e.price, chg: e.chg ?? null, loaded: true, asOf: e.asOf, fromCache: true };
       }
     }
+    // No cached Brent, or one older than the build's dated close: show the dated
+    // close (labelled "as of <date>") instead of a skeleton.
+    const b = brentSeedFromBuild();
+    if (b && (!seed.BRENT?.loaded || !seed.BRENT.asOf || easternDayOf(seed.BRENT.asOf) < b.dated)) seed.BRENT = b;
     return seed;
   });
-  const [gasLive, setGasLive]           = useState(() => {
-    const c = priceCache.read().gas;
-    if (!c) return GAS;
-    return {
-      national:   c.national   ?? null,
-      california: c.california ?? null,
-      ohio:       c.ohio       ?? null,
-      cincinnati: c.cincinnati ?? null,
-      diesel:       c.diesel       ?? null,
-      dieselLadder: c.dieselLadder ?? null,
-      asOf:       c.asOf,
-      loaded:     c.national != null,
-      fromCache:  true,
-    };
-  });
+  const [gasLive, setGasLive]           = useState(seedGasState);
   const [ww3Live, setWw3Live]           = useState(WW3_PCT);
   const [themesLive, setThemesLive]     = useState(INIT_THEMES);
   const [breaking, setBreaking]         = useState(INIT_BREAKING);

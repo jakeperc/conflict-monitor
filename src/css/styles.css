@@ -322,6 +322,30 @@
     .header-title-stack { flex: 1; min-width: 0; }
     .header-title { font-size: 13px !important; }
     .header-actions { gap: 6px !important; }
+    /* The brand block may shrink (its title ellipsizes) so the actions never push past the edge.
+       Overflow here widened the whole layout viewport and pushed the tab bar off screen. */
+    .header-row > .choreographed:first-child { flex-shrink: 1 !important; min-width: 0 !important; }
+    /* Freshness pill collapses to its status dot; the age stays in the aria-label and the popover. */
+    .freshness-label { display: none !important; }
+    .freshness-btn { padding: 0 !important; min-width: 44px; min-height: 44px; justify-content: center; }
+    /* Next 7 Days: date, odds and theater on one line, the full question wrapped below it
+       (one line squeezed the question to a few characters beside a long theater chip). */
+    .next7-row { flex-wrap: wrap; row-gap: 6px !important; }
+    .next7-q { order: 9; flex-basis: 100% !important; white-space: normal !important; overflow: visible !important; line-height: 1.45; }
+    /* Outlook indicator / intel-gap rows: two lines collapsed instead of ~25 characters;
+       the full title shows when the row is expanded (.is-open). */
+    /* Feed filters: each group (Arc, Status, Severity) is one swipeable row instead of
+       wrapping into a full screen of chips. */
+    .feed-filter-divider { display: none !important; }
+    .feed-filter-group {
+      display: flex !important; flex-basis: 100%; flex-wrap: nowrap !important; align-items: center; gap: 8px;
+      overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      margin: 0 -16px; padding: 0 16px;
+    }
+    .feed-filter-group::-webkit-scrollbar { display: none; }
+    .feed-filter-group > * { flex-shrink: 0; }
+    .row-title { overflow-wrap: anywhere; }
+    .row-title:not(.is-open) { white-space: normal !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
     /* Buttons collapse to icon-only on mobile */
     .btn-label-desktop { display: none !important; }
     .theme-toggle-btn { padding: 7px 8px !important; }
@@ -380,6 +404,8 @@
     .stat-grid-4 { grid-template-columns: minmax(0, 1fr) !important; gap: 12px !important; }
     /* Card padding: tighten */
     .card { padding: 16px !important; border-radius: 10px !important; }
+    /* Edge-to-edge cards (map, list cards) pad their own sections; don't double it. */
+    .card.card-flush { padding: 0 !important; }
     /* Globe preview (Overview): thumbnail above the text, no outer padding */
     .globe-preview.card { padding: 0 !important; grid-template-columns: minmax(0, 1fr) !important; }
     .globe-preview > :first-child { min-height: 150px !important; }
@@ -442,6 +468,9 @@
     .header-title { font-size: 12px !important; letter-spacing: 0 !important; }
     .header-row { padding: 0 10px !important; }
     .main-pad { padding: 12px 10px 100px !important; }
+    /* Seven tab labels at ~52px each: drop tracking and a point of size so "Economy" and
+       "Analysis" stop running into each other. */
+    .tabbar-mobile button { letter-spacing: 0 !important; font-size: 10px !important; }
     /* Scale hero typography slightly for smallest phones */
     .kpi-grid-overview > div:first-child .display { font-size: 60px !important; }
     .kpi-grid-overview > div:first-child .display > span { font-size: 28px !important; }

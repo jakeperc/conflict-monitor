@@ -2032,7 +2032,9 @@ function FreshnessIndicator({ sources, lastRefreshAt, refreshErr }) {
     React.createElement("div", { ref, style:{ position:"relative" } },
       React.createElement("button", {
         onClick: () => setOpen(v => !v),
+        className: "freshness-btn",
         title: "Data freshness — click for source details",
+        "aria-label": "Updated " + ageText + " — data freshness details",
         style:{
           display:"flex", alignItems:"center", gap:6,
           padding:"5px 10px",
@@ -2046,7 +2048,7 @@ function FreshnessIndicator({ sources, lastRefreshAt, refreshErr }) {
           boxShadow:`0 0 0 2px ${alpha(aggColor,.13)}, 0 0 8px ${alpha(aggColor,.4)}`,
           animation: aggColor !== GREEN ? "ping 1.6s ease infinite" : "none",
         }}),
-        React.createElement(M, { style:{ fontSize:FS.xs, color:TEXT_BODY, fontWeight:500, fontVariantNumeric:"tabular-nums", whiteSpace:"nowrap" } },
+        React.createElement(M, { className:"freshness-label", style:{ fontSize:FS.xs, color:TEXT_BODY, fontWeight:500, fontVariantNumeric:"tabular-nums", whiteSpace:"nowrap" } },
           "Updated ", ageText
         ),
         refreshErr && React.createElement(M, { style:{ fontSize:FS.xs, color:AMBER } }, "⚠")
@@ -2628,9 +2630,9 @@ function Next7Strip({ setTab }) {
             const p = typeof f.probability === "number" ? f.probability : 0;
             const pc = probColor(p);
             return (
-              <div key={i} style={{ display:"flex", alignItems:"center", gap:12, padding:"9px 0", borderTop: i > 0 ? `1px solid ${BORDER}` : "none" }}>
+              <div key={i} className="next7-row" style={{ display:"flex", alignItems:"center", gap:12, padding:"9px 0", borderTop: i > 0 ? `1px solid ${BORDER}` : "none" }}>
                 <M style={{ fontSize:12, color:AMBER, fontWeight:600, fontVariantNumeric:"tabular-nums", width:46, flexShrink:0 }}>{dl ? dl.label : "—"}</M>
-                <div style={{ flex:1, minWidth:0, fontSize:13, color:TEXT_HI, fontWeight:500, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{f.question}</div>
+                <div className="next7-q" style={{ flex:1, minWidth:0, fontSize:13, color:TEXT_HI, fontWeight:500, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{f.question}</div>
                 <span style={{
                   flexShrink:0, fontSize:12, fontWeight:700, color:pc,
                   background:alpha(pc, .12), border:`1px solid ${alpha(pc, .30)}`,
@@ -3389,7 +3391,10 @@ function GasChart() {
   // Live series is read once per render — buildGasSeries reads localStorage,
   // which is fast and the chart re-renders on parent state changes anyway.
   const series = buildGasSeries();
-  const W = 600, H = 220, padL = 42, padR = 50, padT = 14, padB = 32; // padR = gutter for end labels
+  // Phones draw on a narrower canvas so the 11-unit text renders near 9px instead of ~5px
+  // (a 600-wide viewBox squeezed into ~310px), with half as many week labels.
+  const narrow = useIsMobile(640);
+  const W = narrow ? 380 : 600, H = narrow ? 250 : 220, padL = 42, padR = 50, padT = 14, padB = 32; // padR = gutter for end labels
   const innerW = W - padL - padR, innerH = H - padT - padB;
   const yMin = 3.0;
   // Diesel runs above every gasoline series, so the ceiling follows the data
@@ -3434,7 +3439,7 @@ function GasChart() {
 
   // Show every nth x-axis tick label so the axis stays legible as new live
   // rows pile on. Always show the first, last, and hovered point.
-  const labelStride = Math.max(1, Math.ceil(series.length / 10));
+  const labelStride = Math.max(1, Math.ceil(series.length / (narrow ? 5 : 10)));
 
   return (
     <div style={{ position:"relative", width:"100%" }}>
@@ -3640,7 +3645,7 @@ function GasTab({ gas }) {
             on its own line) and desktop. */}
         <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:14, marginBottom:16 }}>
           <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, textAlign:"center" }}>Price History Since Feb 28 (War Start)</div>
-          <div style={{ display:"flex", gap:16, flexWrap:"wrap", justifyContent:"center" }}>
+          <div style={{ display:"flex", gap:"8px 16px", flexWrap:"wrap", justifyContent:"center", width:"100%" }}>
             <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:AMBER, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>National</span></div>
             <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:DANGER, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>California</span></div>
             <div style={{ display:"flex", alignItems:"center", gap:6 }}><div style={{ width:14, height:2, background:BLUE, borderRadius:2 }} /><span style={{ fontSize:12, color:TEXT_BODY }}>Ohio</span></div>
@@ -4160,7 +4165,7 @@ function MapTab({ openCountry }) {
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
-      <Card style={{ padding:0, overflow:"hidden" }}>
+      <Card className="card-flush" style={{ padding:0, overflow:"hidden" }}>
         <div style={{ padding:"14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
           <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones · Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters</M>
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
@@ -4554,7 +4559,7 @@ function NewsList({ news, query, source, arcs, statuses, openCountry }) {
     return true;
   });
   return (
-    <Card style={{ padding:0, overflow:"hidden" }}>
+    <Card className="card-flush" style={{ padding:0, overflow:"hidden" }}>
       <div style={{ padding:"14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>Intelligence Feed · Most Recent First</M>
@@ -4965,22 +4970,28 @@ function FeedTab({ news, openCountry, initialView, initialCountry, priorVisit })
         <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12, flexWrap:"wrap" }}>
           <FilterChip active={view === "news"}     onClick={() => setView("news")}     color={BLUE}>News (24h) · {newsCountForSeverity(WW3_PCT)}</FilterChip>
           <FilterChip active={view === "timeline"} onClick={() => setView("timeline")} color={BLUE}>Full Timeline</FilterChip>
-          <span style={{ width:1, height:18, background:BORDER, margin:"0 4px" }} />
-          <span style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600, marginRight:2 }}>Arc</span>
-          {ARC_FILTERS.map(a => (
-            <FilterChip key={a.key} active={arcs.includes(a.key)} onClick={() => toggleArc(a.key)} color={a.color}>{a.label}</FilterChip>
-          ))}
-          {arcs.length > 0 && (
-            <button onClick={() => setArcs([])} style={{ background:"none", border:"none", color:TEXT_MID, fontSize:11, cursor:"pointer", marginLeft:4 }}>clear</button>
-          )}
-          <span style={{ width:1, height:18, background:BORDER, margin:"0 4px" }} />
-          <span style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600, marginRight:2 }}>Status</span>
-          {STATUS_FILTERS.map(sf => (
-            <FilterChip key={sf.key} active={statuses.includes(sf.key)} onClick={() => toggleStatus(sf.key)} color={sf.color}>{sf.label}</FilterChip>
-          ))}
-          {statuses.length > 0 && (
-            <button onClick={() => setStatuses([])} style={{ background:"none", border:"none", color:TEXT_MID, fontSize:11, cursor:"pointer", marginLeft:4 }}>clear</button>
-          )}
+          <span className="feed-filter-divider" style={{ width:1, height:18, background:BORDER, margin:"0 4px" }} />
+          {/* display:contents keeps the desktop single flow; on phones each group becomes one
+              horizontally scrollable row (styles.css .feed-filter-group). */}
+          <div className="feed-filter-group" style={{ display:"contents" }}>
+            <span style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600, marginRight:2 }}>Arc</span>
+            {ARC_FILTERS.map(a => (
+              <FilterChip key={a.key} active={arcs.includes(a.key)} onClick={() => toggleArc(a.key)} color={a.color}>{a.label}</FilterChip>
+            ))}
+            {arcs.length > 0 && (
+              <button onClick={() => setArcs([])} style={{ background:"none", border:"none", color:TEXT_MID, fontSize:11, cursor:"pointer", marginLeft:4 }}>clear</button>
+            )}
+          </div>
+          <span className="feed-filter-divider" style={{ width:1, height:18, background:BORDER, margin:"0 4px" }} />
+          <div className="feed-filter-group" style={{ display:"contents" }}>
+            <span style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600, marginRight:2 }}>Status</span>
+            {STATUS_FILTERS.map(sf => (
+              <FilterChip key={sf.key} active={statuses.includes(sf.key)} onClick={() => toggleStatus(sf.key)} color={sf.color}>{sf.label}</FilterChip>
+            ))}
+            {statuses.length > 0 && (
+              <button onClick={() => setStatuses([])} style={{ background:"none", border:"none", color:TEXT_MID, fontSize:11, cursor:"pointer", marginLeft:4 }}>clear</button>
+            )}
+          </div>
           <div style={{ flex:1 }} />
           {country && (
             <button
@@ -5029,7 +5040,7 @@ function FeedTab({ news, openCountry, initialView, initialCountry, priorVisit })
         )}
 
         {view === "timeline" && (
-          <div style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap" }}>
+          <div className="feed-filter-group" style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap" }}>
             <span style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600, marginRight:4 }}>Severity</span>
             {SEV_OPTIONS.map(s => (
               <FilterChip
@@ -5117,7 +5128,7 @@ function ActorsTab({ openCountry }) {
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", fontWeight:600, textTransform:"uppercase" }}>Geopolitical Actors · Theaters &amp; Players</div>
         <SourceBadge kind="scenario" />
       </div>
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(360px, 1fr))", gap:12 }}>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(min(360px, 100%), 1fr))", gap:12 }}>
         {CHESS_PLAYERS.map(p => {
           const key = p.name === "United States" ? "USA" :
                       p.name.includes("Hezbollah") ? "Lebanon" :
@@ -5133,8 +5144,10 @@ function ActorsTab({ openCountry }) {
               style={{ borderLeft:`3px solid ${p.color}`, cursor: clickable ? "pointer" : "default", padding:"18px 20px" }}
               onClick={clickable ? () => openCountry && openCountry(key) : undefined}
             >
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", gap:12, marginBottom:16 }}>
-                <div style={{ display:"flex", alignItems:"center", gap:12, minWidth:0 }}>
+              {/* Wraps the day / as-of / stale block under the name when both don't fit (phones),
+                  instead of squeezing the name to a few pixels. */}
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", gap:12, rowGap:8, flexWrap:"wrap", marginBottom:16 }}>
+                <div style={{ display:"flex", alignItems:"center", gap:12, minWidth:0, maxWidth:"100%" }}>
                   <span style={{ fontSize:24, lineHeight:1, flexShrink:0 }}>{p.flag}</span>
                   <span className="display" style={{ fontSize:16, fontWeight:600, color:TEXT_HI, letterSpacing:"-.012em", fontVariationSettings:"'opsz' 16", overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{p.name}</span>
                 </div>
@@ -5568,7 +5581,7 @@ function IndicatorRow({ ind, openCountry }) {
     <Card className={hasDetail ? "card-hover" : undefined} style={{ padding:"10px 14px", borderLeft:`3px solid ${alpha(col,.55)}` }}>
       <div onClick={hasDetail ? () => setOpen(v=>!v) : undefined} style={{ display:"flex", alignItems:"center", gap:10, cursor: hasDetail ? "pointer" : "default" }}>
         <M style={{ fontSize:FS.xs, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:col, flexShrink:0, minWidth:46 }}>{esc ? "Esc" : "De-esc"}</M>
-        <div style={{ flex:1, minWidth:0, fontSize:12.5, color:TEXT_HI, fontWeight:500, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{linkifyText(ind.indicator, openCountry)}</div>
+        <div className={`row-title${open ? " is-open" : ""}`} style={{ flex:1, minWidth:0, fontSize:12.5, color:TEXT_HI, fontWeight:500, lineHeight:1.45, ...(open ? {} : { whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }) }}>{linkifyText(ind.indicator, openCountry)}</div>
         <M style={{ fontSize:11, color:col, fontWeight:600, fontVariantNumeric:"tabular-nums", flexShrink:0 }}>{Math.round(sig*100)}%</M>
         {hasDetail && <M style={{ fontSize:11, color:TEXT_DIM, flexShrink:0, width:9, textAlign:"center" }}>{open ? "−" : "+"}</M>}
       </div>
@@ -5603,7 +5616,7 @@ function GapRow({ g, openCountry }) {
     <Card className={hasDetail ? "card-hover" : undefined} style={{ padding:"10px 14px", borderLeft:`3px solid ${alpha(pri.c,.55)}` }}>
       <div onClick={hasDetail ? () => setOpen(v=>!v) : undefined} style={{ display:"flex", alignItems:"center", gap:10, cursor: hasDetail ? "pointer" : "default" }}>
         <M style={{ fontSize:FS.xs, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:pri.c, flexShrink:0, minWidth:64 }}>{pri.label}</M>
-        <div style={{ flex:1, minWidth:0, fontSize:12.5, color:TEXT_HI, fontWeight:500, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{linkifyText(g.question, openCountry)}</div>
+        <div className={`row-title${open ? " is-open" : ""}`} style={{ flex:1, minWidth:0, fontSize:12.5, color:TEXT_HI, fontWeight:500, lineHeight:1.45, ...(open ? {} : { whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }) }}>{linkifyText(g.question, openCountry)}</div>
         {g.days_open != null && <M style={{ fontSize:FS.xs, color:TEXT_DIM, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>open {g.days_open}d</M>}
         {hasDetail && <M style={{ fontSize:11, color:TEXT_DIM, flexShrink:0, width:9, textAlign:"center" }}>{open ? "−" : "+"}</M>}
       </div>

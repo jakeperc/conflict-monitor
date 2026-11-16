@@ -427,19 +427,9 @@
     .kpi-grid-overview > div:not(:first-child) > div:first-child > div { font-size: 11px !important; letter-spacing: .08em !important; }
     /* US GAS AVG label - allow it to wrap on 2 lines max */
     .kpi-grid-overview > div:nth-child(4) > div:first-child > div { letter-spacing: .04em !important; }
-    /* Timeline: shift the dates and spine left so headlines have more room */
+    /* Timeline: see the sticky-header and timeline rules at the end of this block */
     .tl-rail { padding-right: 6px !important; }
-    .tl-spine { left: 50px !important; }
-    .tl-event-row { gap: 8px !important; }
-    .tl-event-row .tl-date {
-      width: 40px !important;
-      font-size: 11px !important;
-      letter-spacing: 0 !important;
-      padding-top: 4px !important;
-    }
-    .tl-event-row .tl-content { padding-right: 0 !important; }
-    .tl-month-label { width: 40px !important; font-size: 11px !important; letter-spacing: .12em !important; }
-    .tl-chapter { padding: 16px 14px 16px 60px !important; }
+    .tl-month-label { font-size: 11px !important; letter-spacing: .12em !important; }
     /* News list rows: stack time/source above headline for readability */
     .news-row {
       flex-direction: column !important;
@@ -462,6 +452,44 @@
     .news-row .news-headline { grid-column: 1 / -1; grid-row: 2; font-size: 13.5px !important; line-height: 1.45 !important; }
     /* Pull breaking ticker tighter */
     .ticker-fade-l, .ticker-fade-r { width: 16px !important; }
+    /* Sticky section and month headers sit flush under the 52px phone header (they were set for
+       the taller desktop header, so card text showed in the gap) and span the full width. */
+    /* Solid backgrounds: the translucent blur did not take effect here, so text showed through. */
+    .section-sticky-header { top: 52px !important; margin: 0 -10px !important; padding: 10px 10px !important; background: var(--bg) !important; }
+    .tl-month-row {
+      top: 52px !important; margin-left: -16px !important; margin-right: -16px !important;
+      padding: 8px 16px !important;
+      /* the card's surface: --bg under a 4% white wash */
+      background: color-mix(in srgb, var(--bg) 96%, #fff) !important;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .tl-month-label { width: auto !important; text-align: left !important; white-space: nowrap; }
+    /* Feed timeline: dot and text only, the date moves to the top right of each event,
+       so the text gets the width the 40px date column and gutter took. */
+    .tl-spine { left: 5px !important; }
+    .tl-event-row { gap: 12px !important; }
+    .tl-event-row .tl-date {
+      position: absolute; right: 10px; top: 10px; width: auto !important;
+      padding-top: 1px !important; font-size: 11px !important; text-align: right;
+    }
+    .tl-content { padding-right: 4px !important; }
+    .tl-chapter { padding: 16px 14px 16px 18px !important; }
+    /* Lead card header: the arc name stays on one line; "· Lead development" repeats the
+       section header above, so it is dropped here. */
+    .lead-kicker-tail { display: none; }
+    /* Analysis: header strip stacks; the sourced record puts each date above its fact. */
+    .ai-head-divider { display: none; }
+    .ai-head-arcs { flex-basis: 100%; order: 2; }
+    .ai-head-latest { flex-basis: 100%; order: 3; margin-left: 0 !important; }
+    .record-item { flex-direction: column; gap: 1px !important; }
+    .record-item + .record-item { margin-top: 4px; }
+    .record-date { width: auto !important; }
+    .record-date:empty { display: none; }
+    /* Swipeable rows fade at the right edge so it reads as "more this way". */
+    .feed-filter-group {
+      -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+              mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+    }
   }
   @media (max-width: 420px) {
     /* Extra-small phones (iPhone SE / 320–414): tighter header padding */
@@ -471,11 +499,17 @@
     /* Seven tab labels at ~52px each: drop tracking and a point of size so "Economy" and
        "Analysis" stop running into each other. */
     .tabbar-mobile button { letter-spacing: 0 !important; font-size: 10px !important; }
+    .tabbar-mobile button span { font-size: 10px !important; }
     /* Scale hero typography slightly for smallest phones */
     .kpi-grid-overview > div:first-child .display { font-size: 60px !important; }
     .kpi-grid-overview > div:first-child .display > span { font-size: 28px !important; }
     .kpi-grid-overview > div:not(:first-child) .display { font-size: 28px !important; }
     .kpi-grid-overview > div { padding: 14px 14px !important; }
+  }
+  /* Narrowest phones (320–360px): seven tab labels need one more point to stay apart. */
+  @media (max-width: 360px) {
+    .tabbar-mobile button { padding-left: 0 !important; padding-right: 0 !important; }
+    .tabbar-mobile button span { font-size: 9px !important; }
   }
   /* ─── Wow-tier additions: orchestrated reveal, living map, briefing ─── */
   @keyframes reveal { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }

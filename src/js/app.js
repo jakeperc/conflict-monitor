@@ -304,10 +304,14 @@ const StatusBadge = ({ status }) => {
 function KpiCell({ label, badge, info, value, valueColor = TEXT_HI, subDisplay, footer, border, small, loading }) {
   return (
     <div className="kpi-cell" style={{ padding:"24px 22px", borderRight: border ? `1px solid ${BORDER}` : "none", display:"flex", flexDirection:"column", gap:8 }}>
-      <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-        <Eyebrow mb={0} color={TEXT_MID}>{label}</Eyebrow>
-        {badge}
-        {info && <InfoTip>{info}</InfoTip>}
+      <div className="kpi-cell-head" style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap", rowGap:6, minWidth:0 }}>
+        <Eyebrow mb={0} color={TEXT_MID} style={{ whiteSpace:"nowrap" }}>{label}</Eyebrow>
+        {(badge || info) && (
+          <span style={{ display:"inline-flex", alignItems:"center", gap:8, whiteSpace:"nowrap" }}>
+            {badge}
+            {info && <InfoTip>{info}</InfoTip>}
+          </span>
+        )}
       </div>
       {loading ? (
         <PriceSkeleton w={small ? 100 : 130} h={small ? 22 : 28} radius={6} />
@@ -1321,7 +1325,7 @@ function CountryDrawer({ country, onClose, onNavigate }) {
             <div className="display" style={{ fontSize:22, fontWeight:600, color:TEXT_HI, letterSpacing:"-.015em", lineHeight:1.1, fontVariationSettings:"'opsz' 22" }}>{country}</div>
             {d.risk && (
               <div style={{ display:"flex", gap:12, alignItems:"center", marginTop:6 }}>
-                <SeverityInline level={d.risk.level} size={9.5} />
+                <SeverityInline level={d.risk.level} size={10.5} />
                 <span style={{ width:3, height:3, borderRadius:"50%", background:TEXT_DIM }} />
                 <M style={{ fontSize:12, fontWeight:600, color:riskCol, fontVariantNumeric:"tabular-nums", letterSpacing:".02em" }}>{barLabel(d.risk)} {d.risk.risk}</M>
               </div>
@@ -1628,6 +1632,12 @@ function InfoTip({ children, label, side = "bottom" }) {
   );
 }
 
+// Phones and tablets (≤900px, the bottom-tab layout) get `compact`, wider screens `wide`.
+// Used to move explanatory notes behind an info button where they cost several lines.
+function ByWidth({ wide = null, compact = null }) {
+  return useIsMobile(900) ? compact : wide;
+}
+
 // Command palette — ⌘K for quick search across countries, tabs, actions.
 function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefresh, openCountry, openBriefing }) {
   const [query, setQuery] = useState("");
@@ -1902,7 +1912,9 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
   const isTablet = useIsMobile(1280) && !isMobile;
   const rotate = isMobile || isTablet;
   const reduce = useReducedMotion();
-  const GROUP_SIZE = isMobile ? 3 : isTablet ? 7 : chips.length;
+  // Below 360px three tickers clip their percent change, so show two.
+  const isNarrow = useIsMobile(360);
+  const GROUP_SIZE = isNarrow ? 2 : isMobile ? 3 : isTablet ? 7 : chips.length;
   const start = rotate ? (tick * GROUP_SIZE) % chips.length : 0;
   const tickKey = tick;
   const visibleChips = rotate
@@ -1912,7 +1924,7 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
     <div style={{ position:"relative", flexShrink:0 }}>
       <span className="ticker-fade-l" style={{ display:"none" }} />
       <span className="ticker-fade-r" style={{ display:"none" }} />
-      <div style={{ height:52, background:SURFACE, borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", overflowX:"hidden", overflowY:"hidden", padding:"0 18px", whiteSpace:"nowrap", justifyContent: rotate ? "space-around" : "space-between" }}>
+      <div style={{ height:52, background:SURFACE, borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", overflowX:"hidden", overflowY:"hidden", padding: isMobile ? "0 12px" : "0 18px", whiteSpace:"nowrap", justifyContent: isMobile ? "space-between" : rotate ? "space-around" : "space-between" }}>
         {visibleChips.map((ch, i) => {
           const recent = pulseSet.current[ch.l] && Date.now() - pulseSet.current[ch.l] < 1500;
           const isLoading = ch.v == null;
@@ -1920,7 +1932,7 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
           const animDelay = rotate ? "0ms" : `${280 + i * 45}ms`;
           return (
             <React.Fragment key={rotate ? `${tickKey}-${ch.l}` : ch.l}>
-              <div className={rotateClass} style={{ animationDelay: animDelay, display:"flex", flexDirection:"column", justifyContent:"center", padding: isMobile ? "0 18px" : isTablet ? "0 12px" : "0 10px", flexShrink: rotate ? 0 : 1, minWidth: isMobile ? 80 : isTablet ? 70 : 0 }}>
+              <div className={rotateClass} style={{ animationDelay: animDelay, display:"flex", flexDirection:"column", justifyContent:"center", padding: isMobile ? "0 4px" : isTablet ? "0 12px" : "0 10px", flex: isMobile ? "1 1 0" : undefined, flexShrink: rotate ? 0 : 1, minWidth: isMobile ? 0 : isTablet ? 70 : 0, overflow: isMobile ? "hidden" : undefined }}>
                 <span style={{ fontFamily:SANS, fontSize:FS.xs, fontWeight:600, color:TEXT_DIM, letterSpacing:".10em", marginBottom:3, textTransform:"uppercase" }}>{ch.l}</span>
                 <div className={recent ? "value-pulse" : ""} style={{ display:"flex", alignItems:"baseline", gap:6, padding:"1px 4px", margin:"-1px -4px", minHeight:18 }}>
                   {isLoading ? (
@@ -2496,9 +2508,19 @@ function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setSho
   return (
     <Card className="choreographed lead-card" style={{ animationDelay:`${delay}ms`, borderLeft:`3px solid ${accent}`, padding:"22px 26px", display:"flex", flexDirection:"column" }}>
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14, flexWrap:"wrap", gap:8 }}>
-        <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:10, flexWrap:"wrap", rowGap:6 }}>
           <span style={{ width:7, height:7, borderRadius:"50%", background:accent, animation:"ping 1.6s ease infinite", boxShadow:`0 0 0 2px ${alpha(accent, .13)}, 0 0 8px ${alpha(accent, .53)}` }} />
-          <M style={{ fontSize:FS.xs, color:at, letterSpacing:".18em", fontWeight:700, textTransform:"uppercase" }}>{lead.kicker}</M>
+          {(() => {
+            // "Epic Fury · Lead Development": on phones the tail repeats the section header above,
+            // so it is hidden there and the arc name stays on one line.
+            const k = String(lead.kicker || "");
+            const cut = k.indexOf("·");
+            return (
+              <M style={{ fontSize:FS.xs, color:at, letterSpacing:".18em", fontWeight:700, textTransform:"uppercase", whiteSpace:"nowrap" }}>
+                {cut > 0 ? <>{k.slice(0, cut).trim()}<span className="lead-kicker-tail"> · {k.slice(cut + 1).trim()}</span></> : k}
+              </M>
+            );
+          })()}
           <SourceBadge kind="scenario" />
           {dominant && <span style={{ fontSize:FS.xs, fontWeight:700, letterSpacing:".1em", textTransform:"uppercase", color:at, background:alpha(accent, .12), border:`1px solid ${alpha(accent, .3)}`, padding:"2px 8px", borderRadius:999, lineHeight:1.2 }}>Today's lead</span>}
         </div>
@@ -3184,7 +3206,14 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:18, flexWrap:"wrap" }}>
             <Eyebrow mb={0}>{HUMAN_COST.title}</Eyebrow>
             <SourceBadge kind="scenario" />
-            <InfoTip>Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.</InfoTip>
+            {(() => {
+              const tip = "Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.";
+              // Phones/tablets: the verification-level footnote (about 170px on a phone) joins this popover.
+              return <ByWidth
+                wide={<InfoTip>{tip}</InfoTip>}
+                compact={<InfoTip>{HUMAN_COST.footnote ? `${HUMAN_COST.footnote} ${tip}` : tip}</InfoTip>}
+              />;
+            })()}
           </div>
           {/* Redesigned 2026-11-16: one tile per figure, grouped by war. Each tile is
               label → number → context → footer (verification level · as-of date), and
@@ -3221,9 +3250,11 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             ))}
           </div>
           {HUMAN_COST.footnote && (
-            <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, paddingTop:14, borderTop:`1px solid ${BORDER}`, lineHeight:1.55, letterSpacing:".01em" }}>
-              {HUMAN_COST.footnote}
-            </div>
+            <ByWidth wide={
+              <div style={{ fontSize:FS.xs, color:TEXT_DIM, marginTop:18, paddingTop:14, borderTop:`1px solid ${BORDER}`, lineHeight:1.55, letterSpacing:".01em" }}>
+                {HUMAN_COST.footnote}
+              </div>
+            } />
           )}
         </Card>
         )}
@@ -3689,10 +3720,15 @@ function GasTab({ gas }) {
             </>
           )}
         </div>
-        <div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>
-          Source: AAA{dslLoaded ? ` · ${gasAgeLabel(gas, "diesel")}` : ""} · national average, diesel grade
-          {DIESEL_SOURCE && DIESEL_SOURCE.through ? ` · chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : ""}
-        </div>
+        {(() => {
+          const age = dslLoaded ? ` · ${gasAgeLabel(gas, "diesel")}` : "";
+          const history = DIESEL_SOURCE && DIESEL_SOURCE.through ? `chart history: EIA weekly national retail average through ${fmtShort(DIESEL_SOURCE.through)} (AAA replaces it as daily captures accumulate)` : "";
+          // Phones/tablets: the source and its age stay visible; the method detail is behind the info button.
+          return <ByWidth
+            wide={<div style={{ fontSize:12, color:TEXT_DIM, marginTop:10 }}>Source: AAA{age} · national average, diesel grade{history ? ` · ${history}` : ""}</div>}
+            compact={<div style={{ fontSize:12, color:TEXT_DIM, marginTop:10, display:"inline-flex", alignItems:"center" }}>Source: AAA{age}<InfoTip>{`National average, diesel grade.${history ? ` ${history.charAt(0).toUpperCase()}${history.slice(1)}.` : ""}`}</InfoTip></div>}
+          />;
+        })()}
       </Card>
       </div>
       <Card>
@@ -3831,6 +3867,18 @@ function MapTab({ openCountry }) {
   const mapWrapRef = useRef(null);
   const svgRef = useRef(null);
   const isMobileMap = useIsMobile(900);
+  const mapHeadCompact = useIsMobile(900); // phones and tablets
+  const mapAsOf = MAP_OVERLAYS && MAP_OVERLAYS.as_of;
+  // Rendered map width in px: the label pass needs it to know which part of the map is
+  // on screen (zoom and pan are in container px) and where the zoom buttons sit.
+  const [mapPxW, setMapPxW] = useState(0);
+  useEffect(() => {
+    const wrap = mapWrapRef.current;
+    if (!wrap || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(([e]) => setMapPxW(Math.round(e.contentRect.width)));
+    ro.observe(wrap);
+    return () => ro.disconnect();
+  }, []);
 
   // Hide pinch-zoom hint after first interaction or 5 seconds
   useEffect(() => {
@@ -4101,6 +4149,9 @@ function MapTab({ openCountry }) {
   // overlap one already placed. Skipped labels appear once there is room; hotspot
   // detail is also on hover (<title>).
   const LS = 1 / (mapZoom.scale || 1);
+  // Labels are also kept inside the part of the map that is on screen (2026-11-16): a
+  // label that would cross the edge, or sit under the zoom buttons, tries its other
+  // placements and is otherwise skipped, instead of being cut off at the edge.
   const labelPlan = (() => {
     const placed = [];
     const hits = (b) => placed.some(p => b.x0 < p.x1 && b.x1 > p.x0 && b.y0 < p.y1 && b.y1 > p.y0);
@@ -4110,10 +4161,35 @@ function MapTab({ openCountry }) {
       const pad = 1.5 * LS;
       return { x0: x0 - pad, x1: x0 + w + pad, y0: y - fs * 0.82 - pad, y1: y + fs * 0.22 + pad };
     };
-    const place = (b) => { if (hits(b)) return false; placed.push(b); return true; };
+    // Visible map area in viewBox units. Zoom/pan are in container px; k converts px → units.
+    const sc = mapZoom.scale || 1;
+    const k = (mapPxW || W) / W;
+    const vx0 = -(mapZoom.x || 0) / (sc * k), vy0 = -(mapZoom.y || 0) / (sc * k);
+    const vx1 = vx0 + W / sc, vy1 = vy0 + H / sc;
+    const edge = 3 * LS;
+    const inView = (b) => b.x0 >= vx0 + edge && b.x1 <= vx1 - edge && b.y0 >= vy0 + edge && b.y1 <= vy1 - edge;
+    const place = (b) => { if (!inView(b) || hits(b)) return false; placed.push(b); return true; };
     const dot = (x, y, r) => placed.push({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+    // Screen-px rectangle (from the map's top-left) as an obstacle in viewBox units.
+    const pxBlock = (x0, y0, x1, y1) => placed.push({ x0: vx0 + x0 / (sc * k), x1: vx0 + x1 / (sc * k), y0: vy0 + y0 / (sc * k), y1: vy0 + y1 / (sc * k) });
     const MO = MAP_OVERLAYS || { arcs: [], hotspots: [] };
     const out = { country: {}, hotspot: {}, sub: {}, arcEnd: {} };
+
+    // 0. The zoom buttons and the zoom readout cover the map: buttons top right (bottom
+    //    right on phones, where touch styles make them 44px), readout the opposite corner.
+    if (mapPxW) {
+      const zoomed = sc > 1.05;
+      const nBtn = zoomed ? 3 : 2;
+      const bs = isMobileMap ? 44 : 30;
+      const run = 10 + nBtn * bs + (nBtn - 1) * 6 + 6; // along the row/column
+      const hPx = mapPxW * H / W;
+      if (isMobileMap) pxBlock(mapPxW - run, hPx - (bs + 16), mapPxW, hPx);
+      else pxBlock(mapPxW - (bs + 16), 0, mapPxW, run);
+      if (zoomed) {
+        if (isMobileMap) pxBlock(mapPxW - 130, 0, mapPxW, 30);
+        else pxBlock(mapPxW - 130, hPx - 30, mapPxW, hPx);
+      }
+    }
 
     // 1. Hormuz callout (always shown).
     placed.push(box(hormuzX + 5 + 20 * LS, hormuzY - 1 * LS, "HORMUZ", 11 * LS, "start"));
@@ -4132,14 +4208,23 @@ function MapTab({ openCountry }) {
     (MO.hotspots || []).forEach(h => { const [x, y] = project(h.pos[0], h.pos[1]); dot(x, y, 3.5); });
     (MO.arcs || []).forEach(a => { const [x, y] = project(a.to[0], a.to[1]); dot(x, y, 3); });
 
-    // 3. Hotspot names: preferred side first, then the other side.
+    // 3. Hotspot names: preferred side first, then the other side, then centred above or
+    //    below the marker and nudged inside the visible edge (no detail line there).
     (MO.hotspots || []).forEach(h => {
       const [x, y] = project(h.pos[0], h.pos[1]);
       const sides = h.labelSide === "start" ? ["start", "end"] : ["end", "start"];
+      const fs = 11 * LS;
+      const ty = y - 2 - 2 * LS;
       for (const side of sides) {
         const tx = side === "start" ? x - 7 - 2 * LS : x + 7 + 2 * LS;
         const anchor = side === "start" ? "end" : "start";
-        if (place(box(tx, y - 2 - 2 * LS, h.name, 11 * LS, anchor))) { out.hotspot[h.id] = { tx, anchor }; break; }
+        if (place(box(tx, ty, h.name, fs, anchor))) { out.hotspot[h.id] = { tx, ty, anchor, side: true }; break; }
+      }
+      if (out.hotspot[h.id]) return;
+      const half = String(h.name).length * fs * 0.72 / 2 + 1.5 * LS;
+      const tx = Math.min(Math.max(x, vx0 + edge + half), vx1 - edge - half);
+      for (const vy of [y - 6 - 4 * LS, y + 6 + 9 * LS]) {
+        if (place(box(tx, vy, h.name, fs, "middle"))) { out.hotspot[h.id] = { tx, ty: vy, anchor: "middle", side: false }; break; }
       }
     });
 
@@ -4156,7 +4241,7 @@ function MapTab({ openCountry }) {
     // 5. Hotspot detail lines, under a placed name only.
     (MO.hotspots || []).forEach(h => {
       const n = out.hotspot[h.id];
-      if (!n || !h.sub) return;
+      if (!n || !n.side || !h.sub) return;
       const [, y] = project(h.pos[0], h.pos[1]);
       out.sub[h.id] = place(box(n.tx, y + 2 + 6 * LS, h.sub, 8 * LS, n.anchor, 0.52));
     });
@@ -4166,8 +4251,17 @@ function MapTab({ openCountry }) {
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
       <Card className="card-flush" style={{ padding:0, overflow:"hidden" }}>
-        <div style={{ padding:"14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
-          <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones · Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters</M>
+        <div style={{ padding: mapHeadCompact ? "10px 14px" : "14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap: mapHeadCompact ? "nowrap" : "wrap", gap:10 }}>
+          {mapHeadCompact ? (
+            // Phones: the full title and the projection note took five lines above the map;
+            // the short title keeps one line and the rest is behind the info button.
+            <span style={{ display:"inline-flex", alignItems:"center", whiteSpace:"nowrap", flexShrink:0 }}>
+              <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".1em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones</M>
+              <InfoTip>{`Operation Epic Fury, US-BRICS Rivalry, Russia-Ukraine and other active theaters. Equirectangular projection · Natural Earth 1:110m${mapAsOf ? ` · overlays as of ${mapAsOf}` : ""}.`}</InfoTip>
+            </span>
+          ) : (
+            <M style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>Global Conflict Zones · Operation Epic Fury + US-BRICS Rivalry + Russia-Ukraine + Active Theaters</M>
+          )}
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
             <button
               onClick={() => setShowCoalitions(v => !v)}
@@ -4178,9 +4272,10 @@ function MapTab({ openCountry }) {
                 background: showCoalitions ? "var(--c-brics)" : RAISE_1,
                 border:`1px solid ${showCoalitions ? "var(--c-brics)" : RAISE_4}`,
                 padding:"4px 10px", borderRadius:999, cursor:"pointer", textTransform:"uppercase",
+                whiteSpace:"nowrap",
               }}
-            >{showCoalitions ? "✓ Coalitions" : "Show Coalitions"}</button>
-            <M style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".06em" }}>{`Equirectangular · Natural Earth 1:110m${MAP_OVERLAYS && MAP_OVERLAYS.as_of ? ` · Overlays as of ${MAP_OVERLAYS.as_of}` : ""}`}</M>
+            >{showCoalitions ? "✓ Coalitions" : mapHeadCompact ? "Coalitions" : "Show Coalitions"}</button>
+            {!mapHeadCompact && <M style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".06em" }}>{`Equirectangular · Natural Earth 1:110m${mapAsOf ? ` · Overlays as of ${mapAsOf}` : ""}`}</M>}
           </div>
         </div>
         {showCoalitions && (
@@ -4233,7 +4328,9 @@ function MapTab({ openCountry }) {
           {/* Pinch-zoom hint (mobile) */}
           {isMobileMap && <div className={`map-zoom-hint${hintVisible ? "" : " hidden"}`}>Pinch to zoom</div>}
           {/* Zoom controls (all devices) — wheel/pinch also zoom; drag pans when zoomed */}
-          <div style={{ position:"absolute", top:10, right:10, zIndex:6, display:"flex", flexDirection:"column", gap:6 }}>
+          {/* Phones: one row in the bottom-right corner (South Pacific). A 44px column at top
+              right covered most of the map's height and the East Asia hotspots. */}
+          <div style={{ position:"absolute", ...(isMobileMap ? { bottom:10 } : { top:10 }), right:10, zIndex:6, display:"flex", flexDirection: isMobileMap ? "row-reverse" : "column", gap:6 }}>
             {[
               { label:"+", title:"Zoom in",  onClick:() => zoomAtCenter(1.5) },
               { label:"−", title:"Zoom out", onClick:() => zoomAtCenter(1/1.5) },
@@ -4267,7 +4364,7 @@ function MapTab({ openCountry }) {
             )}
           </div>
           {mapZoom.scale > 1.05 && (
-            <div style={{ position:"absolute", bottom:8, right:10, zIndex:6, pointerEvents:"none", fontSize:10, color:TEXT_DIM, background:"var(--map-bg)", padding:"2px 7px", borderRadius:6, opacity:.85, fontFamily:SANS }}>
+            <div style={{ position:"absolute", ...(isMobileMap ? { top:8 } : { bottom:8 }), right:10, zIndex:6, pointerEvents:"none", fontSize:10, color:TEXT_DIM, background:"var(--map-bg)", padding:"2px 7px", borderRadius:6, opacity:.85, fontFamily:SANS }}>
               {mapZoom.scale.toFixed(1)}× · drag to pan
             </div>
           )}
@@ -4460,7 +4557,7 @@ function MapTab({ openCountry }) {
                         <circle cx={x} cy={y} r="3" fill="none" stroke={h.color} strokeWidth="1.2" opacity=".85" />
                         <circle cx={x} cy={y} r="1.4" fill={h.color} />
                         <circle cx={x - .4} cy={y - .4} r="0.5" fill="rgba(255,255,255,.9)" />
-                        {lp && <text x={lp.tx} y={y - 2 - 2 * LS} fill={h.color} fontSize={11 * LS} fontFamily={SANS} fontWeight="600" letterSpacing=".06em" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.name}</text>}
+                        {lp && <text x={lp.tx} y={lp.ty} fill={h.color} fontSize={11 * LS} fontFamily={SANS} fontWeight="600" letterSpacing=".06em" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.name}</text>}
                         {lp && h.sub && labelPlan.sub[h.id] && (
                           <text x={lp.tx} y={y + 2 + 6 * LS} fill={h.color} fontSize={8 * LS} fontFamily={SANS} fontWeight="500" opacity=".8" textAnchor={lp.anchor} style={{ paintOrder:"stroke", stroke:"var(--map-bg)", strokeWidth:2 * LS }}>{h.sub}</text>
                         )}
@@ -4878,7 +4975,7 @@ function TimelineList({ severities, country, arcs, statuses, openCountry, priorV
               }}
             />
             <div className="tl-content" style={{ flex:1, paddingBottom:10, paddingRight:24 }}>
-              <SeverityInline level={sevLabel(ev.sev)} size={9.5} />
+              <SeverityInline level={sevLabel(ev.sev)} size={10.5} />
               {ev.status && ev.status !== 'confirmed' && <>{' '}<StatusBadge status={ev.status} /></>}
               <div aria-label={ev.desc} style={{ fontSize:14, color:TEXT_BODY, lineHeight:1.65, marginTop:6 }}>
                 {showInstant ? (
@@ -5093,7 +5190,7 @@ function RiskList({ openCountry, sortBy }) {
               <div style={{ flex:1, minWidth:0 }}>
                 <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8, flexWrap:"wrap" }}>
                   <span className="display" style={{ fontSize:17, fontWeight:600, color:TEXT_HI, letterSpacing:"-.012em", fontVariationSettings:"'opsz' 17" }}>{c.name}</span>
-                  <SeverityInline level={c.level} size={9.5} />
+                  <SeverityInline level={c.level} size={10.5} />
                   <div style={{ flex:1 }} />
                   <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", lineHeight:1 }}>
                     <M style={{ fontSize:FS.xs, fontWeight:600, color:alignCol, letterSpacing:".12em", textTransform:"uppercase", marginBottom:2 }}>{barLabel(c)}</M>
@@ -5303,12 +5400,12 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
 
   return (
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
-      <div style={{ display:"flex", alignItems:"center", gap:12, padding:"14px 18px", background:alpha(VIOLET, .08), border:`1px solid ${alpha(VIOLET, .22)}`, borderRadius:12 }}>
+      <div className="ai-head" style={{ display:"flex", alignItems:"center", flexWrap:"wrap", gap:12, rowGap:6, padding:"14px 18px", background:alpha(VIOLET, .08), border:`1px solid ${alpha(VIOLET, .22)}`, borderRadius:12 }}>
         <span style={{ width:8, height:8, borderRadius:"50%", background:VIOLET, animation:"ping 1.5s ease infinite", flexShrink:0 }} />
         <M style={{ fontSize:12, color:VIOLET, letterSpacing:".06em", fontWeight:600 }}>AI Strategic Analysis · Claude Opus 4.7</M>
-        <span style={{ width:1, height:14, background:alpha(VIOLET, .25) }} />
-        <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Epic Fury · US-BRICS Rivalry · Russia-Ukraine</M>
-        <M style={{ fontSize:11, color:TEXT_DIM, marginLeft:"auto", fontVariantNumeric:"tabular-nums" }}>Latest card: {latest.label}</M>
+        <span className="ai-head-divider" style={{ width:1, height:14, background:alpha(VIOLET, .25) }} />
+        <M className="ai-head-arcs" style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Epic Fury · US-BRICS Rivalry · Russia-Ukraine</M>
+        <M className="ai-head-latest" style={{ fontSize:11, color:TEXT_DIM, marginLeft:"auto", fontVariantNumeric:"tabular-nums" }}>Latest card: {latest.label}</M>
       </div>
       {AI_CARDS.map(c => {
         const rec = firstCardOfArc[c.arc] === c.lens ? recordFor(c.arc) : null;
@@ -5338,6 +5435,8 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
 // An arc's sourced record on the Analysis tab: the lead's dated facts, each with its source,
 // shown before that arc's confidence-labelled analysis so fact and inference stay apart.
 // A leading date ("15 November:", "15-16 November:") is set apart for scanning.
+const RECORD_NOTE = "What was reported, with its date and source. The analysis cards below interpret it.";
+const OUTLOOK_NOTE = "Named, dated, falsifiable calls — scored against what actually happened.";
 function LeadRecord({ lead, accent, accentText }) {
   const at = accentText || accent;
   const arcName = String(lead.kicker || "").split("·")[0].trim();
@@ -5346,17 +5445,19 @@ function LeadRecord({ lead, accent, accentText }) {
     <Card style={{ borderLeft:`3px solid ${accent}` }}>
       <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:4, flexWrap:"wrap" }}>
         <M style={{ fontSize:FS.xs, color:at, letterSpacing:".14em", fontWeight:600, textTransform:"uppercase" }}>{arcName ? `${arcName} · ` : ""}Sourced record</M>
+        <ByWidth compact={<InfoTip>{RECORD_NOTE}</InfoTip>} />
         {lead.updated_at && <M style={{ fontSize:FS.xs, color:TEXT_DIM, fontVariantNumeric:"tabular-nums" }}>{lead.updated_at}</M>}
       </div>
-      <div style={{ fontSize:12.5, color:TEXT_DIM, lineHeight:1.5, marginBottom:12 }}>
-        What was reported, with its date and source. The analysis cards below interpret it.
-      </div>
+      <ByWidth
+        wide={<div style={{ fontSize:12.5, color:TEXT_DIM, lineHeight:1.5, marginBottom:12 }}>{RECORD_NOTE}</div>}
+        compact={<div style={{ height:8 }} />}
+      />
       <ul style={{ listStyle:"none", margin:0, padding:0, display:"flex", flexDirection:"column", gap:8 }}>
         {items.map((s, i) => {
           const m = s.match(/^(\d{1,2}(?:\s*[-–]\s*\d{1,2})?\s+[A-Z][a-z]+(?:\s+\d{4})?):\s+(.*)$/s);
           return (
-            <li key={i} style={{ display:"flex", gap:12, alignItems:"baseline", fontSize:13.5, lineHeight:1.55, color:TEXT_BODY }}>
-              <M style={{ flexShrink:0, width:96, fontSize:11, fontWeight:600, color:TEXT_MID, letterSpacing:".04em", fontVariantNumeric:"tabular-nums" }}>{m ? m[1] : ""}</M>
+            <li key={i} className="record-item" style={{ display:"flex", gap:12, alignItems:"baseline", fontSize:13.5, lineHeight:1.55, color:TEXT_BODY }}>
+              <M className="record-date" style={{ flexShrink:0, width:96, fontSize:11, fontWeight:600, color:TEXT_MID, letterSpacing:".04em", fontVariantNumeric:"tabular-nums" }}>{m ? m[1] : ""}</M>
               <span>{scrubCodes(m ? m[2] : s)}</span>
             </li>
           );
@@ -5661,8 +5762,13 @@ function OutlookTab({ openCountry }) {
       <div style={{ display:"flex", alignItems:"center", gap:12, padding:"14px 18px", background:alpha(BLUE,.07), border:`1px solid ${alpha(BLUE,.22)}`, borderRadius:12, flexWrap:"wrap" }}>
         <span style={{ display:"inline-flex", color:BLUE }}><Icon name="outlook" size={18} /></span>
         <M style={{ fontSize:12, color:BLUE, letterSpacing:".06em", fontWeight:600 }}>Outlook · Forecasts &amp; Track Record</M>
-        <span style={{ width:1, height:14, background:alpha(BLUE,.25) }} />
-        <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Named, dated, falsifiable calls — scored against what actually happened.</M>
+        <ByWidth
+          wide={<>
+            <span style={{ width:1, height:14, background:alpha(BLUE,.25) }} />
+            <M style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>{OUTLOOK_NOTE}</M>
+          </>}
+          compact={<InfoTip>{OUTLOOK_NOTE}</InfoTip>}
+        />
       </div>
 
       <CalibrationPanel cal={data.calibration} />

@@ -1251,6 +1251,7 @@
       {
         side,
         label: typeof children === "string" ? children : label || "More info",
+        wrapClassName: "info-tip",
         wrapStyle: {
           display: "inline-flex",
           alignItems: "center",
@@ -1561,7 +1562,8 @@
     const rotate = isMobile || isTablet;
     const reduce = useReducedMotion();
     const isNarrow = useIsMobile(360);
-    const GROUP_SIZE = isNarrow ? 2 : isMobile ? 3 : isTablet ? 7 : chips.length;
+    const isPhone = useIsMobile(640);
+    const GROUP_SIZE = isNarrow ? 2 : isPhone ? 3 : isMobile ? 5 : isTablet ? 7 : chips.length;
     const start = rotate ? tick * GROUP_SIZE % chips.length : 0;
     const tickKey = tick;
     const visibleChips = rotate ? Array.from({ length: GROUP_SIZE }, (_, i) => chips[(start + i) % chips.length]) : chips;
@@ -1781,13 +1783,14 @@
       borderRight: `1px solid ${BORDER}`,
       background: BG,
       padding: "20px 14px",
+      // Sticks below the 61px header; at top:0 its first button slid under the header on scroll.
       position: "sticky",
-      top: 0,
+      top: 61,
       alignSelf: "flex-start",
-      maxHeight: "calc(100vh)",
+      maxHeight: "calc(100vh - 61px)",
       overflowY: "auto",
       flexDirection: "column"
-    } }, /* @__PURE__ */ React.createElement("div", { className: "choreographed", style: { animationDelay: "520ms", padding: "4px 12px 14px", fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Briefing"), /* @__PURE__ */ React.createElement(
+    } }, /* @__PURE__ */ React.createElement("div", { className: "choreographed sidenav-heading", style: { animationDelay: "520ms", padding: "4px 12px 14px", fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Briefing"), /* @__PURE__ */ React.createElement(
       "nav",
       {
         ref: tablistRef,
@@ -1833,8 +1836,8 @@
             }
           },
           /* @__PURE__ */ React.createElement("span", { style: { display: "inline-flex", color: active ? accent : TEXT_MID } }, /* @__PURE__ */ React.createElement(Icon, { name: t, size: 17 })),
-          /* @__PURE__ */ React.createElement("span", { style: { flex: 1 } }, TAB_LABELS[t]),
-          /* @__PURE__ */ React.createElement("kbd", { style: {
+          /* @__PURE__ */ React.createElement("span", { className: "navbtn-label", style: { flex: 1 } }, TAB_LABELS[t]),
+          /* @__PURE__ */ React.createElement("kbd", { className: "kbd-hint", style: {
             fontFamily: MONO,
             fontSize: FS.xs,
             color: TEXT_DIM,
@@ -1846,7 +1849,7 @@
           } }, i + 1)
         );
       })
-    ), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 14, padding: "8px 12px", fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.5, letterSpacing: ".02em" } }, "\u2191/\u2193 or 1\u20136 to switch \xB7 Esc closes panels"));
+    ), /* @__PURE__ */ React.createElement("div", { className: "kbd-hint sidenav-hint", style: { marginTop: 14, padding: "8px 12px", fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.5, letterSpacing: ".02em" } }, "\u2191/\u2193 or 1\u20136 to switch \xB7 Esc closes panels"));
   }
   function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onBriefingOpen }) {
     const liveCount = Object.values(sources || {}).filter((v) => v === "ok").length;
@@ -1919,7 +1922,7 @@
           }
         },
         /* @__PURE__ */ React.createElement("span", null, "BRIEFING"),
-        /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 4px", borderRadius: 3, background: alpha(DANGER, 0.12), border: `1px solid ${alpha(DANGER, 0.32)}` } }, "B")
+        /* @__PURE__ */ React.createElement("kbd", { className: "kbd-hint", style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 4px", borderRadius: 3, background: alpha(DANGER, 0.12), border: `1px solid ${alpha(DANGER, 0.32)}` } }, "B")
       ),
       /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\xB7"),
       /* @__PURE__ */ React.createElement(
@@ -1941,11 +1944,11 @@
           onMouseEnter: (e) => e.currentTarget.style.color = TEXT_HI,
           onMouseLeave: (e) => e.currentTarget.style.color = TEXT_MID
         },
-        /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2318K"),
+        /* @__PURE__ */ React.createElement("kbd", { className: "kbd-hint", style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2318K"),
         /* @__PURE__ */ React.createElement("span", null, "command")
       ),
-      /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\xB7"),
-      /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "1\u20136"), " tabs")
+      /* @__PURE__ */ React.createElement("span", { className: "kbd-hint", style: { color: TEXT_DIM } }, "\xB7"),
+      /* @__PURE__ */ React.createElement("span", { className: "kbd-hint" }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "1\u20136"), " tabs")
     );
   }
   function BottomTabBar({ tab, setTab }) {
@@ -2708,7 +2711,7 @@
         /* @__PURE__ */ React.createElement("span", { className: "ladder-trigger", style: { fontSize: 13, color: passed ? TEXT_DIM : current ? TEXT_BODY : TEXT_DIM, lineHeight: 1.4 } }, rung.trigger),
         current && /* @__PURE__ */ React.createElement("span", { style: { marginLeft: "auto", flexShrink: 0, fontSize: FS.xs, fontWeight: 600, color: AMBER, letterSpacing: ".1em", padding: "3px 9px", borderRadius: 999, background: alpha(AMBER, 0.18), border: `1px solid ${alpha(AMBER, 0.45)}`, boxShadow: `0 0 12px ${alpha(AMBER, 0.35)}` } }, "CURRENT")
       );
-    }))))), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 80 }, /* @__PURE__ */ React.createElement(Card, { style: { padding: "18px 20px" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 10, color: AMBER }, "Today \xB7 What Changed"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 9 } }, KEY_DEVS.map((d, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 12, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 7, width: 5, height: 5, borderRadius: "50%", background: AMBER } }), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: TEXT_BODY, lineHeight: 1.55 } }, linkifyCountries(d, openCountry))))))), /* @__PURE__ */ React.createElement(SectionHeader, null, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0, color: TEXT_MID }, "Lead Developments")), /* @__PURE__ */ React.createElement(
+    }))))), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 80 }, /* @__PURE__ */ React.createElement(Card, { style: { padding: "18px 20px" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 10, color: AMBER }, "Today \xB7 What Changed"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 9 } }, KEY_DEVS.map((d, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 12, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 7, width: 5, height: 5, borderRadius: "50%", background: AMBER } }), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: TEXT_BODY, lineHeight: 1.55 } }, linkifyCountries(d, openCountry))))))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 18 } }, /* @__PURE__ */ React.createElement(SectionHeader, null, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0, color: TEXT_MID }, "Lead Developments")), /* @__PURE__ */ React.createElement(
       LeadCard,
       {
         lead: dominantLead.lead,
@@ -2736,7 +2739,7 @@
         setShowFull: setLeadOpen(it.id),
         setTab
       }
-    ))), /* @__PURE__ */ React.createElement(Next7Strip, { setTab }), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 320 }, /* @__PURE__ */ React.createElement(GlobePreviewCard, { setTab })), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 400 }, /* @__PURE__ */ React.createElement("div", null, HUMAN_COST && /* @__PURE__ */ React.createElement(Card, { style: { padding: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0 }, HUMAN_COST.title), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), (() => {
+    )))), /* @__PURE__ */ React.createElement(Next7Strip, { setTab }), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 320 }, /* @__PURE__ */ React.createElement(GlobePreviewCard, { setTab })), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 400 }, /* @__PURE__ */ React.createElement("div", null, HUMAN_COST && /* @__PURE__ */ React.createElement(Card, { style: { padding: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0 }, HUMAN_COST.title), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), (() => {
       const tip = "Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.";
       return /* @__PURE__ */ React.createElement(
         ByWidth,

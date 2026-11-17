@@ -304,6 +304,67 @@
     .header-row { padding: 0 16px !important; gap: 10px !important; flex-wrap: nowrap !important; }
     .header-actions { gap: 8px !important; }
   }
+  /* Landscape tablets (901–1199px, and touch screens up to 1366px): the 232px sidebar
+     becomes an 80px rail of icon-over-label buttons, giving the content about 150px
+     more width. The keyboard hints in it go too. */
+  @media (min-width: 901px) and (max-width: 1199px), (min-width: 901px) and (max-width: 1366px) and (pointer: coarse) {
+    .sidenav-desktop { width: 80px !important; padding: 14px 8px !important; }
+    .sidenav-desktop .sidenav-heading, .sidenav-desktop .kbd-hint { display: none !important; }
+    .sidenav-desktop .navbtn {
+      flex-direction: column !important; gap: 5px !important;
+      padding: 10px 2px 9px !important; text-align: center !important;
+      min-height: 58px; justify-content: center;
+    }
+    .sidenav-desktop .navbtn-label { flex: none !important; font-size: 11px; letter-spacing: .01em; }
+    .sidenav-desktop nav { gap: 4px !important; }
+    .main-pad { padding: 24px 24px 72px !important; }
+  }
+  /* Tablets, both orientations (641–1199px). */
+  @media (min-width: 641px) and (max-width: 1199px) {
+    /* Catalyst questions cut off after about 60 characters; two lines show them whole. */
+    .next7-q {
+      white-space: normal !important; line-height: 1.4;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    }
+    /* In the half-width lead cards "· Lead development" (already the section title) pushed
+       the arc name off the dot's line. */
+    .lead-cards-compact .lead-kicker-tail { display: none; }
+  }
+  /* Portrait tablets (641–900px): bottom tab bar layout, but twice a phone's width. */
+  @media (min-width: 641px) and (max-width: 900px) {
+    /* The two quieter lead cards sit side by side, as in landscape, instead of stacking. */
+    .lead-cards-compact { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    /* "Latest card" wrapped onto a line of its own, pushed to the right edge. */
+    .ai-head-latest { flex-basis: 100%; margin-left: 0 !important; }
+    /* Tab bar: icon beside label, as on a tablet, instead of the phone's stacked 10px labels
+       spread across 110px-wide buttons. */
+    .tabbar-mobile { padding-left: 10px !important; padding-right: 10px !important; gap: 4px; }
+    .tabbar-mobile button { flex-direction: row !important; justify-content: center; gap: 7px !important; min-height: 46px !important; }
+    .tabbar-mobile button span { font-size: 12.5px; letter-spacing: .01em; }
+    /* Country sheet: a centred 680px sheet, not a full-width one with ~110-character lines. */
+    .bottom-sheet {
+      max-width: 680px; margin: 0 auto;
+      border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+    }
+  }
+  /* Below 1100px the four hero tiles are too narrow for label + badge on one line, so
+     values sat at different heights. Two by two keeps every tile on one line. */
+  @media (min-width: 901px) and (max-width: 1099px) {
+    .kpi-grid-secondary { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .kpi-grid-secondary > .kpi-cell:nth-child(2n) { border-right: none !important; }
+    .kpi-grid-secondary > .kpi-cell:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  }
+  /* Touch screens: keyboard-shortcut hints mean nothing without a keyboard, and hover
+     lift effects stick after a tap. */
+  /* Info buttons are drawn at 14px; on touch screens an invisible ring makes the tap
+     area about 38px without moving anything. */
+  @media (pointer: coarse), (max-width: 900px) {
+    .info-tip::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; }
+  }
+  @media (hover: none) and (pointer: coarse) {
+    .kbd-hint { display: none !important; }
+    .card-hover:hover { transform: none; box-shadow: var(--shadow-card); border-color: var(--border); }
+  }
   @media (max-width: 560px) {
     .ladder-trigger { display: none !important; }
     .ladder-label { width: auto !important; flex: 1 !important; min-width: 0 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -643,8 +704,9 @@
 
   /* Sticky section headers */
   .section-sticky-header {
+    /* Solid: the blur did not apply inside the tab panel, so card text showed through. */
     position: sticky; top: 60px; z-index: 10;
-    background: var(--header-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: var(--bg);
     padding: 10px 0; margin: 0 -4px; padding-left: 4px; padding-right: 4px;
     border-bottom: 1px solid transparent;
     transition: border-color .2s ease;
@@ -738,6 +800,12 @@
     }
     .glance-fab:active { transform: scale(.9); }
   }
+
+/* Timeline month label: "NOVEMBER 2026" is wider than its 96px column and broke onto two
+   lines. Keep it on one line; shorter months still right-align in the column. */
+@media (min-width: 641px) {
+  .tl-month-label { white-space: nowrap; width: auto !important; min-width: 96px; }
+}
 
 /* content-visibility for timeline month sections — allows browser to skip
    off-screen layout/paint for collapsed month groups. */

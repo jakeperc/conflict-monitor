@@ -1620,6 +1620,7 @@ function InfoTip({ children, label, side = "bottom" }) {
     <Tooltip
       side={side}
       label={typeof children === "string" ? children : (label || "More info")}
+      wrapClassName="info-tip"
       wrapStyle={{
         display:"inline-flex", alignItems:"center", justifyContent:"center",
         width:14, height:14, borderRadius:"50%",
@@ -1904,7 +1905,8 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
     prevRef.current[ch.l] = ch.v;
   }
   // Rotate chips when the viewport can't comfortably show them all:
-  //   mobile  (≤900px):     groups of 3
+  //   phone   (≤640px):     groups of 3 (2 below 360px)
+  //   portrait tablet (641–900px): groups of 5
   //   tablet  (901–1280px): groups of 7
   //   desktop (>1280px):    all chips visible, no rotation
   // Rotation is driven by the shared headerTick so it lines up with BreakingTicker.
@@ -1914,7 +1916,10 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
   const reduce = useReducedMotion();
   // Below 360px three tickers clip their percent change, so show two.
   const isNarrow = useIsMobile(360);
-  const GROUP_SIZE = isNarrow ? 2 : isMobile ? 3 : isTablet ? 7 : chips.length;
+  // Portrait tablets (641–900px) have room for five, which also splits the ten chips
+  // into two even groups instead of three showing a lot of empty strip.
+  const isPhone = useIsMobile(640);
+  const GROUP_SIZE = isNarrow ? 2 : isPhone ? 3 : isMobile ? 5 : isTablet ? 7 : chips.length;
   const start = rotate ? (tick * GROUP_SIZE) % chips.length : 0;
   const tickKey = tick;
   const visibleChips = rotate
@@ -2135,14 +2140,15 @@ function SideNav({ tab, setTab, sources }) {
       borderRight: `1px solid ${BORDER}`,
       background: BG,
       padding: "20px 14px",
+      // Sticks below the 61px header; at top:0 its first button slid under the header on scroll.
       position: "sticky",
-      top: 0,
+      top: 61,
       alignSelf: "flex-start",
-      maxHeight: "calc(100vh)",
+      maxHeight: "calc(100vh - 61px)",
       overflowY: "auto",
       flexDirection:"column",
     }}>
-      <div className="choreographed" style={{ animationDelay:"520ms", padding:"4px 12px 14px", fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>
+      <div className="choreographed sidenav-heading" style={{ animationDelay:"520ms", padding:"4px 12px 14px", fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600 }}>
         Briefing
       </div>
       <nav
@@ -2186,8 +2192,8 @@ function SideNav({ tab, setTab, sources }) {
               <span style={{ display:"inline-flex", color: active ? accent : TEXT_MID }}>
                 <Icon name={t} size={17} />
               </span>
-              <span style={{ flex:1 }}>{TAB_LABELS[t]}</span>
-              <kbd style={{
+              <span className="navbtn-label" style={{ flex:1 }}>{TAB_LABELS[t]}</span>
+              <kbd className="kbd-hint" style={{
                 fontFamily:MONO, fontSize:FS.xs, color:TEXT_DIM,
                 padding:"1px 5px", borderRadius:4,
                 background:RAISE_2, border:`1px solid ${BORDER}`,
@@ -2197,7 +2203,7 @@ function SideNav({ tab, setTab, sources }) {
           );
         })}
       </nav>
-      <div style={{ marginTop:14, padding:"8px 12px", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.5, letterSpacing:".02em" }}>
+      <div className="kbd-hint sidenav-hint" style={{ marginTop:14, padding:"8px 12px", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.5, letterSpacing:".02em" }}>
         ↑/↓ or 1–6 to switch · Esc closes panels
       </div>
     </aside>
@@ -2254,7 +2260,7 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
         onMouseLeave={e => { e.currentTarget.style.background = alpha(DANGER, .08); }}
       >
         <span>BRIEFING</span>
-        <kbd style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 4px", borderRadius:3, background:alpha(DANGER, .12), border:`1px solid ${alpha(DANGER, .32)}` }}>B</kbd>
+        <kbd className="kbd-hint" style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 4px", borderRadius:3, background:alpha(DANGER, .12), border:`1px solid ${alpha(DANGER, .32)}` }}>B</kbd>
       </button>
       <span style={{ color:TEXT_DIM }}>·</span>
       <button
@@ -2268,11 +2274,11 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
         onMouseEnter={e => e.currentTarget.style.color = TEXT_HI}
         onMouseLeave={e => e.currentTarget.style.color = TEXT_MID}
       >
-        <kbd style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>⌘K</kbd>
+        <kbd className="kbd-hint" style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>⌘K</kbd>
         <span>command</span>
       </button>
-      <span style={{ color:TEXT_DIM }}>·</span>
-      <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>1–6</kbd> tabs</span>
+      <span className="kbd-hint" style={{ color:TEXT_DIM }}>·</span>
+      <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>1–6</kbd> tabs</span>
     </div>
   );
 }
@@ -3155,7 +3161,10 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
       </Card>
       </RevealOnView>
 
-      {/* Lead Developments — salience-ordered: the day's lead arc full-width, quieter arcs compact below */}
+      {/* Lead Developments — salience-ordered: the day's lead arc full-width, quieter arcs compact below.
+          Wrapped so the sticky label scrolls away with the leads instead of riding over
+          the forecasts, casualty figures and themes further down. */}
+      <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
       <SectionHeader>
         <Eyebrow mb={0} color={TEXT_MID}>Lead Developments</Eyebrow>
       </SectionHeader>
@@ -3186,6 +3195,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             setTab={setTab}
           />
         ))}
+      </div>
       </div>
 
       {/* Next 7 Days — soonest-resolving open forecasts. Sits after the leads so

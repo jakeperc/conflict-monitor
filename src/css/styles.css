@@ -329,6 +329,10 @@
     /* In the half-width lead cards "· Lead development" (already the section title) pushed
        the arc name off the dot's line. */
     .lead-cards-compact .lead-kicker-tail { display: none; }
+    /* Outlook indicator and open-question rows: two lines collapsed, as on phones, instead
+       of one line cut off mid-sentence. The full text still shows when a row is opened. */
+    .row-title { overflow-wrap: anywhere; }
+    .row-title:not(.is-open) { white-space: normal !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   }
   /* Portrait tablets (641–900px): bottom tab bar layout, but twice a phone's width. */
   @media (min-width: 641px) and (max-width: 900px) {

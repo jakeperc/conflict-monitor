@@ -980,9 +980,11 @@ function CountryBottomSheet({ country, onClose, onNavigate }) {
                   style={{ background: "none", border: "none", color: BLUE, fontSize: 11, cursor: "pointer", fontWeight: 600 }}>See all →</button>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                {d.newsHits.slice(0, 4).map((n, i) => (
-                  <div key={i} style={{ display: "flex", gap: 8, alignItems: "baseline", paddingBottom: 8, borderBottom: i < 3 ? `1px solid ${BORDER}` : "none" }}>
-                    <M style={{ fontSize:FS.xs, color: AMBER, fontWeight: 600, flexShrink: 0, width: 38 }}>{n.t}</M>
+                {/* The time column only renders when some item has a time; dated-only items
+                    left a blank 38px gutter. */}
+                {d.newsHits.slice(0, 4).map((n, i, shown) => (
+                  <div key={i} style={{ display: "flex", gap: 8, alignItems: "baseline", paddingBottom: 8, borderBottom: i < shown.length - 1 ? `1px solid ${BORDER}` : "none" }}>
+                    {shown.some(x => x.t) && <M style={{ fontSize:FS.xs, color: AMBER, fontWeight: 600, flexShrink: 0, width: 38 }}>{n.t}</M>}
                     <div style={{ fontSize: 12.5, color: TEXT_HI, lineHeight: 1.5 }}>{n.h}</div>
                   </div>
                 ))}
@@ -1434,8 +1436,8 @@ function CountryDrawer({ country, onClose, onNavigate }) {
               <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
                 {d.newsHits.map((n, i) => (
                   <div key={i} style={{ display:"flex", gap:12, alignItems:"baseline", paddingBottom:10, borderBottom: i < d.newsHits.length-1 ? `1px solid ${BORDER}` : "none" }}>
-                    <M style={{ fontSize:11, color:AMBER, fontWeight:600, fontVariantNumeric:"tabular-nums", flexShrink:0, width:42 }}>{n.t}</M>
-                    <span style={{ fontSize:FS.xs, color:TEXT_DIM, fontWeight:700, letterSpacing:".10em", flexShrink:0, width:62, textTransform:"uppercase" }}>{n.s}</span>
+                    {d.newsHits.some(x => x.t) && <M style={{ fontSize:11, color:AMBER, fontWeight:600, fontVariantNumeric:"tabular-nums", flexShrink:0, width:42 }}>{n.t}</M>}
+                    {d.newsHits.some(x => x.s) && <span style={{ fontSize:FS.xs, color:TEXT_DIM, fontWeight:700, letterSpacing:".10em", flexShrink:0, width:62, textTransform:"uppercase" }}>{n.s}</span>}
                     <div style={{ fontSize:13, color:TEXT_HI, lineHeight:1.55 }}>{n.h}</div>
                   </div>
                 ))}
@@ -1721,7 +1723,7 @@ function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefr
         style={{ position:"fixed", inset:0, background:SCRIM, zIndex:300, backdropFilter:"blur(4px)", WebkitBackdropFilter:"blur(4px)" }}
       />
       <div
-        className="drawer-panel"
+        className="palette-panel"
         role="dialog"
         aria-modal="true"
         aria-label="Command palette"
@@ -1800,9 +1802,10 @@ function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefr
           ))}
         </div>
         <div style={{ borderTop:`1px solid ${BORDER}`, padding:"8px 14px", display:"flex", gap:14, alignItems:"center", fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".02em", fontFamily:SANS }}>
-          <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↑↓</kbd> navigate</span>
-          <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↵</kbd> select</span>
-          <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>esc</kbd> close</span>
+          <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↑↓</kbd> navigate</span>
+          <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↵</kbd> select</span>
+          <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>esc</kbd> close</span>
+          <span className="touch-label">Tap a result to open it</span>
           <div style={{ flex:1 }} />
           <span style={{ color:TEXT_MID }}>{filtered.length} {filtered.length === 1 ? "match" : "matches"}</span>
         </div>
@@ -7269,6 +7272,7 @@ function App() {
 
   // Mobile UX hooks
   const isMobile = useIsMobile(900);
+  const isPhone = useIsMobile(640);
   // Both gestures listen on the whole document, so on the Globe tab they would fire while
   // someone spins the globe (a sideways drag would change tab, a downward one refresh).
   const pageGestures = isMobile && tab !== "globe";
@@ -7407,6 +7411,25 @@ function App() {
         <div className="choreographed header-actions" style={{ animationDelay:"280ms", display:"flex", alignItems:"center", gap:10, minHeight:60, flexShrink:0 }}>
           <FreshnessIndicator sources={sourceStatus} lastRefreshAt={lastRefreshAt} refreshErr={refreshErr} />
           <ThemeToggle pref={themePref} onChange={setThemePref} />
+          {/* At 900px and below the status bar (and its Search and Briefing buttons) is
+              hidden, so portrait tablets get Search in the header; Briefing is one of the
+              palette's actions. Phones skip it: a fourth header button clips the title. */}
+          {isMobile && !isPhone && (
+            <button
+              onClick={() => setPaletteOpen(true)}
+              className="iconbtn pressable"
+              aria-label="Search countries, tabs and actions"
+              title="Search"
+              style={{
+                color:TEXT_MID, background:RAISE_1, border:`1px solid ${BORDER}`, borderRadius:8,
+                padding:"7px 10px", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center",
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+              </svg>
+            </button>
+          )}
           <button
             onClick={doRefresh}
             disabled={refreshing}

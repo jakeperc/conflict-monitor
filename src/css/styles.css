@@ -198,6 +198,7 @@
   @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
   @keyframes drawerIn { from{opacity:0;transform:translateX(24px)} to{opacity:1;transform:translateX(0)} }
   @keyframes overlayIn { from{opacity:0} to{opacity:1} }
+  @keyframes paletteIn { from{opacity:0;transform:translate(-50%,-8px)} to{opacity:1;transform:translate(-50%,0)} }
   @keyframes valuePulse {
     0%   { background-color: var(--pulse); }
     100% { background-color: transparent; }
@@ -260,6 +261,10 @@
   .geo-path[data-active="true"] { cursor: pointer; }
   .geo-path[data-active="true"]:hover { opacity: .8; filter: brightness(1.25); }
   .drawer-panel { animation: drawerIn .22s cubic-bezier(.2,.8,.2,1) both; }
+  /* The command palette has its own class: as a .drawer-panel it was hidden at 900px and
+     below, and drawerIn's held translateX(0) overrode its translateX(-50%) centring, so it
+     opened half a width right of centre (48px off-screen on a 1024px tablet). */
+  .palette-panel { animation: paletteIn .18s cubic-bezier(.2,.8,.2,1) both; }
   .drawer-overlay { animation: overlayIn .15s ease-out both; }
   .ticker-fade-l, .ticker-fade-r { position: absolute; top: 0; bottom: 0; width: 24px; pointer-events: none; z-index: 2; }
   .ticker-fade-l { left: 0; background: linear-gradient(90deg, var(--surface), transparent); }

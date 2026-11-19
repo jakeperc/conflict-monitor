@@ -3571,7 +3571,10 @@ function GasChart() {
 
         {series.map((w, i) => {
           const isHovered = hover && hover.idx === i;
-          const showLabel = isHovered || i === 0 || i === series.length - 1 || i % labelStride === 0;
+          // A stride label less than a full stride before the always-shown last label crowded
+          // it ("Nov 3 Nov 16"), so that one is skipped.
+          const lastIdx = series.length - 1;
+          const showLabel = isHovered || i === 0 || i === lastIdx || (i % labelStride === 0 && lastIdx - i >= labelStride);
           if (!showLabel) return null;
           return (
             <text key={i} x={xOf(i)} y={H - padB + 14} fill={isHovered ? TEXT_HI : TEXT_DIM} fontSize="11" fontWeight={isHovered ? 600 : 400} fontFamily="monospace" textAnchor="middle" style={{ transition:"fill .15s" }}>{w.week}</text>

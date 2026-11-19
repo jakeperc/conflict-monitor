@@ -358,15 +358,18 @@
     .kpi-grid-secondary > .kpi-cell:nth-child(2n) { border-right: none !important; }
     .kpi-grid-secondary > .kpi-cell:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
   }
-  /* Touch screens: keyboard-shortcut hints mean nothing without a keyboard, and hover
-     lift effects stick after a tap. */
   /* Info buttons are drawn at 14px; on touch screens an invisible ring makes the tap
      area about 38px without moving anything. */
   @media (pointer: coarse), (max-width: 900px) {
     .info-tip::before { content: ""; position: absolute; inset: -12px; border-radius: 50%; }
   }
+  /* Touch screens: keyboard-shortcut hints mean nothing without a keyboard, and hover
+     lift effects stick after a tap. .touch-label is the plain-word stand-in for a hidden
+     hint (the status bar's "⌘K command" becomes "Search"). */
+  .touch-label { display: none; }
   @media (hover: none) and (pointer: coarse) {
     .kbd-hint { display: none !important; }
+    .touch-label { display: inline; }
     .card-hover:hover { transform: none; box-shadow: var(--shadow-card); border-color: var(--border); }
   }
   @media (max-width: 560px) {
@@ -741,8 +744,9 @@
   .glance-close:active { transform: scale(.9); background: var(--raise-2); }
 
   /* Map mobile improvements */
+  /* Top centre (open Arctic sea): at the bottom it covered the map legend for its 5 seconds. */
   .map-zoom-hint {
-    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
     background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
     padding: 6px 14px; font-size: 11px; color: var(--text-mid); font-weight: 500;
     letter-spacing: .04em; box-shadow: var(--shadow-card);
@@ -781,8 +785,9 @@
     .iconbtn, .pressable, .filter-chip { min-width: 44px; min-height: 44px; }
     /* Safe area: bottom tab bar */
     .tabbar-mobile { padding-bottom: env(safe-area-inset-bottom, 8px) !important; }
-    /* Safe area: main content clears tab bar + safe area */
-    .main-pad { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)) !important; }
+    /* Safe area: main content clears the tab bar and the Quick glance button above it
+       (its top edge is 114px up), so the last row stays tappable at the end of a page. */
+    .main-pad { padding-bottom: calc(128px + env(safe-area-inset-bottom, 0px)) !important; }
     /* Bottom sheet replaces side drawer on mobile */
     .drawer-panel { display: none !important; }
     .drawer-overlay + .drawer-panel { display: none !important; }
@@ -792,7 +797,11 @@
     /* Larger touch targets for small screens */
     .filter-chip { padding: 8px 14px !important; min-height: 44px; }
     .iconbtn { min-width: 44px; min-height: 44px; }
-    /* Glance mode button in tab bar */
+  }
+
+  /* Glance mode button. It renders at every width up to 900px (useIsMobile), so its styles
+     must cover the same range; at 640px only, portrait tablets got a bare 26px button. */
+  @media (max-width: 900px) {
     .glance-fab {
       position: fixed; bottom: calc(66px + env(safe-area-inset-bottom, 8px));
       right: 14px; z-index: 45;

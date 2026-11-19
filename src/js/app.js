@@ -2275,7 +2275,8 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
         onMouseLeave={e => e.currentTarget.style.color = TEXT_MID}
       >
         <kbd className="kbd-hint" style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>⌘K</kbd>
-        <span>command</span>
+        <span className="kbd-hint">command</span>
+        <span className="touch-label">Search</span>
       </button>
       <span className="kbd-hint" style={{ color:TEXT_DIM }}>·</span>
       <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>1–6</kbd> tabs</span>
@@ -3234,10 +3235,13 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             {humanCostSections(HUMAN_COST.groups).map(sec => (
               <div key={sec.name}>
                 {sec.name && <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:10 }}>{sec.name}</div>}
+                {/* Each tile spans four rows of the section grid and shares them (subgrid), so a
+                    label that wraps onto two lines pushes the whole row down together and the
+                    numbers stay level. Browsers without subgrid fall back to stacked rows. */}
                 <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(145px, 1fr))", gap:10 }}>
                   {sec.tiles.map(({ g, row }) => (
                     <div key={`${g.key}-${row.k}`} title={row.note || undefined} style={{
-                      display:"flex", flexDirection:"column", minWidth:0,
+                      display:"grid", gridRow:"span 4", gridTemplateRows:"subgrid", rowGap:0, minWidth:0,
                       padding:"14px 14px 12px", borderRadius:10,
                       background:RAISE_1, border:`1px solid ${BORDER}`,
                       cursor: row.note ? "help" : "default",
@@ -3248,8 +3252,8 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
                       <div className="display" style={{ fontSize:26, fontWeight:600, color:DANGER, letterSpacing:"-.02em", fontVariantNumeric:"tabular-nums", lineHeight:1, marginTop:10, fontVariationSettings:"'opsz' 26" }}>
                         {row.value}
                       </div>
-                      {row.secondary && <div style={{ fontSize:12, color:TEXT_MID, marginTop:8, lineHeight:1.45 }}>{row.secondary}</div>}
-                      <div style={{ marginTop:"auto", paddingTop:12, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"4px 8px", flexWrap:"wrap", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.3 }}>
+                      <div style={{ fontSize:12, color:TEXT_MID, marginTop: row.secondary ? 8 : 0, lineHeight:1.45 }}>{row.secondary}</div>
+                      <div style={{ alignSelf:"end", paddingTop:12, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"4px 8px", flexWrap:"wrap", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.3 }}>
                         <BasisTag basis={row.basis} />
                         {row.as_of && <span style={{ fontVariantNumeric:"tabular-nums", whiteSpace:"nowrap" }}>{fmtHcDate(row.as_of)}</span>}
                       </div>
@@ -4937,7 +4941,7 @@ function TimelineList({ severities, country, arcs, statuses, openCountry, priorV
         }
         if (item.kind === "month") {
           return (
-            <div key={item.key} className="tl-month-row" style={{ position:"sticky", top:64, zIndex:3, padding:"6px 0", marginTop:14, marginBottom:6, background:"linear-gradient(180deg, var(--bg) 50%, transparent)", display:"flex", alignItems:"center", gap:14 }}>
+            <div key={item.key} className="tl-month-row" style={{ position:"sticky", top:61, zIndex:3, padding:"8px 0", marginTop:14, marginBottom:6, background:"linear-gradient(var(--card-bg), var(--card-bg)), var(--bg)", display:"flex", alignItems:"center", gap:14 }}>
               <M className="tl-month-label" style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".18em", fontWeight:700, textTransform:"uppercase", width:96, textAlign:"right", flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{item.label}</M>
               <div style={{ flex:1, height:1, background:`linear-gradient(90deg, ${BORDER}, transparent)` }} />
             </div>
@@ -5634,7 +5638,7 @@ function CalibrationPanel({ cal }) {
         </div>
         <div>
           <M className="display" style={{ fontSize:30, fontWeight:600, color:brierColor, letterSpacing:"-.025em", lineHeight:1 }}>{brier == null ? "—" : brier.toFixed(2)}</M>
-          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"inline-flex", alignItems:"center" }}>Brier score<InfoTip>Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.</InfoTip></div>
+          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"flex", alignItems:"center" }}>Brier score<InfoTip>Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.</InfoTip></div>
         </div>
       </div>
       {liveBuckets.length > 0 && (

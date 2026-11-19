@@ -4675,6 +4675,7 @@ function NewsList({ news, query, source, arcs, statuses, openCountry }) {
     if (!statusMatches(n.status, statuses)) return false;
     return true;
   });
+  const hasTime = filtered.some(n => n.t);
   return (
     <Card className="card-flush" style={{ padding:0, overflow:"hidden" }}>
       <div style={{ padding:"14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
@@ -4694,8 +4695,10 @@ function NewsList({ news, query, source, arcs, statuses, openCountry }) {
           style={{ display:"flex", gap:16, padding:"14px 22px", borderBottom: i < filtered.length - 1 ? `1px solid ${BORDER}` : "none", alignItems:"baseline" }}
           onClick={item.u ? () => window.open(item.u, "_blank", "noopener,noreferrer") : undefined}
         >
-          <M className="news-time" style={{ fontSize:12, color:AMBER, flexShrink:0, fontWeight:600, fontVariantNumeric:"tabular-nums", width:50 }}>{item.t}</M>
-          <span className="news-source" style={{ fontSize:FS.xs, color:TEXT_DIM, flexShrink:0, width:90, textTransform:"uppercase", letterSpacing:".08em", fontWeight:600, display:"inline-flex", alignItems:"center", gap:5 }}>
+          {/* Time renders only when some row has one (dated-only items left a blank 50px
+              column); the source column fits "INTERNATIONAL" without touching the headline. */}
+          {hasTime && <M className="news-time" style={{ fontSize:12, color:AMBER, flexShrink:0, fontWeight:600, fontVariantNumeric:"tabular-nums", width:50 }}>{item.t}</M>}
+          <span className="news-source" style={{ fontSize:FS.xs, color:TEXT_DIM, flexShrink:0, width:110, textTransform:"uppercase", letterSpacing:".08em", fontWeight:600, display:"inline-flex", alignItems:"center", gap:5 }}>
             {item.s}
             {isTier3State(item.s) && (
               <span

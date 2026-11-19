@@ -980,9 +980,11 @@ function CountryBottomSheet({ country, onClose, onNavigate }) {
                   style={{ background: "none", border: "none", color: BLUE, fontSize: 11, cursor: "pointer", fontWeight: 600 }}>See all →</button>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                {d.newsHits.slice(0, 4).map((n, i) => (
-                  <div key={i} style={{ display: "flex", gap: 8, alignItems: "baseline", paddingBottom: 8, borderBottom: i < 3 ? `1px solid ${BORDER}` : "none" }}>
-                    <M style={{ fontSize:FS.xs, color: AMBER, fontWeight: 600, flexShrink: 0, width: 38 }}>{n.t}</M>
+                {/* The time column only renders when some item has a time; dated-only items
+                    left a blank 38px gutter. */}
+                {d.newsHits.slice(0, 4).map((n, i, shown) => (
+                  <div key={i} style={{ display: "flex", gap: 8, alignItems: "baseline", paddingBottom: 8, borderBottom: i < shown.length - 1 ? `1px solid ${BORDER}` : "none" }}>
+                    {shown.some(x => x.t) && <M style={{ fontSize:FS.xs, color: AMBER, fontWeight: 600, flexShrink: 0, width: 38 }}>{n.t}</M>}
                     <div style={{ fontSize: 12.5, color: TEXT_HI, lineHeight: 1.5 }}>{n.h}</div>
                   </div>
                 ))}
@@ -1434,8 +1436,8 @@ function CountryDrawer({ country, onClose, onNavigate }) {
               <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
                 {d.newsHits.map((n, i) => (
                   <div key={i} style={{ display:"flex", gap:12, alignItems:"baseline", paddingBottom:10, borderBottom: i < d.newsHits.length-1 ? `1px solid ${BORDER}` : "none" }}>
-                    <M style={{ fontSize:11, color:AMBER, fontWeight:600, fontVariantNumeric:"tabular-nums", flexShrink:0, width:42 }}>{n.t}</M>
-                    <span style={{ fontSize:FS.xs, color:TEXT_DIM, fontWeight:700, letterSpacing:".10em", flexShrink:0, width:62, textTransform:"uppercase" }}>{n.s}</span>
+                    {d.newsHits.some(x => x.t) && <M style={{ fontSize:11, color:AMBER, fontWeight:600, fontVariantNumeric:"tabular-nums", flexShrink:0, width:42 }}>{n.t}</M>}
+                    {d.newsHits.some(x => x.s) && <span style={{ fontSize:FS.xs, color:TEXT_DIM, fontWeight:700, letterSpacing:".10em", flexShrink:0, width:62, textTransform:"uppercase" }}>{n.s}</span>}
                     <div style={{ fontSize:13, color:TEXT_HI, lineHeight:1.55 }}>{n.h}</div>
                   </div>
                 ))}
@@ -1721,7 +1723,7 @@ function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefr
         style={{ position:"fixed", inset:0, background:SCRIM, zIndex:300, backdropFilter:"blur(4px)", WebkitBackdropFilter:"blur(4px)" }}
       />
       <div
-        className="drawer-panel"
+        className="palette-panel"
         role="dialog"
         aria-modal="true"
         aria-label="Command palette"
@@ -1800,9 +1802,10 @@ function CommandPalette({ open, onClose, setTab, setThemePref, themePref, doRefr
           ))}
         </div>
         <div style={{ borderTop:`1px solid ${BORDER}`, padding:"8px 14px", display:"flex", gap:14, alignItems:"center", fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".02em", fontFamily:SANS }}>
-          <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↑↓</kbd> navigate</span>
-          <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↵</kbd> select</span>
-          <span><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>esc</kbd> close</span>
+          <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↑↓</kbd> navigate</span>
+          <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>↵</kbd> select</span>
+          <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>esc</kbd> close</span>
+          <span className="touch-label">Tap a result to open it</span>
           <div style={{ flex:1 }} />
           <span style={{ color:TEXT_MID }}>{filtered.length} {filtered.length === 1 ? "match" : "matches"}</span>
         </div>
@@ -2248,7 +2251,7 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
       <div style={{ flex:1 }} />
       <button
         onClick={onBriefingOpen}
-        className="pressable"
+        className="pressable tap-ext"
         title="Enter Briefing Mode"
         style={{
           background:alpha(DANGER, .08), border:`1px solid ${alpha(DANGER, .32)}`,
@@ -2265,7 +2268,7 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
       <span style={{ color:TEXT_DIM }}>·</span>
       <button
         onClick={onPaletteOpen}
-        className="pressable"
+        className="pressable tap-ext"
         style={{
           background:"transparent", border:"none", cursor:"pointer",
           color:TEXT_MID, fontFamily:SANS, fontSize:11,
@@ -2275,7 +2278,8 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
         onMouseLeave={e => e.currentTarget.style.color = TEXT_MID}
       >
         <kbd className="kbd-hint" style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>⌘K</kbd>
-        <span>command</span>
+        <span className="kbd-hint">command</span>
+        <span className="touch-label">Search</span>
       </button>
       <span className="kbd-hint" style={{ color:TEXT_DIM }}>·</span>
       <span className="kbd-hint"><kbd style={{ fontFamily:MONO, fontSize:FS.xs, color:"inherit", padding:"1px 5px", borderRadius:3, background:RAISE_2, border:`1px solid ${BORDER}` }}>1–6</kbd> tabs</span>
@@ -2543,7 +2547,7 @@ function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setSho
       </div>
       <button
         onClick={() => setShowFull(v => !v)}
-        className="pressable"
+        className="pressable tap-ext"
         style={{
           background:"none", border:"none", padding:0,
           color:at, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
@@ -2673,7 +2677,7 @@ function Next7Strip({ setTab }) {
         </div>
         <button
           onClick={() => setTab && setTab("outlook")}
-          className="pressable"
+          className="pressable tap-ext"
           style={{
             marginTop:12, background:"none", border:"none", padding:0,
             color:BLUE, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
@@ -2946,7 +2950,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             <span>Day {conflictDay} · Operation Epic Fury</span>
             <button
               onClick={() => setTab && setTab("globe")}
-              className="pressable"
+              className="pressable tap-ext"
               style={{ background:"none", border:"none", padding:0, color:BLUE, fontSize:12, fontWeight:600, letterSpacing:".02em", cursor:"pointer", fontFamily:SANS }}
             >Full trajectory since Feb 28 on the Globe →</button>
           </div>
@@ -3234,10 +3238,13 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             {humanCostSections(HUMAN_COST.groups).map(sec => (
               <div key={sec.name}>
                 {sec.name && <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:10 }}>{sec.name}</div>}
+                {/* Each tile spans four rows of the section grid and shares them (subgrid), so a
+                    label that wraps onto two lines pushes the whole row down together and the
+                    numbers stay level. Browsers without subgrid fall back to stacked rows. */}
                 <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(145px, 1fr))", gap:10 }}>
                   {sec.tiles.map(({ g, row }) => (
                     <div key={`${g.key}-${row.k}`} title={row.note || undefined} style={{
-                      display:"flex", flexDirection:"column", minWidth:0,
+                      display:"grid", gridRow:"span 4", gridTemplateRows:"subgrid", rowGap:0, minWidth:0,
                       padding:"14px 14px 12px", borderRadius:10,
                       background:RAISE_1, border:`1px solid ${BORDER}`,
                       cursor: row.note ? "help" : "default",
@@ -3248,8 +3255,8 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
                       <div className="display" style={{ fontSize:26, fontWeight:600, color:DANGER, letterSpacing:"-.02em", fontVariantNumeric:"tabular-nums", lineHeight:1, marginTop:10, fontVariationSettings:"'opsz' 26" }}>
                         {row.value}
                       </div>
-                      {row.secondary && <div style={{ fontSize:12, color:TEXT_MID, marginTop:8, lineHeight:1.45 }}>{row.secondary}</div>}
-                      <div style={{ marginTop:"auto", paddingTop:12, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"4px 8px", flexWrap:"wrap", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.3 }}>
+                      <div style={{ fontSize:12, color:TEXT_MID, marginTop: row.secondary ? 8 : 0, lineHeight:1.45 }}>{row.secondary}</div>
+                      <div style={{ alignSelf:"end", paddingTop:12, display:"flex", alignItems:"center", justifyContent:"space-between", gap:"4px 8px", flexWrap:"wrap", fontSize:FS.xs, color:TEXT_DIM, lineHeight:1.3 }}>
                         <BasisTag basis={row.basis} />
                         {row.as_of && <span style={{ fontVariantNumeric:"tabular-nums", whiteSpace:"nowrap" }}>{fmtHcDate(row.as_of)}</span>}
                       </div>
@@ -3564,7 +3571,10 @@ function GasChart() {
 
         {series.map((w, i) => {
           const isHovered = hover && hover.idx === i;
-          const showLabel = isHovered || i === 0 || i === series.length - 1 || i % labelStride === 0;
+          // A stride label less than a full stride before the always-shown last label crowded
+          // it ("Nov 3 Nov 16"), so that one is skipped.
+          const lastIdx = series.length - 1;
+          const showLabel = isHovered || i === 0 || i === lastIdx || (i % labelStride === 0 && lastIdx - i >= labelStride);
           if (!showLabel) return null;
           return (
             <text key={i} x={xOf(i)} y={H - padB + 14} fill={isHovered ? TEXT_HI : TEXT_DIM} fontSize="11" fontWeight={isHovered ? 600 : 400} fontFamily="monospace" textAnchor="middle" style={{ transition:"fill .15s" }}>{w.week}</text>
@@ -4665,6 +4675,7 @@ function NewsList({ news, query, source, arcs, statuses, openCountry }) {
     if (!statusMatches(n.status, statuses)) return false;
     return true;
   });
+  const hasTime = filtered.some(n => n.t);
   return (
     <Card className="card-flush" style={{ padding:0, overflow:"hidden" }}>
       <div style={{ padding:"14px 22px", borderBottom:`1px solid ${BORDER}`, display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
@@ -4684,8 +4695,10 @@ function NewsList({ news, query, source, arcs, statuses, openCountry }) {
           style={{ display:"flex", gap:16, padding:"14px 22px", borderBottom: i < filtered.length - 1 ? `1px solid ${BORDER}` : "none", alignItems:"baseline" }}
           onClick={item.u ? () => window.open(item.u, "_blank", "noopener,noreferrer") : undefined}
         >
-          <M className="news-time" style={{ fontSize:12, color:AMBER, flexShrink:0, fontWeight:600, fontVariantNumeric:"tabular-nums", width:50 }}>{item.t}</M>
-          <span className="news-source" style={{ fontSize:FS.xs, color:TEXT_DIM, flexShrink:0, width:90, textTransform:"uppercase", letterSpacing:".08em", fontWeight:600, display:"inline-flex", alignItems:"center", gap:5 }}>
+          {/* Time renders only when some row has one (dated-only items left a blank 50px
+              column); the source column fits "INTERNATIONAL" without touching the headline. */}
+          {hasTime && <M className="news-time" style={{ fontSize:12, color:AMBER, flexShrink:0, fontWeight:600, fontVariantNumeric:"tabular-nums", width:50 }}>{item.t}</M>}
+          <span className="news-source" style={{ fontSize:FS.xs, color:TEXT_DIM, flexShrink:0, width:110, textTransform:"uppercase", letterSpacing:".08em", fontWeight:600, display:"inline-flex", alignItems:"center", gap:5 }}>
             {item.s}
             {isTier3State(item.s) && (
               <span
@@ -4937,7 +4950,7 @@ function TimelineList({ severities, country, arcs, statuses, openCountry, priorV
         }
         if (item.kind === "month") {
           return (
-            <div key={item.key} className="tl-month-row" style={{ position:"sticky", top:64, zIndex:3, padding:"6px 0", marginTop:14, marginBottom:6, background:"linear-gradient(180deg, var(--bg) 50%, transparent)", display:"flex", alignItems:"center", gap:14 }}>
+            <div key={item.key} className="tl-month-row" style={{ position:"sticky", top:61, zIndex:3, padding:"8px 0", marginTop:14, marginBottom:6, background:"linear-gradient(var(--card-bg), var(--card-bg)), var(--bg)", display:"flex", alignItems:"center", gap:14 }}>
               <M className="tl-month-label" style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".18em", fontWeight:700, textTransform:"uppercase", width:96, textAlign:"right", flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{item.label}</M>
               <div style={{ flex:1, height:1, background:`linear-gradient(90deg, ${BORDER}, transparent)` }} />
             </div>
@@ -5634,7 +5647,7 @@ function CalibrationPanel({ cal }) {
         </div>
         <div>
           <M className="display" style={{ fontSize:30, fontWeight:600, color:brierColor, letterSpacing:"-.025em", lineHeight:1 }}>{brier == null ? "—" : brier.toFixed(2)}</M>
-          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"inline-flex", alignItems:"center" }}>Brier score<InfoTip>Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.</InfoTip></div>
+          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"flex", alignItems:"center" }}>Brier score<InfoTip>Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.</InfoTip></div>
         </div>
       </div>
       {liveBuckets.length > 0 && (
@@ -7265,6 +7278,7 @@ function App() {
 
   // Mobile UX hooks
   const isMobile = useIsMobile(900);
+  const isPhone = useIsMobile(640);
   // Both gestures listen on the whole document, so on the Globe tab they would fire while
   // someone spins the globe (a sideways drag would change tab, a downward one refresh).
   const pageGestures = isMobile && tab !== "globe";
@@ -7403,6 +7417,25 @@ function App() {
         <div className="choreographed header-actions" style={{ animationDelay:"280ms", display:"flex", alignItems:"center", gap:10, minHeight:60, flexShrink:0 }}>
           <FreshnessIndicator sources={sourceStatus} lastRefreshAt={lastRefreshAt} refreshErr={refreshErr} />
           <ThemeToggle pref={themePref} onChange={setThemePref} />
+          {/* At 900px and below the status bar (and its Search and Briefing buttons) is
+              hidden, so portrait tablets get Search in the header; Briefing is one of the
+              palette's actions. Phones skip it: a fourth header button clips the title. */}
+          {isMobile && !isPhone && (
+            <button
+              onClick={() => setPaletteOpen(true)}
+              className="iconbtn pressable"
+              aria-label="Search countries, tabs and actions"
+              title="Search"
+              style={{
+                color:TEXT_MID, background:RAISE_1, border:`1px solid ${BORDER}`, borderRadius:8,
+                padding:"7px 10px", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center",
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+              </svg>
+            </button>
+          )}
           <button
             onClick={doRefresh}
             disabled={refreshing}

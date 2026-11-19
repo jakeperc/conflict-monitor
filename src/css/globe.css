@@ -244,6 +244,21 @@
   .globe-root .chip{height:30px;padding:0 12px}
   .globe-root #g-nowBtn,.globe-root #g-speed{height:32px}
 }
+/* Landscape tablets (short window, compact globe 760px or wider): the dock's two control
+   groups fit side by side, as on desktop, with the arc chips scrolling sideways. Stacking
+   them cost 40px of a ~350px globe area on a 1024x768 screen. After the touch rule above so
+   its --dock-h wins. */
+@media (max-height: 820px){
+  @container globe (min-width: 760px) and (max-width: 999px){
+    .globe-root #g-app{--dock-h:164px}
+    .globe-root .dock-row{flex-wrap:nowrap}
+    .globe-root .dock-a{width:auto;flex:none}
+    .globe-root #g-when{flex:none}
+    .globe-root .dock-b{width:auto;flex:1 1 0;margin-left:auto}
+    .globe-root .seg-l{display:none}
+    .globe-root .chips{overflow-x:auto}
+  }
+}
 /* Phones: the "Now · day N of the war · N events today" line wraps to two lines instead of
    being cut off beside the speed and Now controls. */
 @container globe (max-width: 480px){

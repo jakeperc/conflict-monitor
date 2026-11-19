@@ -2251,7 +2251,7 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
       <div style={{ flex:1 }} />
       <button
         onClick={onBriefingOpen}
-        className="pressable"
+        className="pressable tap-ext"
         title="Enter Briefing Mode"
         style={{
           background:alpha(DANGER, .08), border:`1px solid ${alpha(DANGER, .32)}`,
@@ -2268,7 +2268,7 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
       <span style={{ color:TEXT_DIM }}>·</span>
       <button
         onClick={onPaletteOpen}
-        className="pressable"
+        className="pressable tap-ext"
         style={{
           background:"transparent", border:"none", cursor:"pointer",
           color:TEXT_MID, fontFamily:SANS, fontSize:11,
@@ -2547,7 +2547,7 @@ function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setSho
       </div>
       <button
         onClick={() => setShowFull(v => !v)}
-        className="pressable"
+        className="pressable tap-ext"
         style={{
           background:"none", border:"none", padding:0,
           color:at, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
@@ -2677,7 +2677,7 @@ function Next7Strip({ setTab }) {
         </div>
         <button
           onClick={() => setTab && setTab("outlook")}
-          className="pressable"
+          className="pressable tap-ext"
           style={{
             marginTop:12, background:"none", border:"none", padding:0,
             color:BLUE, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
@@ -2950,7 +2950,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
             <span>Day {conflictDay} · Operation Epic Fury</span>
             <button
               onClick={() => setTab && setTab("globe")}
-              className="pressable"
+              className="pressable tap-ext"
               style={{ background:"none", border:"none", padding:0, color:BLUE, fontSize:12, fontWeight:600, letterSpacing:".02em", cursor:"pointer", fontFamily:SANS }}
             >Full trajectory since Feb 28 on the Globe →</button>
           </div>

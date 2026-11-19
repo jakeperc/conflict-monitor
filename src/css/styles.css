@@ -378,6 +378,10 @@
     /* Landscape tablets sit above the 900px touch-target rule; Feed's filter chips were
        26px tall there. */
     .filter-chip { min-height: 38px; }
+    /* Text links and status-bar buttons drawn 14-18px tall get an invisible ring that
+       makes them about 40px to a finger, without moving anything. */
+    .tap-ext { position: relative; }
+    .tap-ext::before { content: ""; position: absolute; inset: -12px -6px; }
     .card-hover:hover { transform: none; box-shadow: var(--shadow-card); border-color: var(--border); }
   }
   @media (max-width: 560px) {

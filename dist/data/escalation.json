@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "Bahrain intercepted Iranian drones aimed at a US base; Yemen's government forces left the Bab al-Mandab area; Ukraine hit the Crimean Bridge."
+      "currentLabel": "US jets struck Qeshm and Iran fired drones at Kuwait and Bahrain; Ukraine dropped a Crimean Bridge span; Israeli tanks crossed Gaza's ceasefire line."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "China confirmed Xi will host Trump and Putin on 19 November; a third US carrier reached the Middle East."
+      "currentLabel": "Trump met Putin and Xi in Shenzhen before their three-way talks; Russia flew nuclear-capable bombers to Vietnam and violated Japan's airspace."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "The IAEA has never inspected Iran's Isfahan plant; no binding US-Russia arms limits are in force; nuclear cuts are on the US agenda for Shenzhen."
+      "currentLabel": "No binding US-Russia arms limits; North Korea's new Yongbyon enrichment hall is externally complete; Russian nuclear bombers deployed to Vietnam."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "NATO dropped its 2027 leaders' summit; Lithuania seeks a permanent US base; Estonia blames Russia for sabotage and moves to close crossings."
+      "currentLabel": "Germany and Britain rejected a Pentagon official's criticism of Ukraine's deep strikes; Australia and the Philippines signed a defence pact."
     }
   ]
 }

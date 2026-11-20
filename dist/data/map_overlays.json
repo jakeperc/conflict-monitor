@@ -1,6 +1,6 @@
 {
   "_note": "World-map overlay content (arcs, hotspots, fills, labels). Created 2026-08-26 (operator-directed) to replace hardcoded overlays in src/js/app.js that had rotted to April-era facts (carrier positions, 'ceasefire on life support'). This file is EDITORIAL — the daily pipeline may update it like any other data/*.json: keep arcs to active kinetic engagements per the current board record, keep 'as_of' honest (bump only when content changes), never add a marker or arc that is not established on a dashboard surface. Coordinates are [lng, lat]. Colors are CSS vars or literal hex matching the app palette.",
-  "as_of": "2026-11-10",
+  "as_of": "2026-11-19",
   "arcs": [
     {
       "id": "russia-ukraine",
@@ -33,7 +33,7 @@
       "kind": "strike",
       "delay": 1.1,
       "endLabel": "TATARSTAN",
-      "note": "Ukrainian deep-strike campaign — oil terminal and fuel depot hit near St Petersburg, 18 Oct"
+      "note": "Ukraine brought down a Crimean Bridge road span on 17 Nov; rail halted after a third attack on 19 Nov."
     },
     {
       "id": "houthi-yanbu",
@@ -66,7 +66,7 @@
       "colorLit": "#c1554d",
       "kind": "strike",
       "delay": 3.3,
-      "note": "US strikes on Iranian air defences on Qeshm, 2 and 6 Nov; US aircraft disabled the blockade runner Huda off Khor Fakkan, 7 Nov; Trump calls more strikes unlikely, 9 Nov"
+      "note": "US jets struck Qeshm on 17 Nov; Iran fired drones at US-used bases in Kuwait and Bahrain on 18 Nov."
     },
     {
       "id": "israel-lebanon",

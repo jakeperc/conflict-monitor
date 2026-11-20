@@ -758,7 +758,7 @@
             style: { background: "none", border: "none", color: BLUE, fontSize: 11, cursor: "pointer", fontWeight: 600 }
           },
           "See all \u2192"
-        )), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, d.newsHits.slice(0, 4).map((n, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 8, alignItems: "baseline", paddingBottom: 8, borderBottom: i < 3 ? `1px solid ${BORDER}` : "none" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: AMBER, fontWeight: 600, flexShrink: 0, width: 38 } }, n.t), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_HI, lineHeight: 1.5 } }, n.h))))),
+        )), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, d.newsHits.slice(0, 4).map((n, i, shown) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 8, alignItems: "baseline", paddingBottom: 8, borderBottom: i < shown.length - 1 ? `1px solid ${BORDER}` : "none" } }, shown.some((x) => x.t) && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: AMBER, fontWeight: 600, flexShrink: 0, width: 38 } }, n.t), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_HI, lineHeight: 1.5 } }, n.h))))),
         d.timelineHits.length > 0 && /* @__PURE__ */ React.createElement("section", null, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 6 }, "Timeline ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_MID } }, d.timelineHits.length)), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 6 } }, d.timelineHits.slice(0, 5).map((t, i) => {
           const col = { extreme: DANGER, critical: CRITICAL, high: AMBER }[t.sev] || TEXT_MID;
           return /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 8, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, fontWeight: 500, flexShrink: 0, width: 42, paddingTop: 4 } }, t.date), /* @__PURE__ */ React.createElement("span", { style: { width: 6, height: 6, borderRadius: "50%", background: col, flexShrink: 0, marginTop: 6 } }), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_BODY, lineHeight: 1.5 } }, t.desc));
@@ -1110,7 +1110,7 @@
             style: { background: "none", border: "none", color: BLUE, fontSize: 11, cursor: "pointer", fontWeight: 600, letterSpacing: ".04em" }
           },
           "See all in Feed \u2192"
-        )), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 10 } }, d.newsHits.map((n, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 12, alignItems: "baseline", paddingBottom: 10, borderBottom: i < d.newsHits.length - 1 ? `1px solid ${BORDER}` : "none" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: AMBER, fontWeight: 600, fontVariantNumeric: "tabular-nums", flexShrink: 0, width: 42 } }, n.t), /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, fontWeight: 700, letterSpacing: ".10em", flexShrink: 0, width: 62, textTransform: "uppercase" } }, n.s), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_HI, lineHeight: 1.55 } }, n.h))))),
+        )), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 10 } }, d.newsHits.map((n, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 12, alignItems: "baseline", paddingBottom: 10, borderBottom: i < d.newsHits.length - 1 ? `1px solid ${BORDER}` : "none" } }, d.newsHits.some((x) => x.t) && /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: AMBER, fontWeight: 600, fontVariantNumeric: "tabular-nums", flexShrink: 0, width: 42 } }, n.t), d.newsHits.some((x) => x.s) && /* @__PURE__ */ React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, fontWeight: 700, letterSpacing: ".10em", flexShrink: 0, width: 62, textTransform: "uppercase" } }, n.s), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_HI, lineHeight: 1.55 } }, n.h))))),
         d.timelineHits.length > 0 && /* @__PURE__ */ React.createElement("section", null, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0 }, "Recent timeline ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_MID, marginLeft: 4 } }, d.timelineHits.length)), /* @__PURE__ */ React.createElement(
           "button",
           {
@@ -1361,7 +1361,7 @@
     ), /* @__PURE__ */ React.createElement(
       "div",
       {
-        className: "drawer-panel",
+        className: "palette-panel",
         role: "dialog",
         "aria-modal": "true",
         "aria-label": "Command palette",
@@ -1456,7 +1456,7 @@
           border: `1px solid ${BORDER}`
         } }, it.kind)
       ))),
-      /* @__PURE__ */ React.createElement("div", { style: { borderTop: `1px solid ${BORDER}`, padding: "8px 14px", display: "flex", gap: 14, alignItems: "center", fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".02em", fontFamily: SANS } }, /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2191\u2193"), " navigate"), /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u21B5"), " select"), /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "esc"), " close"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_MID } }, filtered.length, " ", filtered.length === 1 ? "match" : "matches"))
+      /* @__PURE__ */ React.createElement("div", { style: { borderTop: `1px solid ${BORDER}`, padding: "8px 14px", display: "flex", gap: 14, alignItems: "center", fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".02em", fontFamily: SANS } }, /* @__PURE__ */ React.createElement("span", { className: "kbd-hint" }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2191\u2193"), " navigate"), /* @__PURE__ */ React.createElement("span", { className: "kbd-hint" }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u21B5"), " select"), /* @__PURE__ */ React.createElement("span", { className: "kbd-hint" }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "esc"), " close"), /* @__PURE__ */ React.createElement("span", { className: "touch-label" }, "Tap a result to open it"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_MID } }, filtered.length, " ", filtered.length === 1 ? "match" : "matches"))
     ));
   }
   function resolveTheme(pref) {
@@ -1897,7 +1897,7 @@
         "button",
         {
           onClick: onBriefingOpen,
-          className: "pressable",
+          className: "pressable tap-ext",
           title: "Enter Briefing Mode",
           style: {
             background: alpha(DANGER, 0.08),
@@ -1929,7 +1929,7 @@
         "button",
         {
           onClick: onPaletteOpen,
-          className: "pressable",
+          className: "pressable tap-ext",
           style: {
             background: "transparent",
             border: "none",
@@ -1945,7 +1945,8 @@
           onMouseLeave: (e) => e.currentTarget.style.color = TEXT_MID
         },
         /* @__PURE__ */ React.createElement("kbd", { className: "kbd-hint", style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2318K"),
-        /* @__PURE__ */ React.createElement("span", null, "command")
+        /* @__PURE__ */ React.createElement("span", { className: "kbd-hint" }, "command"),
+        /* @__PURE__ */ React.createElement("span", { className: "touch-label" }, "Search")
       ),
       /* @__PURE__ */ React.createElement("span", { className: "kbd-hint", style: { color: TEXT_DIM } }, "\xB7"),
       /* @__PURE__ */ React.createElement("span", { className: "kbd-hint" }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 5px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "1\u20136"), " tabs")
@@ -2180,7 +2181,7 @@
       "button",
       {
         onClick: () => setShowFull((v) => !v),
-        className: "pressable",
+        className: "pressable tap-ext",
         style: {
           background: "none",
           border: "none",
@@ -2271,7 +2272,7 @@
       "button",
       {
         onClick: () => setTab && setTab("outlook"),
-        className: "pressable",
+        className: "pressable tap-ext",
         style: {
           marginTop: 12,
           background: "none",
@@ -2502,7 +2503,7 @@
       "button",
       {
         onClick: () => setTab && setTab("globe"),
-        className: "pressable",
+        className: "pressable tap-ext",
         style: { background: "none", border: "none", padding: 0, color: BLUE, fontSize: 12, fontWeight: 600, letterSpacing: ".02em", cursor: "pointer", fontFamily: SANS }
       },
       "Full trajectory since Feb 28 on the Globe \u2192"
@@ -2749,15 +2750,17 @@
         }
       );
     })()), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 20 } }, humanCostSections(HUMAN_COST.groups).map((sec) => /* @__PURE__ */ React.createElement("div", { key: sec.name }, sec.name && /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_MID, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600, marginBottom: 10 } }, sec.name), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(145px, 1fr))", gap: 10 } }, sec.tiles.map(({ g, row }) => /* @__PURE__ */ React.createElement("div", { key: `${g.key}-${row.k}`, title: row.note || void 0, style: {
-      display: "flex",
-      flexDirection: "column",
+      display: "grid",
+      gridRow: "span 4",
+      gridTemplateRows: "subgrid",
+      rowGap: 0,
       minWidth: 0,
       padding: "14px 14px 12px",
       borderRadius: 10,
       background: RAISE_1,
       border: `1px solid ${BORDER}`,
       cursor: row.note ? "help" : "default"
-    } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, lineHeight: 1.35 } }, /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_BODY } }, g.label), " \xB7 ", row.k), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 26, fontWeight: 600, color: DANGER, letterSpacing: "-.02em", fontVariantNumeric: "tabular-nums", lineHeight: 1, marginTop: 10, fontVariationSettings: "'opsz' 26" } }, row.value), row.secondary && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_MID, marginTop: 8, lineHeight: 1.45 } }, row.secondary), /* @__PURE__ */ React.createElement("div", { style: { marginTop: "auto", paddingTop: 12, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "4px 8px", flexWrap: "wrap", fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.3 } }, /* @__PURE__ */ React.createElement(BasisTag, { basis: row.basis }), row.as_of && /* @__PURE__ */ React.createElement("span", { style: { fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" } }, fmtHcDate(row.as_of))))))))), HUMAN_COST.footnote && /* @__PURE__ */ React.createElement(ByWidth, { wide: /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, marginTop: 18, paddingTop: 14, borderTop: `1px solid ${BORDER}`, lineHeight: 1.55, letterSpacing: ".01em" } }, HUMAN_COST.footnote) })))), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 480 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase", marginBottom: 12, paddingLeft: 2 } }, "Developing Themes"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, themes.map((th, i) => /* @__PURE__ */ React.createElement(Card, { key: i, className: "card-hover", style: { cursor: "pointer", padding: "16px 20px" }, onClick: () => setExpanded((e) => ({ ...e, [i]: !e[i] })) }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.005em" } }, th.title), /* @__PURE__ */ React.createElement("span", { style: {
+    } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", textTransform: "uppercase", fontWeight: 600, lineHeight: 1.35 } }, /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_BODY } }, g.label), " \xB7 ", row.k), /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 26, fontWeight: 600, color: DANGER, letterSpacing: "-.02em", fontVariantNumeric: "tabular-nums", lineHeight: 1, marginTop: 10, fontVariationSettings: "'opsz' 26" } }, row.value), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_MID, marginTop: row.secondary ? 8 : 0, lineHeight: 1.45 } }, row.secondary), /* @__PURE__ */ React.createElement("div", { style: { alignSelf: "end", paddingTop: 12, display: "flex", alignItems: "center", justifyContent: "space-between", gap: "4px 8px", flexWrap: "wrap", fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.3 } }, /* @__PURE__ */ React.createElement(BasisTag, { basis: row.basis }), row.as_of && /* @__PURE__ */ React.createElement("span", { style: { fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" } }, fmtHcDate(row.as_of))))))))), HUMAN_COST.footnote && /* @__PURE__ */ React.createElement(ByWidth, { wide: /* @__PURE__ */ React.createElement("div", { style: { fontSize: FS.xs, color: TEXT_DIM, marginTop: 18, paddingTop: 14, borderTop: `1px solid ${BORDER}`, lineHeight: 1.55, letterSpacing: ".01em" } }, HUMAN_COST.footnote) })))), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 480 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase", marginBottom: 12, paddingLeft: 2 } }, "Developing Themes"), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 8 } }, themes.map((th, i) => /* @__PURE__ */ React.createElement(Card, { key: i, className: "card-hover", style: { cursor: "pointer", padding: "16px 20px" }, onClick: () => setExpanded((e) => ({ ...e, [i]: !e[i] })) }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 15, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.005em" } }, th.title), /* @__PURE__ */ React.createElement("span", { style: {
       width: 24,
       height: 24,
       borderRadius: 6,
@@ -2958,7 +2961,8 @@
       })(),
       series.map((w, i) => {
         const isHovered = hover && hover.idx === i;
-        const showLabel = isHovered || i === 0 || i === series.length - 1 || i % labelStride === 0;
+        const lastIdx = series.length - 1;
+        const showLabel = isHovered || i === 0 || i === lastIdx || i % labelStride === 0 && lastIdx - i >= labelStride;
         if (!showLabel) return null;
         return /* @__PURE__ */ React.createElement("text", { key: i, x: xOf(i), y: H - padB + 14, fill: isHovered ? TEXT_HI : TEXT_DIM, fontSize: "11", fontWeight: isHovered ? 600 : 400, fontFamily: "monospace", textAnchor: "middle", style: { transition: "fill .15s" } }, w.week);
       }),
@@ -3726,6 +3730,7 @@
       if (!statusMatches(n.status, statuses)) return false;
       return true;
     });
+    const hasTime = filtered.some((n) => n.t);
     return /* @__PURE__ */ React.createElement(Card, { className: "card-flush", style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Intelligence Feed \xB7 Most Recent First"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "live", label: "GDELT" })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, filtered.length, " of ", news.length)), filtered.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 22px", textAlign: "center", fontSize: 13, color: TEXT_MID } }, "No items match the current filters."), filtered.map((item, i) => /* @__PURE__ */ React.createElement(
       "div",
       {
@@ -3734,8 +3739,8 @@
         style: { display: "flex", gap: 16, padding: "14px 22px", borderBottom: i < filtered.length - 1 ? `1px solid ${BORDER}` : "none", alignItems: "baseline" },
         onClick: item.u ? () => window.open(item.u, "_blank", "noopener,noreferrer") : void 0
       },
-      /* @__PURE__ */ React.createElement(M, { className: "news-time", style: { fontSize: 12, color: AMBER, flexShrink: 0, fontWeight: 600, fontVariantNumeric: "tabular-nums", width: 50 } }, item.t),
-      /* @__PURE__ */ React.createElement("span", { className: "news-source", style: { fontSize: FS.xs, color: TEXT_DIM, flexShrink: 0, width: 90, textTransform: "uppercase", letterSpacing: ".08em", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 5 } }, item.s, isTier3State(item.s) && /* @__PURE__ */ React.createElement(
+      hasTime && /* @__PURE__ */ React.createElement(M, { className: "news-time", style: { fontSize: 12, color: AMBER, flexShrink: 0, fontWeight: 600, fontVariantNumeric: "tabular-nums", width: 50 } }, item.t),
+      /* @__PURE__ */ React.createElement("span", { className: "news-source", style: { fontSize: FS.xs, color: TEXT_DIM, flexShrink: 0, width: 110, textTransform: "uppercase", letterSpacing: ".08em", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 5 } }, item.s, isTier3State(item.s) && /* @__PURE__ */ React.createElement(
         "span",
         {
           title: "Tier-3 state-media source. Cannot solely substantiate 'confirmed' status; requires tier-1 corroboration for factual claims (statements-of-record exempt).",
@@ -3915,7 +3920,7 @@
         return /* @__PURE__ */ React.createElement("div", { key: item.key, style: { display: "flex", alignItems: "center", gap: 12, margin: "26px 0 14px", paddingLeft: 24 } }, /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 1, background: `linear-gradient(90deg, transparent, ${BORDER})` } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".16em", textTransform: "uppercase", fontWeight: 600, whiteSpace: "nowrap" } }, "Seen before this visit"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 1, background: `linear-gradient(90deg, ${BORDER}, transparent)` } }));
       }
       if (item.kind === "month") {
-        return /* @__PURE__ */ React.createElement("div", { key: item.key, className: "tl-month-row", style: { position: "sticky", top: 64, zIndex: 3, padding: "6px 0", marginTop: 14, marginBottom: 6, background: "linear-gradient(180deg, var(--bg) 50%, transparent)", display: "flex", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement(M, { className: "tl-month-label", style: { fontSize: FS.xs, color: TEXT_MID, letterSpacing: ".18em", fontWeight: 700, textTransform: "uppercase", width: 96, textAlign: "right", flexShrink: 0, fontVariantNumeric: "tabular-nums" } }, item.label), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 1, background: `linear-gradient(90deg, ${BORDER}, transparent)` } }));
+        return /* @__PURE__ */ React.createElement("div", { key: item.key, className: "tl-month-row", style: { position: "sticky", top: 61, zIndex: 3, padding: "8px 0", marginTop: 14, marginBottom: 6, background: "linear-gradient(var(--card-bg), var(--card-bg)), var(--bg)", display: "flex", alignItems: "center", gap: 14 } }, /* @__PURE__ */ React.createElement(M, { className: "tl-month-label", style: { fontSize: FS.xs, color: TEXT_MID, letterSpacing: ".18em", fontWeight: 700, textTransform: "uppercase", width: 96, textAlign: "right", flexShrink: 0, fontVariantNumeric: "tabular-nums" } }, item.label), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 1, background: `linear-gradient(90deg, ${BORDER}, transparent)` } }));
       }
       if (item.kind === "chapter") {
         const ch = TIMELINE_CHAPTERS[item.ev.isoDate];
@@ -4322,7 +4327,7 @@
     const liveBuckets = (cal.buckets || []).filter((b) => b.predicted > 0);
     const resolved = cal.resolved || [];
     const hits = resolved.filter((r) => r.hit).length;
-    return /* @__PURE__ */ React.createElement(Card, { style: { padding: 22 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase" } }, "Track Record \xB7 Calibration"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 30, flexWrap: "wrap", marginBottom: liveBuckets.length ? 20 : 4 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.025em", lineHeight: 1 } }, cal.total_resolved), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5 } }, "forecasts resolved")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.025em", lineHeight: 1 } }, hits, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 16, color: TEXT_DIM, fontWeight: 500 } }, "/", cal.total_resolved)), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5 } }, "called correctly")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.025em", lineHeight: 1 } }, cal.total_resolved ? `${Math.round(hits / cal.total_resolved * 100)}%` : "\u2014"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5 } }, "correct")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: brierColor, letterSpacing: "-.025em", lineHeight: 1 } }, brier == null ? "\u2014" : brier.toFixed(2)), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5, display: "inline-flex", alignItems: "center" } }, "Brier score", /* @__PURE__ */ React.createElement(InfoTip, null, "Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.")))), liveBuckets.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 9 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 2 }, "Reliability \u2014 of the calls we rated\u2026"), liveBuckets.map((b) => {
+    return /* @__PURE__ */ React.createElement(Card, { style: { padding: 22 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase" } }, "Track Record \xB7 Calibration"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 30, flexWrap: "wrap", marginBottom: liveBuckets.length ? 20 : 4 } }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.025em", lineHeight: 1 } }, cal.total_resolved), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5 } }, "forecasts resolved")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.025em", lineHeight: 1 } }, hits, /* @__PURE__ */ React.createElement("span", { style: { fontSize: 16, color: TEXT_DIM, fontWeight: 500 } }, "/", cal.total_resolved)), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5 } }, "called correctly")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.025em", lineHeight: 1 } }, cal.total_resolved ? `${Math.round(hits / cal.total_resolved * 100)}%` : "\u2014"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5 } }, "correct")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(M, { className: "display", style: { fontSize: 30, fontWeight: 600, color: brierColor, letterSpacing: "-.025em", lineHeight: 1 } }, brier == null ? "\u2014" : brier.toFixed(2)), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, marginTop: 5, display: "flex", alignItems: "center" } }, "Brier score", /* @__PURE__ */ React.createElement(InfoTip, null, "Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.")))), liveBuckets.length > 0 && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 9 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 2 }, "Reliability \u2014 of the calls we rated\u2026"), liveBuckets.map((b) => {
       const rate = b.predicted ? b.occurred / b.predicted : 0;
       return /* @__PURE__ */ React.createElement("div", { key: b.label, style: { display: "flex", alignItems: "center", gap: 12 } }, /* @__PURE__ */ React.createElement(M, { style: { width: 64, fontSize: 11.5, color: TEXT_MID, fontVariantNumeric: "tabular-nums", flexShrink: 0 } }, b.label), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, height: 6, background: RAISE_2, borderRadius: 999, overflow: "hidden", minWidth: 60 } }, /* @__PURE__ */ React.createElement("div", { style: { width: `${Math.round(rate * 100)}%`, height: "100%", background: BLUE, borderRadius: 999, transition: "width .6s cubic-bezier(.2,.8,.2,1)" } })), /* @__PURE__ */ React.createElement(M, { style: { width: 126, fontSize: 11, color: TEXT_DIM, textAlign: "right", flexShrink: 0, fontVariantNumeric: "tabular-nums" } }, b.occurred, " of ", b.predicted, " happened"));
     })), resolved.length > 0 && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowResolved((v) => !v), className: "pressable", style: { background: "none", border: "none", padding: 0, marginTop: 16, color: BLUE, fontSize: 12, fontWeight: 600, cursor: "pointer", display: "inline-flex", alignSelf: "flex-start" } }, showResolved ? "\u2212 Hide resolved forecasts" : `+ Show all ${resolved.length} resolved forecasts`), showResolved && /* @__PURE__ */ React.createElement("div", { style: { marginTop: 13, display: "flex", flexDirection: "column", gap: 9 } }, resolved.map((r, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 10, alignItems: "flex-start", fontSize: 12.5, lineHeight: 1.55 } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, color: r.hit ? GREEN : DANGER, fontWeight: 700, width: 13 } }, r.hit ? "\u2713" : "\u2717"), /* @__PURE__ */ React.createElement("div", { style: { flex: 1, minWidth: 0, color: TEXT_BODY } }, scrubCodes(r.question), /* @__PURE__ */ React.createElement(M, { style: { color: TEXT_DIM, marginLeft: 6, fontSize: 11, whiteSpace: "nowrap" } }, "called ", Math.round(r.initial_probability * 100), "% \xB7 ", r.occurred ? "happened" : "did not")))))));
@@ -5310,7 +5315,7 @@
       ), /* @__PURE__ */ React.createElement("div", { style: { flex: 1 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".06em" } }, /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}`, marginRight: 6 } }, "\u2190"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "\u2192"), /* @__PURE__ */ React.createElement("span", { style: { margin: "0 8px" } }, "navigate"), /* @__PURE__ */ React.createElement("kbd", { style: { fontFamily: MONO, fontSize: FS.xs, color: "inherit", padding: "1px 6px", borderRadius: 3, background: RAISE_2, border: `1px solid ${BORDER}` } }, "Esc"), /* @__PURE__ */ React.createElement("span", { style: { marginLeft: 6 } }, "exit")))
     ));
   }
-  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"5cf31570982d"}`, document.baseURI).href;
+  var GLOBE_MODULE_URL = new URL(`js/globe.js?v=${"dd206ca21bc2"}`, document.baseURI).href;
   var GLOBE_ATLAS_URL = new URL("vendor/world-atlas-50m.json", document.baseURI).href;
   function GlobeStage({ active, openCountry }) {
     const ref = useRef(null);
@@ -5466,6 +5471,7 @@
       fetchUpdate(setMktLive, setGasLive, setWw3Live, setThemesLive, setBreaking, setNews, setRefreshing, setRefreshCount, setRefreshErr, setLastUpdate, setSourceStatus);
     }, []);
     const isMobile = useIsMobile(900);
+    const isPhone = useIsMobile(640);
     const pageGestures = isMobile && tab !== "globe";
     const ptr = usePullToRefresh(doRefresh, pageGestures);
     const swipe = useSwipeTabs(tab, setTab, TABS, pageGestures);
@@ -5584,7 +5590,27 @@
       },
       /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".1em", fontWeight: 600, textTransform: "uppercase" } }, "WW3"),
       /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "baseline", gap: 6 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 14, color: ww3Color, fontWeight: 600, fontVariantNumeric: "tabular-nums", letterSpacing: "-.01em" } }, ww3Live, "%"), /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: ww3Delta >= 0 ? DANGER : GREEN, fontWeight: 500 } }, ww3Delta >= 0 ? "\u2191+" : "\u2193", Math.abs(ww3Delta)))
-    )), /* @__PURE__ */ React.createElement("div", { className: "choreographed header-actions", style: { animationDelay: "280ms", display: "flex", alignItems: "center", gap: 10, minHeight: 60, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(FreshnessIndicator, { sources: sourceStatus, lastRefreshAt, refreshErr }), /* @__PURE__ */ React.createElement(ThemeToggle, { pref: themePref, onChange: setThemePref }), /* @__PURE__ */ React.createElement(
+    )), /* @__PURE__ */ React.createElement("div", { className: "choreographed header-actions", style: { animationDelay: "280ms", display: "flex", alignItems: "center", gap: 10, minHeight: 60, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(FreshnessIndicator, { sources: sourceStatus, lastRefreshAt, refreshErr }), /* @__PURE__ */ React.createElement(ThemeToggle, { pref: themePref, onChange: setThemePref }), isMobile && !isPhone && /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => setPaletteOpen(true),
+        className: "iconbtn pressable",
+        "aria-label": "Search countries, tabs and actions",
+        title: "Search",
+        style: {
+          color: TEXT_MID,
+          background: RAISE_1,
+          border: `1px solid ${BORDER}`,
+          borderRadius: 8,
+          padding: "7px 10px",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }
+      },
+      /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("circle", { cx: "11", cy: "11", r: "7" }), /* @__PURE__ */ React.createElement("path", { d: "m20 20-3.5-3.5" }))
+    ), /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: doRefresh,

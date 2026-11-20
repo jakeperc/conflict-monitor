@@ -52389,6 +52389,34 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-14-an-israeli-drone-strike-killed-hamass",
+    "event_date": "2026-11-14",
+    "source_time": null,
+    "headline": "An Israeli drone strike killed Hamas's Rafah brigade commander Samir Abu Younis in al-Mawasi near Khan Younis on 14 November, Hamas confirmed; Israel's military and Shin Bet said they had targeted a senior commander.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/15/israeli-air-strike-kills-senior-hamas-commander-in-gaza",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "israel-lebanon-gaza"
+    ],
+    "tags": [
+      "gaza"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-15-bahrain-issued-two-threat-alerts-its",
     "event_date": "2026-11-15",
     "source_time": null,
@@ -52683,6 +52711,38 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-15-australia-and-the-philippines-signed-a",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Australia and the Philippines signed a Defence Cooperation Arrangement on 15 November covering rotational troop deployments, Australian investment in Philippine military infrastructure, intelligence-sharing and drone transfers.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Defense News",
+        "url": "https://www.defensenews.com/global/2026/11/17/new-pact-positions-the-philippines-as-a-defense-hub-for-australian-troops/",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "philippines",
+      "basing"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-16-ukraine-attacked-the-crimean-bridge-overnight",
     "event_date": "2026-11-16",
     "source_time": null,
@@ -52846,5 +52906,858 @@
     "lenses": [
       "bilateral-us-china"
     ]
+  },
+  {
+    "id": "2026-11-16-the-somaliflagged-grain-carrier-betul-8",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "The Somali-flagged grain carrier Betul 8 capsized in Bulgaria's exclusive economic zone, about 40 nautical miles southeast of Cape Kaliakra, on 16 November after what its crew described as an attack by two sea drones; all 12 crew were rescued, and Bulgarian authorities have not said who was responsible.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/cargo-ship-capsizes-off-bulgaria-after-reported-sea-drone-attack/",
+        "published_date": "2026-11-16"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/cargo-ship-sinks-in-bulgarias-black-sea-after-reported-drone-attack-all-12-crew-rescued/",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "shipping",
+      "black-sea",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-16-eu-foreign-ministers-adopted-new-russia",
+    "event_date": "2026-11-16",
+    "source_time": null,
+    "headline": "EU foreign ministers adopted new Russia listings on 16 November covering almost 50 banks, Wildberries' founder and shadow-fleet operators, and separately listed 30 people and two entities for hybrid and disinformation activity.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/eu-clamps-down-on-russias-wildberries-owner-50-banks-oil-and-shadow-fleet-with-new-sanctions/",
+        "published_date": "2026-11-16"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "sanctions-financial-warfare",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "sanctions",
+      "eu"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-us-fighter-jets-struck-an-iranian",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "US fighter jets struck an Iranian missile launch site on Qeshm Island in the Strait of Hormuz late on 17 November, US military officials said, calling it a response to Iranian aggression against US personnel and assets; Iranian media reported explosions on the island but no damage.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/18/kuwait-bahrain-face-new-iran-attacks-after-us-strike-on-qeshm-island",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/u-s-military-strikes-iranian-missile-site-near-strait-of-hormuz/",
+        "published_date": "2026-11-17"
+      },
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611177708",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 4,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "us-strike",
+      "hormuz"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-adnoc-ls-said-one-of-its",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "ADNOC L&S said one of its tankers was attacked in the Strait of Hormuz on 17 November, leaving one crew member missing and 11 injured; the LPG tanker Tara Gas, hit on 16 and 17 November north of Khasab, was abandoned and left burning with one Indian seafarer missing.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/uaes-adnoc-ls-says-one-crew-member-missing-after-attack-on-its-vessel-in-hormuz/",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/tara-gas-burning-off-oman-as-another-tanker-attack-leaves-11-injured/",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/18/world/middleeast/iran-attacks-bahrain-kuwait-ships-hormuz.html",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "shipping",
+      "hormuz"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-a-ukrainian-missile-and-drone-attack",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "A Ukrainian missile and drone attack overnight into 17 November brought a road section of the Crimean Bridge down into the Kerch Strait, the bridge's second hit in two days; Zelensky called it an 'unprecedented operation' and the Kremlin said it would rebuild. A third attack early on 19 November halted rail traffic, Russia said.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo",
+        "published_date": "2026-11-17"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cm879dqn3e1jo",
+        "published_date": "2026-11-19"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/ukraine-war-latest-entire-section-of-crimean-bridge-collapses-after-seven-phase-operation-zelensky-reveals/",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 4,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "deep-strike",
+      "crimean-bridge"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-russian-missiles-damaged-kyivs-northern-and",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "Russian missiles damaged Kyiv's Northern and Southern bridges over the Dnipro overnight into 17 November, closing both until traffic partly resumed, and cut water and heat; Russian attacks killed 14 people across Ukraine over the day, and Ukraine's Air Force counted 306 attack drones alongside ballistic and cruise missiles.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-attacks-kill-14-injure-78-across-ukraine-over-past-day-hitting-kyivs-southern-northern-bridges/",
+        "published_date": "2026-11-17"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "infrastructure",
+      "kyiv"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-two-russian-tu95ms-nuclearcapable-bombers-landed",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "Two Russian Tu-95MS nuclear-capable bombers landed at Da Nang in Vietnam, the first such deployment there since the Soviet era, as Japan scrambled jets over a Russian incursion of its airspace near Okinoshima and South Korea and Taiwan tracked Russian aircraft in their air defence zones.",
+    "body": "",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/18/world/asia/putin-taiwan-japan-korea-vietnam-bombers.html",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c60evw20qe47o",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "crink",
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "nuclear-signaling",
+      "japan"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-cnn-reported-citing-us-officials-that",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "CNN reported, citing US officials, that Iran was developing plans to use a dirty bomb or chemical weapon against senior US officials in Washington; the White House said there were no credible threats to the homeland, and Trump said Iran would pay 'a price the likes of which no country has ever paid.'",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/nov/17/trump-reported-iranian-plot-dirty-bomb-washington",
+        "published_date": "2026-11-17"
+      },
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611199940",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gray-zone",
+      "wmd"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-seven-russian-drones-entered-moldovas-airspace",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "Seven Russian drones entered Moldova's airspace on 17 November during an attack on Ukraine, one over Chisinau and at least five crashing on Moldovan territory; Moldova summoned Russia's ambassador-designate on 18 November.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Politico",
+        "url": "https://www.politico.eu/article/moldova-summons-russia-envoy-over-drone-incursions/",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/7-drones-cross-into-moldovan-airspace-during-latest-russian-attack-against-ukraine-1-spotted-over-chisinau/",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "gray-zone",
+      "moldova",
+      "airspace"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-the-liberiaflagged-lpg-tanker-gas-husky",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "The Liberia-flagged LPG tanker Gas Husky sank in Bulgaria's exclusive economic zone about 50 miles off Byala early on 17 November and its 19 crew were evacuated, Reuters reported, without giving a cause; it went down a few dozen miles from where a cargo ship sank after a drone attack a day earlier.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/lpg-tanker-reported-to-have-sunk-off-bulgarias-black-sea-coast/",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "shipping",
+      "black-sea",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-british-police-passed-the-case-of",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "British police passed the case of US Army Lt Col Brandon Tyner, arrested on 10 November on suspicion of spying for Russia at NATO's corps headquarters in Gloucestershire, to US authorities; he is now in US military custody.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/uk-news/2026/nov/17/american-soldier-brandon-carroll-tyner-spying-us-military-custody",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-senior-pentagon-official-elbridge-colby-told",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "Senior Pentagon official Elbridge Colby told Ukraine's backers in Brussels that its deep strikes in Russia had not been effective in ending the war; Germany's defence minister called the criticism 'quite a stupid thing' and Britain's defence secretary defended the strikes.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/germany-uk-push-back-after-us-criticizes-ukraines-deep-strikes-into-russia/",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/video/20261118-us-hits-out-at-ukraine-s-deep-strikes-against-russia-in-rift-with-eu-over-war-tactics",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "deep-strike"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-17-the-saudiled-coalition-said-it-struck",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "The Saudi-led coalition said it struck 60 Houthi military targets in Sanaa, Hodeidah, Amran and Saada on 17 November and intercepted two cruise missiles aimed at Riyadh on 18 November; Yemen's government forces had pulled back from Dhubab airport to defend Aden.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/18/houthis-advance-on-aden-as-saudi-coalition-targets-military-sites",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping"
+    ],
+    "tags": [
+      "yemen",
+      "saudi"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-kuwait-said-it-repelled-an-iranian",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "Kuwait said it repelled an Iranian drone attack overnight into 18 November, its first in more than two months, and Bahrain said it intercepted several Iranian aerial attacks, its fourth in six days; Iran's army said it targeted US Patriot systems at Kuwait's Ali Al Salem air base, and Qatar called the attacks a dangerous escalation.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/18/world/middleeast/iran-attacks-bahrain-kuwait-ships-hormuz.html",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 4,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gulf-basing",
+      "kuwait",
+      "bahrain"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-israeli-tanks-crossed-gazas-ceasefire-line",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "Israeli tanks crossed Gaza's ceasefire line into Hamas-held central Gaza on 18 November, the first such armoured incursion since the ceasefire; the military called it a limited raid on Hamas infrastructure, Hamas called it a blatant violation, and Gaza's civil defence said 5,200 people were displaced.",
+    "body": "",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/18/world/middleeast/israel-gaza-war-ground-operation.html",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/18/palestinians-flee-refugee-camp-as-israel-begins-operation-in-central-gaza",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/middle-east/20261118-gazans-flee-shelters-as-israeli-army-launches-ground-operation-beyond-yellow-line",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "israel-lebanon-gaza"
+    ],
+    "tags": [
+      "gaza",
+      "ceasefire"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-us-central-command-said-ships-that",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "US Central Command said ships that take on cargo at sea from vessels loaded in Iran may be treated as evading the US blockade and can be stopped, boarded, diverted or captured, extending the blockade to ship-to-ship transfers.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/u-s-targets-ship-to-ship-transfers-in-expanded-iran-maritime-blockade/",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz",
+      "sanctions-financial-warfare"
+    ],
+    "tags": [
+      "blockade",
+      "shipping"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-us-and-israeli-military-officials-have",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "US and Israeli military officials have drawn up plans for renewed strikes on Iran that would most likely target energy infrastructure, the New York Times reported; Trump told Fox News the Islamabad understanding was 'a waste of time' and that he would 'finish it off — soon.'",
+    "body": "",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/18/world/middleeast/iran-attacks-bahrain-kuwait-ships-hormuz.html",
+        "published_date": "2026-11-18"
+      },
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611199940",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "strike-planning"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-iaea-chief-rafael-grossi-told-the",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "IAEA chief Rafael Grossi told the agency's board that a new extension to North Korea's Yongbyon enrichment facility has been externally complete since late October, calling the expansion a cause for serious concern.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/asia-pacific/20261118-north-korea-completes-external-works-on-enrichment-facility-extension-says-iaea",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "secondary-flashpoints"
+    ],
+    "lenses": [
+      "crink"
+    ],
+    "tags": [
+      "north-korea",
+      "nuclear"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-us-prosecutors-charged-russian-national-igor",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "US prosecutors charged Russian national Igor D'iu with acting as a foreign agent to spy on staff of a defence technology firm that supplies Ukraine, which the BBC understands is Palantir; handlers allegedly had him photograph employees' screens in Palo Alto.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cq20xg80ly47o",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-russian-intelligence-prepared-a-highcasualty-falseflag",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "Russian intelligence prepared a high-casualty false-flag attack near Poland's border with Kaliningrad, to be blamed on Ukraine, Rzeczpospolita reported, citing officials; Poland sent about 180 riot police and a counter-terrorism unit to the border.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/the-goal-was-to-halt-aid-to-ukraine-russia-planned-high-casualty-false-flag-attack-near-kaliningrad-border-rzeczpospolita-reports/",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "kaliningrad",
+      "poland"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-us-defence-secretary-hegseth-made-an",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "US Defence Secretary Hegseth made an unannounced visit to Caracas and announced resumed US-Venezuelan military cooperation against drug traffickers; interim leader Delcy Rodríguez, who has governed with US backing since US forces captured Maduro in January, hailed it.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/americas/20261118-hegseth-makes-surprise-trip-to-venezuela-renews-military-cooperation",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "venezuela",
+      "basing"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-iraq-ordered-its-armed-forces-into",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "Iraq ordered its armed forces into the Kataib Hezbollah stronghold of Jurf al-Sakhar, with a deadline reported for 20 November, after Iran's Quds Force chief Qaani visited Baghdad; a tentative withdrawal deal was reported but not confirmed.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/18/what-is-iraqs-jurf-al-sakhar-and-what-is-behind-govt-push-to-control-it",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "iraq",
+      "militia"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-uk-inflation-rose-to-36-in",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "UK inflation rose to 3.6% in October, driven by record petrol and diesel prices, and Bank of England governor Andrew Bailey said further rate rises may be needed if the war pushes energy prices higher.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/business/2026/nov/18/uk-inflation-rises-energy-prices-iran-war-oil",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "markets-risk-transmission"
+    ],
+    "tags": [
+      "inflation",
+      "energy"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-19-trump-met-putin-for-nearly-an",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "Trump met Putin for nearly an hour and then Xi in Shenzhen on 19 November ahead of their first three-way meeting; the Kremlin said Ukraine was discussed but 'neither side made any particularly important statements,' and Trump told Xi both should help end the war.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/90557",
+        "published_date": "2026-11-19"
+      },
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/19/us-china-can-help-end-ukraine-war-trump-tells-xi-before-trilateral-with-putin-a94307",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "lenses": [
+      "bilateral-us-china",
+      "crink"
+    ],
+    "tags": [
+      "shenzhen",
+      "summit"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-19-the-international-energy-agencys-world-energy",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "The International Energy Agency's World Energy Outlook said the Strait of Hormuz crisis has created 'the largest threat to energy security in history,' with consumers absorbing more of the impact as other buffers run down.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/middle-east/20261119-middle-east-crisis-energy-security-iea",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "markets-risk-transmission",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "iea",
+      "energy"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
   }
 ]

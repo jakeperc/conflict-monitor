@@ -76,9 +76,9 @@
       "risk": 70,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "A Houthi attack damaged an Aramco tower in Riyadh and set a pipeline fire near Medina; no casualties reported.",
-      "details": "A Houthi missile attack on Riyadh on 8 November damaged an Aramco office tower in the King Abdullah Financial District; Saudi authorities blamed falling shrapnel from interceptions and reported no casualties. The coalition said it intercepted missiles aimed at Riyadh and the Eastern Province and a drone. On 9 November an attack on the East-West pipeline in the Medina region caused a limited fire; the energy ministry said operations were unaffected, and missiles fired at Riyadh were intercepted.\n\nNo Saudi death from Houthi fire has been reported since 23 October. Houthi-run media say a coalition airstrike in Sanaa province killed at least 40 people on 7 November; the coalition has not commented.\n\nTurkey ratified the Mecca defence pact with Saudi Arabia and Pakistan on 5 November.",
-      "as_of": "2026-11-10"
+      "note": "A Houthi strike damaged the sovereign wealth fund's Riyadh tower on 19 November; the coalition keeps bombing Houthi targets.",
+      "details": "Saudi Arabia is fighting a renewed war with Yemen's Houthis alongside its role as a US partner in the Iran war. On 19 November a Houthi attack damaged the 80-storey Public Investment Fund tower in Riyadh's financial district; civil defence reported no injuries and called it a flagrant violation of international law. Earlier in November a strike damaged an Aramco tower in the same district. The Saudi-led coalition said it hit 60 Houthi targets on 17 November.",
+      "as_of": "2026-11-22"
     },
     {
       "name": "UAE",
@@ -183,9 +183,9 @@
       "risk": 15,
       "level": "MODERATE",
       "alignment": "neutral",
-      "note": "Received 12 Russian Su-35 fighter jets, with four S-400 air-defence systems to follow, the prime minister says.",
-      "details": "Ethiopia, a BRICS member since January 2024, has taken delivery of a major Russian arms package. Prime Minister Abiy Ahmed said 12 Su-35 fighter jets arrived a year early and four S-400 air-defence systems will follow (The Moscow Times, Reuters). No value or basing was given. The delivery comes as Ethiopia fights Tigrayan forces again and presses for Red Sea access, which Egypt, Eritrea, Sudan and Somalia oppose.",
-      "as_of": "2026-10-29",
+      "note": "Ethiopia and Eritrea have massed forces along their border, conflict monitors say; clashes are reported but unconfirmed.",
+      "details": "Fighting between Ethiopia's federal government and Tigrayan rebels broke out in September, and Ethiopia says Eritrean forces crossed into Tigray in early October. On 18 November ACLED and the International Crisis Group told Reuters that the two armies had massed within striking distance along the border; Reuters could not confirm reported skirmishes, and Eritrea's information minister dismissed 'propaganda'. Ethiopia did not comment.",
+      "as_of": "2026-11-22",
       "stale_ok": false
     },
     {
@@ -204,9 +204,9 @@
       "risk": 50,
       "level": "HIGH",
       "alignment": "neutral",
-      "note": "A drone hit the Khor Mor gas field, cutting power to most of Kurdistan; Turkey will hand over its Bashiqa base.",
-      "details": "On the night of 8 November an explosive drone struck the Khor Mor gas field in Iraqi Kurdistan, halting gas to power plants and taking more than 70% of the region off the grid, Al Jazeera reported. No one claimed the attack; the prime minister ordered a joint investigation. The same field was hit in 2025.\n\nTurkey and Iraq said Turkish forces will gradually hand over the Bashiqa base north of Mosul, held since 2015; Iraq says the withdrawal begins this month and ends by year-end, though analysts expect other Turkish forces to stay in the north (Breaking Defense).\n\nIran-aligned militias are inside the state: in October parliament made Laith al-Khazali of Asaib Ahl al-Haq, a US-designated terrorist, a deputy prime minister. The last US troops left on 30 September.",
-      "as_of": "2026-11-12"
+      "note": "Government forces entered Kataib Hezbollah's Jurf al-Sakhar base on 20 November; the group is to withdraw within a month.",
+      "details": "Baghdad ordered its forces into Jurf al-Sakhar, Kataib Hezbollah's stronghold 60 km south-west of the capital, after an inquiry linked the group to oil smuggling through illicit refineries; nine senior officials were dismissed. A compromise reached on 19 November brought a joint force of army, federal police, energy police and Popular Mobilisation units into the town on 20 November, with the group expected to leave within a month. Prime Minister al-Zaidi told troops they were not waging war but that keeping weapons under state control was final. US and Gulf pressure was a driver. Earlier in November a drone hit the Khor Mor gas field, cutting power across much of Kurdistan.",
+      "as_of": "2026-11-22"
     },
     {
       "name": "Kuwait",
@@ -234,9 +234,9 @@
       "risk": 46,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Reported four Iranian attacks in six days to 18 November, all intercepted; the US struck Qeshm in response.",
-      "details": "Bahrain hosts the US Fifth Fleet, which makes it the Gulf state most exposed to a US-Iranian exchange, and in November it became a direct target.\n\nOn 13 November US forces shot down two Revolutionary Guard drones launched toward Bahrain, with no damage. On 15 November Bahrain's defence ministry said its forces intercepted several Iranian aerial threats before they reached their targets, the interior ministry told residents to shelter, and the foreign ministry condemned the 'continued brutal Iranian attacks' and held Iran responsible. The Guard said it fired six drones at a US radar at Riffa air base. No injuries or damage were reported.\n\nThese were the first attacks on Bahrain since September, when the Guard told tanker crews in Bahraini and Kuwaiti ports to abandon their ships. Saudi Arabia, Qatar, Jordan and Egypt condemned the 15 November attack. Whether the US responds from Bahraini soil is the question that would change this entry.",
-      "as_of": "2026-11-19"
+      "note": "An Iranian attack set fire to a civilian industrial site on 21 November, with no injuries; air defences intercepted several other attacks.",
+      "details": "Bahrain hosts the US Navy's Fifth Fleet and has been attacked repeatedly since the war began in February. After a lull of several weeks, Iranian drones and missiles have targeted it again since 13 November. On 21 November its air defences intercepted several attacks, but the Interior Ministry said one caused a fire at a civilian industrial facility, which it did not name, with material damage and no injuries. Iran's Guard said it targeted US Patriot radars at two bases. The Gulf Cooperation Council and Jordan condemned the attack.",
+      "as_of": "2026-11-22"
     },
     {
       "name": "Libya",
@@ -363,12 +363,12 @@
     {
       "name": "Poland",
       "flag": "🇵🇱",
-      "risk": 36,
-      "level": "ELEVATED",
+      "risk": 42,
+      "level": "HIGH",
       "alignment": "ally",
-      "as_of": "2026-11-15",
-      "note": "Warsaw says the Pentagon backed a permanent US troop presence; prosecutors charged a man over a Russian-directed train bombing.",
-      "details": "On 11 November Russia's FSB said it had arrested two alleged Polish intelligence agents in the Kaliningrad region on espionage charges, warned seven Polish citizens and three Russians over contacts with Polish services, and barred the seven Poles from Russia. Polish government spokesman Jacek Dobrzyński called it a provocation and disinformation.\n\nEarlier in November Tusk sent forces and counter-terrorism police to the Kaliningrad border after Polish and NATO intelligence warned of sabotage or provocations. A Ukrainian drone on its way to Russia may have briefly crossed Polish airspace near Lithuania on the night of 10-11 November, Lithuanian officials said. At home, the constitutional court standoff between Tusk and President Nawrocki continues."
+      "as_of": "2026-11-22",
+      "note": "Two Russian cruise missiles and a drone crashed on Polish soil on 20 November; Tusk called it an intentional provocation.",
+      "details": "On 20 November two Russian Kh-101 cruise missiles fell at Nowy Lipowiec and Rudnik nad Sanem and a jet-powered drone at Molodycz in south-eastern Poland, during one of Russia's largest attacks on Ukraine. No one was hurt. The impacts came during Koalicja 2026, an 11-nation coalition-of-the-willing exercise at Nowa Deba, and Polish leaders said the timing was deliberate. NATO jets were scrambled and Secretary General Rutte, due in Warsaw, condemned grave violations of Polish airspace; Poland asked allies for AWACS and F-35 support. Poland's operational commander said up to 11 objects were judged a danger to Polish airspace, and air traffic control at Rzeszow-Jasionka airport, the main transit hub for aid to Ukraine, was briefly evacuated for the first time in the war.\n\nEarlier in November Warsaw said the Pentagon backed a permanent US troop presence, and prosecutors charged a man over a Russian-directed train bombing. Poland's own reading is that it must have a seat in decisions on Ukraine's future."
     },
     {
       "name": "Lithuania",
@@ -405,9 +405,9 @@
       "name": "China",
       "flag": "🇨🇳",
       "goal": "Keep buying Iranian oil and refuse the enforcement architecture, while raising maritime pressure on Taiwan without committing to a campaign.",
-      "move": "Extended the US trade truce to 10 January; Trump expects a three-leader meeting with Xi and Putin at APEC.",
-      "as_of": "2026-11-10",
-      "details": "Beijing rolled over every suspended trade measure, including critical-mineral export waivers and port fees, to 10 January 2027, while warning about US Section 301 plans. Trump says he expects to meet Xi and Putin in Shenzhen on 18-19 November; China says only that talks are under way. Lithuania confirmed talks on renaming Taiwan's Vilnius office.",
+      "move": "Hosted the first Trump-Putin-Xi summit in Shenzhen and its joint declaration, while licensing exports of drone engines Russia uses.",
+      "as_of": "2026-11-22",
+      "details": "Beijing used APEC in Shenzhen to stage the first three-way meeting of the US, Chinese and Russian leaders on 19 November. The joint declaration said nuclear war cannot be won and must never be fought, called for UN reform and more oil supply, and did not mention Ukraine or Iran. Xi pressed Trump on Taiwan and repeated China's call for nuclear weapons to be prohibited over time. From 18 November China requires export licences for drone components including jet engines used in Russia's Geran drones; Ukraine welcomed the step but says many parts remain uncontrolled.",
       "color": "var(--c-brics)"
     },
     {
@@ -432,18 +432,18 @@
       "name": "Iran",
       "flag": "🇮🇷",
       "goal": "Convert control of the Strait into sanctions relief and compensation, with Washington moving first.",
-      "move": "Rejects talk of progress and demands its seven conditions while the Guard claims tanker mines and lifts missile range limits.",
-      "as_of": "2026-11-10",
-      "details": "Iran's security council secretary told the US to stop 'manufacturing fake news' about talks and accept Iran's seven conditions; Tehran says sanctions and the blockade must end first. The Guard says two tankers hit mines on an unauthorised route, unconfirmed, and says its missile range limit has been lifted. France blamed the Guard's cyber unit for sabotaging supermarket fridges, and the US moved aircraft from a British base over an Iranian threat.",
+      "move": "Struck Bahrain again and hit tankers near Khasab while receiving Qatari mediators; demands the US accept its conditions.",
+      "as_of": "2026-11-22",
+      "details": "Since the US struck Qeshm on 17 November, Iran has fired drones and missiles at Kuwait and repeatedly at Bahrain, where a 21 November attack set fire to a civilian industrial site. Its navy enforces what it calls coordinated passage through the strait; UKMTO logged three tanker-attack reports near Khasab on 20-21 November. The Guard claims it shot down two US drones. Tehran calls the US blockade an act of war and says it will act to break it, while a Qatari delegation held talks in Tehran on 20 November that Iran says are not yet formal negotiations; it insists its enriched uranium stays in the country.",
       "color": "var(--c-iran)"
     },
     {
       "name": "Russia",
       "flag": "🇷🇺",
       "goal": "Absorb strikes on export infrastructure without acknowledging damage, while keeping the war's economic pressure pointed at Ukraine through winter.",
-      "move": "Opened talks with Ukraine under US mediation while striking power plants and rejecting a European role.",
-      "as_of": "2026-11-10",
-      "details": "Medinsky's delegation, including Ryabkov, met Ukraine with US envoys in Abu Dhabi on 10 November. The Kremlin rejects any European role; Moscow still demands the rest of Donetsk while US officials float sanctions relief and a Russia-Europe security framework. Russian forces struck the Trypillia power plant before the talks; a drone killed a worker at the occupied Zaporizhzhia nuclear plant.",
+      "move": "Signed the Shenzhen joint declaration, then launched a mass strike on Ukraine in which cruise missiles crashed in Poland.",
+      "as_of": "2026-11-22",
+      "details": "Putin met Trump and then joined Xi and Trump in Shenzhen on 19 November for a declaration on nuclear war that left out Ukraine. He vowed a painful response to Ukraine's Crimean Bridge strikes; the 20 November attack was one of the war's largest, and two Kh-101 missiles and a drone crashed in Poland, which calls it intentional. Strikes damaged the Dutch and Austrian embassies in Kyiv. Denmark says Russian intelligence initiated a plot to kill a Ukrainian-American near Copenhagen, and expelled Russia's attaché; Moscow denies it. Estonia will close its road border from 1 December.",
       "color": "var(--c-ukraine-war)"
     },
     {

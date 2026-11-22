@@ -1,16 +1,16 @@
 {
   "dashboard_title": "Global Conflict Monitor",
   "war_start": "2026-02-28T00:00:00",
-  "now": "2026-11-19T06:00:00-05:00",
+  "now": "2026-11-22T05:00:00-05:00",
   "ww3_pct": 66,
-  "ww3_now_label": "Nov 19 · US strikes Qeshm; Iran hits Kuwait",
-  "base_last_update": "11/19/2026 · 06:00 EST",
-  "last_built": "2026-11-20T09:06:56.931Z",
+  "ww3_now_label": "Nov 22 · Russian missiles hit Poland; Iran strikes Bahrain",
+  "base_last_update": "11/22/2026 · 05:00 EST",
+  "last_built": "2026-11-22T09:48:54.343Z",
   "version": "2.0.0",
   "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
   "hormuz_status": {
     "label": "CONTESTED",
-    "note": "Tankers were hit north of Khasab on 16-17 November, leaving two seafarers missing; the US struck Qeshm on 17 November and extended its blockade to ship-to-ship transfers.",
-    "as_of": "2026-11-18"
+    "note": "UKMTO logged three tanker-attack reports near Khasab on 20-21 November, with no casualties; Iran says ships must coordinate with it, and the US blockade now covers ship-to-ship transfers.",
+    "as_of": "2026-11-21"
   }
 }

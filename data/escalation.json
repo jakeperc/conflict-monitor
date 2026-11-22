@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "US jets struck Qeshm and Iran fired drones at Kuwait and Bahrain; Ukraine dropped a Crimean Bridge span; Israeli tanks crossed Gaza's ceasefire line."
+      "currentLabel": "Russian cruise missiles crashed in Poland during a mass attack on Ukraine; Iran struck Bahrain and tankers near Hormuz; a Houthi strike damaged Riyadh's sovereign-fund tower."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "Trump met Putin and Xi in Shenzhen before their three-way talks; Russia flew nuclear-capable bombers to Vietnam and violated Japan's airspace."
+      "currentLabel": "Trump, Xi and Putin held their first three-way summit and issued a joint declaration; China's licence rules on drone engines used by Russia took effect."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "No binding US-Russia arms limits; North Korea's new Yongbyon enrichment hall is externally complete; Russian nuclear bombers deployed to Vietnam."
+      "currentLabel": "The Shenzhen declaration says nuclear war must never be fought but sets no arms limits; France and Sweden held a first joint nuclear-deterrence exercise."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "Germany and Britain rejected a Pentagon official's criticism of Ukraine's deep strikes; Australia and the Philippines signed a defence pact."
+      "currentLabel": "Allies rallied behind Poland after the missile incursion and Denmark expelled Russia's attaché; Europe was absent from Shenzhen, and Denmark ratified the Greenland deal."
     }
   ]
 }

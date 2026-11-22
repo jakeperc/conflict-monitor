@@ -429,6 +429,13 @@
       "t": "104 non-Iranian transits in a week",
       "s": "104 non-Iranian-linked transits in the week to 11 Oct, about 15 a day, down 17% on the week (Lloyd's List Intelligence). A narrower basis than the 27 Sep all-transits point, so not directly comparable",
       "k": "info"
+    },
+    {
+      "d": "2026-11-01",
+      "v": 17,
+      "t": "121 non-Iranian transits in a week",
+      "s": "At least 121 non-Iranian-linked transits in the last week of October, so about 17 a day is a floor (Lloyd's List Intelligence, 19 Nov brief). Most of the rise from 15 is a revision: Lloyd's now gives 123 for 5-11 Oct, not 104",
+      "k": "info"
     }
   ]
 }

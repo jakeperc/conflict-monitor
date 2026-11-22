@@ -53371,6 +53371,39 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-17-quad-leaders-trump-albanese-modi-and",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "Quad leaders Trump, Albanese, Modi and Takaichi met in Manila on 17 November and said they \"strongly oppose\" unilateral moves to change the status quo by force or coercion and voiced \"grave concerns\" about coercive export restrictions.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The White House",
+        "url": "https://www.whitehouse.gov/briefings-statements/2026/11/quad-leaders-summit-joint-press-release/",
+        "published_date": "2026-11-17"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "quad",
+      "philippines",
+      "india"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-18-kuwait-said-it-repelled-an-iranian",
     "event_date": "2026-11-18",
     "source_time": null,
@@ -53692,6 +53725,104 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-18-chinas-licence-requirement-for-exports-of",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "China's licence requirement for exports of drone components, including the jet engines used in Russia's Geran drones, took effect on 18 November; Ukraine's sanctions commissioner welcomed it but said many components remain uncontrolled.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/china-tightens-export-controls-on-components-for-russian-drones/",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "sanctions-financial-warfare",
+      "russia-ukraine-war"
+    ],
+    "lenses": [
+      "crink"
+    ],
+    "tags": [
+      "gray-zone",
+      "export-controls",
+      "drones"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-france-and-sweden-held-their-first",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "France and Sweden held their first joint exercise under Macron's forward-deterrence initiative, Excalibur, on 16-18 November, with nuclear-capable Rafale jets flying over northern Sweden; no nuclear weapons were involved, the ministries said.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Defense News",
+        "url": "https://www.defensenews.com/global/europe/2026/11/19/france-and-sweden-hold-first-joint-nuclear-deterrence-exercise/",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "nuclear-deterrence",
+      "france",
+      "sweden"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-18-ethiopia-and-eritrea-have-amassed-forces",
+    "event_date": "2026-11-18",
+    "source_time": null,
+    "headline": "Ethiopia and Eritrea have amassed forces along their border within striking distance of each other, conflict monitors ACLED and Crisis Group told Reuters on 18 November; Reuters could not confirm reported clashes, and Eritrea dismissed \"propaganda\".",
+    "body": "",
+    "sources": [
+      {
+        "name": "Reuters",
+        "url": "https://www.thestar.com.my/news/world/2026/11/18/ethiopia-and-eritrea-amass-forces-along-border-heightening-war-fears-sources-say",
+        "published_date": "2026-11-18"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "ethiopia",
+      "eritrea",
+      "horn-of-africa"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-19-trump-met-putin-for-nearly-an",
     "event_date": "2026-11-19",
     "source_time": null,
@@ -53731,6 +53862,46 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-19-trump-xi-and-putin-met-for",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "Trump, Xi and Putin met for about 90 minutes in Shenzhen on 19 November, their first three-way talks, and issued a joint declaration that \"nuclear war cannot be won and must never be fought\"; it pledged UN reform and more oil supply but did not mention the Ukraine or Iran wars.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c623j4ln97x7o",
+        "published_date": "2026-11-19"
+      },
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/nov/19/china-russia-us-agree-peace-statement-no-mention-ukraine-iran-wars",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "lenses": [
+      "bilateral-us-china",
+      "crink"
+    ],
+    "tags": [
+      "shenzhen",
+      "arms-control",
+      "summit"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-19-the-international-energy-agencys-world-energy",
     "event_date": "2026-11-19",
     "source_time": null,
@@ -53753,6 +53924,450 @@
     "tags": [
       "iea",
       "energy"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-19-a-houthi-attack-damaged-the-80storey",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "A Houthi attack damaged the 80-storey Public Investment Fund tower in Riyadh's financial district on 19 November, Saudi civil defence said, with no one injured; the Houthis said they struck the district twice that day.",
+    "body": "",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/19/world/middleeast/saudi-pif-riyadh-tower-houthis-attack.html",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping"
+    ],
+    "tags": [
+      "saudi-capital",
+      "houthi"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-19-the-dutch-and-austrian-embassies-in",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "The Dutch and Austrian embassies in Kyiv were damaged by a drone and another projectile on 19 November during hours of Russian attacks, with no staff hurt; France then sought a UN Security Council meeting.",
+    "body": "",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/19/world/europe/ukraine-dutch-embassy.html",
+        "published_date": "2026-11-19"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261120-live-deadly-russian-attacks-damage-two-bridges-in-kyiv-mayor-says",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "kyiv",
+      "embassies"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-19-denmarks-parliament-unanimously-ratified-the-security",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "Denmark's parliament unanimously ratified the US-Denmark-Greenland security agreement on 19 November, 109 to 0; it expands the US military role in Greenland, including a Golden Dome missile-defence site, and reaffirms Danish sovereignty.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261119-denmark-ratifies-greenland-security-deal-after-months-of-pressure-by-trump",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "greenland",
+      "arctic",
+      "golden-dome"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-two-russian-kh101-cruise-missiles-and",
+    "event_date": "2026-11-20",
+    "source_time": "06:30",
+    "headline": "Two Russian Kh-101 cruise missiles and a jet-powered drone crashed in south-eastern Poland on 20 November during one of Russia's largest attacks on Ukraine, with no one hurt; Tusk called it \"an intentional provocation\" timed to an allied exercise, and NATO scrambled jets.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cqx2x9dklxnro",
+        "published_date": "2026-11-20"
+      },
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/nov/20/russian-missiles-drone-poland-attacks-ukraine",
+        "published_date": "2026-11-20"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/poland-reports-airspace-violation-during-russian-attack-on-ukraine-investigates-debris-crash/",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 4,
+    "confidence": "high",
+    "status": "confirmed",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "poland",
+      "nato-airspace",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-denmark-accused-russian-intelligence-of-planning",
+    "event_date": "2026-11-20",
+    "source_time": null,
+    "headline": "Denmark accused Russian intelligence of planning and initiating a foiled September plot to kill a US-Ukrainian rapper near Copenhagen and expelled Russia's defence attaché on 20 November; two people are charged, and von der Leyen called it \"an attack on EU soil\".",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cmde1lj4yjxno",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "assassination-plot",
+      "denmark"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-russias-overnight-attack-on-20-november",
+    "event_date": "2026-11-20",
+    "source_time": null,
+    "headline": "Russia's overnight attack on 20 November killed at least eight people across Ukraine, Zelensky said, calling it one of the largest of the full-scale war; that evening a ballistic double-tap strike on Kryvyi Rih killed a 7-year-old and a paramedic and injured 52. UN monitors counted at least 372 civilians killed in October.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/world/2026/nov/20/russian-missiles-drone-poland-attacks-ukraine",
+        "published_date": "2026-11-20"
+      },
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/19/world/europe/ukraine-dutch-embassy.html",
+        "published_date": "2026-11-19"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-ballistic-missile-strikes-on-kryvyi-rih-kill-7-year-old-paramedic-injure-42-others-in-double-tap-attack/",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "mass-strike",
+      "civilian-toll"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-estonias-government-decided-to-close-all",
+    "event_date": "2026-11-20",
+    "source_time": null,
+    "headline": "Estonia's government decided on 20 November to close all road crossings with Russia from 1 December for at least six months, citing sabotage, recruitment and sanctions evasion, and summoned Russia's chargé d'affaires over strikes on Kyiv.",
+    "body": "",
+    "sources": [
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610201860/estonia-s-foreign-ministry-summons-russian-charg-d-affaires",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "estonia",
+      "border"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-iraqi-security-forces-deployed-into-kataib",
+    "event_date": "2026-11-20",
+    "source_time": null,
+    "headline": "Iraqi security forces deployed into Kataib Hezbollah's Jurf al-Sakhar stronghold on 20 November under a compromise in which the group is expected to withdraw within a month; Prime Minister al-Zaidi said the decision to keep weapons under state control was final.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/20/iraqi-forces-deploy-to-jurf-al-sakhar-after-deal-with-iran-backed-group",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "iraq",
+      "kataib-hezbollah"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-a-qatari-delegation-held-two-hours",
+    "event_date": "2026-11-20",
+    "source_time": null,
+    "headline": "A Qatari delegation held two hours of talks in Tehran on 20 November, Iran's deputy foreign minister said, calling them not yet formal negotiations; Trump said he wants a \"permanent\" deal that stops Iran getting a nuclear weapon.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/21/iran-says-held-talks-with-qatari-mediators-urges-us-to-accept-conditions",
+        "published_date": "2026-11-21"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "qatar",
+      "mediation"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-20-eu-and-uk-leaders-demanded-that",
+    "event_date": "2026-11-20",
+    "source_time": null,
+    "headline": "EU and UK leaders demanded on 20 November that Iran stop its \"hybrid attacks on European soil\" and its attacks on neighbours and Hormuz shipping, in a joint statement after their Brussels summit; they signed a \"No Tolls/No Fees\" pledge on lawful navigation and agreed to impose \"costs on hostile actors\".",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611209069",
+        "published_date": "2026-11-20"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gray-zone",
+      "hybrid-threats",
+      "european-union",
+      "united-kingdom"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-21-bahrain-said-an-iranian-attack-set",
+    "event_date": "2026-11-21",
+    "source_time": null,
+    "headline": "Bahrain said an Iranian attack set fire to a civilian industrial facility on 21 November, with no injuries, after its air defences intercepted several attacks; Iran's Guard said it struck US Patriot radars at two bases in response to US drone flights over Iran.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/21/bahrain-says-iranian-attack-causes-fire-at-industrial-facility",
+        "published_date": "2026-11-21"
+      },
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/11/21/iran-attacks-us-bases-in-bahrain-as-its-tankers-get-ready-to-break-the-us-blockade",
+        "published_date": "2026-11-21"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gulf-basing",
+      "bahrain"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-21-the-russian-militarylinked-cargo-ship-sparta",
+    "event_date": "2026-11-21",
+    "source_time": null,
+    "headline": "The Russian military-linked cargo ship Sparta II caught fire after a drone strike in the eastern Gulf of Finland on 21 November and drifted into Finnish waters; Finland said Ukraine was likely behind it, Orpo said the war was \"spilling over\", and a Russian helicopter is suspected of violating Finnish airspace.",
+    "body": "",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cj752ddve27ko",
+        "published_date": "2026-11-21"
+      },
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610202715/russian-cargo-ship-on-fire-in-gulf-of-finland-after-reported-drone-strike",
+        "published_date": "2026-11-21"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "baltic",
+      "finland",
+      "gray-zone"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-21-ukmto-reported-two-tankers-struck-by",
+    "event_date": "2026-11-21",
+    "source_time": null,
+    "headline": "UKMTO issued two reports of a tanker hit by unidentified projectiles near Khasab on 21 November, possibly the same vessel, a day after an attack set a tanker on fire near Khasab; no casualties were reported, and Iran's navy said a tanker hit a mine east of the strait, which Reuters could not verify.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/21/tankers-hit-in-strait-of-hormuz-as-iran-tightens-grip-on-shipping",
+        "published_date": "2026-11-21"
+      },
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/two-tanker-incidents-reported-near-oman-vessel-hit-mine-east-of-hormuz/",
+        "published_date": "2026-11-21"
+      }
+    ],
+    "severity": 3,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "tanker-attack",
+      "hormuz"
     ],
     "feed_visibility": true,
     "timeline_visibility": false,

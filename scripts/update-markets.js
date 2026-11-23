@@ -114,12 +114,15 @@ function dayIn(tz, ms) {
   return new Date(ms).toLocaleDateString('en-CA', { timeZone: tz || 'America/New_York' });
 }
 
-// Returns { d, v }: the last COMPLETED session's settled close, dated by that session (#16).
-// Yahoo stamps each daily bar at midnight exchange time on its session date. The bar for
-// today's session is still trading (its "close" is an intraday price), so it is skipped:
-// only bars dated before today in the exchange's time zone count. A Saturday, Sunday or
-// Monday run therefore all return Friday's close, dated Friday.
-function parseYahooClose(text, nowMs = Date.now()) {
+// Returns [{ d, v }, ...] oldest first: every COMPLETED session in the response, each
+// dated by its own session (#16). Yahoo stamps each daily bar at midnight exchange time on
+// its session date. The bar for today's session is still trading (its "close" is an
+// intraday price), so bars dated today or later in the exchange's time zone are skipped.
+// A Saturday, Sunday or Monday run therefore all end on Friday's close, dated Friday.
+// All completed sessions are returned, not only the last, because Yahoo's newest bar can
+// be provisional and later revised to the official settlement (seen on weekend runs in
+// Aug-Nov 2026): rewriting the whole 5-day window each run lets a row self-correct.
+function parseYahooSessions(text, nowMs = Date.now()) {
   const j = JSON.parse(text);
   const res = j && j.chart && j.chart.result && j.chart.result[0];
   const closes = res && res.indicators && res.indicators.quote && res.indicators.quote[0]
@@ -128,12 +131,20 @@ function parseYahooClose(text, nowMs = Date.now()) {
   if (!Array.isArray(closes) || !Array.isArray(stamps)) throw new Error('no close series');
   const tz = (res.meta && res.meta.exchangeTimezoneName) || 'America/New_York';
   const today = dayIn(tz, nowMs);
-  for (let i = closes.length - 1; i >= 0; i--) {
+  const out = [];
+  for (let i = 0; i < closes.length; i++) {
     const d = dayIn(tz, stamps[i] * 1000);
     if (d >= today) continue;                               // current session: not settled
-    if (typeof closes[i] === 'number' && closes[i] > 0) return { d, v: closes[i] };
+    if (typeof closes[i] === 'number' && closes[i] > 0) out.push({ d, v: closes[i] });
   }
-  throw new Error('no completed session with a valid close');
+  if (!out.length) throw new Error('no completed session with a valid close');
+  return out;
+}
+
+// The last completed session's close, { d, v }.
+function parseYahooClose(text, nowMs = Date.now()) {
+  const s = parseYahooSessions(text, nowMs);
+  return s[s.length - 1];
 }
 
 // ---------------------------------------------------------------------------
@@ -265,13 +276,14 @@ async function main() {
 
   // --- Brent daily close --------------------------------------------------
   try {
-    const close = await fetchParsed(yahooChain('BZ=F'), 'application/json,text/plain,*/*', (t) => parseYahooClose(t));
-    const v = Number(close.v.toFixed(2));
+    const sessions = await fetchParsed(yahooChain('BZ=F'), 'application/json,text/plain,*/*', (t) => parseYahooSessions(t));
     if (!Array.isArray(markets.brent_daily)) markets.brent_daily = [];
-    upsertToday(markets.brent_daily, { d: close.d, v });   // the session's date, not the run's
+    // Each session's own date, never the run's; the whole window is rewritten (see parser).
+    for (const s of sessions) upsertToday(markets.brent_daily, { d: s.d, v: Number(s.v.toFixed(2)) });
     markets.brent_daily = finalizeDaily(markets.brent_daily);
     changed = true;
-    log(`Brent: ${v} (${markets.brent_daily.length} dated points, settled close of ${close.d})`);
+    const last = sessions[sessions.length - 1];
+    log(`Brent: ${last.v.toFixed(2)} (${markets.brent_daily.length} dated points, settled close of ${last.d}; ${sessions.length} sessions refreshed)`);
   } catch (e) {
     warn(`Brent (BZ=F) fetch failed: ${e.message} — leaving brent_daily unchanged`);
   }
@@ -369,7 +381,7 @@ async function main() {
   }
 }
 
-module.exports = { parseYahooClose };
+module.exports = { parseYahooClose, parseYahooSessions };
 
 if (require.main === module) {
   main().catch((e) => {

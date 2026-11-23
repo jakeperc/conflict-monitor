@@ -135,12 +135,6 @@
   var BRICS_LEAD = window.__DATA__.brics_lead;
   var UKRAINE_LEAD = window.__DATA__.ukraine_lead;
   var LEAD_TLDR = IRAN_LEAD;
-  var ARC_RECORDS = {
-    "iran-hormuz": { lead: IRAN_LEAD, accent: IRAN },
-    "us-brics-rivalry": { lead: BRICS_LEAD, accent: BRICS, accentText: BRICS_TEXT },
-    "russia-ukraine-war": { lead: UKRAINE_LEAD, accent: UKRAINE_WAR }
-  };
-  var factText = (f) => f && typeof f === "object" ? [f.l, f.v].filter(Boolean).join(": ") : String(f || "");
   var COUNTRY_KEYS = window.__DATA__.country_keys;
   var OUTLOOK = window.__DATA__.outlook || { forecasts: [], indicators: [], gaps: [], calibration: null };
   var EVENT_FIRST_SEEN = window.__DATA__.event_first_seen || {};
@@ -2171,7 +2165,7 @@
     wmd: "How elevated the nuclear / weapons-of-mass-destruction risk is \u2014 enrichment levels, posturing, doctrine. Higher = closer to WMD use.",
     alliance: "How fragmented the Western alliances are. This score is inverted: HIGHER means alliances are MORE divided and less unified (worse); lower means they're holding together."
   };
-  function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setShowFull, setTab, dominant = false, delay = 950 }) {
+  function LeadCard({ lead, accent, accentText, arc, openCountry, showFull, setShowFull, setTab, openFeed, dominant = false, delay = 950 }) {
     const at = accentText || accent;
     return /* @__PURE__ */ React.createElement(Card, { className: "choreographed lead-card", style: { animationDelay: `${delay}ms`, borderLeft: `3px solid ${accent}`, padding: "22px 26px", display: "flex", flexDirection: "column" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", rowGap: 6 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 7, height: 7, borderRadius: "50%", background: accent, animation: "ping 1.6s ease infinite", boxShadow: `0 0 0 2px ${alpha(accent, 0.13)}, 0 0 8px ${alpha(accent, 0.53)}` } }), (() => {
       const k = String(lead.kicker || "");
@@ -2223,14 +2217,33 @@
         whiteSpace: "nowrap",
         textAlign: "center"
       } }, lens.state_label), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11.5, color: TEXT_BODY, lineHeight: 1.5, fontWeight: 450 } }, lens.oneline));
-    })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 4, fontSize: FS.xs, fontWeight: 700, color: AMBER, letterSpacing: ".14em", width: 92, textTransform: "uppercase" } }, "Changed 24h"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyText(lead.changed, openCountry))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 4, fontSize: FS.xs, fontWeight: 700, color: at, letterSpacing: ".14em", width: 92, textTransform: "uppercase" } }, "Watch"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyText(lead.watch, openCountry)))), setTab && /* @__PURE__ */ React.createElement(
+    })), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 4, fontSize: FS.xs, fontWeight: 700, color: AMBER, letterSpacing: ".14em", width: 92, textTransform: "uppercase" } }, "Changed 24h"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyText(lead.changed, openCountry))), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", gap: 14, alignItems: "flex-start" } }, /* @__PURE__ */ React.createElement("span", { style: { flexShrink: 0, marginTop: 4, fontSize: FS.xs, fontWeight: 700, color: at, letterSpacing: ".14em", width: 92, textTransform: "uppercase" } }, "Watch"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 13, color: TEXT_BODY, lineHeight: 1.6, fontWeight: 450 } }, linkifyText(lead.watch, openCountry)))), (openFeed || setTab) && /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: 8, marginTop: 2 } }, openFeed && /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        onClick: () => openFeed({ arc, view: "timeline" }),
+        className: "pressable",
+        style: {
+          background: alpha(BLUE, 0.08),
+          border: `1px solid ${alpha(BLUE, 0.28)}`,
+          color: BLUE,
+          fontSize: 12,
+          fontWeight: 600,
+          letterSpacing: ".04em",
+          padding: "7px 12px",
+          borderRadius: 999,
+          cursor: "pointer",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6
+        }
+      },
+      "Sourced events \u2192"
+    ), setTab && /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: () => setTab("analysis", arc),
         className: "pressable",
         style: {
-          marginTop: 2,
-          alignSelf: "flex-start",
           background: alpha(VIOLET, 0.08),
           border: `1px solid ${alpha(VIOLET, 0.28)}`,
           color: VIOLET,
@@ -2245,8 +2258,8 @@
           gap: 6
         }
       },
-      "See sources and full analysis \u2192"
-    )));
+      "Full analysis \u2192"
+    ))));
   }
   function Next7Strip({ setTab }) {
     const all = (OUTLOOK.forecasts || []).filter((f) => f.status === "open");
@@ -2392,7 +2405,7 @@
       /* @__PURE__ */ React.createElement("div", { style: { padding: "18px 20px", display: "flex", flexDirection: "column", gap: 10, justifyContent: "center", minWidth: 0 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0, color: BLUE }, "Theater Globe"), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: TEXT_BODY, lineHeight: 1.5 } }, "The board in 3D, with a day-by-day replay of the WW3 index since Feb 28."), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, color: TEXT_DIM, fontVariantNumeric: "tabular-nums", lineHeight: 1.5 } }, hotspots.length, " hotspots \xB7 ", arcs.length, " active arcs", asOf ? ` \xB7 as of ${asOf}` : ""), /* @__PURE__ */ React.createElement("span", { style: { color: BLUE, fontSize: 13, fontWeight: 600, letterSpacing: ".02em" } }, "Open Theater Globe \u2192"))
     );
   }
-  function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab }) {
+  function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
     const conflictDay = Math.floor((NOW - WAR_START) / 864e5);
     const [expanded, setExpanded] = useState({});
     const [openLead, setOpenLead] = useState({});
@@ -2551,7 +2564,7 @@
             live: mkt.BRENT.price != null ? { v: mkt.BRENT.price, label: mktAgeLabel(mkt.BRENT) || "live" } : null
           }
         )),
-        footer: /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { style: { color: mkt.BRENT.chg != null && mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight: 600 } }, fmt.arrow(mkt.BRENT.chg), " ", fmt.signedPct(mkt.BRENT.chg)), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\xB7 pre-war $74", mktAgeLabel(mkt.BRENT) ? ` \xB7 ${mktAgeLabel(mkt.BRENT)}` : "")),
+        footer: /* @__PURE__ */ React.createElement(React.Fragment, null, mkt.BRENT.chg == null ? /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontWeight: 600 } }, "\u2014") : /* @__PURE__ */ React.createElement("span", { style: { color: mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight: 600 } }, fmt.arrow(mkt.BRENT.chg), " ", fmt.signedPct(mkt.BRENT.chg)), " ", /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\xB7 pre-war $74", mktAgeLabel(mkt.BRENT) ? ` \xB7 ${mktAgeLabel(mkt.BRENT)}` : "")),
         small: true,
         border: true
       }
@@ -2724,7 +2737,8 @@
         openCountry,
         showFull: !!openLead[dominantLead.id],
         setShowFull: setLeadOpen(dominantLead.id),
-        setTab
+        setTab,
+        openFeed
       }
     ), /* @__PURE__ */ React.createElement("div", { className: "lead-cards-compact", style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 } }, compactLeads.map((it, i) => /* @__PURE__ */ React.createElement(
       LeadCard,
@@ -2738,7 +2752,8 @@
         openCountry,
         showFull: !!openLead[it.id],
         setShowFull: setLeadOpen(it.id),
-        setTab
+        setTab,
+        openFeed
       }
     )))), /* @__PURE__ */ React.createElement(Next7Strip, { setTab }), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 320 }, /* @__PURE__ */ React.createElement(GlobePreviewCard, { setTab })), /* @__PURE__ */ React.createElement(RevealOnView, { delay: 400 }, /* @__PURE__ */ React.createElement("div", null, HUMAN_COST && /* @__PURE__ */ React.createElement(Card, { style: { padding: 20 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 18, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 0 }, HUMAN_COST.title), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "scenario" }), (() => {
       const tip = "Disaggregation per ACLED / AOAV / Airwars convention. Combatant = uniformed military, IRGC, Hezbollah fighters, etc. Civilian = non-combatants per IHL. Fog-of-war figures are contested; ranges shown where attribution is in dispute.";
@@ -3043,7 +3058,7 @@
       { l: "BTC", sym: "BTC", v: mkt.BTC.price != null ? `$${fmt.compact(Math.round(mkt.BTC.price))}` : null, c: mkt.BTC.chg }
     ].map((s) => {
       const live = isLive(mkt, s.sym);
-      return /* @__PURE__ */ React.createElement(Card, { key: s.l, style: { padding: 18 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 10 }, s.l), live ? /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 24, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.02em", fontVariantNumeric: "tabular-nums", fontVariationSettings: "'opsz' 24", lineHeight: 1 } }, s.v) : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 100, h: 22, radius: 6 }), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, marginTop: 8, fontWeight: 500, fontVariantNumeric: "tabular-nums", fontFamily: SANS, minHeight: 14 } }, live ? /* @__PURE__ */ React.createElement("span", { style: { color: s.c >= 0 ? GREEN : DANGER } }, fmt.arrow(s.c), " ", fmt.signedPct(s.c)) : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontStyle: "italic", fontSize: 11 } }, "awaiting live feed\u2026")));
+      return /* @__PURE__ */ React.createElement(Card, { key: s.l, style: { padding: 18 } }, /* @__PURE__ */ React.createElement(Eyebrow, { mb: 10 }, s.l), live ? /* @__PURE__ */ React.createElement("div", { className: "display", style: { fontSize: 24, fontWeight: 600, color: TEXT_HI, letterSpacing: "-.02em", fontVariantNumeric: "tabular-nums", fontVariationSettings: "'opsz' 24", lineHeight: 1 } }, s.v) : /* @__PURE__ */ React.createElement(PriceSkeleton, { w: 100, h: 22, radius: 6 }), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12, marginTop: 8, fontWeight: 500, fontVariantNumeric: "tabular-nums", fontFamily: SANS, minHeight: 14 } }, live ? s.c == null ? /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM } }, "\u2014") : /* @__PURE__ */ React.createElement("span", { style: { color: s.c >= 0 ? GREEN : DANGER } }, fmt.arrow(s.c), " ", fmt.signedPct(s.c)) : /* @__PURE__ */ React.createElement("span", { style: { color: TEXT_DIM, fontStyle: "italic", fontSize: 11 } }, "awaiting live feed\u2026")));
     })), ECON_COMMENTARY.map((c) => /* @__PURE__ */ React.createElement(Card, { key: c.key || c.title, style: { borderLeft: `3px solid ${ECON_COLOR[c.color] || BLUE}` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginBottom: 10, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 16, fontWeight: 600, color: ECON_COLOR[c.color] || TEXT_HI, letterSpacing: "-.005em" } }, c.title), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 4, flexShrink: 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM } }, c.updated_at), /* @__PURE__ */ React.createElement(StaleChip, { asOf: c.updated_at }))), /* @__PURE__ */ React.createElement("div", { style: { fontSize: 14, color: TEXT_BODY, lineHeight: 1.7 } }, interpolatePrices(c.body, mkt)))));
   }
   var THEATERS = THEATERS_DATA;
@@ -4013,7 +4028,7 @@
       return set && itemTheaters.some((t) => set.has(t));
     });
   };
-  function FeedTab({ news, openCountry, initialView, initialCountry, priorVisit }) {
+  function FeedTab({ news, openCountry, initialView, initialCountry, initialArc, onConsumeArc, priorVisit }) {
     const [view, setView] = useState(initialView || "timeline");
     const [query, setQuery] = useState("");
     const [source, setSource] = useState("ALL");
@@ -4027,6 +4042,12 @@
       if (initialCountry !== void 0) setCountry(initialCountry || null);
       if (initialView) setView(initialView);
     }, [initialView, initialCountry]);
+    useEffect(() => {
+      if (!initialArc) return;
+      const chip = ARC_FILTERS.find((a) => a.key === initialArc || a.match.has(initialArc));
+      if (chip) setArcs([chip.key]);
+      if (onConsumeArc) onConsumeArc();
+    }, [initialArc]);
     const sources = Array.from(new Set(news.map((n) => (n.s || "").toUpperCase()))).filter(Boolean).sort();
     const SEV_OPTIONS = ["extreme", "critical", "high"];
     const toggleSev = (s) => setSeverities((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
@@ -4178,14 +4199,6 @@
       return t > acc.t ? { t, label: c.updated_at } : acc;
     }, { t: -1, label: "\u2014" });
     const cardRefs = useRef({});
-    const recordFor = (arc) => {
-      const r = ARC_RECORDS[arc];
-      return r && Array.isArray(r.lead && r.lead.facts) && r.lead.facts.some((f) => factText(f).trim()) ? r : null;
-    };
-    const firstCardOfArc = {};
-    AI_CARDS.forEach((c) => {
-      if (!(c.arc in firstCardOfArc)) firstCardOfArc[c.arc] = c.lens;
-    });
     useEffect(() => {
       if (!targetArc) return;
       const hit = AI_CARDS.find((c) => c.arc === targetArc);
@@ -4193,8 +4206,8 @@
         if (onConsumeTarget) onConsumeTarget();
         return;
       }
-      const key = recordFor(targetArc) ? `record:${targetArc}` : hit.lens;
-      const ring = (recordFor(targetArc) || {}).accent || hit.color;
+      const key = hit.lens;
+      const ring = hit.color;
       const t = setTimeout(() => {
         const el = cardRefs.current[key];
         if (el) {
@@ -4208,46 +4221,19 @@
       }, 70);
       return () => clearTimeout(t);
     }, [targetArc]);
-    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { className: "ai-head", style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 12, rowGap: 6, padding: "14px 18px", background: alpha(VIOLET, 0.08), border: `1px solid ${alpha(VIOLET, 0.22)}`, borderRadius: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 8, height: 8, borderRadius: "50%", background: VIOLET, animation: "ping 1.5s ease infinite", flexShrink: 0 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: VIOLET, letterSpacing: ".06em", fontWeight: 600 } }, "AI Strategic Analysis \xB7 Claude Opus 4.7"), /* @__PURE__ */ React.createElement("span", { className: "ai-head-divider", style: { width: 1, height: 14, background: alpha(VIOLET, 0.25) } }), /* @__PURE__ */ React.createElement(M, { className: "ai-head-arcs", style: { fontSize: 12, color: TEXT_BODY, fontWeight: 500 } }, "Epic Fury \xB7 US-BRICS Rivalry \xB7 Russia-Ukraine"), /* @__PURE__ */ React.createElement(M, { className: "ai-head-latest", style: { fontSize: 11, color: TEXT_DIM, marginLeft: "auto", fontVariantNumeric: "tabular-nums" } }, "Latest card: ", latest.label)), AI_CARDS.map((c) => {
-      const rec = firstCardOfArc[c.arc] === c.lens ? recordFor(c.arc) : null;
-      return /* @__PURE__ */ React.createElement(React.Fragment, { key: c.lens }, rec && /* @__PURE__ */ React.createElement(
-        "div",
-        {
-          ref: (el) => {
-            cardRefs.current[`record:${c.arc}`] = el;
-          },
-          style: { borderRadius: 14, scrollMarginTop: 80, transition: "box-shadow .35s ease" }
-        },
-        /* @__PURE__ */ React.createElement(LeadRecord, { lead: rec.lead, accent: rec.accent, accentText: rec.accentText })
-      ), /* @__PURE__ */ React.createElement(
-        "div",
-        {
-          ref: (el) => {
-            cardRefs.current[c.lens] = el;
-          },
-          style: { borderRadius: 14, scrollMarginTop: 80, transition: "box-shadow .35s ease" }
-        },
-        /* @__PURE__ */ React.createElement(AICard, { c })
-      ));
-    }));
-  }
-  var RECORD_NOTE = "What was reported, with its date and source. The analysis cards below interpret it.";
-  var OUTLOOK_NOTE = "Named, dated, falsifiable calls \u2014 scored against what actually happened.";
-  function LeadRecord({ lead, accent, accentText }) {
-    const at = accentText || accent;
-    const arcName = String(lead.kicker || "").split("\xB7")[0].trim();
-    const items = lead.facts.map(factText).filter((s) => s.trim());
-    return /* @__PURE__ */ React.createElement(Card, { style: { borderLeft: `3px solid ${accent}` } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 4, flexWrap: "wrap" } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: at, letterSpacing: ".14em", fontWeight: 600, textTransform: "uppercase" } }, arcName ? `${arcName} \xB7 ` : "", "Sourced record"), /* @__PURE__ */ React.createElement(ByWidth, { compact: /* @__PURE__ */ React.createElement(InfoTip, null, RECORD_NOTE) }), lead.updated_at && /* @__PURE__ */ React.createElement(M, { style: { fontSize: FS.xs, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, lead.updated_at)), /* @__PURE__ */ React.createElement(
-      ByWidth,
+    return /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, /* @__PURE__ */ React.createElement("div", { className: "ai-head", style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 12, rowGap: 6, padding: "14px 18px", background: alpha(VIOLET, 0.08), border: `1px solid ${alpha(VIOLET, 0.22)}`, borderRadius: 12 } }, /* @__PURE__ */ React.createElement("span", { style: { width: 8, height: 8, borderRadius: "50%", background: VIOLET, animation: "ping 1.5s ease infinite", flexShrink: 0 } }), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 12, color: VIOLET, letterSpacing: ".06em", fontWeight: 600 } }, "AI Strategic Analysis \xB7 Claude Opus 4.7"), /* @__PURE__ */ React.createElement("span", { className: "ai-head-divider", style: { width: 1, height: 14, background: alpha(VIOLET, 0.25) } }), /* @__PURE__ */ React.createElement(M, { className: "ai-head-arcs", style: { fontSize: 12, color: TEXT_BODY, fontWeight: 500 } }, "Epic Fury \xB7 US-BRICS Rivalry \xB7 Russia-Ukraine"), /* @__PURE__ */ React.createElement(M, { className: "ai-head-latest", style: { fontSize: 11, color: TEXT_DIM, marginLeft: "auto", fontVariantNumeric: "tabular-nums" } }, "Latest card: ", latest.label)), AI_CARDS.map((c) => /* @__PURE__ */ React.createElement(
+      "div",
       {
-        wide: /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_DIM, lineHeight: 1.5, marginBottom: 12 } }, RECORD_NOTE),
-        compact: /* @__PURE__ */ React.createElement("div", { style: { height: 8 } })
-      }
-    ), /* @__PURE__ */ React.createElement("ul", { style: { listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 8 } }, items.map((s, i) => {
-      const m = s.match(/^(\d{1,2}(?:\s*[-–]\s*\d{1,2})?\s+[A-Z][a-z]+(?:\s+\d{4})?):\s+(.*)$/s);
-      return /* @__PURE__ */ React.createElement("li", { key: i, className: "record-item", style: { display: "flex", gap: 12, alignItems: "baseline", fontSize: 13.5, lineHeight: 1.55, color: TEXT_BODY } }, /* @__PURE__ */ React.createElement(M, { className: "record-date", style: { flexShrink: 0, width: 96, fontSize: 11, fontWeight: 600, color: TEXT_MID, letterSpacing: ".04em", fontVariantNumeric: "tabular-nums" } }, m ? m[1] : ""), /* @__PURE__ */ React.createElement("span", null, scrubCodes(m ? m[2] : s)));
-    })));
+        key: c.lens,
+        ref: (el) => {
+          cardRefs.current[c.lens] = el;
+        },
+        style: { borderRadius: 14, scrollMarginTop: 80, transition: "box-shadow .35s ease" }
+      },
+      /* @__PURE__ */ React.createElement(AICard, { c })
+    )));
   }
+  var OUTLOOK_NOTE = "Named, dated, falsifiable calls \u2014 scored against what actually happened.";
   function AICard({ c }) {
     const [expanded, setExpanded] = useState(false);
     const confColor = c.confidence === "HIGH" ? GREEN : c.confidence === "MODERATE" ? AMBER : DANGER;
@@ -4663,7 +4649,7 @@
       const out = [];
       const add = (sym, price, prev) => {
         if (!sym || !(price > 0)) return;
-        const chgPct = prev > 0 ? (price - prev) / prev * 100 : 0;
+        const chgPct = prev > 0 ? (price - prev) / prev * 100 : null;
         out.push({ symbol: sym, regularMarketPrice: price, regularMarketChangePercent: chgPct });
       };
       if (json && json.spark && Array.isArray(json.spark.result)) {
@@ -4688,8 +4674,8 @@
       const json = await r.json();
       const meta = json?.chart?.result?.[0]?.meta;
       if (!meta || !(meta.regularMarketPrice > 0)) return null;
-      const prev = meta.chartPreviousClose || meta.previousClose || meta.regularMarketPrice;
-      const chgPct = prev > 0 ? (meta.regularMarketPrice - prev) / prev * 100 : 0;
+      const prev = meta.chartPreviousClose || meta.previousClose;
+      const chgPct = prev > 0 ? (meta.regularMarketPrice - prev) / prev * 100 : null;
       return {
         symbol: sym,
         regularMarketPrice: meta.regularMarketPrice,
@@ -4707,11 +4693,11 @@
     const lines = text.trim().split(/\r?\n/);
     if (lines.length < 2) throw new Error("stooq no data");
     const cols = lines[1].split(",");
-    const open = parseFloat(cols[3]);
     const close = parseFloat(cols[6]);
     if (!(close > 0)) throw new Error("stooq invalid close");
-    const chgPct = open > 0 ? (close - open) / open * 100 : 0;
-    return { symbol: sym, regularMarketPrice: close, regularMarketChangePercent: chgPct };
+    const dated = /^\d{4}-\d{2}-\d{2}$/.test(cols[1] || "") ? cols[1] : null;
+    if (!dated) throw new Error("stooq no date");
+    return { symbol: sym, regularMarketPrice: close, regularMarketChangePercent: null, _dated: dated };
   }
   async function fetchSymbolResilient(sym, startAt = 0) {
     try {
@@ -4937,7 +4923,7 @@
       const now = Date.now();
       const cachePatch = {};
       for (const q of valid) {
-        if (q._fromCache) continue;
+        if (q._fromCache || q._dated) continue;
         cachePatch[YF_TILE[q.symbol]] = { price: q.regularMarketPrice, chg: numOrNull(q.regularMarketChangePercent), asOf: now };
       }
       if (Object.keys(cachePatch).length) priceCache.write(cachePatch);
@@ -4946,6 +4932,12 @@
         for (const q of valid) {
           const tile = YF_TILE[q.symbol];
           if (q._fromCache && prev[tile]?.loaded && (!prev[tile].fromCache || prev[tile].dated && q._asOf && easternDayOf(q._asOf) < prev[tile].dated)) continue;
+          if (q._dated) {
+            const p = prev[tile];
+            if (p?.loaded && (!p.fromCache || p.asOf && easternDayOf(p.asOf) >= q._dated || p.dated && p.dated >= q._dated)) continue;
+            n[tile] = { price: q.regularMarketPrice, chg: null, loaded: true, dated: q._dated, fromCache: true };
+            continue;
+          }
           n[tile] = {
             price: q.regularMarketPrice,
             chg: numOrNull(q.regularMarketChangePercent),
@@ -5407,7 +5399,7 @@
     const [lastUpdate, setLastUpdate] = useState(BASE_LAST_UPDATE);
     const [sourceStatus, setSourceStatus] = useState({ crypto: "idle", markets: "idle", gas: "idle", news: "idle" });
     const [drawerCountry, setDrawerCountry] = useState(null);
-    const [feedNav, setFeedNav] = useState({ country: null, view: null });
+    const [feedNav, setFeedNav] = useState({ country: null, view: null, arc: null });
     const [analysisTarget, setAnalysisTarget] = useState(null);
     const [themePref, setThemePref] = useState("dark");
     const [paletteOpen, setPaletteOpen] = useState(false);
@@ -5465,6 +5457,10 @@
         setTab("feed");
         setDrawerCountry(null);
       }
+    }, [setTab]);
+    const openFeed = useCallback((opts = {}) => {
+      setFeedNav({ country: null, view: opts.view || "timeline", arc: opts.arc || null });
+      setTab("feed");
     }, [setTab]);
     const doRefresh = useCallback(() => {
       setLastRefreshAt(/* @__PURE__ */ new Date());
@@ -5526,9 +5522,9 @@
     const renderTab = () => {
       switch (tab) {
         case "overview":
-          return /* @__PURE__ */ React.createElement(OverviewTab, { mkt: mktLive, gas: gasLive, ww3: ww3Live, themes: themesLive, openCountry, setTab });
+          return /* @__PURE__ */ React.createElement(OverviewTab, { mkt: mktLive, gas: gasLive, ww3: ww3Live, themes: themesLive, openCountry, setTab, openFeed });
         case "feed":
-          return /* @__PURE__ */ React.createElement(FeedTab, { news, openCountry, initialCountry: feedNav.country, initialView: feedNav.view, priorVisit });
+          return /* @__PURE__ */ React.createElement(FeedTab, { news, openCountry, initialCountry: feedNav.country, initialView: feedNav.view, initialArc: feedNav.arc, onConsumeArc: () => setFeedNav((n) => ({ ...n, arc: null })), priorVisit });
         case "actors":
           return /* @__PURE__ */ React.createElement(ActorsTab, { openCountry });
         case "economy":

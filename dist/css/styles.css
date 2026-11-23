@@ -557,14 +557,10 @@
     /* Lead card header: the arc name stays on one line; "· Lead development" repeats the
        section header above, so it is dropped here. */
     .lead-kicker-tail { display: none; }
-    /* Analysis: header strip stacks; the sourced record puts each date above its fact. */
+    /* Analysis: header strip stacks. */
     .ai-head-divider { display: none; }
     .ai-head-arcs { flex-basis: 100%; order: 2; }
     .ai-head-latest { flex-basis: 100%; order: 3; margin-left: 0 !important; }
-    .record-item { flex-direction: column; gap: 1px !important; }
-    .record-item + .record-item { margin-top: 4px; }
-    .record-date { width: auto !important; }
-    .record-date:empty { display: none; }
     /* Swipeable rows fade at the right edge so it reads as "more this way". */
     .feed-filter-group {
       -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);

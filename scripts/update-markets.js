@@ -3,8 +3,9 @@
  * update-markets.js — deterministic daily refresh of the DATED market series
  * that feed the bottom-KPI charts:
  *
- *   brent_daily [{d, v}]        — Brent crude daily close (Yahoo BZ=F, same feed
- *                                 the app's live tile uses)
+ *   brent_daily [{d, v}]        — Brent crude settled daily close (Yahoo BZ=F, same
+ *                                 feed the app's live tile uses), dated by its
+ *                                 trading session, never by the run date (#16)
  *   gas_daily   [{d, nat, ca?, oh?, cin?, diesel?}] — AAA US national (+ California,
  *                                 Ohio, Cincinnati metro) average regular
  *                                 gasoline, plus the US national diesel
@@ -108,16 +109,31 @@ function yahooChain(sym) {
   return [y2, y2.replace('query2', 'query1'), ...proxyChain(y2).slice(1)];
 }
 
-function parseYahooClose(text) {
+// Calendar date (YYYY-MM-DD) of an instant in a given IANA time zone.
+function dayIn(tz, ms) {
+  return new Date(ms).toLocaleDateString('en-CA', { timeZone: tz || 'America/New_York' });
+}
+
+// Returns { d, v }: the last COMPLETED session's settled close, dated by that session (#16).
+// Yahoo stamps each daily bar at midnight exchange time on its session date. The bar for
+// today's session is still trading (its "close" is an intraday price), so it is skipped:
+// only bars dated before today in the exchange's time zone count. A Saturday, Sunday or
+// Monday run therefore all return Friday's close, dated Friday.
+function parseYahooClose(text, nowMs = Date.now()) {
   const j = JSON.parse(text);
   const res = j && j.chart && j.chart.result && j.chart.result[0];
   const closes = res && res.indicators && res.indicators.quote && res.indicators.quote[0]
     ? res.indicators.quote[0].close : null;
-  if (!Array.isArray(closes)) throw new Error('no close series');
-  for (let i = closes.length - 1; i >= 0; i--) {          // last non-null close
-    if (typeof closes[i] === 'number' && closes[i] > 0) return closes[i];
+  const stamps = res && res.timestamp;
+  if (!Array.isArray(closes) || !Array.isArray(stamps)) throw new Error('no close series');
+  const tz = (res.meta && res.meta.exchangeTimezoneName) || 'America/New_York';
+  const today = dayIn(tz, nowMs);
+  for (let i = closes.length - 1; i >= 0; i--) {
+    const d = dayIn(tz, stamps[i] * 1000);
+    if (d >= today) continue;                               // current session: not settled
+    if (typeof closes[i] === 'number' && closes[i] > 0) return { d, v: closes[i] };
   }
-  throw new Error('no valid close');
+  throw new Error('no completed session with a valid close');
 }
 
 // ---------------------------------------------------------------------------
@@ -249,13 +265,13 @@ async function main() {
 
   // --- Brent daily close --------------------------------------------------
   try {
-    const close = await fetchParsed(yahooChain('BZ=F'), 'application/json,text/plain,*/*', parseYahooClose);
-    const v = Number(close.toFixed(2));
+    const close = await fetchParsed(yahooChain('BZ=F'), 'application/json,text/plain,*/*', (t) => parseYahooClose(t));
+    const v = Number(close.v.toFixed(2));
     if (!Array.isArray(markets.brent_daily)) markets.brent_daily = [];
-    upsertToday(markets.brent_daily, { d: dateKey, v });
+    upsertToday(markets.brent_daily, { d: close.d, v });   // the session's date, not the run's
     markets.brent_daily = finalizeDaily(markets.brent_daily);
     changed = true;
-    log(`Brent: ${v} (${markets.brent_daily.length} dated points, as of ${dateKey})`);
+    log(`Brent: ${v} (${markets.brent_daily.length} dated points, settled close of ${close.d})`);
   } catch (e) {
     warn(`Brent (BZ=F) fetch failed: ${e.message} — leaving brent_daily unchanged`);
   }
@@ -353,8 +369,12 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  // Absolute backstop: even an unexpected throw must not fail the pipeline.
-  warn(`unexpected error: ${e && e.message ? e.message : e} — exiting clean`);
-  process.exit(0);
-});
+module.exports = { parseYahooClose };
+
+if (require.main === module) {
+  main().catch((e) => {
+    // Absolute backstop: even an unexpected throw must not fail the pipeline.
+    warn(`unexpected error: ${e && e.message ? e.message : e} — exiting clean`);
+    process.exit(0);
+  });
+}

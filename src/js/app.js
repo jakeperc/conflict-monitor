@@ -2991,7 +2991,9 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                 format={(v) => `$${(+v).toFixed(0)}`}
                 live={mkt.BRENT.price != null ? { v: mkt.BRENT.price, label: mktAgeLabel(mkt.BRENT) || "live" } : null} />
             </div>}
-            footer={<><span style={{ color: mkt.BRENT.chg != null && mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight:600 }}>{fmt.arrow(mkt.BRENT.chg)} {fmt.signedPct(mkt.BRENT.chg)}</span> <span style={{ color:TEXT_DIM }}>· pre-war $74{mktAgeLabel(mkt.BRENT) ? ` · ${mktAgeLabel(mkt.BRENT)}` : ""}</span></>}
+            footer={<>{mkt.BRENT.chg == null
+              ? <span style={{ color:TEXT_DIM, fontWeight:600 }}>—</span>
+              : <span style={{ color: mkt.BRENT.chg >= 0 ? AMBER : GREEN, fontWeight:600 }}>{fmt.arrow(mkt.BRENT.chg)} {fmt.signedPct(mkt.BRENT.chg)}</span>} <span style={{ color:TEXT_DIM }}>· pre-war $74{mktAgeLabel(mkt.BRENT) ? ` · ${mktAgeLabel(mkt.BRENT)}` : ""}</span></>}
             small
             border
           />
@@ -3828,7 +3830,9 @@ function MarketsTab({ mkt }) {
               )}
               <div style={{ fontSize:12, marginTop:8, fontWeight:500, fontVariantNumeric:"tabular-nums", fontFamily:SANS, minHeight:14 }}>
                 {live ? (
-                  <span style={{ color: s.c >= 0 ? GREEN : DANGER }}>{fmt.arrow(s.c)} {fmt.signedPct(s.c)}</span>
+                  s.c == null
+                    ? <span style={{ color: TEXT_DIM }}>—</span>
+                    : <span style={{ color: s.c >= 0 ? GREEN : DANGER }}>{fmt.arrow(s.c)} {fmt.signedPct(s.c)}</span>
                 ) : (
                   <span style={{ color:TEXT_DIM, fontStyle:"italic", fontSize:11 }}>awaiting live feed…</span>
                 )}
@@ -6133,7 +6137,7 @@ async function fetchYahooSpark() {
     const out = [];
     const add = (sym, price, prev) => {
       if (!sym || !(price > 0)) return;
-      const chgPct = prev > 0 ? ((price - prev) / prev) * 100 : 0;
+      const chgPct = prev > 0 ? ((price - prev) / prev) * 100 : null;   // null → "—" (#16)
       out.push({ symbol: sym, regularMarketPrice: price, regularMarketChangePercent: chgPct });
     };
     if (json && json.spark && Array.isArray(json.spark.result)) {
@@ -6162,8 +6166,9 @@ async function fetchYahooSymbol(sym, startAt = 0) {
     const json = await r.json();
     const meta = json?.chart?.result?.[0]?.meta;
     if (!meta || !(meta.regularMarketPrice > 0)) return null;
-    const prev = meta.chartPreviousClose || meta.previousClose || meta.regularMarketPrice;
-    const chgPct = prev > 0 ? ((meta.regularMarketPrice - prev) / prev) * 100 : 0;
+    // No previous close means no change to show: null renders "—", never a fake +0.00% (#16).
+    const prev = meta.chartPreviousClose || meta.previousClose;
+    const chgPct = prev > 0 ? ((meta.regularMarketPrice - prev) / prev) * 100 : null;
     return {
       symbol: sym,
       regularMarketPrice: meta.regularMarketPrice,
@@ -6188,11 +6193,14 @@ async function fetchStooq(sym) {
   const lines = text.trim().split(/\r?\n/);
   if (lines.length < 2) throw new Error("stooq no data");
   const cols = lines[1].split(",");
-  const open = parseFloat(cols[3]);
   const close = parseFloat(cols[6]);
   if (!(close > 0)) throw new Error("stooq invalid close");
-  const chgPct = open > 0 ? ((close - open) / open) * 100 : 0;
-  return { symbol: sym, regularMarketPrice: close, regularMarketChangePercent: chgPct };
+  // The quote is a close dated by Stooq's own Date column, not a live tick: it carries
+  // `_dated` so the tile reads "Dated · as of <day>" instead of Live, and no change, since
+  // open→close is not the previous-close change the Yahoo paths show (#16).
+  const dated = /^\d{4}-\d{2}-\d{2}$/.test(cols[1] || "") ? cols[1] : null;
+  if (!dated) throw new Error("stooq no date");
+  return { symbol: sym, regularMarketPrice: close, regularMarketChangePercent: null, _dated: dated };
 }
 
 // Resilient single-symbol fetch: Yahoo (proxy chain) -> Stooq -> localStorage
@@ -6493,8 +6501,10 @@ async function fetchUpdate(setMkt, setGas, setWw3, setThemes, setBreaking, setNe
     // (_fromCache) are skipped so their original asOf isn't bumped — re-stamping a
     // stale value would make it look fresh.
     const cachePatch = {};
+    // Dated closes (_dated, from Stooq) are skipped too: the cache's asOf means "fetched
+    // live at", and stamping a dated close with now would turn it into a fake live price.
     for (const q of valid) {
-      if (q._fromCache) continue;
+      if (q._fromCache || q._dated) continue;
       cachePatch[YF_TILE[q.symbol]] = { price: q.regularMarketPrice, chg: numOrNull(q.regularMarketChangePercent), asOf: now };
     }
     if (Object.keys(cachePatch).length) priceCache.write(cachePatch);
@@ -6504,6 +6514,13 @@ async function fetchUpdate(setMkt, setGas, setWw3, setThemes, setBreaking, setNe
         const tile = YF_TILE[q.symbol];
         // A cached quote never overwrites a live value from this session, or a newer dated close.
         if (q._fromCache && prev[tile]?.loaded && (!prev[tile].fromCache || (prev[tile].dated && q._asOf && easternDayOf(q._asOf) < prev[tile].dated))) continue;
+        if (q._dated) {
+          // A dated close never replaces a live value, a newer cached one, or a newer dated close.
+          const p = prev[tile];
+          if (p?.loaded && (!p.fromCache || (p.asOf && easternDayOf(p.asOf) >= q._dated) || (p.dated && p.dated >= q._dated))) continue;
+          n[tile] = { price: q.regularMarketPrice, chg: null, loaded: true, dated: q._dated, fromCache: true };
+          continue;
+        }
         n[tile] = {
           price: q.regularMarketPrice,
           chg: numOrNull(q.regularMarketChangePercent),

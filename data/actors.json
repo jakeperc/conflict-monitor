@@ -6,9 +6,9 @@
       "risk": 82,
       "level": "EXTREME",
       "alignment": "adversary",
-      "note": "Fired drones at a US base in Bahrain on 15 November, intercepted; Trump says Washington no longer needs a deal.",
-      "details": "Iran fired drones at Bahrain twice in three days: US forces shot down two Guard drones on 13 November, and on 15 November Bahrain's defence ministry said it intercepted several more; the Guard said it targeted a US radar at Riffa air base and declared the Strait closed.\n\nWashington has answered with pressure rather than talks. On 12 November Trump wrote that the US no longer needs a deal with Iran and moved Vice-President Vance off the talks; Reuters reports he is weighing holding off on strikes unless provoked. A third US carrier entered the region on 15 November, and Treasury Secretary Bessent forecasts a 25% contraction in Iran's economy.\n\nThe blockade continues. A tanker leaving the Gulf was hit by an unknown projectile on 16 November (UKMTO), and the Guard claims new mine hits that no maritime authority has confirmed. An IAEA report says inspectors have never seen the Isfahan enrichment plant.",
-      "as_of": "2026-11-16"
+      "note": "Vows 'all available means' against the US blockade, offering to reopen Hormuz within two days if hostilities, the blockade and sanctions end.",
+      "details": "Iran is answering the blockade with fire on Gulf hosts and with terms. On 21 November the Guard said it hit US Patriot radars at Bahraini bases in what it called retaliation for US attacks, citing Hengam Island; Bahrain said an Iranian strike set fire to a civilian industrial site in Sitra, with no injuries (Al Jazeera). That followed a US strike on a launch site on Qeshm on 17 November and Iranian drones on Kuwait and Bahrain.\n\nOn 23 November the foreign ministry said Iran will use all available means against the blockade, calling it military aggression, and that Hormuz could reopen within two days if the US halts hostilities, lifts the blockade and waives sanctions (Al Jazeera). It summoned Qatar's envoy the same day over a Qatar-Germany statement, and its courts claimed $290 billion in damages from the US (France 24). The US Treasury sanctioned more of its exchange houses and companies on 23 November.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Israel",
@@ -16,9 +16,9 @@
       "risk": 80,
       "level": "EXTREME",
       "alignment": "ally",
-      "note": "Eisenkot, holding the mandate, says caretaker Netanyahu 'cannot remain' over alleged election meddling by an aide.",
-      "details": "President Herzog gave opposition leader Gadi Eisenkot the mandate to form a government on 7 November, after more lawmakers recommended him than Netanyahu. He has 28 days, extendable by 14. The election left Netanyahu's bloc at 53 seats, Eisenkot's camp at 48 and Arab-majority parties at 19.\n\nNetanyahu remains caretaker prime minister with full authority over military decisions, including on Iran. He has called for a unity government; Eisenkot's side rejects it in its current form. Herzog says the next government must advance the US Gaza plan, and Trump told Netanyahu to stop obstructing it. Shin Bet reportedly found no evidence of foreign election interference.\n\nIsraeli drone strikes continue in southern Lebanon; one person was killed on 4 November.",
-      "as_of": "2026-11-16"
+      "note": "Likud-Yashar unity talks ended without a deal on 22 November; Eisenkot has until 6 December to form a government.",
+      "details": "President Herzog gave opposition leader Gadi Eisenkot the mandate to form a government on 7 November. Talks between Netanyahu's Likud and Eisenkot's Yashar on a unity government ended without a deal on 22 November, split over who would lead and over Ben-Gvir. Eisenkot, whose camp holds 48 seats, 13 short of a majority, has until 6 December with a possible 14-day extension, and his party has floated a minority government relying on outside Arab-party support (Al Jazeera).\n\nNetanyahu remains caretaker prime minister with authority over military decisions, including on Iran. Israeli tanks crossed the Gaza ceasefire line on 18 November, and strikes continue in Gaza and southern Lebanon.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Lebanon",
@@ -26,9 +26,9 @@
       "risk": 76,
       "level": "EXTREME",
       "alignment": "neutral",
-      "note": "More than 300,000 remain displaced; Israeli demolitions and strikes continue in the south, OCHA says.",
-      "details": "OCHA said on 30 October that more than 300,000 people displaced since March remain so, that about 970,000 have returned to the south, and that Israeli demolitions, fires and strikes continued that week. A military court charged 13 people over a 780 kg explosives truck seized on the Beirut highway; Hezbollah said the explosives were its own and meant for Israeli forces.\n\nThe health ministry's last total this board holds is 4,358 deaths since March, dated 6 September. The board found no Israeli military report of a Hezbollah launch between 29 October and 1 November.",
-      "as_of": "2026-11-01"
+      "note": "Aoun told Hezbollah on 21 November that weapons outside the state are finished and told Iran to stop interfering; Israeli strikes continue.",
+      "details": "President Aoun used his independence-eve speech on 21 November to call on Hezbollah to disarm, saying the era of weapons outside the state is over, to tell Iran to stop interfering in Lebanon's affairs and to demand Israel's withdrawal from all Lebanese territory (Times of Israel). Talks on disarmament have stalled over Hezbollah's refusal. Israel holds a self-declared zone about 10 km deep along the border and continues strikes, shelling and demolitions in the south.\n\nThe army arrested three people smuggling 264 kg of explosives from Syria on 22 November; a security source said they had no party affiliation (The New Arab). Earlier a military court charged 13 people over a 780 kg explosives truck that Hezbollah said was its own. OCHA said on 30 October that more than 300,000 people displaced since March remained so; the board holds no newer figure.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "USA",
@@ -36,9 +36,9 @@
       "risk": 64,
       "level": "HIGH",
       "alignment": "ally",
-      "note": "Trump calls Iran strikes unlikely while enforcing the blockade; mediates Abu Dhabi talks with a wider European agenda.",
-      "details": "Trump said on 9 November that the Iran war is 'militarily effectively over' and new strikes 'quite unlikely', after meeting Qatar's prime minister and Vance; Rubio reported no progress. The blockade is enforced harder: US aircraft disabled the cargo ship Huda off Khor Fakkan on 7 November, and CENTCOM set up Task Force Iron Gate for land routes. The US moved tankers from RAF Mildenhall over an Iran-linked threat.\n\nOn Ukraine, envoys Witkoff and Kushner opened talks with Russia and Ukraine in Abu Dhabi on 10 November. Officials describe a Russia-Europe security architecture, a possible NATO-Russia Council revival, possible sanctions relief and NATO-like guarantees for Kyiv.\n\nTrump says he expects to meet Putin and Xi at APEC in Shenzhen on 18-19 November; China extended the trade truce to 10 January.",
-      "as_of": "2026-11-10"
+      "note": "Struck an Iranian launch site on Qeshm on 17 November after calling strikes unlikely, and joined Xi and Putin's nuclear-war declaration on 19 November.",
+      "details": "Eight days after Trump called new Iran strikes 'quite unlikely', US jets struck an Iranian missile launch site on Qeshm Island on 17 November, which US officials said answered Iranian aggression; Iran then launched drones at Kuwait and Bahrain (BBC). The blockade continues, and on 23 November the Treasury sanctioned Iranian exchange houses and companies in the UAE, Turkey and Hong Kong in Iran's shadow banking network (OFAC). Iran says it will use all available means against the blockade.\n\nOn 19 November Trump, Xi and Putin met in Shenzhen and issued a joint declaration that nuclear war cannot be won and must never be fought; it set no arms limits and did not mention Ukraine or Iran (BBC, The Guardian). The US mediated Russia-Ukraine talks in Abu Dhabi on 10-11 November, which agreed a large prisoner exchange.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "China",
@@ -46,9 +46,9 @@
       "risk": 52,
       "level": "HIGH",
       "alignment": "adversary",
-      "note": "Extended its trade truce with the US to 10 January; Trump says he expects to meet Xi and Putin at APEC.",
-      "details": "China extended every measure suspended after September's Washington summit by two months on 9 November: a 24% tariff stays off, and critical-mineral export waivers, port-fee suspensions and unreliable-entity measures are paused to 10 January 2027 (Reuters). Beijing warned it is watching US plans to replace court-struck tariffs with Section 301 duties.\n\nTrump says he expects to meet Xi and Putin at APEC in Shenzhen on 18-19 November; China says only that it is in communication about a three-leader meeting.\n\nLithuania's president confirmed talks on renaming Taiwan's office in Vilnius, a change Beijing has demanded since 2021, and Chinese diplomats are expected there. Nvidia's chief executive is under investigation over an affair with a suspected Chinese spy; Trump says Xi may raise it.",
-      "as_of": "2026-11-10"
+      "note": "Hosted Trump and Putin in Shenzhen on 19 November; their declaration said nuclear war cannot be won but omitted Ukraine and Iran.",
+      "details": "Xi hosted the first three-way meeting with Trump and Putin in Shenzhen on 19 November, at APEC. Their joint declaration said nuclear war cannot be won and must never be fought and pledged UN reform and more oil supply, but set no arms limits and did not mention the Ukraine or Iran wars; Xi called for nuclear weapons to be prohibited and destroyed over time (BBC, The Guardian).\n\nOn trade, China extended the measures suspended after September's Washington summit to 10 January 2027, including critical-mineral export waivers (Reuters). Its licence requirement for exports of drone parts used by Russia took effect on 18 November. Nvidia's board reinstated Jensen Huang as chief executive on 23 November while it examines whether foreign intelligence targeted him through an affair with a woman US authorities suspect of spying for China; Beijing denies it (Times of Israel).",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Taiwan",
@@ -66,9 +66,9 @@
       "risk": 78,
       "level": "SEVERE",
       "alignment": "adversary",
-      "note": "Says Europe must show readiness before joining talks; confirmed a planned Trump-Xi-Putin meeting at APEC.",
-      "details": "Russia's delegation, led by Vladimir Medinsky and including Sergei Ryabkov, met Ukraine's team with US envoys in Abu Dhabi on 10 November, the first such talks since February. The Kremlin says Europeans have no role in the talks. Russia still demands the rest of Donetsk, and US officials say sanctions relief and a Russia-Europe security framework are on their agenda.\n\nBefore the talks Russia struck the Trypillia thermal power plant near Kyiv. The IAEA said a drone killed a worker at the Russian-occupied Zaporizhzhia nuclear plant, which lost its only external power line for about 10 hours on 8 November; the IAEA did not say who launched it.\n\nCanada sanctioned 38 entities and 24 people tied to Russia's missile industry, cyber actors and crypto enablers. Trump expects to meet Putin and Xi at APEC in Shenzhen.",
-      "as_of": "2026-11-15"
+      "note": "Its corvette Merkury capsized at Benghazi after a 22 November drone strike Kyiv claims; it warned Estonia of 'the brink of an open war'.",
+      "details": "Russia's war is spilling over its neighbours' borders and beyond Europe. On 20 November two Kh-101 cruise missiles and a jet drone crashed in south-eastern Poland during one of Russia's largest attacks on Ukraine; Tusk called it intentional (BBC). On 22 November Ukrainian naval drones sank the corvette Merkury at Benghazi in Libya, Kyiv says; Russia's ambassador said it would not go unanswered (The New Arab).\n\nOn 23 November the foreign ministry summoned Estonia's chargé d'affaires over its closure of road crossings from 1 December, accused Tallinn of letting Ukrainian drones use its airspace, warned of 'the brink of an open war' and reserved 'comprehensive political and diplomatic measures' (The Moscow Times). Denmark expelled Russia's defence attaché over an assassination plot on 20 November. In Shenzhen on 19 November Putin joined Trump and Xi in declaring that nuclear war cannot be won; German media report Russia may launch a nuclear-armed satellite, which the Kremlin dismisses.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Saudi Arabia",
@@ -86,9 +86,9 @@
       "risk": 58,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Hosts US-mediated Ukraine-Russia working-level talks in Abu Dhabi on 10-11 November.",
-      "details": "The White House said the US will mediate working-level talks between Ukraine and Russia in Abu Dhabi on 10-11 November, and the Kremlin confirmed. Abu Dhabi has hosted earlier rounds and prisoner exchanges.\n\nEarlier, its attorney general said the FlyDubai co-pilot planned a suicide attack on Ben Gurion airport and acted alone.",
-      "as_of": "2026-11-04",
+      "note": "An ADNOC-managed tanker was hit near Hormuz on 17 November, and Somalia expelled the UAE ambassador on 19 November, alleging an 'open invasion'.",
+      "details": "The UAE sits on both of the board's main tracks. It hosted the US-mediated Russia-Ukraine talks in Abu Dhabi on 10-11 November, which ended with agreement on the war's largest prisoner exchange but no breakthrough on territory (The Guardian).\n\nIts shipping is exposed in the Strait: on 17 November the LPG tanker Tara Gas, managed by ADNOC Logistics & Services, was hit by a projectile north of Khasab; one crew member is missing and 11 were injured, and Omani rescuers took off 24 crew (Reuters, via gCaptain).\n\nOn 19 November Somalia ordered the UAE ambassador out within 72 hours, recalled its own envoy and accused Abu Dhabi of an 'open invasion' of its sovereignty (Al Jazeera). Earlier, the UAE attorney general said the FlyDubai co-pilot who attacked his captain had planned a suicide attack on Ben Gurion airport and acted alone.",
+      "as_of": "2026-11-23",
       "stale_ok": false
     },
     {
@@ -97,9 +97,9 @@
       "risk": 36,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Mediator of a two-step plan: US blockade relief and inspections first, then a Hormuz reopening.",
-      "details": "Qatar is the chief mediator between Washington and Tehran. Regional officials told Reuters its bridge plan would have the US lift its blockade and release some frozen funds while Iran admits IAEA inspectors, then reopen Hormuz under an Iran-Oman arrangement the US has not approved. Iran is reviewing it.\n\nQatar's foreign ministry rejected reports that its prime minister said talks had failed, and the prime minister said the US is willing to seek a solution. Trump spoke with the emir, and Hegseth with his Qatari counterpart.",
-      "as_of": "2026-11-07",
+      "note": "Shuttles between Tehran and Washington, but Iran summoned its envoy on 23 November over a Qatar-Germany statement criticising Tehran.",
+      "details": "Qatar remains the main channel between Washington and Tehran, but the channel is strained. A Qatari delegation held about two hours of talks in Tehran on 20 November; Iran's deputy foreign minister said they were not yet formal negotiations, and Foreign Minister Araghchi said discussing Hormuz is pointless until Iran's demands are met (Al Jazeera). On 21 November Qatar and Germany issued a joint statement urging Iran to cooperate with the IAEA, stop arming the Houthis and keep the Strait open; Iran summoned Qatar's chargé d'affaires on 23 November (The New Arab).\n\nQatar's prime minister and foreign minister was due to meet Secretary of State Rubio in Washington on 23 November. Earlier reporting described a Qatari bridge plan of blockade relief and IAEA access first, then a Hormuz reopening.",
+      "as_of": "2026-11-23",
       "stale_ok": false
     },
     {
@@ -107,10 +107,10 @@
       "risk": 36,
       "level": "ELEVATED",
       "alignment": "partner",
-      "as_of": "2026-11-01",
+      "as_of": "2026-11-23",
       "stale_ok": false,
-      "note": "Its navy rescued 25 crew from the burning tanker Riti; Musandam waters remain a target zone.",
-      "details": "Oman's Maritime Security Centre said its navy rescued 25 crew from the Panama-flagged tanker Riti after it was targeted and caught fire. On 29 October limpet mines hit the tanker Louise 1 about 25 nautical miles northeast of Khasab, on Oman's side of the Strait.\n\nOman named no attacker. Its waters carry much of the traffic now moving through Hormuz, which leaves it exposed whichever way the talks go.",
+      "note": "Its rescuers took 24 crew off the burning tanker Tara Gas on 17-18 November; UKMTO reported a tanker hit near Khasab on 21 November.",
+      "details": "Oman's Musandam peninsula, on the southern side of the Strait, has become the main strike zone for shipping. Omani emergency authorities rescued 24 crew from the Panama-flagged LPG tanker Tara Gas after it was hit by a projectile north of Khasab on 17 November, with one person missing (Reuters, via gCaptain). On 21 November UKMTO issued two reports of a tanker hit by unidentified projectiles near Khasab, possibly the same vessel, with no casualties; Iran said a tanker hit a mine east of the strait (Al Jazeera).\n\nOman has named no attacker. Earlier its navy rescued 25 crew from the tanker Riti, and limpet mines hit the Louise 1 off Khasab on 29 October. Its waters carry much of the traffic still moving through Hormuz.",
       "flag": "🇴🇲"
     },
     {
@@ -119,9 +119,9 @@
       "risk": 38,
       "level": "ELEVATED",
       "alignment": "adversary",
-      "note": "Fired several missiles on 4 November after denying the Binance theft and ruling out talks with Washington.",
-      "details": "South Korea's military said North Korea fired several missiles from the Sondok area toward the Sea of Japan on 4 November; type and range were not given. Kim Yo Jong called the FBI's attribution of the $6.3 billion Binance theft a provocation and said there would be no talks while US hostility continues.\n\nThe launches follow a claimed cluster-warhead test and short-range launches in late October.",
-      "as_of": "2026-11-04"
+      "note": "The IAEA said on 18 November a new Yongbyon enrichment extension was externally complete by late October, a 'cause for serious concern'.",
+      "details": "North Korea is expanding its capacity to make bomb fuel. IAEA Director General Grossi told the Board of Governors on 18 November that a new extension to the Yongbyon enrichment facility was externally complete by late October, calling the expansion a cause for serious concern (France 24).\n\nOn 4 November South Korea's military said the North fired several missiles from the Sondok area toward the Sea of Japan. Kim Yo Jong called the FBI's attribution of the $6.3 billion Binance theft a provocation and ruled out talks while US hostility continues. The launches followed a claimed cluster-warhead test in late October.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Pakistan",
@@ -129,9 +129,9 @@
       "risk": 25,
       "level": "ELEVATED",
       "alignment": "neutral",
-      "note": "Pledged forces to Saudi Arabia under the activated Mecca pact while fighting the Taliban on its border and halting Iran trade.",
-      "details": "Pakistan is stretched on three fronts. On 5 October it joined Saudi Arabia and Turkey in activating their Mecca defence pact for the first time, agreeing to provide forces for Saudi Arabia's defence against the Houthis. On its western border, fighting with the Taliban continued after Moscow-format talks ended on 5 October with no statement, and it declared an emergency in Khyber Pakhtunkhwa. On 17 October it suspended trade with Iran at the Taftan and Gabd crossings, citing security and smuggling, even as it remains a mediator between Washington and Tehran.",
-      "as_of": "2026-10-20"
+      "note": "Hosted Iran's foreign minister at a 16 November regional meeting and pledged to pursue US-Iran diplomacy; still a Mecca pact partner of Saudi Arabia.",
+      "details": "Pakistan is stretched on three fronts and trying to be indispensable on all of them. At the Economic Cooperation Organization meeting in Islamabad on 16 November, attended by Iran's foreign minister Araghchi, Foreign Minister Dar said Pakistan will pursue US-Iran diplomacy with regional support, and that better ties with Afghanistan depend on Taliban action against terrorism; no Afghan diplomat attended (Associated Press).\n\nOn 5 October it joined Saudi Arabia and Turkey in activating their Mecca defence pact, agreeing to provide forces for Saudi Arabia's defence against the Houthis; Turkey's parliament ratified the pact on 5 November. On its western border, fighting with the Taliban has continued, and on 17 October it suspended trade with Iran at the Taftan and Gabd crossings, citing security and smuggling.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Vatican",
@@ -161,9 +161,9 @@
       "risk": 24,
       "level": "ELEVATED",
       "alignment": "neutral",
-      "note": "Lost a 15th seafarer near Hormuz when the dhow Al-Jusufi was hit off Oman; called for de-escalation.",
-      "details": "An Indian crewman died when the Indian-flagged dhow Al-Jusufi was hit by what the shipping minister called an unidentified aerial object near Limah in Omani waters on 3 November; Oman's coast guard rescued 13. India says 15 Indian seafarers have been killed near Hormuz since March, and six Indians were aboard the Al Mayeda, all safe.\n\nNew Delhi called for de-escalation. India also warned earlier that US tariffs on buyers of Russian oil would hurt ties.",
-      "as_of": "2026-11-04",
+      "note": "Ordered tighter protection for Indian seafarers on 19 November, tracking nine India-linked vessels west of Hormuz after 15 deaths since March.",
+      "details": "India is shifting from appeals to protection for its seafarers. On 19 November Shipping Minister Sonowal directed the Directorate General of Shipping to tighten monitoring and advisories; the ministry is tracking nine India-flagged or Indian-interest vessels west of Hormuz and says 86 India-linked transits have been completed (BusinessToday).\n\nAn Indian crewman died when the dhow Al-Jusufi was hit near Limah in Omani waters on 3 November; India says 15 Indian seafarers have been killed near Hormuz since March. New Delhi has called for de-escalation and earlier warned that US tariffs on buyers of Russian oil would hurt ties.",
+      "as_of": "2026-11-23",
       "stale_ok": false
     },
     {
@@ -194,9 +194,9 @@
       "risk": 26,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-12",
-      "note": "US charged Iran-backed operatives over a plot at RAF Fairford; a US soldier was arrested near Gloucester on suspicion of spying for Russia.",
-      "details": "Britain is now the main European stage for both of the board's adversary arcs. On 10 November the US Justice Department charged three Iran-backed operatives in an eight-count indictment, alleging one orchestrated a plot at RAF Fairford, the base US bombers left in September after earlier arrests. A day earlier the US moved refuelling tankers out of RAF Mildenhall over an Iran-linked threat and raised two bases to FPCON Charlie, the Wall Street Journal reported.\n\nAlso on 10 November, counter-terrorism police arrested a 41-year-old US Army member near Gloucester on suspicion of spying for Russia; officials told the AP he served in NATO's Allied Rapid Reaction Corps at Imjin Barracks. No charge has been announced.\n\nOn 11 November Britain launched Atlantic Net, a £90m programme to track Russian submarines and protect undersea cables, due in 2027. British officials met Ukraine's delegation outside the Abu Dhabi talks."
+      "as_of": "2026-11-23",
+      "note": "Joined the EU on 20 November in demanding Iran end hybrid attacks in Europe, and signed a pledge against Hormuz transit tolls.",
+      "details": "Britain is the main European stage for both of the board's adversary arcs. At the EU-UK summit on 20 November, leaders told Iran to stop its hybrid attacks on European soil, signed a 'No Tolls/No Fees' pledge on navigation through Hormuz and condemned Houthi attacks on Saudi Arabia and shipping (Iran International). MI5 has reported more than 50 Iran-linked arrests in a year.\n\nOn 10 November the US Justice Department charged Iran-backed operatives over a plot at RAF Fairford, and the US moved tankers from RAF Mildenhall over an Iran-linked threat. The same day police arrested a US Army member near Gloucester on suspicion of spying for Russia; no charge has been announced. Prime Minister Andy Burnham also agreed a wider EU deal on food checks, emissions trading and a youth scheme (BBC)."
     },
     {
       "name": "Iraq",
@@ -224,9 +224,9 @@
       "risk": 62,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Gunmen killed eight at a funeral at a church in Karak; three suspects were arrested after a firefight.",
-      "details": "Jordan's most serious attack this autumn came from inside. On 23 October gunmen opened fire at a funeral at a Greek Orthodox church in Hamoud, Karak governorate, killing eight and injuring about 40, the health ministry said; earlier official tallies were lower. Three wounded suspects were arrested on 26 October in Al-Jadeeda after a firefight of about three hours. Officials have not named them or any group, and no one has claimed the attack. The King promised the harshest penalties and ordered a review of security procedures.\n\nThe attack comes on top of Jordan's exposure to the Iran war: Iranian ballistic missiles were fired at the Al Azraq base in September, in the third such episode, and Jordan published interception counts each time without announcing measures against Iran.",
-      "as_of": "2026-10-26"
+      "note": "A court sentenced three men to death on 15 November for the Karak church attack, which killed nine; ISIS claimed it.",
+      "details": "Jordan's most serious attack this autumn came from inside. Gunmen opened fire at a funeral at a Greek Orthodox church in Karak governorate on 23 October, killing nine, Al Jazeera reported; ISIS claimed it. Three wounded suspects were arrested on 26 October after a firefight, were charged with terrorism on 3 November and were sentenced to death by hanging by the State Security Court on 15 November (Al Jazeera).\n\nOn 26-27 October Jordan's air force struck what it called terrorist hideouts in southern Syria, saying it killed more than 20 fighters; Damascus condemned an 'unacceptable violation', the worst Amman-Damascus row since Assad's fall. Jordan also remains exposed to the Iran war: Iranian missiles were fired at the Al Azraq base in September, and it published interception counts without announcing measures against Iran.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Bahrain",
@@ -244,9 +244,9 @@
       "risk": 32,
       "level": "ELEVATED",
       "alignment": "neutral",
-      "as_of": "2026-09-08",
-      "note": "The government says it dismantled the cell behind drone attacks on energy sites and arrested five, without naming them.",
-      "details": "Libya's Government of National Unity announced on 7 September that it had dismantled an organised cell responsible for drone attacks on the country's oil infrastructure and arrested five people, describing a broader interconnected sabotage plot. It did not release the names of those arrested, identify their nationalities beyond a mix of Libyan and foreign, or name any state backer.\n\nThat withholding is the notable part. A government announcing a security success normally supplies attribution, and the absence of it leaves this dashboard's standing question — who has been attacking Libyan energy infrastructure — open rather than answered. The National Oil Corporation has not declared force majeure. The claim is carried by a single directory outlet and is published as reported."
+      "as_of": "2026-11-23",
+      "note": "A Russian corvette was sunk at Benghazi on 22 November; Ukraine claims the drone strike, and Libya's east seeks a UN probe.",
+      "details": "Libya has become a theatre of the Russia-Ukraine war. On 22 November the Russian navy corvette Merkury was struck at the Benghazi naval base in the east, held by Khalifa Haftar's forces; satellite imagery showed it capsized with only its bow above water. On 23 November Zelensky said Ukraine used seven naval drones, also hit the cargo ship Angara, which he said carried weapons, and destroyed a Ka-27 helicopter (Al Jazeera). Libyan officials told AP the drones were launched from western Libya.\n\nThe eastern administration condemned a violation of sovereignty and asked for a UN-led investigation; the UN mission called for an independent inquiry, and the Tripoli government rejected the use of Libyan waters for outside conflicts. Russia's ambassador said the attacks would not go unanswered (The New Arab). Ukraine's claim has no independent confirmation beyond the imagery.\n\nIn September the Tripoli government said it had dismantled a cell behind drone attacks on oil sites, without naming a backer."
     },
     {
       "name": "Japan",
@@ -274,10 +274,10 @@
       "risk": 38,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-04",
+      "as_of": "2026-11-23",
       "stale_ok": false,
-      "note": "Reported North Korea's 4 November missile launch from Sondok; Pyongyang rules out talks with Washington.",
-      "details": "South Korea's Joint Chiefs said North Korea fired several missiles from the Sondok area toward the Sea of Japan on 4 November. Kim Yo Jong denied North Korean involvement in the Binance theft and ruled out talks with the US.\n\nSeoul earlier vowed firm retaliation as Pyongyang threatened deployments near the border, and it has pulled embassy staff from Kyiv over a prisoner dispute."
+      "note": "Lee named Lim Woong-soon foreign minister and Kang Kum-sil spy chief on 23 November; his office said alliance principles are unchanged.",
+      "details": "President Lee reshuffled his national-security team on 23 November, naming Lim Woong-soon, a deputy national security adviser, as foreign minister and Kang Kum-sil as director of the National Intelligence Service; his chief of staff said the principles on the alliance and the Korean Peninsula are unchanged (Yonhap).\n\nOn the Iran war, the Cabinet approved on 10 November extending the Cheonghae naval unit's operating area to open waters south of Oman, about 650 km from Hormuz, under a stated principle of no involvement in the fighting; the motion goes to the National Assembly (Korea JoongAng Daily). On 4 November the Joint Chiefs reported North Korean missile launches from Sondok."
     },
     {
       "name": "Germany",
@@ -285,9 +285,9 @@
       "risk": 36,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-10-23",
-      "note": "Raised its Russian sabotage threat level to 'significant' for the first time and arrested a Ukrainian suspected of spying for Russia.",
-      "details": "Germany's counter-intelligence cases reached the top of its own system. On 6 October prosecutors arrested August Hanning, a former head of the BND foreign-intelligence service, on suspicion of treasonous espionage for a foreign service they did not name; Süddeutsche Zeitung reports Russia is not involved. On 14 October a Ukrainian ex-officer went on trial in Hamburg as the alleged leader of the 2022 Nord Stream sabotage, which he and Kyiv deny. Two German teenagers were charged in Bulgaria over the 9 October Starlink-site fire."
+      "as_of": "2026-11-23",
+      "note": "Joined Qatar on 21 November in urging Iran to stop arming the Houthis and keep Hormuz open; Tehran protested to Qatar.",
+      "details": "Germany has moved into the Iran file. A Germany-Qatar joint statement issued on 21 November, after the emir's visit, urged Iran to resume full cooperation with the IAEA, stop arming the Houthis, end ballistic-missile threats and attacks on shipping, and rejected any closure of the Strait of Hormuz. Iran summoned Qatar's chargé d'affaires on 23 November and called the statement baseless (The New Arab).\n\nAt home, counter-intelligence cases reached the top of the system: on 6 October prosecutors arrested August Hanning, a former BND chief, on suspicion of espionage for an unnamed foreign service, and in October the authorities raised the Russian sabotage threat level to 'significant'. Germany is one of five European states named to represent Europe at future Ukraine talks, and joins Lithuania, Poland and Bulgaria in a planned joint investigation into Starlink-site arson (LRT)."
     },
     {
       "name": "Canada",
@@ -305,10 +305,10 @@
       "risk": 40,
       "level": "HIGH",
       "alignment": "neutral",
-      "as_of": "2026-11-01",
+      "as_of": "2026-11-23",
       "stale_ok": false,
-      "note": "Foreign minister confirms Damascus is discussing joining the Mecca defence pact.",
-      "details": "Foreign Minister al-Shaibani confirmed that Syria is discussing whether to join the defence pact of Saudi Arabia, Turkey and Pakistan, giving no conditions or timeline, and said Syria's security is inseparable from Gulf stability. Joining could tie Damascus to the kingdom's war with the Houthis, the New York Times notes.\n\nJordan said it stopped an armed group trying to enter from Syria."
+      "note": "Weighs sending troops to defend Saudi Arabia against the Houthis, the NYT reports; the US weighs a first training mission with its army.",
+      "details": "Syria is moving toward a military role in the Gulf war. On 10 November the New York Times reported, citing three officials, that Damascus is weighing sending thousands of troops to Saudi Arabia and Yemen against the Houthis, possibly under the Mecca defence pact; reconnaissance teams have visited and no decision has been made. Foreign Minister al-Shaibani had confirmed talks on joining the pact.\n\nOn 23 November Reuters reported the US is weighing a multinational demining and ordnance-disposal training mission for Syrian soldiers, the first US mission with Syria's military since Assad's fall; it could start in March (via Times of Israel). Syria said on 3 November it arrested a Hezbollah-linked cell planning to attack the Homs refinery. Relations with Jordan soured after Jordanian air strikes in southern Syria on 26-27 October."
     },
     {
       "name": "Chad",
@@ -336,9 +336,9 @@
       "risk": 74,
       "level": "EXTREME",
       "alignment": "partner",
-      "as_of": "2026-11-15",
-      "note": "Hit a Russian corvette in the Gulf of Finland as Europe named five negotiators for future talks.",
-      "details": "Defence minister Rustem Umerov leads Ukraine's delegation at the Abu Dhabi talks, which opened on 10 November with US envoys mediating. Kyiv's agenda is a cessation of hostilities, security guarantees and humanitarian steps; a senior official said it has no particular expectations. Ukraine met European and US officials separately before the session.\n\nRussian forces struck the Trypillia thermal power plant near Kyiv on 9 November. The IAEA said a drone killed a worker at the occupied Zaporizhzhia nuclear plant after it lost its only external line for about 10 hours. Bulgaria confirmed six bodies aboard the tanker Wine Trader, hit off Romania on 15 October.\n\nNATO's top commander said in late October that no European-funded PURL deliveries have been delayed."
+      "as_of": "2026-11-23",
+      "note": "Says its naval drones sank the Russian corvette Merkury at Benghazi, Libya, on 22 November; Russia's envoy there says it will not go unanswered.",
+      "details": "Ukraine's strike war has reached the Mediterranean. Zelensky said on 23 November that Ukrainian forces used seven naval drones to sink the Russian corvette Merkury at Benghazi naval base in eastern Libya on 22 November, hit the cargo ship Angara and destroyed a Ka-27 helicopter; satellite imagery showed the corvette capsized (Al Jazeera, CNBC). The SBU said the drones were launched from a mother ship. A day earlier a drone set the Russian military-linked ship Sparta II ablaze in the Gulf of Finland; Kyiv has not claimed it.\n\nOn 20 November Russia launched one of its largest attacks of the war, during which two Kh-101 missiles and a drone crashed in Poland. Defence minister Umerov led Ukraine's team at the Abu Dhabi talks on 10-11 November, which agreed the war's largest prisoner exchange; no exchange had been reported by 23 November. Europe has named five governments to represent it at future talks."
     },
     {
       "name": "France",
@@ -346,9 +346,9 @@
       "risk": 30,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-10",
-      "note": "Blamed Iran's Revolutionary Guard for cyberattacks on supermarket fridges; seeks warrants and EU sanctions.",
-      "details": "France made Europe's first government attribution of a large Iranian cyber sabotage campaign. Foreign minister Jean-Noel Barrot said the Revolutionary Guard was behind attacks on 11-12 October that raised fridge temperatures at hundreds of French supermarkets. The Paris prosecutor opened a probe into the Guard's Shahid Kaveh unit and requested international arrest warrants for two officials. Barrot said France 'rules nothing out', will summon Iran's ambassador and will seek EU sanctions. Similar suspected attacks on 2 November hit at least nine other European countries, not yet attributed.\n\nOn Ukraine, Barrot said European officials would be present at the Abu Dhabi talks and that European security cannot be negotiated with Russia before a ceasefire.\n\nFrance is one of two European nuclear powers and has pledged forces and air defences to protect Saudi Arabia's Yanbu port."
+      "as_of": "2026-11-23",
+      "note": "Presented evidence on the Guard's supermarket cyberattacks to EU ministers on 16 November and expects sanctions at the 14 December Council.",
+      "details": "France made Europe's first government attribution of a large Iranian cyber-sabotage campaign: Foreign Minister Jean-Noel Barrot said the Revolutionary Guard was behind attacks in October that raised fridge temperatures at hundreds of French supermarkets, and the Paris prosecutor requested arrest warrants for two officials. On 16 November Barrot presented the evidence to EU foreign ministers, said a very large majority backed a response and said he hopes sanctions will be adopted at the 14 December Council; he also announced a 4 December Paris conference on Russia's shadow fleet (French foreign ministry statement).\n\nOn Ukraine, France is one of five European governments named to represent Europe at future talks. It held a first joint forward-deterrence exercise with Sweden on 16-18 November and has pledged forces and air defences to protect Saudi Arabia's Yanbu port."
     },
     {
       "name": "Hungary",
@@ -356,9 +356,9 @@
       "risk": 22,
       "level": "MODERATE",
       "alignment": "ally",
-      "as_of": "2026-09-08",
-      "note": "Expelled ten Russian diplomats two weeks after designating Russia a threat; Moscow promised a harsh reply.",
-      "details": "Hungary expelled ten staff of Russia's diplomatic mission on 8 September for activities its foreign minister said were unacceptable under the Vienna Convention, saying the decision protects Hungary's security and sovereignty. Russia's foreign ministry promised a harsh and painful response. It follows Budapest's 26 August instruction designating Russia a threat to Hungary, Europe and the global order.\n\nUnder Péter Magyar, in office since May, Hungary has moved from the alliance's most Russia-friendly member to one taking measures its neighbours have not — a datum that runs with, not against, the alliance axis. Ukraine's foreign minister called the expulsion timely and sensible. Carried by a single directory outlet."
+      "as_of": "2026-11-23",
+      "note": "Suspended rail services to Ukraine after a Russian drone hit Mukachevo on 17 November; Magyar plans to visit ethnic Hungarians in Zakarpattia.",
+      "details": "Under Péter Magyar, prime minister since May, Hungary has moved from the EU's most Russia-friendly government to one taking measures against Moscow: it designated Russia a threat in August and expelled ten Russian diplomatic staff on 8 September.\n\nRelations with Kyiv are improving but unfinished. On 20 October Hungary blocked, without explanation, a procedural step toward opening the last two EU negotiating clusters for Ukraine and Moldova; diplomats expected the block to be temporary. After a Russian drone struck Mukachevo, near the Hungarian border, on 17 November, Hungary suspended all rail services to Ukraine. Magyar told parliament he will visit Zakarpattia soon to support its ethnic Hungarian community, and a Ukrainian official said Zelensky may meet him there (Kyiv Independent). Magyar still presses Kyiv on Hungarian-language schooling."
     },
     {
       "name": "Poland",
@@ -376,9 +376,9 @@
       "risk": 34,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-16",
-      "note": "Handed the US proposals for a permanent US military base, modelled on Germany's brigade there.",
-      "details": "Lithuania's foreign ministry asked Taiwan in September to change the name of its representative office in Vilnius, and President Nauseda confirmed the talks were coordinated with him. Taiwan's deputy foreign minister said there are no plans to change the name. Chinese diplomats are expected in Lithuania this week to discuss normalising relations; China withdrew its diplomatic staff after the office opened under Taiwan's name in 2021 and imposed trade restrictions.\n\nThe US has also pressed Lithuania to let Belarusian potash through Klaipeda despite EU sanctions; Vilnius says the sanctions forbid transit."
+      "as_of": "2026-11-23",
+      "note": "Joined a planned four-country probe into Starlink arson, and rejected Russian claims that a Kaliningrad alert on 21 November was a Lithuanian attack.",
+      "details": "Lithuania is a front-line target of Russian hybrid pressure. Lithuania, Poland, Germany and Bulgaria plan a joint investigation team into arson attacks on Starlink sites, including a foiled attempt in Vilnius on 18 October; prosecutors are due to meet in early December (LRT).\n\nOn 21 November Kaliningrad's governor declared an air-raid alert over a 'suspicious object from the Lithuanian side', and Russian outlets then described an attack from Lithuania; the foreign ministry rejected the claim early on 22 November, and LRT, citing a monitoring firm, traced the narrative to a few social-media accounts. Lithuania has also handed Washington proposals for a permanent US military base, modelled on Germany's brigade there; no US answer has been reported."
     },
     {
       "name": "Estonia",
@@ -396,9 +396,9 @@
       "name": "United States",
       "flag": "🇺🇸",
       "goal": "Reopen the Strait on American terms while the economic campaign does the rest of the work.",
-      "move": "Calls more Iran strikes unlikely while enforcing the blockade; mediates Abu Dhabi talks with a wider European agenda.",
-      "as_of": "2026-11-10",
-      "details": "Trump says the Iran war is 'militarily effectively over' and new strikes are 'quite unlikely'; the blockade is enforced harder, with a cargo ship disabled off Khor Fakkan and a task force for land routes. Rubio reports no progress with Iran.\n\nIn Abu Dhabi, Witkoff and Kushner opened talks with Russia and Ukraine and floated a Russia-Europe security architecture, possible sanctions relief and NATO-like guarantees for Kyiv. Trump expects to meet Putin and Xi at APEC in Shenzhen. The US moved tankers from RAF Mildenhall over an Iranian threat.",
+      "move": "Struck Iran's Qeshm on 17 November and widened sanctions on 23 November while holding the blockade; joined the Shenzhen nuclear-war declaration with Xi and Putin.",
+      "as_of": "2026-11-23",
+      "details": "Washington is running pressure on two tracks. On Iran it struck a missile launch site on Qeshm on 17 November (BBC), keeps the naval blockade, extended to ship-to-ship transfers, and on 23 November sanctioned Iranian exchange houses and companies (OFAC). On the great powers, Trump met Xi and Putin in Shenzhen on 19 November and signed a declaration that nuclear war must never be fought, with no arms limits (BBC, The Guardian). Envoys Witkoff and Kushner mediated the Abu Dhabi talks that agreed a Russia-Ukraine prisoner exchange.",
       "color": "var(--c-blue)"
     },
     {
@@ -423,9 +423,9 @@
       "name": "Israel",
       "flag": "🇮🇱",
       "goal": "Establish a permanent security posture in Lebanon, Syria and Gaza before any framework acquires enforcement, and absorb American objection without paying for it.",
-      "move": "Eisenkot holds the mandate to form a government; Netanyahu remains caretaker with authority over Iran decisions.",
-      "as_of": "2026-11-10",
-      "details": "Herzog gave Eisenkot the mandate on 7 November; he has 28 days, extendable by 14. Netanyahu stays caretaker, calls for a unity government and keeps authority over military operations. Herzog and Trump want the next government to advance the US Gaza plan.",
+      "move": "Netanyahu stays caretaker with authority over Iran decisions after unity talks with Eisenkot collapsed on 22 November; Eisenkot's mandate runs to 6 December.",
+      "as_of": "2026-11-23",
+      "details": "Herzog gave Eisenkot the mandate on 7 November. Likud-Yashar unity talks ended without a deal on 22 November; Eisenkot has until 6 December, extendable by 14 days, and may try a minority government (Al Jazeera). Netanyahu stays caretaker with authority over military operations, including on Iran. Herzog and Trump want the next government to advance the US Gaza plan.",
       "color": "var(--c-blue)"
     },
     {
@@ -450,19 +450,19 @@
       "name": "Ukraine",
       "flag": "🇺🇦",
       "goal": "Convert deep strikes from claimed damage into measurable losses of Russian export revenue and launch capacity.",
-      "move": "Opened talks with Russia under US mediation; seeks a ceasefire and security guarantees as power plants are hit.",
-      "as_of": "2026-11-10",
-      "details": "Umerov leads Ukraine's team in Abu Dhabi, seeking a cessation of hostilities, security guarantees and humanitarian steps; Kyiv met European and US officials beforehand. US officials discuss NATO-like guarantees. Russia struck the Trypillia power plant, and a drone killed a worker at the Zaporizhzhia nuclear plant after a 10-hour power loss.",
+      "move": "Says it took its naval-drone campaign to Libya, sinking a Russian corvette at Benghazi on 22 November, while the prisoner exchange agreed in Abu Dhabi is still pending.",
+      "as_of": "2026-11-23",
+      "details": "Kyiv is stretching Russia's defences across seas. It says naval drones sank the corvette Merkury at Benghazi on 22 November and hit the cargo ship Angara (Al Jazeera, CNBC), after its earlier strikes on Russian shipping in the Black Sea and the Gulf of Finland. Talks track: Umerov led the Abu Dhabi delegation on 10-11 November, which agreed a large prisoner exchange still pending on 23 November; US officials have discussed NATO-like guarantees. Russia keeps striking its energy system.",
       "color": "#facc15"
     },
     {
       "name": "Pakistan",
       "flag": "🇵🇰",
       "goal": "Keep channels to both Washington and Tehran while making the Mecca pact a credible deterrent for Saudi Arabia.",
-      "move": "Backs Saudi Arabia under the activated Mecca pact while squeezed by Taliban border fighting and a halt to Iran trade.",
-      "as_of": "2026-10-20",
+      "move": "Pledged on 16 November to pursue US-Iran diplomacy, hosting Iran's foreign minister in Islamabad, while backing Saudi Arabia under the Mecca pact.",
+      "as_of": "2026-11-23",
       "color": "var(--c-amber)",
-      "details": "Islamabad's play is to be indispensable to Riyadh and Washington at once: a Mecca-pact partner, a US-Iran mediator and a counter-terrorism front-line state. The Taliban border and the Iran trade halt show the cost."
+      "details": "Islamabad's play is to be indispensable to Riyadh and Washington at once: a Mecca-pact partner, a US-Iran mediator and a counter-terrorism front-line state. At the 16 November ECO meeting in Islamabad, with Araghchi present, Foreign Minister Dar said Pakistan will pursue US-Iran diplomacy with regional support (Associated Press). The Taliban border and the October halt to Iran trade show the cost."
     },
     {
       "name": "Vatican",
@@ -477,30 +477,30 @@
       "name": "Saudi Arabia",
       "flag": "🇸🇦",
       "goal": "Impose costs on Iran's proxy network without owning the escalation rhetorically or opening a second front in Yemen.",
-      "move": "Absorbing Houthi attacks on Riyadh and a pipeline near Medina with no casualties reported.",
-      "as_of": "2026-11-10",
+      "move": "Absorbing Houthi strikes, including damage to Riyadh's PIF tower on 19 November, as the Houthis claim a coalition strike killed 17 in Hodeidah.",
+      "as_of": "2026-11-23",
       "color": "var(--c-amber)",
-      "details": "A Houthi attack damaged an Aramco tower in Riyadh on 8 November, and a pipeline in the Medina region caught fire on 9 November; Saudi Arabia said operations were unaffected and reported no casualties. Houthi-run media say a coalition airstrike killed at least 40 people in Sanaa province. Turkey ratified the Mecca defence pact on 5 November."
+      "details": "Saudi Arabia is absorbing a sustained Houthi campaign on its territory. A Houthi attack damaged the 80-storey Public Investment Fund tower in Riyadh's financial district on 19 November, with no one injured, after earlier hits on an Aramco tower in Riyadh and a pipeline in the Medina region. The coalition said it intercepted a ballistic missile aimed at the western Red Sea coast on 22 November.\n\nIts forces are hitting back in Yemen: the coalition struck 60 Houthi targets on 17 November, and the Houthis said a coalition strike on telecoms facilities in Hodeidah killed 17 workers on 23 November, which Saudi Arabia did not address (The New Arab). Turkey ratified the Mecca defence pact on 5 November, and Syria is weighing sending troops."
     },
     {
       "name": "UAE",
       "flag": "🇦🇪",
       "goal": "Keep the Strait open and stay out of the war, while holding the US relationship without joining an American campaign against Iran.",
-      "move": "Took charge of the FlyDubai investigation days after hosting Netanyahu, keeping the Israel channel open.",
-      "as_of": "2026-10-02",
+      "move": "Hosted Russia-Ukraine talks that agreed a large prisoner swap, while an ADNOC-managed tanker was hit near Hormuz and Somalia expelled its ambassador.",
+      "as_of": "2026-11-23",
       "stale_ok": false,
       "color": "var(--text-mid)",
-      "details": "Abu Dhabi's strategy through this war has been to absorb rather than escalate, and to keep its Israel channel open. Days after hosting Netanyahu, it took charge of the investigation into a FlyDubai co-pilot's attack on the captain of a Dubai–Tel Aviv flight, examining a possible terror link; FlyDubai suspended the route. No group or state has been linked.\n\nThe UAE is also rebuilding infrastructure around the Iranian threat, redesigning a planned AI data-centre campus into a dispersed network. Algeria cut diplomatic ties with it on 10 September."
+      "details": "Abu Dhabi's strategy through this war has been to absorb rather than escalate and to stay useful to Washington. It hosted the US-mediated Russia-Ukraine talks on 10-11 November, which agreed the war's largest prisoner exchange (The Guardian).\n\nThe costs are rising. The ADNOC-managed LPG tanker Tara Gas was hit north of Khasab on 17 November, leaving one crew member missing and 11 injured (Reuters, via gCaptain), and on 19 November Somalia expelled the UAE ambassador, accusing it of an 'open invasion' (Al Jazeera). It is also redesigning a planned AI data-centre campus into a dispersed network because of the Iranian threat."
     },
     {
       "name": "Qatar",
       "flag": "🇶🇦",
       "goal": "Mediate the war toward a settlement without Al Udeid becoming a target.",
-      "move": "Chief mediator of a two-step plan: blockade relief and inspections, then a Hormuz reopening.",
-      "as_of": "2026-11-07",
+      "move": "Shuttling between Tehran and Washington: talks in Tehran on 20 November, Rubio due on 23 November, while Iran protests a Qatar-Germany statement.",
+      "as_of": "2026-11-23",
       "stale_ok": false,
       "color": "var(--text-mid)",
-      "details": "Regional officials told Reuters Qatar's bridge plan has the US lift its blockade and free some funds while Iran admits IAEA inspectors, followed by a Hormuz reopening under an Iran-Oman arrangement. Iran is reviewing it; the White House declined comment. Qatar denies talks failed, and Trump spoke with the emir."
+      "details": "Doha is the indispensable intermediary, and both sides are testing it. Its delegation held informal talks in Tehran on 20 November (Al Jazeera); on 21 November it signed a joint statement with Germany urging Iran to stop arming the Houthis and keep Hormuz open, and Iran summoned its chargé d'affaires on 23 November (The New Arab). Its prime minister was due in Washington to see Rubio the same day. Al Udeid keeps it exposed to any widening of the war."
     },
     {
       "name": "Turkey",
@@ -516,30 +516,30 @@
       "name": "Hezbollah / Lebanon",
       "flag": "🇱🇧",
       "goal": "Survive the framework’s disarmament clause without a new war.",
-      "move": "Acknowledged a seized 780 kg explosives truck as its own; 13 charged by a Lebanese military court.",
-      "as_of": "2026-11-01",
+      "move": "Faces President Aoun's 21 November demand that it disarm, as disarmament talks stall over its refusal and Israeli strikes continue in the south.",
+      "as_of": "2026-11-23",
       "stale_ok": false,
       "color": "#e05050",
-      "details": "Hezbollah said the explosives on a truck seized this month were its own and meant for Israeli forces in the south. A Lebanese military court charged 13 people, two in custody. The board found no Israeli report of a Hezbollah launch between 29 October and 1 November, while Israeli strikes and demolitions continue."
+      "details": "Hezbollah is under pressure from its own state. On 21 November President Aoun said armed groups outside the state are finished and told Iran to stop interfering; disarmament talks have stalled because Hezbollah refuses to give up its weapons (Times of Israel). Israel keeps a zone about 10 km deep and continues strikes. Earlier this month Hezbollah said a 780 kg explosives truck seized near Beirut was its own, and a Lebanese military court charged 13 people; Syria said on 3 November it arrested a Hezbollah-linked cell planning to attack the Homs refinery, which Hezbollah denied (The New Arab)."
     },
     {
       "name": "North Korea",
       "flag": "🇰🇵",
       "goal": "Sustain CRINK operational coordination via arms (artillery shells) and troops to Russia in exchange for tech, energy, and food; preserve ICBM/SLBM ladder as posture-signaling reserve; quiet stretch in May 2026 maintains optionality without provoking US/JK-PH posture firming",
-      "move": "Fired missiles on 4 November and denied the $6.3 billion Binance theft, ruling out talks with Washington.",
-      "as_of": "2026-11-04",
+      "move": "Expanding enrichment: the IAEA said on 18 November a new Yongbyon extension is externally complete, after 4 November missile launches and a refusal of US talks.",
+      "as_of": "2026-11-23",
       "stale_ok": false,
-      "details": "Pyongyang fired several missiles from Sondok toward the Sea of Japan on 4 November. Kim Yo Jong called the FBI's attribution a provocation and ruled out dialogue while US hostility continues.\n\nThe launches follow a claimed cluster-warhead test in late October. Kim also inspected a shipyard and called for a faster naval build-up, per South Korean media.",
+      "details": "Pyongyang is adding nuclear-material capacity while refusing talks. The IAEA said on 18 November that a new Yongbyon enrichment extension was externally complete by late October, a cause for serious concern (France 24). It fired several missiles from Sondok toward the Sea of Japan on 4 November, and Kim Yo Jong ruled out dialogue while US hostility continues and called the FBI's Binance-theft attribution a provocation. Kim has also called for a faster naval build-up.",
       "color": "var(--c-brics)"
     },
     {
       "name": "United Kingdom",
       "flag": "🇬🇧",
       "color": "var(--c-blue)",
-      "as_of": "2026-11-10",
+      "as_of": "2026-11-23",
       "goal": "Lead a broad European and Commonwealth position on the West Bank without getting ahead of Washington on Israel policy.",
-      "move": "Hosts US bases now under heightened Iran-linked threat; joins Europeans in Abu Dhabi outside the core talks.",
-      "details": "The US moved tankers from RAF Mildenhall over an Iran-linked threat and raised two bases to FPCON Charlie, after leaving RAF Fairford in September. British officials met Ukraine's delegation in Abu Dhabi outside the three-way format. RAF Typhoons patrol over Saudi Arabia."
+      "move": "Signed a 'No Tolls' Hormuz pledge with the EU on 20 November and demanded Iran end hybrid attacks in Europe, while hosting US bases under Iran-linked threat.",
+      "details": "London is aligning its Iran posture with Brussels. At the 20 November EU-UK summit it joined demands that Iran end hybrid attacks in Europe and signed a pledge against Hormuz transit tolls (Iran International). It hosts US bases now under Iran-linked threat: the US left RAF Fairford in September and moved tankers from RAF Mildenhall in November. British officials met Ukraine's delegation in Abu Dhabi outside the three-way format, and RAF Typhoons patrol over Saudi Arabia."
     },
     {
       "name": "Kuwait",
@@ -555,27 +555,27 @@
       "flag": "🇯🇴",
       "color": "var(--c-amber)",
       "goal": "Stay inside the American security umbrella without becoming a recurring target of Iranian retaliation.",
-      "move": "Arrests three suspects after gunmen killed eight at a church funeral in Karak.",
-      "details": "Jordan's play is to absorb shocks and publish facts. After gunmen killed eight at a church funeral in Karak on 23 October, security forces arrested three wounded suspects on 26 October after a firefight; no group has been named. It has handled Iranian missile episodes the same way, publishing counts without announcing measures against Iran.",
-      "as_of": "2026-10-26"
+      "move": "Sentenced three men to death for the Karak church attack after striking militant sites in southern Syria, a move Damascus condemned.",
+      "details": "Jordan's play is to absorb shocks and publish facts. After gunmen killed nine at a church funeral in Karak on 23 October, an attack ISIS claimed, its air force struck sites in southern Syria on 26-27 October, drawing a protest from Damascus, and the State Security Court sentenced three men to death on 15 November (Al Jazeera). It has handled Iranian missile episodes the same way, publishing counts without announcing measures against Iran.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "Bahrain",
       "flag": "🇧🇭",
       "color": "var(--c-amber)",
       "goal": "Keep the Fifth Fleet’s home port out of the exchange while the war is fought from its neighbours’ soil.",
-      "move": "Intercepted Iranian drones aimed at a US base on 15 November and condemned the attacks; US forces downed two others on 13 November.",
-      "details": "Bahrain hosts the US Fifth Fleet and spent most of this war as the quietest of the exposed Gulf states. That changed in November: US forces downed two Guard drones aimed at Bahrain on 13 November, and on 15 November its own air defences intercepted more, aimed, the Guard said, at a US radar at Riffa.\n\nManama has moved from silence to naming Tehran: its foreign ministry condemned the attacks and held Iran fully responsible. It still cannot credibly threaten Iran or distance itself from the American presence it hosts, so its options are interception, statements and reliance on the US response.",
-      "as_of": "2026-11-16"
+      "move": "An Iranian strike set a civilian industrial site in Sitra ablaze on 21 November, with no injuries; the Guard claimed hits on US radars.",
+      "details": "Bahrain hosts the US Fifth Fleet and spent most of this war as the quietest of the exposed Gulf states. That changed in November: US forces downed two Guard drones aimed at Bahrain on 13 November, its air defences intercepted more on 15 and 18 November, and on 21 November an Iranian strike set fire to a civilian industrial facility in Sitra, with no injuries reported. The Guard said it hit US Patriot radars at the al-Riffa and Awali bases (Al Jazeera).\n\nManama has condemned the attacks and holds Iran responsible, but its options remain interception, statements and reliance on the US response.",
+      "as_of": "2026-11-23"
     },
     {
       "name": "South Korea",
       "flag": "🇰🇷",
-      "as_of": "2026-11-07",
+      "as_of": "2026-11-23",
       "stale_ok": false,
       "goal": "Stay out of the Iran war without breaking with Washington, and keep a path open to US-North Korea dialogue.",
-      "move": "Will ask parliament to extend its Cheonghae naval unit toward the Strait of Hormuz.",
-      "details": "South Korea's defence ministry will submit a motion to extend the Cheonghae anti-piracy unit's operating area closer to the Strait of Hormuz, limited to open waters south of Oman, after US criticism of Seoul's support for the war. Parliament, the president and cabinet must approve. A ministry committee also approved a nuclear-powered submarine project (Yonhap, not yet carried by a directory outlet)."
+      "move": "Cabinet approved moving the Cheonghae unit to waters south of Oman, pending parliament; Lee named a new foreign minister and spy chief on 23 November.",
+      "details": "Seoul is trying to answer US pressure on the Iran war without joining it. The Cabinet approved on 10 November extending the Cheonghae anti-piracy unit's area to open waters south of Oman, adding a patrol aircraft and mine-clearing equipment under an independent chain of command; the National Assembly must still vote (Korea JoongAng Daily). On 23 November Lee named Lim Woong-soon foreign minister and Kang Kum-sil intelligence chief, and his office said alliance principles are unchanged (Yonhap)."
     },
     {
       "name": "Estonia",
@@ -620,18 +620,18 @@
       "name": "Lebanon",
       "start": "2026-03-02",
       "threat": 70,
-      "status": "More than 300,000 remain displaced and Israeli strikes and demolitions continue in the south, OCHA says; 13 charged over a Hezbollah explosives truck.",
+      "status": "President Aoun called on Hezbollah to disarm on 21 November; Israel holds a zone about 10 km deep and keeps striking the south.",
       "color": "#fb923c",
-      "as_of": "2026-11-01"
+      "as_of": "2026-11-23"
     },
     {
       "flag": "🇾🇪",
       "name": "Yemen",
       "start": "2026-02-28",
       "threat": 85,
-      "status": "Government forces withdrew from the Bab al-Mandab area to defend Aden on 15 November; the Houthis say they retook it and are about 60 km from the city.",
+      "status": "Houthi forces were about 60 km from Aden after government troops pulled back on 15 November; the Houthis say a coalition strike killed 17 in Hodeidah on 23 November.",
       "color": "#eab308",
-      "as_of": "2026-11-16"
+      "as_of": "2026-11-23"
     },
     {
       "flag": "🇺🇦",
@@ -647,9 +647,9 @@
       "name": "Sudan",
       "start": "2023-04-15",
       "threat": 55,
-      "status": "An army strike on Nyala's market killed at least 102, AFP reports; the UN chief is appalled by drone attacks on civilians.",
+      "status": "Drones hit homes and a UN building in Khartoum on 22 November; the army says they came from Ethiopia, which denies it.",
       "color": "var(--text-mid)",
-      "as_of": "2026-11-01"
+      "as_of": "2026-11-23"
     }
   ],
   "country_keys": {

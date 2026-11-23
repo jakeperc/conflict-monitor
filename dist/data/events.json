@@ -52743,6 +52743,35 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-15-jordans-state-security-court-sentenced-three",
+    "event_date": "2026-11-15",
+    "source_time": null,
+    "headline": "Jordan's State Security Court sentenced three men to death by hanging on 15 November for the 23 October attack on a church funeral in Karak, which killed nine people and wounded 25, according to Al Jazeera.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/15/jordan-sentences-three-men-to-death-by-hanging-after-deadly-church-attack",
+        "published_date": "2026-11-15"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "jordan",
+      "terrorism"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-16-ukraine-attacked-the-crimean-bridge-overnight",
     "event_date": "2026-11-16",
     "source_time": null,
@@ -53404,6 +53433,35 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-17-hungary-suspended-all-rail-services-to",
+    "event_date": "2026-11-17",
+    "source_time": null,
+    "headline": "Hungary suspended all rail services to Ukraine after a Russian drone struck Mukachevo, near the Hungarian border, on 17 November; Prime Minister Magyar says he will visit Zakarpattia's ethnic Hungarians soon.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/zelensky-hungarys-magyar-could-meet-soon-during-planned-visits-to-ukraines-zakarpattia-source-says/",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "hungary",
+      "spillover"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-18-kuwait-said-it-repelled-an-iranian",
     "event_date": "2026-11-18",
     "source_time": null,
@@ -54028,6 +54086,37 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-19-somalia-ordered-the-uae-ambassador-to",
+    "event_date": "2026-11-19",
+    "source_time": null,
+    "headline": "Somalia ordered the UAE ambassador to leave within 72 hours on 19 November and recalled its own envoy from Abu Dhabi, accusing the UAE of an \"open invasion\" of its sovereignty.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/19/somalia-expels-uae-ambassador-accuses-abu-dhabi-of-violating-sovereignty",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "red-sea-shipping"
+    ],
+    "tags": [
+      "somalia",
+      "uae",
+      "horn-of-africa"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-20-two-russian-kh101-cruise-missiles-and",
     "event_date": "2026-11-20",
     "source_time": "06:30",
@@ -54368,6 +54457,504 @@
     "tags": [
       "tanker-attack",
       "hormuz"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-21-a-russian-helicopter-entered-finnish-airspace",
+    "event_date": "2026-11-21",
+    "source_time": null,
+    "headline": "A Russian helicopter entered Finnish airspace about 4 km near Loviisa on 21 November, during the Sparta II rescue, and Finland summoned Russia's ambassador on 23 November; Moldova said a Russian drone entered its airspace twice the same day.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261123-finland-summons-russian-ambassador-after-suspected-airspace-violation",
+        "published_date": "2026-11-23"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/moldova-finland-report-russian-airspace-violations-day-after-suspected-russian-missiles-flew-into-poland/",
+        "published_date": "2026-11-21"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "gray-zone",
+      "airspace",
+      "finland",
+      "moldova"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-21-kaliningrads-governor-declared-an-airraid-alert",
+    "event_date": "2026-11-21",
+    "source_time": null,
+    "headline": "Kaliningrad's governor declared an air-raid alert on 21 November over a \"suspicious object from the Lithuanian side\", and Russian media then described an attack from Lithuania; Vilnius rejected the claim, and reported explosions at Baltiysk remain unconfirmed.",
+    "body": "",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3123322/how-a-kaliningrad-air-raid-alert-turned-into-an-operation-against-lithuania",
+        "published_date": "2026-11-23"
+      },
+      {
+        "name": "Euromaidan Press",
+        "url": "https://euromaidanpress.com/2026/11/22/explosions-reported-at-russias-baltic-fleet-base-in-kaliningrad/",
+        "published_date": "2026-11-22"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "kaliningrad",
+      "information-operation"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-21-lebanese-president-aoun-said-on-21",
+    "event_date": "2026-11-21",
+    "source_time": null,
+    "headline": "Lebanese President Aoun said on 21 November that the era of weapons outside the state is over, called on Hezbollah to disarm, told Iran to stop interfering and demanded that Israel withdraw from all Lebanese territory.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/lebanons-aoun-tells-iran-to-stop-interfering-in-its-affairs-demands-israeli-withdrawal/",
+        "published_date": "2026-11-21"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "israel-lebanon-gaza",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "lebanon",
+      "hezbollah",
+      "disarmament"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-22-ukrainian-naval-drones-struck-the-russian",
+    "event_date": "2026-11-22",
+    "source_time": null,
+    "headline": "Naval drones struck the Russian corvette Merkury at the Benghazi naval base in eastern Libya on 22 November, and satellite imagery showed it capsized; Zelensky said Ukraine used seven drones and also hit the cargo ship Angara. Libya's eastern government asked for a UN investigation.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/23/russian-ships-hit-by-drones-off-libya-coast-what-do-we-know",
+        "published_date": "2026-11-23"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-warship-docked-in-benghazi-hit-by-suspected-drone-attack-libyan-officials-say/",
+        "published_date": "2026-11-22"
+      },
+      {
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/23/ukraine-russia-warship-libya.html",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "naval-drone",
+      "libya"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-22-cyprus-has-expelled-two-russian-embassy",
+    "event_date": "2026-11-22",
+    "source_time": null,
+    "headline": "Cyprus has expelled two Russian embassy staff suspected of espionage, two senior Cypriot officials said on 22 November; they were ordered out the previous week after its intelligence service tracked a network seeking confidential and EU-banned technology.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/23/cyprus-expels-russian-diplomats-suspected-of-espionage-reports-say-a94348",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "expulsion"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-22-drones-struck-homes-and-a-un",
+    "event_date": "2026-11-22",
+    "source_time": null,
+    "headline": "Drones struck homes and a UN building in Khartoum early on 22 November; the UN said a premises with staff inside was damaged, and an army source said the drones were launched from Ethiopia, which Ethiopia denies.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/africa/20261122-drone-strikes-hit-homes-and-un-building-in-sudan-s-khartoum",
+        "published_date": "2026-11-22"
+      },
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/23/world/drone-strikes-un-building-sudan/",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "sudan",
+      "drone",
+      "un"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-22-talks-between-netanyahus-likud-and-eisenkots",
+    "event_date": "2026-11-22",
+    "source_time": null,
+    "headline": "Talks between Netanyahu's Likud and Eisenkot's Yashar on a unity government ended without a deal on 22 November; Eisenkot, whose camp holds 48 seats, has until 6 December to form a government, with a possible 14-day extension.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/22/netanyahus-likud-eisenkots-yashar-end-coalition-talks-without-deal",
+        "published_date": "2026-11-22"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "israel-lebanon-gaza",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "israel-politics"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-nato-secretary-general-rutte-said-the",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "NATO Secretary General Rutte said the alliance will defend itself in space after German media, citing intelligence sources, reported that Russia could launch a nuclear-armed satellite as soon as December; the Kremlin dismissed the report.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/world/nato-vows-space-defense-after-russia-nuclear-satellite-report-3013760",
+        "published_date": "2026-11-23"
+      },
+      {
+        "name": "Euromaidan Press",
+        "url": "https://euromaidanpress.com/2026/11/23/washington-warned-of-a-russian-nuclear-satellite-in-2024-but-now-nato-allies-hear-the-launch-could-come-this-december/",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "space",
+      "nuclear"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-russias-foreign-ministry-summoned-estonias-charge",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "Russia's foreign ministry summoned Estonia's chargé d'affaires on 23 November over the closure of road crossings from 1 December, called Tallinn's plot claims unfounded, accused it of letting Ukrainian drones use its airspace and warned of \"the brink of an open war\".",
+    "body": "",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/23/moscow-summons-estonian-diplomat-over-border-closure-a94352",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "estonia",
+      "baltic"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-irans-foreign-ministry-said-on-23",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "Iran's foreign ministry said on 23 November it will use \"all available means\" against the US naval blockade, calling it military aggression, and that the Strait of Hormuz could reopen within two days if the US halts hostilities, lifts the blockade and waives sanctions.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/23/iran-says-it-will-use-all-available-means-to-counter-us-blockade",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "blockade",
+      "statement"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-iran-summoned-qatars-charge-daffaires-on",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "Iran summoned Qatar's chargé d'affaires on 23 November over a Qatar-Germany joint statement of 21 November that urged Iran to cooperate with the IAEA, stop arming the Houthis and keep the Strait of Hormuz open; Tehran called it baseless.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/iran-summons-qatari-diplomat-over-germany-joint-statement",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "mediation",
+      "qatar",
+      "germany"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-the-us-treasury-sanctioned-iranian-exchange",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "The US Treasury sanctioned Iranian exchange houses, including Mellat Exchange and the Iran Center for Exchange of Currency and Gold, and companies in the UAE, Turkey and Hong Kong on 23 November, targeting Iran's shadow banking network.",
+    "body": "",
+    "sources": [
+      {
+        "name": "OFAC",
+        "url": "https://ofac.treasury.gov/recent-actions/20261123",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "high",
+    "status": "reported",
+    "theaters": [
+      "sanctions-financial-warfare",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "sanctions",
+      "shadow-banking"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-lithuania-poland-germany-and-bulgaria-plan",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "Lithuania, Poland, Germany and Bulgaria plan a joint investigation team into arson attacks on Starlink sites, with prosecutors due to meet in early December; Poland's security services coordinator says Russian intelligence is behind them.",
+    "body": "",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3123336/lithuania-plans-joint-investigation-with-three-eu-countries-into-starlink-arson-attacks",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "cyber-infrastructure"
+    ],
+    "tags": [
+      "gray-zone",
+      "sabotage",
+      "starlink"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-yemens-houthis-said-a-saudiled-coalition",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "Yemen's Houthis said a Saudi-led coalition strike on telecoms facilities in Hodeidah killed 17 workers on 23 November; Saudi Arabia did not comment, and the coalition said it intercepted a ballistic missile aimed at the kingdom's western coast on 22 November.",
+    "body": "",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/yemens-houthis-say-saudi-attack-kills-17",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "red-sea-shipping"
+    ],
+    "tags": [
+      "houthi",
+      "saudi-arabia",
+      "claimed-casualties"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-23-iran-warned-armenia-and-the-us",
+    "event_date": "2026-11-23",
+    "source_time": null,
+    "headline": "Iran warned Armenia and the US against the US-backed TRIPP transit corridor through Syunik, with an adviser to Supreme Leader Mojtaba Khamenei telling them to \"learn from the Strait of Hormuz\".",
+    "body": "",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611233153",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "iran-hormuz"
+    ],
+    "tags": [
+      "gray-zone",
+      "caucasus",
+      "armenia"
     ],
     "feed_visibility": true,
     "timeline_visibility": false,

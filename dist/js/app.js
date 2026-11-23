@@ -1620,8 +1620,7 @@
   var FRESHNESS_SOURCES = [
     { l: "CoinGecko", k: "crypto" },
     { l: "Yahoo Finance", k: "markets" },
-    { l: "AAA Fuel", k: "gas" },
-    { l: "GDELT News", k: "news" }
+    { l: "News wires (NYT, BBC)", k: "news" }
   ];
   function FreshnessIndicator({ sources, lastRefreshAt, refreshErr }) {
     const [open, setOpen] = React.useState(false);
@@ -1729,6 +1728,11 @@
               } }, "stale") : React.createElement("span", { style: { fontSize: FS.xs, color: TEXT_DIM, letterSpacing: ".04em" } }, sourceLabel(st))
             );
           })
+        ),
+        React.createElement(
+          "div",
+          { style: { marginTop: 9, fontSize: FS.xs, color: TEXT_DIM, lineHeight: 1.5 } },
+          "Gas prices: AAA, captured once a day by the update pipeline; each tile shows its date."
         ),
         refreshErr && React.createElement("div", { style: {
           marginTop: 10,
@@ -3763,6 +3767,17 @@
       return f && f.match.includes(st);
     });
   }
+  function LiveWiresCard({ wires }) {
+    const [more, setMore] = useState(false);
+    const items = wires && wires.items || [];
+    const shown = more ? items : items.slice(0, 6);
+    const ago = (ts) => {
+      if (!ts) return "";
+      const m = Math.max(0, Math.round((Date.now() - ts) / 6e4));
+      return m < 60 ? `${m}m ago` : m < 48 * 60 ? `${Math.round(m / 60)}h ago` : "";
+    };
+    return /* @__PURE__ */ React.createElement(Card, { style: { padding: "16px 22px" } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: items.length ? 10 : 0 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Live wires \xB7 unverified"), items.length > 0 && /* @__PURE__ */ React.createElement(SourceBadge, { kind: "live", label: "RSS" }), /* @__PURE__ */ React.createElement(InfoTip, null, "The latest headlines on these conflicts from the New York Times and BBC News RSS feeds, refreshed at most every 15 minutes. They are shown as published: the board has not checked them, and they are not part of its sourced event record below.")), !items.length && /* @__PURE__ */ React.createElement("div", { style: { fontSize: 12.5, color: TEXT_MID } }, wires ? "No headlines on these conflicts in the last 48 hours." : "Loading the latest headlines\u2026"), shown.map((a, i) => /* @__PURE__ */ React.createElement("div", { key: i, style: { display: "flex", gap: 10, alignItems: "baseline", padding: "7px 0", borderTop: i ? `1px solid ${BORDER}` : "none" } }, /* @__PURE__ */ React.createElement(M, { style: { flexShrink: 0, width: 30, fontSize: 11, color: TEXT_DIM, fontWeight: 600 } }, a.outlet), a.url ? /* @__PURE__ */ React.createElement("a", { href: a.url, target: "_blank", rel: "noopener noreferrer", style: { flex: 1, minWidth: 0, fontSize: 13, color: TEXT_HI, textDecoration: "none", lineHeight: 1.45 } }, a.title) : /* @__PURE__ */ React.createElement("span", { style: { flex: 1, minWidth: 0, fontSize: 13, color: TEXT_HI, lineHeight: 1.45 } }, a.title), /* @__PURE__ */ React.createElement(M, { style: { flexShrink: 0, fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, ago(a.ts)))), items.length > 6 && /* @__PURE__ */ React.createElement("button", { onClick: () => setMore((v) => !v), className: "pressable tap-ext", style: { marginTop: 8, background: "none", border: "none", padding: 0, color: BLUE, fontSize: 12, fontWeight: 600, cursor: "pointer" } }, more ? "Show fewer" : `Show all ${items.length}`));
+  }
   function NewsList({ news, query, source, arcs, statuses, openCountry }) {
     const filtered = news.filter((n) => {
       if (source && source !== "ALL" && (n.s || "").toUpperCase() !== source) return false;
@@ -3772,7 +3787,7 @@
       return true;
     });
     const hasTime = filtered.some((n) => n.t);
-    return /* @__PURE__ */ React.createElement(Card, { className: "card-flush", style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Intelligence Feed \xB7 Most Recent First"), /* @__PURE__ */ React.createElement(SourceBadge, { kind: "live", label: "GDELT" })), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, filtered.length, " of ", news.length)), filtered.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 22px", textAlign: "center", fontSize: 13, color: TEXT_MID } }, "No items match the current filters."), filtered.map((item, i) => /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement(Card, { className: "card-flush", style: { padding: 0, overflow: "hidden" } }, /* @__PURE__ */ React.createElement("div", { style: { padding: "14px 22px", borderBottom: `1px solid ${BORDER}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 } }, /* @__PURE__ */ React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 10 } }, /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", textTransform: "uppercase", fontWeight: 600 } }, "Intelligence Feed \xB7 Most Recent First")), /* @__PURE__ */ React.createElement(M, { style: { fontSize: 11, color: TEXT_DIM, fontVariantNumeric: "tabular-nums" } }, filtered.length, " of ", news.length)), filtered.length === 0 && /* @__PURE__ */ React.createElement("div", { style: { padding: "32px 22px", textAlign: "center", fontSize: 13, color: TEXT_MID } }, "No items match the current filters."), filtered.map((item, i) => /* @__PURE__ */ React.createElement(
       "div",
       {
         key: i,
@@ -4054,7 +4069,7 @@
       return set && itemTheaters.some((t) => set.has(t));
     });
   };
-  function FeedTab({ news, openCountry, initialView, initialCountry, initialArc, onConsumeArc, priorVisit }) {
+  function FeedTab({ news, wires, openCountry, initialView, initialCountry, initialArc, onConsumeArc, priorVisit }) {
     const [view, setView] = useState(initialView || "timeline");
     const [query, setQuery] = useState("");
     const [source, setSource] = useState("ALL");
@@ -4149,7 +4164,7 @@
         color: { extreme: DANGER, critical: CRITICAL, high: AMBER }[s]
       },
       s
-    )), severities.length > 0 && /* @__PURE__ */ React.createElement("button", { onClick: () => setSeverities([]), style: { background: "none", border: "none", color: TEXT_MID, fontSize: 11, cursor: "pointer", marginLeft: 6 } }, "clear"))), view === "news" && /* @__PURE__ */ React.createElement(NewsList, { news, query, source, arcs, statuses, openCountry }), view === "timeline" && /* @__PURE__ */ React.createElement(Card, { style: { padding: "18px 22px" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase", marginBottom: 14 } }, "Conflict Timeline \xB7 Feb 28 \u2013 Present \xB7 Most Recent First"), /* @__PURE__ */ React.createElement(TimelineList, { severities, country, arcs, statuses, openCountry, priorVisit })));
+    )), severities.length > 0 && /* @__PURE__ */ React.createElement("button", { onClick: () => setSeverities([]), style: { background: "none", border: "none", color: TEXT_MID, fontSize: 11, cursor: "pointer", marginLeft: 6 } }, "clear"))), view === "news" && /* @__PURE__ */ React.createElement(LiveWiresCard, { wires }), view === "news" && /* @__PURE__ */ React.createElement(NewsList, { news, query, source, arcs, statuses, openCountry }), view === "timeline" && /* @__PURE__ */ React.createElement(Card, { style: { padding: "18px 22px" } }, /* @__PURE__ */ React.createElement("div", { style: { fontSize: 11, color: TEXT_DIM, letterSpacing: ".12em", fontWeight: 600, textTransform: "uppercase", marginBottom: 14 } }, "Conflict Timeline \xB7 Feb 28 \u2013 Present \xB7 Most Recent First"), /* @__PURE__ */ React.createElement(TimelineList, { severities, country, arcs, statuses, openCountry, priorVisit })));
   }
   function RiskList({ openCountry, sortBy }) {
     const sorted = [...RISK_COUNTRIES].sort((a, b) => {
@@ -4786,115 +4801,54 @@
     if (ok.length === 0) throw new Error("All market symbols failed");
     return { quoteResponse: { result: ok } };
   }
-  var AAA_HOST = "https://gasprices.aaa.com";
-  function extractAaaPrice(html) {
-    const m = html.match(/Today['’]?s\s+AAA[^$]*\$([1-9]\.\d{2,4})/i);
-    if (m) return parseFloat(m[1]);
-    const all = html.match(/\$([1-9]\.\d{2,3})\b/g);
-    if (all && all.length > 0) return parseFloat(all[0].slice(1));
-    return null;
+  var WIRE_FEEDS = [
+    { outlet: "NYT", url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml" },
+    { outlet: "NYT", url: "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml" },
+    { outlet: "NYT", url: "https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml" },
+    { outlet: "NYT", url: "https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml" },
+    { outlet: "BBC", url: "https://feeds.bbci.co.uk/news/world/rss.xml", bridge: true }
+  ];
+  var WIRE_BRIDGE = "https://r.jina.ai/";
+  var WIRE_MIN_INTERVAL_MS = 15 * 60 * 1e3;
+  var WIRE_MAX_AGE_MS = 48 * 3600 * 1e3;
+  var WIRE_MAX_ITEMS = 30;
+  var WIRE_TERMS = /\b(iran\w*|tehran|hormuz|israel\w*|gaza|lebanon|hezbollah|houthis?|yemen\w*|red sea|ukrain\w*|russia\w*|kremlin|putin|zelensky\w*|moscow|kyiv|nato|china|chinese|beijing|xi jinping|taiwan\w*|north korea\w*|pyongyang|brics|sanction\w*|missiles?|drones?|nuclear|ceasefire|troops|military|pentagon|airstrikes?|warships?|bahrain\w*|kuwait\w*|qatar\w*|saudi|iraq\w*|syria\w*|poland|polish|baltic|estonia\w*)\b/i;
+  function parseWireXml(xml, outlet) {
+    const doc = new DOMParser().parseFromString(xml, "text/xml");
+    if (doc.querySelector("parsererror")) throw new Error(outlet + ": not a feed");
+    return [...doc.querySelectorAll("item")].map((it) => {
+      const txt = (sel) => (it.querySelector(sel)?.textContent || "").trim();
+      const ts = Date.parse(txt("pubDate"));
+      return { title: txt("title"), url: txt("link") || null, ts: Number.isFinite(ts) ? ts : null, outlet };
+    }).filter((x) => x.title);
   }
-  function extractAaaLadderAfter(html, anchorRegex) {
-    const m = anchorRegex.exec(html);
-    if (!m) return null;
-    const start = m.index + m[0].length;
-    const slice = html.slice(start, start + 6e3);
-    const re = /Avg\.<\/td>\s*<td>\s*\$([1-9]\.\d{2,3})/gi;
-    const labels = ["current", "yesterday", "weekAgo", "monthAgo", "yearAgo"];
-    const out = {};
-    let mm, i = 0;
-    while ((mm = re.exec(slice)) !== null && i < labels.length) {
-      out[labels[i++]] = parseFloat(mm[1]);
+  var wireLast = null;
+  var wireAttemptAt = 0;
+  async function fetchWireNews() {
+    if (Date.now() - wireAttemptAt < WIRE_MIN_INTERVAL_MS) {
+      if (wireLast) return wireLast;
+      throw new Error("waiting before retrying the news wires");
     }
-    return Object.keys(out).length > 0 ? out : null;
-  }
-  function extractAaaNationalLadder(html) {
-    return extractAaaLadderAfter(html, /(?=Current Avg)/);
-  }
-  function extractAaaNationalDiesel(html) {
-    const m = /(?=Current Avg)/.exec(html);
-    if (!m) return null;
-    const tableStart = html.lastIndexOf("<table", m.index);
-    if (tableStart < 0) return null;
-    const heads = [...html.slice(tableStart, m.index).matchAll(/<th[^>]*>([\s\S]*?)<\/th>/gi)].map((h) => h[1].replace(/<[^>]*>/g, "").trim());
-    const col = heads.findIndex((t) => /^diesel$/i.test(t)) - 1;
-    if (col < 0) return null;
-    const keys = { "current": "current", "yesterday": "yesterday", "week ago": "weekAgo", "month ago": "monthAgo", "year ago": "yearAgo" };
-    const rowRe = /<td>\s*(Current|Yesterday|Week Ago|Month Ago|Year Ago)\s+Avg\.\s*<\/td>([\s\S]*?)<\/tr>/gi;
-    const slice = html.slice(tableStart, tableStart + 8e3);
-    const out = {};
-    let rm;
-    while ((rm = rowRe.exec(slice)) !== null) {
-      const prices = [...rm[2].matchAll(/\$(\d{1,2}\.\d{2,4})/g)].map((p) => parseFloat(p[1]));
-      if (prices.length !== heads.length - 1) continue;
-      const v = prices[col];
-      if (v > 1 && v < 20) out[keys[rm[1].toLowerCase()]] = +v.toFixed(3);
+    wireAttemptAt = Date.now();
+    const settled = await Promise.allSettled(WIRE_FEEDS.map(async (f) => {
+      const r = await fetchWithTimeout(
+        f.bridge ? WIRE_BRIDGE + f.url : f.url,
+        FETCH_TIMEOUT_MS,
+        f.bridge ? { headers: { "X-Return-Format": "html" } } : {}
+      );
+      if (!r.ok) throw new Error(f.outlet + " " + r.status);
+      return parseWireXml(await r.text(), f.outlet);
+    }));
+    const ok = settled.filter((x) => x.status === "fulfilled");
+    if (!ok.length) {
+      if (wireLast) return wireLast;
+      throw new Error("no news wire answered");
     }
-    return Object.keys(out).length > 0 ? out : null;
+    const cutoff = Date.now() - WIRE_MAX_AGE_MS;
+    const all = ok.flatMap((x) => x.value).filter((a) => WIRE_TERMS.test(a.title) && (a.ts == null || a.ts >= cutoff)).sort((a, b) => (b.ts || 0) - (a.ts || 0));
+    wireLast = { items: dedupeByTitle(all).slice(0, WIRE_MAX_ITEMS), fetchedAt: Date.now(), feedsOk: ok.length, feedsTotal: WIRE_FEEDS.length };
+    return wireLast;
   }
-  function extractAaaStateLadder(html, stateName) {
-    return extractAaaLadderAfter(html, new RegExp(stateName + "[\\s\\S]{0,80}average gas prices", "i"));
-  }
-  function extractAaaMetroLadder(html, metro) {
-    return extractAaaLadderAfter(html, new RegExp(metro, "i"));
-  }
-  function aaaRegionFromLadder(ladder) {
-    return ladder && ladder.current != null ? { price: ladder.current, ladder } : null;
-  }
-  async function fetchAaaPage(path, parse) {
-    return tryProxies(AAA_HOST + path, async (r) => {
-      const out = parse(await r.text());
-      return out && Object.values(out).some(Boolean) ? out : null;
-    });
-  }
-  async function fetchAaaGas(onRegions) {
-    const out = {};
-    const page = (path, parse) => fetchAaaPage(path, parse).then((regions) => {
-      for (const [k, v] of Object.entries(regions)) if (v) out[k] = v;
-      if (onRegions) {
-        try {
-          onRegions(regions);
-        } catch (_) {
-        }
-      }
-    });
-    await Promise.allSettled([
-      // National: the anchored ladder, else the "Today's AAA National Average"
-      // headline (correct on the national page). Diesel rides the same table; a
-      // missing Diesel column must not fail regular gas, so it is optional.
-      page("/", (html) => {
-        const ladder = extractAaaNationalLadder(html);
-        const price = ladder?.current ?? extractAaaPrice(html);
-        if (price == null) return null;
-        let diesel = null;
-        try {
-          diesel = extractAaaNationalDiesel(html);
-        } catch (_) {
-        }
-        return { national: { price, ladder, diesel } };
-      }),
-      page("/?state=CA", (html) => ({ california: aaaRegionFromLadder(extractAaaStateLadder(html, "California")) })),
-      page("/?state=OH", (html) => ({
-        ohio: aaaRegionFromLadder(extractAaaStateLadder(html, "Ohio")),
-        cincinnati: aaaRegionFromLadder(extractAaaMetroLadder(html, "Cincinnati"))
-      }))
-    ]);
-    if (!Object.keys(out).length) throw new Error("All AAA regions failed");
-    return out;
-  }
-  function aaaLadderToRows(ladder, fieldName) {
-    if (!ladder) return [];
-    const offsets = { current: 0, yesterday: 1, weekAgo: 7, monthAgo: 30, yearAgo: 365 };
-    const rows = [];
-    for (const [k, v] of Object.entries(ladder)) {
-      if (v == null || !isFinite(v)) continue;
-      const off = offsets[k];
-      if (off == null) continue;
-      rows.push({ date: dateOffsetISO(off), [fieldName]: v });
-    }
-    return rows;
-  }
-  var GDELT_URL = "https://api.gdeltproject.org/api/v2/doc/doc?query=%28Iran+OR+Hormuz+OR+nuclear+OR+ceasefire+OR+Tehran+OR+sanctions%29&mode=artlist&maxrecords=25&timespan=24h&format=json";
   function newsCountForSeverity(ww3pct) {
     if (ww3pct >= 65) return 18;
     if (ww3pct >= 50) return 15;
@@ -4911,37 +4865,10 @@
       return true;
     });
   }
-  async function fetchGdeltNews() {
-    const delays = [0, 800, 2e3];
-    let lastReason = { kind: "network" };
-    for (const delay of delays) {
-      if (delay) await new Promise((r) => setTimeout(r, delay));
-      let resp;
-      try {
-        resp = await fetch(GDELT_URL);
-      } catch (_) {
-        lastReason = { kind: "network" };
-        continue;
-      }
-      if (resp.ok) {
-        try {
-          return await resp.json();
-        } catch (_) {
-          throw { kind: "parse" };
-        }
-      }
-      if (resp.status === 429 || resp.status >= 500) {
-        lastReason = resp.status === 429 ? { kind: "ratelimit", status: 429 } : { kind: "http", status: resp.status };
-        continue;
-      }
-      throw { kind: "http", status: resp.status };
-    }
-    throw lastReason;
-  }
-  async function fetchUpdate(setMkt, setGas, setWw3, setThemes, setBreaking, setNews, setRefreshing, setRefreshCount, setRefreshErr, setLastUpdate, setSourceStatus) {
+  async function fetchUpdate(setMkt, setGas, setWw3, setThemes, setBreaking, setWires, setRefreshing, setRefreshCount, setRefreshErr, setLastUpdate, setSourceStatus) {
     setRefreshing(true);
     setRefreshErr(null);
-    if (setSourceStatus) setSourceStatus((s) => ({ ...s, crypto: "loading", markets: "loading", news: "loading", gas: "loading" }));
+    if (setSourceStatus) setSourceStatus((s) => ({ ...s, crypto: "loading", markets: "loading", news: "loading" }));
     const mark = (k, ok) => {
       if (setSourceStatus) setSourceStatus((s) => ({ ...s, [k]: ok ? "ok" : "fail" }));
     };
@@ -4997,53 +4924,18 @@
       mark("markets", marketsOK);
       return marketsOK;
     });
-    let gasOK = false;
-    const applyGasRegions = (regions) => {
-      const now = Date.now();
-      const patch = {};
-      const rows = [];
-      const today = dateOffsetISO(0);
-      const todayRow = { date: today };
-      const FIELD_SERIES = { national: "nat", california: "ca", ohio: "oh", cincinnati: "cin" };
-      for (const [field, key] of Object.entries(FIELD_SERIES)) {
-        const r = regions[field];
-        if (!r || r.price == null) continue;
-        patch[field] = r.price;
-        todayRow[key] = r.price;
-        rows.push(...aaaLadderToRows(r.ladder, key));
-      }
-      const dieselLadder = regions.national?.diesel ?? null;
-      if (dieselLadder?.current != null) {
-        patch.diesel = dieselLadder.current;
-        patch.dieselLadder = dieselLadder;
-        todayRow.dsl = dieselLadder.current;
-        rows.push(...aaaLadderToRows(dieselLadder, "dsl"));
-      }
-      const fields = Object.keys(patch).filter((k) => k !== "dieselLadder");
-      if (!fields.length) return;
-      const atPatch = {};
-      for (const f of fields) atPatch[f] = { ts: now, src: "live" };
-      setGas((prev) => {
-        const at = { ...prev.at || {}, ...atPatch };
-        const next = { ...prev, ...patch, at };
-        next.loaded = next.national != null;
-        return next;
-      });
-      const prevCache = priceCache.read().gas || {};
-      const cacheAt = { ...prevCache.at || {} };
-      for (const f of fields) cacheAt[f] = now;
-      priceCache.write({ gas: { ...prevCache, ...patch, at: cacheAt } });
-      if (Object.keys(todayRow).length > 1) rows.unshift(todayRow);
-      if (rows.length > 0) gasSeries.upsertRows(rows);
-      if (patch.national != null) gasOK = true;
-    };
-    const gasP = fetchAaaGas(applyGasRegions).catch(() => {
+    let newsOK = false;
+    let newsEmpty = false;
+    const newsP = fetchWireNews().then((w) => {
+      setWires(w);
+      newsOK = !!(w && w.items.length);
+      newsEmpty = !newsOK;
+    }).catch(() => {
     }).then(() => {
-      mark("gas", gasOK);
-      return gasOK;
+      mark("news", newsOK);
+      return newsOK;
     });
-    const newsP = fetchGdeltNews();
-    const [cryptoRes, , , gdRes] = await Promise.allSettled([cryptoP, marketsP, gasP, newsP]);
+    const [cryptoRes] = await Promise.allSettled([cryptoP, marketsP, newsP]);
     const cryptoOK = cryptoRes.status === "fulfilled" && cryptoRes.value === true;
     let updateCount = 0;
     const errors = [];
@@ -5051,57 +4943,18 @@
     else errors.push("Crypto");
     if (marketsOK) updateCount++;
     else errors.push("Markets");
-    if (gasOK) updateCount++;
-    else errors.push("Gas");
-    let newsOK = false;
-    let newsErrReason = null;
-    if (gdRes.status === "fulfilled") {
-      const articles = (gdRes.value?.articles || []).filter((a) => a.title && (!a.language || a.language.toLowerCase().startsWith("en")));
-      if (articles.length > 0) {
-        const unique = dedupeByTitle(articles);
-        const newsItems = unique.slice(0, newsCountForSeverity(WW3_PCT)).map((a) => {
-          let timeStr = "--:--";
-          try {
-            const d = String(a.seendate || "");
-            const iso = d.length >= 15 ? `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}T${d.slice(9, 11)}:${d.slice(11, 13)}:00Z` : `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6, 8)}`;
-            const dt = new Date(iso);
-            if (!isNaN(dt)) timeStr = dt.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
-          } catch (_) {
-          }
-          return {
-            t: timeStr,
-            s: (a.domain || "NEWS").replace(/^www\./, "").split(".")[0].toUpperCase().slice(0, 10),
-            h: a.title,
-            u: a.url || null
-          };
-        });
-        setNews(newsItems);
-        setBreaking(newsItems.slice(0, 4).map((n) => n.h.toUpperCase()));
-        updateCount++;
-        newsOK = true;
-      } else {
-        newsErrReason = "no articles";
-      }
-    } else {
-      const reason = gdRes.reason || {};
-      if (reason.kind === "ratelimit") newsErrReason = "rate-limited";
-      else if (reason.kind === "http") newsErrReason = `API ${reason.status || "error"}`;
-      else if (reason.kind === "parse") newsErrReason = "parse error";
-      else newsErrReason = "network";
-    }
-    if (!newsOK) errors.push(newsErrReason ? `News (${newsErrReason})` : "News");
+    if (newsOK) updateCount++;
+    else errors.push(newsEmpty ? "News wires (no matching headlines)" : "News wires");
     if (setSourceStatus) {
       setSourceStatus({
         crypto: cryptoOK ? "ok" : "fail",
         markets: marketsOK ? "ok" : "fail",
-        gas: gasOK ? "ok" : "fail",
         news: newsOK ? "ok" : "fail"
       });
     }
     const sources = [];
     if (cryptoOK) sources.push("Crypto");
     if (marketsOK) sources.push("Markets");
-    if (gasOK) sources.push("Gas");
     if (newsOK) sources.push("News");
     if (sources.length > 0) {
       setRefreshCount((c) => c + 1);
@@ -5433,13 +5286,14 @@
     const [ww3Live, setWw3Live] = useState(WW3_PCT);
     const [themesLive, setThemesLive] = useState(INIT_THEMES);
     const [breaking, setBreaking] = useState(INIT_BREAKING);
-    const [news, setNews] = useState(INIT_NEWS);
+    const [news] = useState(INIT_NEWS);
+    const [wires, setWires] = useState(null);
     const [tab, setTabRaw] = useState("overview");
     const [refreshing, setRefreshing] = useState(false);
     const [refreshCount, setRefreshCount] = useState(0);
     const [refreshErr, setRefreshErr] = useState(null);
     const [lastUpdate, setLastUpdate] = useState(BASE_LAST_UPDATE);
-    const [sourceStatus, setSourceStatus] = useState({ crypto: "idle", markets: "idle", gas: "idle", news: "idle" });
+    const [sourceStatus, setSourceStatus] = useState({ crypto: "idle", markets: "idle", news: "idle" });
     const [drawerCountry, setDrawerCountry] = useState(null);
     const [feedNav, setFeedNav] = useState({ country: null, view: null, arc: null });
     const [analysisTarget, setAnalysisTarget] = useState(null);
@@ -5506,7 +5360,7 @@
     }, [setTab]);
     const doRefresh = useCallback(() => {
       setLastRefreshAt(/* @__PURE__ */ new Date());
-      fetchUpdate(setMktLive, setGasLive, setWw3Live, setThemesLive, setBreaking, setNews, setRefreshing, setRefreshCount, setRefreshErr, setLastUpdate, setSourceStatus);
+      fetchUpdate(setMktLive, setGasLive, setWw3Live, setThemesLive, setBreaking, setWires, setRefreshing, setRefreshCount, setRefreshErr, setLastUpdate, setSourceStatus);
     }, []);
     const isMobile = useIsMobile(900);
     const isPhone = useIsMobile(640);
@@ -5566,7 +5420,7 @@
         case "overview":
           return /* @__PURE__ */ React.createElement(OverviewTab, { mkt: mktLive, gas: gasLive, ww3: ww3Live, themes: themesLive, openCountry, setTab, openFeed });
         case "feed":
-          return /* @__PURE__ */ React.createElement(FeedTab, { news, openCountry, initialCountry: feedNav.country, initialView: feedNav.view, initialArc: feedNav.arc, onConsumeArc: () => setFeedNav((n) => ({ ...n, arc: null })), priorVisit });
+          return /* @__PURE__ */ React.createElement(FeedTab, { news, wires, openCountry, initialCountry: feedNav.country, initialView: feedNav.view, initialArc: feedNav.arc, onConsumeArc: () => setFeedNav((n) => ({ ...n, arc: null })), priorVisit });
         case "actors":
           return /* @__PURE__ */ React.createElement(ActorsTab, { openCountry });
         case "economy":

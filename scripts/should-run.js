@@ -74,7 +74,7 @@ function main() {
     say("PUBLISH_PENDING", `the update of ${run.date} completed but is not published`);
   }
 
-  // Cadence: L.CADENCE_MS (40 h) since the last automated publish on origin/master; before the first one, the committed build time.
+  // Cadence: L.CADENCE_MS (12 h) since the last automated publish on origin/master; before the first one, the committed build time.
   const last = L.git(["log", "-1", "--format=%ct", "origin/master", "--grep", `^${L.TRAILER}$`]).trim();
   let lastMs = last ? Number(last) * 1000 : NaN, basis = "the last automated publish";
   if (Number.isNaN(lastMs)) {

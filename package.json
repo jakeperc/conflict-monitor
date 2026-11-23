@@ -8,6 +8,7 @@
     "reconcile:history": "node scripts/reconcile-escalation-history.js",
     "update:markets": "node scripts/update-markets.js",
     "backfill:diesel": "node scripts/backfill-diesel.js",
+    "backfill:brent": "node scripts/backfill-brent.js",
     "fetch:feeds": "node scripts/fetch-feeds.js",
     "build": "node scripts/build.js",
     "validate:html": "node scripts/validate-html.js",

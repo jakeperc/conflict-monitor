@@ -2,7 +2,7 @@
 
 By Jake Percy. Method {{methodVersion}}. Dashboard: {{site}}
 
-This is the public description of how the dashboard's headline figure and its four sub-axes are produced. The page labels the figure "WW3 Probability"; the data calls it ww3_pct. It is an editorial judgement index. In the page's words it is "not a scientific forecast, a betting-market price, or a statistically scored prediction."
+This is the public description of how the dashboard's headline figure and its four sub-axes are produced. The page labels the figure "Escalation Index" and shows it out of 100; the data calls it ww3_pct. It is an editorial judgement index, not a probability. Until November 2026 the page labelled it "WW3 Probability" and showed it as a percentage. That label was dropped because the figure is an average of four ordinal scores, not the chance of any event, and no forecast on the board scored it as one.
 
 ## How updates are made
 
@@ -10,7 +10,7 @@ Updates are produced by an automated, LLM-assisted pipeline and published withou
 
 ## What the figure refers to
 
-From the page: "The chance, within the next 12 months, of a war fought directly between major powers. Specifically: two or more of the five permanent UN Security Council members (the US, Russia, China, the UK and France) fighting each other with their own forces, rather than through allies or proxies. The current US-Israel-Iran war is a regional conflict and does not by itself count - the threshold is crossed only if one of those five powers enters the fighting directly."
+From the page: "A 0-100 score of how far the conflicts have climbed an escalation ladder whose top rungs are direct war between major powers and nuclear use. It is the average of four sub-scores (kinetic intensity, great-power involvement, nuclear posture, alliance stress), each set by editorial judgement against written bands and historical anchors. It is not a probability: a reading of 66 out of 100 does not mean a 66% chance of anything." The board's dated predictions, which are scored against what happened, are the forecast register on the Outlook tab, not this figure.
 
 ## The headline rule
 

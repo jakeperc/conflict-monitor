@@ -826,13 +826,13 @@ function GlanceMode({ active, onClose, ww3, mkt, gas, conflictDay, latestHeadlin
       </button>
       <div className="glance-card" onClick={e => e.stopPropagation()}>
         <div>
-          <Eyebrow mb={6} color={TEXT_MID} style={{ textAlign:"center" }}>Day {conflictDay} · WW3 Probability</Eyebrow>
+          <Eyebrow mb={6} color={TEXT_MID} style={{ textAlign:"center" }}>Day {conflictDay} · Escalation Index</Eyebrow>
           <div className="display" style={{
             fontSize: 96, fontWeight: 600, color: ww3Color, lineHeight: .9,
             letterSpacing: "-.05em", fontVariantNumeric: "tabular-nums",
             fontVariationSettings: "'opsz' 96", textAlign: "center",
           }}>
-            {ww3}<span style={{ fontSize: 40, opacity: .55 }}>%</span>
+            {ww3}<span style={{ fontSize: 40, opacity: .55 }}>/100</span>
           </div>
           <div style={{ marginTop: 10, display: "flex", justifyContent: "center", gap: 12 }}>
             <span style={{
@@ -1889,7 +1889,7 @@ function MarketBar({ mkt, ww3, tick = 0 }) {
     { l:"WTI",       v: lvWTI   ? fmt.money(mkt.WTI.price) : null,                         c: lvWTI   ? mkt.WTI.chg   : null, sym:"WTI" },
     { l:"BRENT",     v: lvBRENT ? fmt.money(mkt.BRENT.price) : null,                       c: lvBRENT ? mkt.BRENT.chg : null, sym:"BRENT" },
     { l:"HORMUZ",    v: HORMUZ_STATUS ? HORMUZ_STATUS.label : "—", c:null, hi:AMBER },
-    { l:"WW3%",      v:`${ww3}%`,    c:null, hi:ww3>60?DANGER:ww3>40?AMBER:GREEN },
+    { l:"ESCALATION", v:`${ww3}/100`,    c:null, hi:ww3>60?DANGER:ww3>40?AMBER:GREEN },
   ];
   // Pulse on change: track previous chip values and animate when they differ.
   const prevRef = useRef({});
@@ -2238,7 +2238,7 @@ function StatusBar({ sources, lastRefreshAt, ww3, tab, theme, onPaletteOpen, onB
       <span style={{ color:TEXT_DIM }}>·</span>
       <span><RelativeTime since={lastRefreshAt} /></span>
       <span style={{ color:TEXT_DIM }}>·</span>
-      <span>WW3 <M style={{ color: ww3 > 60 ? DANGER : ww3 > 40 ? AMBER : GREEN, fontWeight:600 }}>{ww3}%</M></span>
+      <span>Escalation <M style={{ color: ww3 > 60 ? DANGER : ww3 > 40 ? AMBER : GREEN, fontWeight:600 }}>{ww3}/100</M></span>
       <span style={{ color:TEXT_DIM }}>·</span>
       <span style={{ color:TEXT_DIM }}>{TAB_LABELS[tab]} · {theme}</span>
       <div style={{ flex:1 }} />
@@ -2696,6 +2696,36 @@ function Next7Strip({ setTab }) {
   );
 }
 
+// TrackRecordCard — Overview's summary of the scored forecast register. The index
+// above it is editorial judgement; this card is the part of the board that is
+// checked against what happened. Renders nothing when no forecast has resolved.
+function TrackRecordCard({ setTab }) {
+  const cal = OUTLOOK.calibration;
+  if (!cal || !cal.total_resolved) return null;
+  return (
+    <RevealOnView delay={60}>
+      <Card style={{ padding:"18px 20px" }}>
+        <div style={{ display:"flex", alignItems:"baseline", gap:10, marginBottom:6, flexWrap:"wrap" }}>
+          <Eyebrow mb={0} color={BLUE}>Track Record · Scored Forecasts</Eyebrow>
+        </div>
+        <div style={{ fontSize:13, color:TEXT_MID, lineHeight:1.5, marginBottom:14, maxWidth:640 }}>
+          Unlike the index above, these are dated yes-or-no predictions, each scored against what actually happened.
+        </div>
+        <TrackRecordScores cal={cal} compact />
+        <button
+          onClick={() => setTab && setTab("outlook")}
+          className="pressable tap-ext"
+          style={{
+            marginTop:14, background:"none", border:"none", padding:0,
+            color:BLUE, fontSize:12, fontWeight:600, letterSpacing:".04em", cursor:"pointer",
+            display:"inline-flex", alignItems:"center", gap:6,
+          }}
+        >See every resolved forecast →</button>
+      </Card>
+    </RevealOnView>
+  );
+}
+
 // The header's WW3 button asks Overview to open its "Why N%?" expander. Overview
 // may not be mounted yet when the request is made (another tab is showing), so
 // the request is a pending flag Overview consumes on mount, plus an event for
@@ -2807,7 +2837,7 @@ function GlobePreviewCard({ setTab }) {
       <div style={{ padding:"18px 20px", display:"flex", flexDirection:"column", gap:10, justifyContent:"center", minWidth:0 }}>
         <Eyebrow mb={0} color={BLUE}>Theater Globe</Eyebrow>
         <div style={{ fontSize:14, color:TEXT_BODY, lineHeight:1.5 }}>
-          The board in 3D, with a day-by-day replay of the WW3 index since Feb 28.
+          The board in 3D, with a day-by-day replay of the escalation index since Feb 28.
         </div>
         <div style={{ fontSize:12, color:TEXT_DIM, fontVariantNumeric:"tabular-nums", lineHeight:1.5 }}>
           {hotspots.length} hotspots · {arcs.length} active arcs{asOf ? ` · as of ${asOf}` : ""}
@@ -2900,12 +2930,12 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
           <div className="ww3-hero-row" style={{ display:"flex", alignItems:"flex-end", gap:24, marginBottom:14, position:"relative", flexWrap:"wrap" }}>
             <div style={{ display:"flex", flexDirection:"column", gap:6, minWidth:0 }}>
               <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-                <Eyebrow mb={0} color={TEXT_MID}>WW3 Probability</Eyebrow>
+                <Eyebrow mb={0} color={TEXT_MID}>Escalation Index</Eyebrow>
                 <SourceBadge kind="scenario" />
-                <InfoTip>The chance, within the next 12 months, of a war fought directly between major powers. Specifically: two or more of the five permanent UN Security Council members (the US, Russia, China, the UK and France) fighting each other with their own forces, rather than through allies or proxies. The current US-Israel-Iran war is a regional conflict and does not by itself count — the threshold is crossed only if one of those five powers enters the fighting directly. The number is our editorial judgement, drawn from the escalation ladder, what the main actors are doing, and market and conflict data. It is not a scientific forecast, a betting-market price, or a statistically scored prediction.</InfoTip>
+                <InfoTip>A 0-100 score of how far the conflicts have climbed an escalation ladder whose top rungs are direct war between major powers and nuclear use. It is the average of four sub-scores (kinetic intensity, great-power involvement, nuclear posture, alliance stress), each set by editorial judgement against written bands and historical anchors. It is not a probability: a reading of 66 out of 100 does not mean a 66% chance of anything. For dated predictions that are scored against what happened, see the track record below and the Outlook tab.</InfoTip>
               </div>
               <div className="display" style={{ fontSize:72, fontWeight:600, color:ww3Color, lineHeight:.95, letterSpacing:"-.045em", fontVariantNumeric:"tabular-nums", fontVariationSettings:"'opsz' 72" }}>
-                <TickingNumber value={ww3} duration={1100} /><span style={{ fontSize:32, color:ww3Color, opacity:.55, marginLeft:2, letterSpacing:"-.02em" }}>%</span>
+                <TickingNumber value={ww3} duration={1100} /><span style={{ fontSize:32, color:ww3Color, opacity:.55, marginLeft:2, letterSpacing:"-.02em" }}>/100</span>
               </div>
             </div>
             <div style={{ display:"flex", flexDirection:"column", gap:8, paddingBottom:14, fontFamily:SANS, fontVariantNumeric:"tabular-nums" }}>
@@ -2920,7 +2950,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                 }}>
                   {fmt.arrow(ww3Delta)} {fmt.abs(ww3Delta)} pts <span style={{ color:TEXT_DIM, fontWeight:500, marginLeft:3 }}>{WW3_DELTA_SPAN}</span>
                 </span>
-                <span style={{ fontSize:11, color:TEXT_DIM }}>peak {Math.max(...WW3_SERIES_VALUES)}% · floor {Math.min(...WW3_SERIES_VALUES)}%</span>
+                <span style={{ fontSize:11, color:TEXT_DIM }}>peak {Math.max(...WW3_SERIES_VALUES)} · floor {Math.min(...WW3_SERIES_VALUES)}</span>
               </div>
               <span
                 title={`${currentRung.label} — ${currentRung.trigger}`}
@@ -2949,7 +2979,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
               variant="mini"
               color={ww3Color}
               height={56}
-              unit="%"
+              unit=""
               format={(v) => `${Math.round(v)}`}
             />
           </div>
@@ -3057,7 +3087,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
             }}
           >
             <span style={{ display:"flex", alignItems:"baseline", gap:10, flexWrap:"wrap", minWidth:0 }}>
-              <span style={{ fontSize:13, fontWeight:600, color:TEXT_HI }}>Why {ww3}%?</span>
+              <span style={{ fontSize:13, fontWeight:600, color:TEXT_HI }}>Why {ww3}?</span>
               <span style={{ fontSize:12, color:TEXT_DIM }}>Escalation ladder and the four axes behind the number</span>
             </span>
             <span aria-hidden="true" style={{
@@ -3074,7 +3104,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                 const curPct = Math.floor(ww3 / 10) * 10;
                 return (
                   <>
-                    <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>Escalation ladder · WW3 probability thresholds</div>
+                    <div style={{ fontSize:FS.xs, color:TEXT_MID, letterSpacing:".12em", textTransform:"uppercase", fontWeight:600, marginBottom:12 }}>Escalation ladder · index thresholds</div>
                     <div style={{ display:"flex", gap:3, alignItems:"flex-end" }}>
                       {ESCALATION_LADDER.map(rung => {
                         const current = rung.pct === curPct;
@@ -3082,7 +3112,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                         return (
                           <div
                             key={rung.pct}
-                            title={`${rung.pct}% · ${rung.label}`}
+                            title={`${rung.pct} · ${rung.label}`}
                             style={{
                               flex:1, height: current ? 16 : 9, borderRadius:3,
                               background: current ? AMBER : passed ? alpha(DANGER, .25) : RAISE_2,
@@ -3095,7 +3125,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                       })}
                     </div>
                     <div style={{ marginTop:8, fontSize:12, color:TEXT_MID, fontFamily:SANS, fontVariantNumeric:"tabular-nums" }}>
-                      <span style={{ color:AMBER, fontWeight:600 }}>{currentRung.pct}%</span> · {currentRung.label}
+                      <span style={{ color:AMBER, fontWeight:600 }}>{currentRung.pct}</span> · {currentRung.label}
                     </div>
                   </>
                 );
@@ -3112,7 +3142,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                 </div>
                 <div style={{ display:"flex", gap:8, marginTop:16, fontSize:11.5, color:TEXT_DIM, lineHeight:1.55 }}>
                   <span style={{ flexShrink:0, color:TEXT_MID }}>ⓘ</span>
-                  <span>The axes are not points on the same line — alliance cohesion can degrade without WMD posture moving, and vice versa. WW3% weights Great-Power Involvement most heavily (matches the ≥2 P5 in direct kinetic conflict definition on the hero tooltip). The 10-rung ladder above is a composite descriptor of the joint state, not a single dimension.</span>
+                  <span>The axes are not points on the same line — alliance cohesion can degrade without WMD posture moving, and vice versa. The index is the plain average of the four, each weighted equally. The 10-rung ladder above is a composite descriptor of the joint state, not a single dimension.</span>
                 </div>
               </div>
 
@@ -3144,7 +3174,7 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
                         transition:"background .25s ease, border-color .25s ease",
                       }}
                     >
-                      <M style={{ fontSize:13, fontWeight:600, color:labelColor, width:42, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{rung.pct}%</M>
+                      <M style={{ fontSize:13, fontWeight:600, color:labelColor, width:42, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{rung.pct}</M>
                       <div style={{ width:1, height:20, background:BORDER, flexShrink:0 }} />
                       <span className="ladder-label" style={{ fontSize:13, fontWeight:600, color:labelColor, width:180, flexShrink:0 }}>{rung.label}</span>
                       <span className="ladder-trigger" style={{ fontSize:13, color: passed ? TEXT_DIM : current ? TEXT_BODY : TEXT_DIM, lineHeight:1.4 }}>{rung.trigger}</span>
@@ -3158,6 +3188,10 @@ function OverviewTab({ mkt, gas, ww3, themes, openCountry, setTab, openFeed }) {
           )}
         </div>
       </Card>
+
+      {/* Track record — the board's scored predictions, directly under the index so the
+          checkable number sits beside the judgement one. */}
+      <TrackRecordCard setTab={setTab} />
 
       {/* Today · What Changed — the day's developments in plain language, leading the news block */}
       <RevealOnView delay={80}>
@@ -5587,41 +5621,86 @@ function ForecastRow({ f, openCountry }) {
 
 // Resolved-forecast track record + calibration. Brier and reliability buckets
 // are derived in scripts/build.js from real outcomes (no synthetic data).
+// The scored record in one block: how many calls resolved, how often the final
+// call landed on the right side of 50% (beside what always saying "no" would
+// score), and the Brier score three ways, each against the base-rate guess.
+// Used on Overview (compact) and in the Outlook panel. All figures come from
+// scripts/build.js; nothing here is estimated.
+function TrackRecordScores({ cal, compact = false }) {
+  if (!cal || !cal.total_resolved) return null;
+  const resolved = cal.resolved || [];
+  const scored = resolved.filter(r => r.hit != null);
+  const hits = scored.filter(r => r.hit).length;
+  const hitPct = scored.length ? Math.round((hits / scored.length) * 100) : null;
+  const base = cal.base_rate;
+  // The share a forecaster would get right by always backing the more common outcome.
+  const naivePct = base == null ? null : Math.round(Math.max(base, 1 - base) * 100);
+  const naiveWord = base == null ? null : base < 0.5 ? "no" : "yes";
+  const f2 = (x) => (x == null ? "—" : x.toFixed(2));
+  const bColor = (x) => (x == null || cal.brier_baseline == null ? TEXT_HI : x < cal.brier_baseline ? GREEN : x <= 0.25 ? AMBER : DANGER);
+  const scores = [
+    { k:"opening",  label:"First call",   v:cal.brier_opening,  tip:"Each forecast scored on the probability it was first published with, before any updates." },
+    { k:"lifetime", label:"Whole life",   v:cal.brier_lifetime, tip:"Each forecast scored on every probability it carried, weighted by the number of days each one stood." },
+    { k:"settled",  label:"Final call",   v:cal.brier,          tip:"Each forecast scored on the last probability published before it resolved. Updates made close to the deadline are easier, so this is the most flattering of the three." },
+  ];
+  const big = compact ? 24 : 30;
+  return (
+    <div style={{ display:"flex", flexDirection:"column", gap: compact ? 12 : 16 }}>
+      <div style={{ display:"flex", gap: compact ? 22 : 30, flexWrap:"wrap" }}>
+        <div>
+          <M className="display" style={{ fontSize:big, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{cal.total_resolved}</M>
+          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>forecasts resolved</div>
+        </div>
+        {hitPct != null && (
+          <div>
+            <M className="display" style={{ fontSize:big, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{hitPct}%</M>
+            <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"flex", alignItems:"center" }}>
+              final call on the right side of 50%
+              <InfoTip>{hits} of {scored.length}. A forecast counts as right when its final probability was 50% or more and the event happened, or under 50% and it did not.{naivePct != null && <> Always answering "{naiveWord}" would have scored {naivePct}%, so this figure says little on its own; the Brier scores beside it are the real test.</>}</InfoTip>
+            </div>
+            {naivePct != null && <div style={{ fontSize:11, color:TEXT_DIM, marginTop:2 }}>always "{naiveWord}": {naivePct}%</div>}
+          </div>
+        )}
+      </div>
+      <div>
+        <div style={{ fontSize:11, color:TEXT_MID, marginBottom:8, display:"flex", alignItems:"center" }}>
+          Brier score · lower is better
+          <InfoTip>The mean squared gap between each probability and what happened (1 if it happened, 0 if not). Always guessing 50% scores 0.25. Always guessing the base rate ({base == null ? "—" : `${Math.round(base * 100)}%`} of these events happened) scores {f2(cal.brier_baseline)}; a score below that shows skill.</InfoTip>
+        </div>
+        <div style={{ display:"flex", gap: compact ? 18 : 26, flexWrap:"wrap", alignItems:"flex-end" }}>
+          {scores.map(s => (
+            <div key={s.k}>
+              <M className="display" style={{ fontSize: compact ? 20 : 24, fontWeight:600, color:bColor(s.v), letterSpacing:"-.02em", lineHeight:1 }}>{f2(s.v)}</M>
+              <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"flex", alignItems:"center" }}>{s.label}<InfoTip>{s.tip}</InfoTip></div>
+            </div>
+          ))}
+          <div style={{ paddingLeft: compact ? 12 : 16, borderLeft:`1px solid ${BORDER}` }}>
+            <M className="display" style={{ fontSize: compact ? 20 : 24, fontWeight:600, color:TEXT_MID, letterSpacing:"-.02em", lineHeight:1 }}>{f2(cal.brier_baseline)}</M>
+            <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>base-rate guess</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CalibrationPanel({ cal }) {
   const [showResolved, setShowResolved] = useState(false);
   if (!cal || !cal.total_resolved) return null;
-  const brier = cal.brier;
-  const brierColor = brier == null ? TEXT_MID : brier <= 0.18 ? GREEN : brier <= 0.25 ? AMBER : DANGER;
   const liveBuckets = (cal.buckets || []).filter(b => b.predicted > 0);
   const resolved = cal.resolved || [];
-  const hits = resolved.filter(r => r.hit).length;
   return (
     <Card style={{ padding:22 }}>
       <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:18, flexWrap:"wrap" }}>
         <div style={{ fontSize:11, color:TEXT_DIM, letterSpacing:".12em", fontWeight:600, textTransform:"uppercase" }}>Track Record · Calibration</div>
         <SourceBadge kind="scenario" />
       </div>
-      <div style={{ display:"flex", gap:30, flexWrap:"wrap", marginBottom: liveBuckets.length ? 20 : 4 }}>
-        <div>
-          <M className="display" style={{ fontSize:30, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{cal.total_resolved}</M>
-          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>forecasts resolved</div>
-        </div>
-        <div>
-          <M className="display" style={{ fontSize:30, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{hits}<span style={{ fontSize:16, color:TEXT_DIM, fontWeight:500 }}>/{cal.total_resolved}</span></M>
-          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>called correctly</div>
-        </div>
-        <div>
-          <M className="display" style={{ fontSize:30, fontWeight:600, color:TEXT_HI, letterSpacing:"-.025em", lineHeight:1 }}>{cal.total_resolved ? `${Math.round((hits / cal.total_resolved) * 100)}%` : "—"}</M>
-          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5 }}>correct</div>
-        </div>
-        <div>
-          <M className="display" style={{ fontSize:30, fontWeight:600, color:brierColor, letterSpacing:"-.025em", lineHeight:1 }}>{brier == null ? "—" : brier.toFixed(2)}</M>
-          <div style={{ fontSize:11, color:TEXT_DIM, marginTop:5, display:"flex", alignItems:"center" }}>Brier score<InfoTip>Mean squared error of each forecast's opening probability against what actually happened. Lower is better; 0.25 is what you'd score always guessing 50%.</InfoTip></div>
-        </div>
+      <div style={{ marginBottom: liveBuckets.length ? 20 : 4 }}>
+        <TrackRecordScores cal={cal} />
       </div>
       {liveBuckets.length > 0 && (
         <div style={{ display:"flex", flexDirection:"column", gap:9 }}>
-          <Eyebrow mb={2}>Reliability — of the calls we rated…</Eyebrow>
+          <Eyebrow mb={2}>Reliability — of the final calls we rated…</Eyebrow>
           {liveBuckets.map(b => {
             const rate = b.predicted ? b.occurred / b.predicted : 0;
             return (
@@ -5645,10 +5724,14 @@ function CalibrationPanel({ cal }) {
             <div style={{ marginTop:13, display:"flex", flexDirection:"column", gap:9 }}>
               {resolved.map((r, i) => (
                 <div key={i} style={{ display:"flex", gap:10, alignItems:"flex-start", fontSize:12.5, lineHeight:1.55 }}>
-                  <span style={{ flexShrink:0, color: r.hit ? GREEN : DANGER, fontWeight:700, width:13 }}>{r.hit ? "✓" : "✗"}</span>
+                  <span title={r.hit == null ? "Not scored" : "Judged on the final call: right side of 50% or not"} style={{ flexShrink:0, color: r.hit == null ? TEXT_DIM : r.hit ? GREEN : DANGER, fontWeight:700, width:13 }}>{r.hit == null ? "–" : r.hit ? "✓" : "✗"}</span>
                   <div style={{ flex:1, minWidth:0, color:TEXT_BODY }}>
                     {scrubCodes(r.question)}
-                    <M style={{ color:TEXT_DIM, marginLeft:6, fontSize:11, whiteSpace:"nowrap" }}>called {Math.round(r.initial_probability*100)}% · {r.occurred ? "happened" : "did not"}</M>
+                    <M style={{ color:TEXT_DIM, marginLeft:6, fontSize:11, whiteSpace:"nowrap" }}>
+                      {r.initial_probability == null ? "first call —" : `first ${Math.round(r.initial_probability*100)}%`}
+                      {r.final_probability != null && ` · final ${Math.round(r.final_probability*100)}%`}
+                      {" · "}{r.occurred ? "happened" : "did not"}
+                    </M>
                   </div>
                 </div>
               ))}
@@ -6754,11 +6837,11 @@ function BriefingMode({ active, onClose, ww3, mkt, gas, conflictDay }) {
       const visibleRungs = ESCALATION_LADDER.slice(lo, hi + 1);
       return (
         <div style={{ maxWidth:1040, width:"100%" }}>
-          <Eyebrow mb={12} color={TEXT_MID}>WW3 Probability · Escalation Ladder</Eyebrow>
+          <Eyebrow mb={12} color={TEXT_MID}>Escalation Index · Escalation Ladder</Eyebrow>
           <div style={{ display:"grid", gridTemplateColumns:"auto 1fr", gap:36, alignItems:"center" }}>
             <div>
               <div className="display" style={{ fontSize:180, fontWeight:600, color:ww3Color, lineHeight:.9, letterSpacing:"-.05em", fontVariantNumeric:"tabular-nums", fontVariationSettings:"'opsz' 96" }}>
-                <TickingNumber value={ww3} duration={1100} /><span style={{ fontSize:64, opacity:.55 }}>%</span>
+                <TickingNumber value={ww3} duration={1100} /><span style={{ fontSize:64, opacity:.55 }}>/100</span>
               </div>
               <div style={{ marginTop:14, display:"flex", alignItems:"center", gap:10 }}>
                 <span style={{ fontFamily:SANS, fontSize:12, fontWeight:600, letterSpacing:".10em", color:ww3Color, padding:"4px 11px", borderRadius:999, background:alpha(ww3Color, .09), border:`1px solid ${alpha(ww3Color, .23)}` }}>Rung {currentRung.pct} · {currentRung.label}</span>
@@ -6766,7 +6849,7 @@ function BriefingMode({ active, onClose, ww3, mkt, gas, conflictDay }) {
               <div style={{ marginTop:18 }}>
                 <div style={{ maxWidth:340 }}>
                   <EventSeriesChart series={WW3_SERIES} variant="mini" height={64} color={ww3Color}
-                    yMin={0} yMax={70} format={(v) => `${Math.round(v)}`} unit="%" />
+                    yMin={0} yMax={70} format={(v) => `${Math.round(v)}`} unit="" />
                 </div>
               </div>
             </div>
@@ -6778,7 +6861,7 @@ function BriefingMode({ active, onClose, ww3, mkt, gas, conflictDay }) {
                 const labelColor = passed ? DANGER : current ? AMBER : TEXT_MID;
                 return (
                   <div key={rung.pct} className={current ? "glow-rung" : ""} style={{ display:"flex", alignItems:"center", gap:12, padding:"9px 14px", borderRadius:8, background: current ? alpha(AMBER, .12) : passed ? alpha(DANGER, .04) : "transparent", border:`1px solid ${current ? alpha(AMBER, .36) : passed ? alpha(DANGER, .10) : "transparent"}` }}>
-                    <M style={{ fontSize:14, fontWeight:700, color:labelColor, width:44, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{rung.pct}%</M>
+                    <M style={{ fontSize:14, fontWeight:700, color:labelColor, width:44, flexShrink:0, fontVariantNumeric:"tabular-nums" }}>{rung.pct}</M>
                     <span style={{ fontSize:14, fontWeight:600, color:labelColor, flex:1 }}>{rung.label}</span>
                     {current && <M style={{ fontSize:FS.xs, fontWeight:600, color:AMBER, letterSpacing:".12em", padding:"2px 8px", borderRadius:999, background:alpha(AMBER, .18), border:`1px solid ${alpha(AMBER, .40)}`, flexShrink:0 }}>NOW</M>}
                   </div>
@@ -6795,7 +6878,7 @@ function BriefingMode({ active, onClose, ww3, mkt, gas, conflictDay }) {
       <div style={{ maxWidth:1040, width:"100%" }}>
         <Eyebrow mb={14} color={TEXT_MID}>Active Theaters · Day {conflictDay}</Eyebrow>
         <div className="display" style={{ fontSize:30, fontWeight:600, color:TEXT_HI, marginBottom:24, letterSpacing:"-.015em", fontVariationSettings:"'opsz' 30" }}>
-          {theaters.length} active theaters · WW3 at <span style={{ color:ww3Color }}>{ww3}%</span>
+          {theaters.length} active theaters · escalation index <span style={{ color:ww3Color }}>{ww3}/100</span>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14 }}>
           {theaters.map(t => (
@@ -6938,7 +7021,7 @@ function BriefingMode({ active, onClose, ww3, mkt, gas, conflictDay }) {
   ];
   const slideTitles = [
     "Lead Development",
-    "WW3 + Escalation",
+    "Escalation Index",
     "Active Theaters",
     "Key Developments",
     "Last 14 Days",
@@ -7394,9 +7477,9 @@ function App() {
               fontFamily:SANS, textAlign:"left",
             }}
           >
-            <M style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", fontWeight:600, textTransform:"uppercase" }}>WW3</M>
+            <M style={{ fontSize:FS.xs, color:TEXT_DIM, letterSpacing:".1em", fontWeight:600, textTransform:"uppercase" }}>Escalation</M>
             <div style={{ display:"flex", alignItems:"baseline", gap:6 }}>
-              <M style={{ fontSize:14, color:ww3Color, fontWeight:600, fontVariantNumeric:"tabular-nums", letterSpacing:"-.01em" }}>{ww3Live}%</M>
+              <M style={{ fontSize:14, color:ww3Color, fontWeight:600, fontVariantNumeric:"tabular-nums", letterSpacing:"-.01em" }}>{ww3Live}<span style={{ color:TEXT_DIM, fontWeight:500 }}>/100</span></M>
               <M style={{ fontSize:FS.xs, color: ww3Delta >= 0 ? DANGER : GREEN, fontWeight:500 }}>{ww3Delta >= 0 ? "↑+" : "↓"}{Math.abs(ww3Delta)}</M>
             </div>
           </button>

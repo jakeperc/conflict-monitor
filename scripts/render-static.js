@@ -49,11 +49,11 @@ function renderHeader(meta) {
   const title = escapeHtml(meta.dashboard_title || 'Global Conflict Monitor');
   const built = escapeAttr(meta.last_built || '');
   const updateLabel = escapeHtml(meta.base_last_update || '');
-  const pct = Number.isFinite(meta.ww3_pct) ? `${meta.ww3_pct}%` : '';
+  const pct = Number.isFinite(meta.ww3_pct) ? `${meta.ww3_pct}/100` : '';
   return `
     <header class="prerender-header">
       <h1>${title}</h1>
-      <p>Updated <time datetime="${built}">${updateLabel}</time>${pct ? ` · WW3 risk index: ${escapeHtml(pct)} (an editorial judgement, not a forecast; see llms.txt)` : ''}</p>
+      <p>Updated <time datetime="${built}">${updateLabel}</time>${pct ? ` · Escalation index (WW3 risk): ${escapeHtml(pct)} (an editorial judgement, not a probability; see llms.txt)` : ''}</p>
     </header>`;
 }
 
@@ -250,7 +250,7 @@ function renderMarketsSnapshot(payload) {
     if (eiaTail) rows.push(`<li>US national diesel: <strong>$${escapeHtml(eiaTail.v)}/gal</strong> (EIA weekly average, week ending ${escapeHtml(fmtAsOf(eiaTail.d))})</li>`);
   }
   if (hormuz != null) rows.push(`<li>Strait of Hormuz transit: <strong>${escapeHtml(hormuz)}/138 tankers/day</strong> (as of ${escapeHtml(fmtAsOf(hormuzTail.d))})</li>`);
-  if (ww3 != null) rows.push(`<li>WW3 probability tracker: <strong>${escapeHtml(ww3)}%</strong> (an editorial judgement, not a forecast)</li>`);
+  if (ww3 != null) rows.push(`<li>Escalation index (WW3 risk): <strong>${escapeHtml(ww3)}/100</strong> (an editorial judgement, not a probability)</li>`);
 
   if (rows.length === 0) return '';
   return `

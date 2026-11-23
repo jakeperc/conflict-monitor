@@ -47,8 +47,8 @@ const MARKUP = `
       <div id="g-stampRow"><i></i><span id="g-stamp"></span></div>
     </header>
     <section id="g-p-index" class="card panel" aria-label="Index, escalation ladder and axes">
-      <div class="idx-h"><span class="eyebrow">WW3 risk index</span><span class="eyebrow" id="g-idxWhen"></span></div>
-      <div class="idx-n"><span id="g-idxNum">–</span><span class="pct" id="g-idxPct">%</span></div>
+      <div class="idx-h"><span class="eyebrow">Escalation index</span><span class="eyebrow" id="g-idxWhen"></span></div>
+      <div class="idx-n"><span id="g-idxNum">–</span><span class="pct" id="g-idxPct">/100</span></div>
       <div id="g-idxRung"></div>
       <p class="fine" style="margin-top:8px">An editorial judgement, not a forecast: the rounded mean of the four axes below.</p>
       <div class="sec"><span class="eyebrow">Escalation ladder</span>
@@ -281,7 +281,7 @@ export function mountGlobe(root, DATA, opts = {}) {
     const pill = $('#g-idxRung');
     pill.classList.toggle('na', !rung);
     pill.textContent = rung ? `Rung ${rung.pct} · ${rung.label}` : has ? 'Below the first rung' : `Index starts ${fmtShort.format(dateOf(SERIES[0]?.day ?? 0))}`;
-    $('#g-chipNum').textContent = has ? Math.round(v) + '%' : '–';
+    $('#g-chipNum').textContent = has ? String(Math.round(v)) : '–';
     $('#g-chipRung').textContent = rung ? 'RUNG ' + rung.pct : '';
     for (const li of $('#g-ladder').children) {
       const p = +li.dataset.p;

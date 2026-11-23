@@ -251,6 +251,39 @@ function buildOutlook() {
     return src ? (pointProb(src) ?? num(f.probability)) : num(f.probability);
   };
 
+  // Lifetime-average squared error: each probability the board published is
+  // weighted by how many days it stood, from the forecast's creation to its
+  // resolution. Sits between the opening score (no updating credit) and the
+  // settled score (full credit for late updates, which are easy). Entries dated
+  // on/after the resolution date are excluded, as in finalProb. Returns null when
+  // the record has no usable probability.
+  const DAY_MS = 86400000;
+  const lifetimeSqErr = (f, o) => {
+    const h = Array.isArray(f.probability_history) ? f.probability_history : [];
+    const rd = f.resolved_date || f.resolution_date || f.deadline || null;
+    const pts = h
+      .filter((x) => x && x.date && (!rd || x.date < rd))
+      .map((x) => ({ t: Date.parse(x.date.slice(0, 10)), p: pointProb(x) }))
+      .filter((x) => Number.isFinite(x.t) && Number.isFinite(x.p))
+      .sort((a, b) => a.t - b.t);
+    if (!pts.length) {
+      const p = finalProb(f);
+      return Number.isFinite(p) ? (p - o) * (p - o) : null;
+    }
+    const end = rd ? Date.parse(rd.slice(0, 10)) : NaN;
+    let wSum = 0;
+    let eSum = 0;
+    pts.forEach((x, i) => {
+      const next = i + 1 < pts.length ? pts[i + 1].t : end;
+      const w = Number.isFinite(next) ? Math.max(0, (next - x.t) / DAY_MS) : 0;
+      wSum += w;
+      eSum += w * (x.p - o) * (x.p - o);
+    });
+    if (wSum > 0) return eSum / wSum;
+    // Every point fell on one day (or no end date): plain mean of the points.
+    return pts.reduce((s, x) => s + (x.p - o) * (x.p - o), 0) / pts.length;
+  };
+
   const forecasts = forecastsRaw
     // Methodology/tripwire forecasts are internal-only — never project them to the
     // site (defensive; none carry this tag today).
@@ -293,6 +326,7 @@ function buildOutlook() {
   let brierN = 0;
   let brierOpenSum = 0;
   let brierOpenN = 0;
+  let brierLifeSum = 0;
   let calibrationSkipped = 0;
   const resolvedList = resolved.map((f) => {
     const p = firstProb(f);
@@ -321,6 +355,8 @@ function buildOutlook() {
     brierSum += (pu - o) * (pu - o);
     brierN += 1;
     putBucket(buckets, pu, o);
+    const life = lifetimeSqErr(f, o);
+    brierLifeSum += life == null ? (pu - o) * (pu - o) : life;
     return {
       question: scrubCodes(f.question || ''),
       theater: prettyTheater(f.theater),
@@ -353,6 +389,9 @@ function buildOutlook() {
   // Opening-prior view, kept alongside so the two are always read together.
   const brierOpening = brierOpenN ? brierOpenSum / brierOpenN : null;
   const skillOpening = brierBaseline ? 1 - brierOpening / brierBaseline : null;
+  // Lifetime view: same population as the settled score (brierN).
+  const brierLifetime = brierN ? brierLifeSum / brierN : null;
+  const skillLifetime = brierBaseline ? 1 - brierLifetime / brierBaseline : null;
   const r2 = (x) => (x == null ? null : Math.round(x * 100) / 100);
   const mkBuckets = (set) => set.map((b) => ({
     label: `${Math.round(b.lo * 100)}–${Math.round(b.hi * 100)}%`,
@@ -369,6 +408,8 @@ function buildOutlook() {
     skill_score: r2(skillScore),
     brier_opening: r2(brierOpening),
     skill_opening: r2(skillOpening),
+    brier_lifetime: r2(brierLifetime),
+    skill_lifetime: r2(skillLifetime),
     buckets_opening: mkBuckets(bucketsOpening),
     buckets: buckets.map((b) => ({
       label: `${Math.round(b.lo * 100)}–${Math.round(b.hi * 100)}%`,

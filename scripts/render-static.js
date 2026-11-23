@@ -122,12 +122,13 @@ function renderKeyDevelopments(keyDevs) {
 
 function renderPillar(lead, pillarId) {
   if (!lead || typeof lead !== 'object') return '';
-  // facts are dated, sourced sentences (legacy items may be { l, v } pairs). They are the
-  // record behind the analysis, so they follow what changed / what to watch.
+  // facts are short dated sentences (legacy items may be { l, v } pairs). The app shows the
+  // cited events on its Feed instead; this no-JS page keeps them as a plain "Key facts" list,
+  // after what changed / what to watch (#17).
   const factText = (f) => (f && typeof f === 'object' ? [f.l, f.v].filter(Boolean).join(': ') : String(f || ''));
   const factItems = Array.isArray(lead.facts) ? lead.facts.map(factText).filter((s) => s.trim()) : [];
   const facts = factItems.length
-    ? `<h3>Sourced record</h3><ul>${factItems.map((s) => `<li>${cleanText(s)}</li>`).join('')}</ul>`
+    ? `<h3>Key facts</h3><ul>${factItems.map((s) => `<li>${cleanText(s)}</li>`).join('')}</ul>`
     : '';
   const bottom = lead.bottom_line ? `<p class="bottom-line"><strong>Bottom line:</strong> ${cleanText(lead.bottom_line)}</p>` : '';
   const changed = lead.changed ? `<h3>What changed</h3><p>${cleanText(lead.changed)}</p>` : '';

@@ -3,8 +3,9 @@
  * update-markets.js — deterministic daily refresh of the DATED market series
  * that feed the bottom-KPI charts:
  *
- *   brent_daily [{d, v}]        — Brent crude daily close (Yahoo BZ=F, same feed
- *                                 the app's live tile uses)
+ *   brent_daily [{d, v}]        — Brent crude settled daily close (Yahoo BZ=F, same
+ *                                 feed the app's live tile uses), dated by its
+ *                                 trading session, never by the run date (#16)
  *   gas_daily   [{d, nat, ca?, oh?, cin?, diesel?}] — AAA US national (+ California,
  *                                 Ohio, Cincinnati metro) average regular
  *                                 gasoline, plus the US national diesel
@@ -108,16 +109,42 @@ function yahooChain(sym) {
   return [y2, y2.replace('query2', 'query1'), ...proxyChain(y2).slice(1)];
 }
 
-function parseYahooClose(text) {
+// Calendar date (YYYY-MM-DD) of an instant in a given IANA time zone.
+function dayIn(tz, ms) {
+  return new Date(ms).toLocaleDateString('en-CA', { timeZone: tz || 'America/New_York' });
+}
+
+// Returns [{ d, v }, ...] oldest first: every COMPLETED session in the response, each
+// dated by its own session (#16). Yahoo stamps each daily bar at midnight exchange time on
+// its session date. The bar for today's session is still trading (its "close" is an
+// intraday price), so bars dated today or later in the exchange's time zone are skipped.
+// A Saturday, Sunday or Monday run therefore all end on Friday's close, dated Friday.
+// All completed sessions are returned, not only the last, because Yahoo's newest bar can
+// be provisional and later revised to the official settlement (seen on weekend runs in
+// Aug-Nov 2026): rewriting the whole 5-day window each run lets a row self-correct.
+function parseYahooSessions(text, nowMs = Date.now()) {
   const j = JSON.parse(text);
   const res = j && j.chart && j.chart.result && j.chart.result[0];
   const closes = res && res.indicators && res.indicators.quote && res.indicators.quote[0]
     ? res.indicators.quote[0].close : null;
-  if (!Array.isArray(closes)) throw new Error('no close series');
-  for (let i = closes.length - 1; i >= 0; i--) {          // last non-null close
-    if (typeof closes[i] === 'number' && closes[i] > 0) return closes[i];
+  const stamps = res && res.timestamp;
+  if (!Array.isArray(closes) || !Array.isArray(stamps)) throw new Error('no close series');
+  const tz = (res.meta && res.meta.exchangeTimezoneName) || 'America/New_York';
+  const today = dayIn(tz, nowMs);
+  const out = [];
+  for (let i = 0; i < closes.length; i++) {
+    const d = dayIn(tz, stamps[i] * 1000);
+    if (d >= today) continue;                               // current session: not settled
+    if (typeof closes[i] === 'number' && closes[i] > 0) out.push({ d, v: closes[i] });
   }
-  throw new Error('no valid close');
+  if (!out.length) throw new Error('no completed session with a valid close');
+  return out;
+}
+
+// The last completed session's close, { d, v }.
+function parseYahooClose(text, nowMs = Date.now()) {
+  const s = parseYahooSessions(text, nowMs);
+  return s[s.length - 1];
 }
 
 // ---------------------------------------------------------------------------
@@ -249,13 +276,14 @@ async function main() {
 
   // --- Brent daily close --------------------------------------------------
   try {
-    const close = await fetchParsed(yahooChain('BZ=F'), 'application/json,text/plain,*/*', parseYahooClose);
-    const v = Number(close.toFixed(2));
+    const sessions = await fetchParsed(yahooChain('BZ=F'), 'application/json,text/plain,*/*', (t) => parseYahooSessions(t));
     if (!Array.isArray(markets.brent_daily)) markets.brent_daily = [];
-    upsertToday(markets.brent_daily, { d: dateKey, v });
+    // Each session's own date, never the run's; the whole window is rewritten (see parser).
+    for (const s of sessions) upsertToday(markets.brent_daily, { d: s.d, v: Number(s.v.toFixed(2)) });
     markets.brent_daily = finalizeDaily(markets.brent_daily);
     changed = true;
-    log(`Brent: ${v} (${markets.brent_daily.length} dated points, as of ${dateKey})`);
+    const last = sessions[sessions.length - 1];
+    log(`Brent: ${last.v.toFixed(2)} (${markets.brent_daily.length} dated points, settled close of ${last.d}; ${sessions.length} sessions refreshed)`);
   } catch (e) {
     warn(`Brent (BZ=F) fetch failed: ${e.message} — leaving brent_daily unchanged`);
   }
@@ -353,8 +381,12 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  // Absolute backstop: even an unexpected throw must not fail the pipeline.
-  warn(`unexpected error: ${e && e.message ? e.message : e} — exiting clean`);
-  process.exit(0);
-});
+module.exports = { parseYahooClose, parseYahooSessions };
+
+if (require.main === module) {
+  main().catch((e) => {
+    // Absolute backstop: even an unexpected throw must not fail the pipeline.
+    warn(`unexpected error: ${e && e.message ? e.message : e} — exiting clean`);
+    process.exit(0);
+  });
+}

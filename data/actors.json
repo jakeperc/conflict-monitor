@@ -56,9 +56,9 @@
       "risk": 57,
       "level": "CRITICAL",
       "alignment": "ally",
-      "note": "Logged 49 Chinese military sorties in a day, the year's highest, as the Liaoning carrier group drilled in the western Pacific.",
-      "details": "Taiwan's defence ministry reported 49 sorties by Chinese military aircraft in the 24 hours to 6 am on 3 November, the highest one-day total this year, SCMP reports, while the Liaoning led a strike group in the western Pacific.\n\nThis follows Chinese coast-guard patrols off the east coast and near Pratas that Taipei says rehearse a blockade. Taiwan is trimming draft exemptions to add thousands of conscripts.",
-      "as_of": "2026-11-04"
+      "note": "Warned of increasingly sophisticated Chinese election interference before 28 November local elections; a candidate was indicted under the anti-infiltration law.",
+      "details": "Taiwan votes in local elections on 28 November under warnings of Chinese interference. On 23 November Mainland Affairs Council deputy head Shen Yu-chung said Beijing's methods, from financing candidates to cognitive warfare and underground betting, are growing more sophisticated with AI; he cited a Taiwan People's Party council candidate in Taoyuan indicted on 20 November on charges including Anti-Infiltration Act offences (Focus Taiwan).\n\nMilitary pressure remains high: Taiwan's defence ministry reported 49 Chinese military sorties in the 24 hours to 3 November, the year's highest, while the Liaoning led a strike group in the western Pacific (SCMP). Taipei says coast-guard patrols off its east coast and near Pratas rehearse a blockade.",
+      "as_of": "2026-11-24"
     },
     {
       "name": "Russia",
@@ -172,9 +172,9 @@
       "risk": 18,
       "level": "MODERATE",
       "alignment": "neutral",
-      "note": "Parliament authorised military support for Saudi Arabia on 26 October if Riyadh asks; Sisi limits it to defending Saudi territory.",
-      "details": "Egypt has given itself the legal option of a Gulf deployment. On 26 October parliament authorised President Sisi, by the two-thirds majority the constitution requires, to send military support to Saudi Arabia if Riyadh requests it (Al Jazeera; Euronews). No troop numbers, systems or duration were published. Sisi says Egypt's role is confined to defending Saudi territory and borders, not attacking Yemen.\n\nOn 4 October Egypt, Eritrea, Sudan's army leader and Somalia's president declared at El Alamein that Red Sea governance belongs to littoral states, as Ethiopia presses for sea access.",
-      "as_of": "2026-10-29",
+      "note": "Its foreign minister said on 10 November Egyptian forces are already in Saudi Arabia at Riyadh's request, for air defence and site protection.",
+      "details": "Egypt is already part of Saudi Arabia's defence. In a France 24 interview on 10 November, Foreign Minister Badr Abdelatty said Egyptian forces have been in Saudi Arabia for months at Riyadh's request, after attacks on the kingdom during the escalation with Iran; he described the mission as defensive, including air defence and protection of sensitive sites such as the holy places (Euronews). The deployment predates parliament's 26 October authorisation; some lawmakers told AFP they had received no details. Sisi says Egypt will not attack Yemen.\n\nOn 4 October Egypt, Eritrea, Sudan's army leader and Somalia's president declared at El Alamein that Red Sea governance belongs to littoral states, as Ethiopia presses for sea access.",
+      "as_of": "2026-11-24",
       "stale_ok": false
     },
     {
@@ -274,10 +274,10 @@
       "risk": 38,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-23",
+      "as_of": "2026-11-24",
       "stale_ok": false,
-      "note": "Lee named Lim Woong-soon foreign minister and Kang Kum-sil spy chief on 23 November; his office said alliance principles are unchanged.",
-      "details": "President Lee reshuffled his national-security team on 23 November, naming Lim Woong-soon, a deputy national security adviser, as foreign minister and Kang Kum-sil as director of the National Intelligence Service; his chief of staff said the principles on the alliance and the Korean Peninsula are unchanged (Yonhap).\n\nOn the Iran war, the Cabinet approved on 10 November extending the Cheonghae naval unit's operating area to open waters south of Oman, about 650 km from Hormuz, under a stated principle of no involvement in the fighting; the motion goes to the National Assembly (Korea JoongAng Daily). On 4 November the Joint Chiefs reported North Korean missile launches from Sondok."
+      "note": "Issued its first preliminary air alert over Russian aircraft on 24 November as about five warplanes neared Ulleung Island; Russia's attaché was summoned.",
+      "details": "On 24 November about five Russian warplanes entered South Korea's air defence zone over the East Sea and approached Ulleung Island, closer than a March 2025 flight; the Joint Chiefs issued a preliminary alert for the island, the first over Russian aircraft, and fighters scrambled, though no airspace violation occurred. The defence ministry summoned Russia's military attaché and called repeated entries unacceptable (Yonhap). An interior-ministry text wrongly said airspace had been breached.\n\nPresident Lee named Lim Woong-soon foreign minister and Kang Kum-sil intelligence chief on 23 November. On the Iran war, the Cabinet approved on 10 November extending the Cheonghae unit's area to waters south of Oman, pending a National Assembly vote (Korea JoongAng Daily)."
     },
     {
       "name": "Germany",
@@ -366,9 +366,9 @@
       "risk": 42,
       "level": "HIGH",
       "alignment": "ally",
-      "as_of": "2026-11-22",
-      "note": "Two Russian cruise missiles and a drone crashed on Polish soil on 20 November; Tusk called it an intentional provocation.",
-      "details": "On 20 November two Russian Kh-101 cruise missiles fell at Nowy Lipowiec and Rudnik nad Sanem and a jet-powered drone at Molodycz in south-eastern Poland, during one of Russia's largest attacks on Ukraine. No one was hurt. The impacts came during Koalicja 2026, an 11-nation coalition-of-the-willing exercise at Nowa Deba, and Polish leaders said the timing was deliberate. NATO jets were scrambled and Secretary General Rutte, due in Warsaw, condemned grave violations of Polish airspace; Poland asked allies for AWACS and F-35 support. Poland's operational commander said up to 11 objects were judged a danger to Polish airspace, and air traffic control at Rzeszow-Jasionka airport, the main transit hub for aid to Ukraine, was briefly evacuated for the first time in the war.\n\nEarlier in November Warsaw said the Pentagon backed a permanent US troop presence, and prosecutors charged a man over a Russian-directed train bombing. Poland's own reading is that it must have a seat in decisions on Ukraine's future."
+      "as_of": "2026-11-24",
+      "note": "Russian cruise missiles fell on its soil on 20 November and a drone entered its airspace on 23 November; NATO agreed to give it an AWACS.",
+      "details": "On 20 November, during one of Russia's largest attacks on Ukraine, Russian cruise missiles fell at Nowy Lipowiec, Rudnik nad Sanem and Molodycz in south-eastern Poland; first described as two missiles and a jet-powered drone, all three objects were later confirmed as Kh-101s, Kyiv Post reports. No one was hurt. Polish leaders called the timing, during an allied exercise at Nowa Deba, deliberate.\n\nLate on 23 November a Russian drone entered airspace over the Lublin region, triggering an hour-long air alert; Deputy Defence Minister Zalewski called it deliberate (Kyiv Independent). He said NATO's council agreed on 23 November to give Poland an AWACS early-warning aircraft and deferred its other requests to next week's foreign ministers' meeting (Kyiv Post).\n\nEarlier in November prosecutors charged a man over a Russian-directed train bombing."
     },
     {
       "name": "Lithuania",
@@ -414,9 +414,9 @@
       "name": "Taiwan",
       "flag": "🇹🇼",
       "goal": "Hold operational readiness through Balikatan 2026 and post-summit PLA posture window; deepen alignment with Japan and the Philippines",
-      "move": "Recorded 49 Chinese military sorties in a day, its highest this year, as the Liaoning group drilled offshore.",
-      "as_of": "2026-11-04",
-      "details": "Taiwan's defence ministry reported 49 sorties in the 24 hours to 6 am on 3 November, with the Liaoning carrier group in the western Pacific, SCMP reports. Taipei says recent coast-guard patrols rehearse a blockade.\n\nA $14 billion US arms package awaits Trump's approval, and Taiwan is trimming draft exemptions.",
+      "move": "Warning of Chinese election interference before 28 November local elections; a council candidate was indicted under the anti-infiltration law on 20 November.",
+      "as_of": "2026-11-24",
+      "details": "Taipei is defending its elections as much as its airspace. The Mainland Affairs Council warned on 23 November that Chinese interference is growing more sophisticated with AI, citing the 20 November indictment of a Taoyuan council candidate on anti-infiltration charges (Focus Taiwan). Earlier in November it logged 49 Chinese military sorties in a day as the Liaoning group drilled offshore (SCMP).\n\nA $14 billion US arms package awaits Trump's approval, and Taiwan is trimming draft exemptions.",
       "color": "#22d3ee"
     },
     {
@@ -571,11 +571,11 @@
     {
       "name": "South Korea",
       "flag": "🇰🇷",
-      "as_of": "2026-11-23",
+      "as_of": "2026-11-24",
       "stale_ok": false,
       "goal": "Stay out of the Iran war without breaking with Washington, and keep a path open to US-North Korea dialogue.",
-      "move": "Cabinet approved moving the Cheonghae unit to waters south of Oman, pending parliament; Lee named a new foreign minister and spy chief on 23 November.",
-      "details": "Seoul is trying to answer US pressure on the Iran war without joining it. The Cabinet approved on 10 November extending the Cheonghae anti-piracy unit's area to open waters south of Oman, adding a patrol aircraft and mine-clearing equipment under an independent chain of command; the National Assembly must still vote (Korea JoongAng Daily). On 23 November Lee named Lim Woong-soon foreign minister and Kang Kum-sil intelligence chief, and his office said alliance principles are unchanged (Yonhap)."
+      "move": "Issued a first preliminary air alert and summoned Russia's attaché after Russian warplanes neared Ulleung Island on 24 November.",
+      "details": "Seoul is now handling Russian pressure as well as the Iran war. On 24 November about five Russian warplanes approached Ulleung Island inside its air defence zone; the military issued its first preliminary alert over Russian aircraft and the defence ministry summoned Russia's attaché (Yonhap). The Cabinet approved on 10 November moving the Cheonghae unit to waters south of Oman, pending parliament (Korea JoongAng Daily), and Lee named a new foreign minister and spy chief on 23 November."
     },
     {
       "name": "Estonia",
@@ -602,9 +602,9 @@
       "name": "Taiwan",
       "start": "2026-05-14",
       "threat": 56,
-      "status": "Taiwan logged 49 Chinese military sorties in a day, the year's highest, as the Liaoning group drilled in the western Pacific.",
+      "status": "Taiwan warns of Chinese election interference before its 28 November local elections, after 49 Chinese military sorties in one day earlier this month.",
       "color": "#22d3ee",
-      "as_of": "2026-11-04"
+      "as_of": "2026-11-24"
     },
     {
       "flag": "🇮🇷",

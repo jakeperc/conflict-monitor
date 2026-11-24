@@ -88,74 +88,65 @@
   "iran_lead": {
     "kicker": "Epic Fury · Lead Development",
     "pillar": "iran",
-    "salience": 2,
-    "updated_at": "11/23/2026 · 15:30 EST",
-    "title": "Iran vows to break US blockade and protests Qatar-Germany statement",
-    "summary": "Iran said on 23 November it will use 'all available means' against the US blockade and could reopen Hormuz within two days if the US ends hostilities, the blockade and sanctions. It summoned Qatar's envoy over a Qatar-Germany statement, and the US Treasury sanctioned Iranian exchange houses. No new US strike on Iran was reported 22-23 November.",
+    "salience": 3,
+    "updated_at": "11/24/2026 · 05:30 EST",
+    "title": "WSJ: US probes suspected Iranian cyberattacks on up to 50 ships",
+    "summary": "US authorities are investigating suspected cyberattacks on as many as 50 tankers and chemical carriers, some sent bomb threats, with Iran the primary suspect, the Wall Street Journal reported on 23 November; Reuters could not verify it. Iran had vowed 'all available means' against the US blockade the same day. No US strike on Iran was reported 20-24 November.",
     "facts": [
-      "23 Nov: Iran vows 'all available means' against the blockade; offers to reopen Hormuz within two days on its terms.",
-      "23 Nov: Iran summoned Qatar's charge d'affaires over the 21 Nov Qatar-Germany statement.",
-      "23 Nov: OFAC sanctioned Iranian exchange houses and companies in the UAE, Turkey and Hong Kong.",
-      "21 Nov: Bahrain civilian industrial fire in Sitra from an Iranian strike, no injuries.",
-      "22 Nov: Likud-Yashar unity talks ended without a deal; Eisenkot's mandate runs to 6 Dec.",
-      "21 Nov: President Aoun told Hezbollah the era of weapons outside the state is over.",
-      "23 Nov: Houthis claim a coalition strike killed 17 in Hodeidah; Saudi Arabia did not comment."
+      "23 Nov: WSJ reports US probe of suspected Iranian cyberattacks on up to 50 ships.",
+      "23 Nov: Iran vows 'all available means' against the blockade; sets reopening terms.",
+      "23 Nov: OFAC sanctioned Iranian exchange houses."
     ],
-    "changed": "Tehran paired a threat to break the blockade with explicit terms for reopening the Strait, while turning on its own mediator: Qatar's joint statement with Germany drew a formal protest. Washington added financial pressure on Iran's shadow banking network. In the Levant, Israel's unity-government talks failed, and Lebanon's president told Hezbollah to disarm.",
-    "watch": "Whether Iranian tankers try to run the blockade from Kharg; any US strike in reply to Iran's Bahrain attack; Qatar's talks with Rubio in Washington; Eisenkot's 6 December deadline to form a government; Houthi fire on Saudi Arabia."
+    "changed": "The reported probe would widen the blockade confrontation to cyber operations against shipping; it names Iran as prime suspect and Russia as a possible culprit, citing unnamed officials. Tehran set terms to reopen Hormuz within two days and protested its mediator Qatar over a Qatar-Germany statement.",
+    "watch": "Any official US attribution of the ship cyberattacks; Iranian tankers testing the blockade from Kharg; a US strike in reply to Iran's Bahrain attack; Qatar's talks with Rubio; Houthi fire on Saudi Arabia."
   },
   "brics_lead": {
     "kicker": "US-BRICS Rivalry · Lead Development",
     "pillar": "brics",
-    "salience": 3,
-    "updated_at": "11/22/2026 · 05:00 EST",
-    "title": "Trump, Xi and Putin issue joint declaration at first three-way summit",
-    "summary": "Trump, Xi and Putin met for about 90 minutes in Shenzhen on 19 November and declared that nuclear war cannot be won and must never be fought; the text did not mention Ukraine or Iran. China's licence rules on drone engines used by Russia took effect on 18 November. Denmark ratified the Greenland security deal.",
-    "changed": "The first three-way summit happened and produced a short declaration, but nothing binding on nuclear arms and nothing on the two wars. In the allies lens, the Quad met and Denmark closed its Greenland dispute with Washington, while Europe was absent from Shenzhen. China began licensing drone parts Russia uses.",
-    "watch": "Whether the three governments start the nuclear risk-reduction talks the declaration implies; China's enforcement of drone-part licences; European reaction to being left out; whether Russia's bomber flights in Asia continue.",
+    "salience": 1,
+    "updated_at": "11/24/2026 · 05:30 EST",
+    "title": "Russian jets near South Korea's Ulleung Island; US blacklists Megaspeed",
+    "summary": "About five Russian warplanes entered South Korea's air defence zone on 24 November and approached Ulleung Island, prompting Seoul's first preliminary air alert over Russian aircraft; Russia's attaché was summoned. The US added Megaspeed and six Southeast Asian firms to its Entity List on 23 November over suspected diversion of Nvidia chips to China.",
+    "changed": "Russia's air activity in North-East Asia moved from Japan's airspace (17 November) to the edge of South Korea's. Washington acted on the Nvidia spy affair after weeks of internal dispute over Megaspeed; Singapore opened its own investigation. Kim Yo Jong threatened to shut Switzerland's new office in Pyongyang over Swiss sanctions on a children's camp linked to deported Ukrainian children.",
+    "watch": "Taiwan's 28 November local elections and any Chinese pressure around them; further Russian or Chinese flights near Korea and Japan; Beijing's response to the Megaspeed listing; North Korea's next step on the Swiss office.",
     "lenses": [
       {
         "label": "Bilateral US-China",
-        "oneline": "Trump and Xi met twice in Shenzhen; Xi pressed Trump on Taiwan, and no trade or arms text emerged."
+        "oneline": "US blacklisted Megaspeed and six firms over suspected Nvidia chip diversion; Taiwan warns of Chinese election interference before 28 November."
       },
       {
         "label": "BRICS bloc",
-        "oneline": "No BRICS-bloc development in the window."
+        "oneline": "No BRICS-bloc development read in the window."
       },
       {
         "label": "CRINK",
-        "oneline": "China's licence rules now cover jet engines used in Russia's Geran drones; Ukraine says many parts stay uncontrolled."
+        "oneline": "Russian warplanes neared South Korea's Ulleung Island; North Korea threatened Switzerland's office over sanctions on a Russia-linked camp."
       },
       {
         "label": "Allies Cohesion",
-        "oneline": "Quad met in Manila; Denmark ratified the Greenland deal; allies backed Poland after Russian missiles landed there."
+        "oneline": "NATO agreed to give Poland an AWACS after Russian missiles and a drone entered its airspace."
       }
     ],
     "facts": [
-      "Shenzhen declaration: nuclear war 'cannot be won and must never be fought'; UN reform; more oil supply; ICC jurisdiction limits.",
-      "No arms-control framework; Xi called for nuclear weapons to be prohibited over time.",
-      "Quad leaders met in Manila on 17 November and opposed changing the status quo by force or coercion.",
-      "Denmark ratified the Greenland deal 109-0 on 19 November, allowing a Golden Dome site.",
-      "France and Sweden held their first joint forward-deterrence exercise, 16-18 November."
+      "24 Nov: Russian warplanes in KADIZ near Ulleung; first preliminary alert; attaché summoned.",
+      "23 Nov: Commerce lists Megaspeed and six Southeast Asian firms.",
+      "24 Nov: Kim Yo Jong threatens to close Swiss office in Pyongyang."
     ]
   },
   "ukraine_lead": {
     "kicker": "Russia-Ukraine · Lead Development",
     "pillar": "ukraine",
-    "salience": 1,
-    "updated_at": "11/23/2026 · 15:30 EST",
-    "title": "Ukraine says its naval drones sank a Russian corvette in Libya",
-    "summary": "Naval drones struck the Russian corvette Merkury at Benghazi on 22 November, and satellite imagery showed it capsized; Zelensky said Ukraine carried out the attack and also hit a cargo ship. Russia summoned Estonia's envoy over its border closure, warning of 'the brink of an open war', and Finland summoned Russia's ambassador over a helicopter incursion.",
+    "salience": 2,
+    "updated_at": "11/24/2026 · 05:30 EST",
+    "title": "Russian drone returns to Polish airspace as NATO agrees AWACS for Poland",
+    "summary": "A Russian drone entered Polish airspace late on 23 November, three days after Russian cruise missiles fell in south-eastern Poland; Warsaw called it deliberate. NATO's council agreed on 23 November to give Poland an AWACS early-warning aircraft. Ukraine says its drones sank the corvette Merkury at Benghazi on 22 November, and Moscow warned Estonia of 'the brink of an open war'.",
     "facts": [
-      "22 Nov: corvette Merkury struck at Benghazi naval base; imagery shows it capsized; Zelensky says seven drones, cargo ship Angara also hit.",
-      "23 Nov: Russia summoned Estonia's charge d'affaires and warned of 'the brink of an open war'.",
-      "21 Nov: Russian helicopter about 4 km inside Finnish airspace near Loviisa; Finland summoned Russia's ambassador on 23 Nov.",
-      "22 Nov: Cyprus officials said two Russian embassy staff were expelled for espionage.",
-      "23 Nov: Rutte said NATO will defend in space after a report of a possible Russian nuclear-armed satellite launch.",
-      "21 Nov: Kaliningrad air-raid alert blamed on Lithuania by Russian media; Vilnius rejected it.",
-      "20 Nov: two Kh-101 missiles and a drone crashed in south-eastern Poland."
+      "23 Nov: NATO council agrees to give Poland an AWACS (Zalewski); Kyiv Post reports three Kh-101 for 20 Nov.",
+      "23 Nov: Russian drone in Polish airspace, Lublin region; Warsaw calls it deliberate.",
+      "22 Nov: corvette Merkury struck at Benghazi; Ukraine claims the attack.",
+      "23 Nov: Russia warned Estonia of 'the brink of an open war'."
     ],
-    "changed": "Ukraine says its strike war reached Russia's foothold in eastern Libya, a day after a Russian-linked ship burned in the Gulf of Finland. Moscow's language toward Estonia hardened to talk of open war, Cyprus expelled two Russian diplomats for espionage, and NATO said it will defend in space after a report that Russia may launch a nuclear-armed satellite.",
-    "watch": "How Russia answers the Benghazi strike and Estonia's 1 December border closure; whether the UN or Libya's rival governments act; whether the Abu Dhabi prisoner exchange starts; Ukraine's air force tally for the 20 November attack; further incursions into NATO airspace."
+    "changed": "Kyiv Post reports that all three objects that fell on 20 November were confirmed as Kh-101 cruise missiles, not two missiles and a drone. NATO answered Poland with an AWACS and deferred its other air-defence requests to next week's foreign ministers' meeting, Poland's deputy defence minister said. No Russian reply to the Benghazi strike was reported.",
+    "watch": "NATO foreign ministers' decision on Poland's further air-defence requests; Estonia's 1 December border closure; whether the Abu Dhabi prisoner exchange starts before month-end; Ukraine's air force tally for the 20 November attack; further incursions into NATO airspace."
   }
 }

@@ -62,7 +62,7 @@
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "Trump, Xi and Putin held their first three-way summit and issued a joint declaration; China's licence rules on drone engines used by Russia took effect."
+      "currentLabel": "Russian warplanes neared South Korea's Ulleung Island and the US blacklisted Megaspeed over chip diversion, after the first Trump-Xi-Putin summit."
     },
     {
       "key": "wmd",
@@ -74,7 +74,7 @@
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "Allies rallied behind Poland after the missile incursion and Denmark expelled Russia's attaché; Europe was absent from Shenzhen, and Denmark ratified the Greenland deal."
+      "currentLabel": "NATO agreed to give Poland an AWACS after repeated Russian incursions and Denmark expelled Russia's attaché; Europe was absent from Shenzhen."
     }
   ]
 }

@@ -1375,6 +1375,33 @@
       "expansion": "New Strategic Arms Reduction Treaty",
       "definition": "The last treaty capping US and Russian deployed strategic nuclear warheads and launchers; it expired in February 2026 with no successor.",
       "category": "nuclear"
+    },
+    {
+      "term": "KADIZ",
+      "aliases": [
+        "KADIZ"
+      ],
+      "expansion": "Korea Air Defense Identification Zone",
+      "definition": "South Korea's air defence identification zone, wider than its territorial airspace; foreign military aircraft entering it without notice draw scrambles and protests.",
+      "category": "military"
+    },
+    {
+      "term": "Entity List",
+      "aliases": [
+        "Entity List"
+      ],
+      "expansion": "US Commerce Department Entity List",
+      "definition": "A US export blacklist: firms on it need a licence, usually denied, to receive US technology such as advanced chips.",
+      "category": "sanctions"
+    },
+    {
+      "term": "AWACS",
+      "aliases": [
+        "AWACS"
+      ],
+      "expansion": "Airborne Warning and Control System",
+      "definition": "A radar aircraft that watches a wide area of sky and directs air defences; NATO flies a shared fleet.",
+      "category": "military"
     }
   ]
 }

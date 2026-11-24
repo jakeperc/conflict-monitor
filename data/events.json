@@ -54709,6 +54709,36 @@
     "is_chapter_divider": false
   },
   {
+    "body": "",
+    "source_time": "23:00",
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-23-a-russian-drone-entered-polish-airspace",
+    "event_date": "2026-11-23",
+    "headline": "A Russian drone entered Polish airspace over the Lublin region late on 23 November during an attack on western Ukraine, triggering an hour-long air alert; Deputy Defence Minister Zalewski said the incursion was deliberate.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-unmanned-aerial-vehicle-violates-polish-airspace-days-after-missile-incursion/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "gray-zone",
+      "airspace",
+      "poland"
+    ],
+    "timeline_visibility": true
+  },
+  {
     "id": "2026-11-23-nato-secretary-general-rutte-said-the",
     "event_date": "2026-11-23",
     "source_time": null,
@@ -54746,6 +54776,79 @@
     "chapter_label": null,
     "chapter_kicker": null,
     "is_chapter_divider": false
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-23-natos-north-atlantic-council-agreed-to-give",
+    "event_date": "2026-11-23",
+    "headline": "NATO's North Atlantic Council agreed on 23 November to give Poland an AWACS early-warning aircraft after the 20 November missile incursion, Deputy Defence Minister Zalewski said; Kyiv Post reports all three objects were confirmed as Kh-101 cruise missiles. Other requests go to next week's foreign ministers.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91000",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "nato",
+      "poland",
+      "air-defence"
+    ],
+    "timeline_visibility": true
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-23-the-us-commerce-department-added-megaspeed",
+    "event_date": "2026-11-23",
+    "headline": "The US Commerce Department added Megaspeed, the Singapore data-centre firm at the centre of the Nvidia spy affair, and six other Southeast Asian firms to its Entity List on 23 November, citing national-security interests amid suspected diversion of Nvidia chips to China; Singapore is investigating.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/economy/2026/11/24/us-adds-megaspeed-firm-at-centre-of-nvidia-scandal-to-export-control-list",
+        "published_date": "2026-11-24"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry",
+      "sanctions-financial-warfare"
+    ],
+    "lenses": [
+      "bilateral-us-china"
+    ],
+    "tags": [
+      "gray-zone",
+      "export-controls",
+      "semiconductors"
+    ],
+    "timeline_visibility": true
   },
   {
     "id": "2026-11-23-russias-foreign-ministry-summoned-estonias-charge",
@@ -54961,5 +55064,165 @@
     "chapter_label": null,
     "chapter_kicker": null,
     "is_chapter_divider": false
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-23-the-wall-street-journal-reported-that-us",
+    "event_date": "2026-11-23",
+    "headline": "The Wall Street Journal reported on 23 November that US authorities are investigating suspected cyberattacks on as many as 50 tankers and chemical carriers, some sent bomb threats, with Iran the primary suspect and Russia a possible culprit; Reuters could not verify it.",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/u-s-probes-suspected-iranian-cyberattacks-on-up-to-50-ships-wsj-reports/",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz",
+      "cyber-infrastructure"
+    ],
+    "tags": [
+      "gray-zone",
+      "cyber",
+      "shipping"
+    ],
+    "timeline_visibility": false
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-23-the-us-pledged-a-2-billion",
+    "event_date": "2026-11-23",
+    "headline": "The US pledged a $2 billion foreign military financing loan for the Philippine military, plus a fuel depot at Subic Bay and upgrades to Basco airport in the Luzon Strait about 100 miles from Taiwan, among deals signed during Trump's Manila visit, USNI News reported on 23 November.",
+    "sources": [
+      {
+        "name": "USNI News",
+        "url": "https://news.usni.org/2026/11/23/u-s-commits-2b-defense-loan-for-philippine-military-luzon-strait-development",
+        "published_date": "2026-11-23"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion",
+      "bilateral-us-china"
+    ],
+    "tags": [
+      "philippines",
+      "basing",
+      "first-island-chain"
+    ],
+    "timeline_visibility": false
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-24-about-five-russian-warplanes-entered-south",
+    "event_date": "2026-11-24",
+    "headline": "About five Russian warplanes entered South Korea's air defence zone over the East Sea on 24 November and approached Ulleung Island without breaching its airspace; Seoul issued its first-ever preliminary air alert over Russian aircraft, scrambled fighters and summoned Russia's military attaché.",
+    "sources": [
+      {
+        "name": "Yonhap",
+        "url": "https://en.yna.co.kr/view/AEN20261124002254315",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "crink",
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "airspace",
+      "korea"
+    ],
+    "timeline_visibility": true
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-24-kim-yo-jong-threatened-to-close-switzerlands",
+    "event_date": "2026-11-24",
+    "headline": "Kim Yo Jong threatened on 24 November to close Switzerland's diplomatic office in Pyongyang, weeks after it opened, over Swiss sanctions on the Songdowon children's camp, which is accused of indoctrinating Ukrainian children taken from occupied territories.",
+    "sources": [
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/24/asia-pacific/politics/north-korea-swiss-diplomatic-office/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 1,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "crink"
+    ],
+    "tags": [
+      "north-korea",
+      "sanctions"
+    ],
+    "timeline_visibility": false
+  },
+  {
+    "body": "",
+    "source_time": null,
+    "feed_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "id": "2026-11-24-iraqs-prime-minister-ordered-a-federal-takeover",
+    "event_date": "2026-11-24",
+    "headline": "Iraq's prime minister ordered a federal takeover of the Kurdistan Region's border crossings on 24 November after an oil-smuggling probe, Arab News reported.",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/iraqi-pm-orders-takeover-of-kurdistan-regions-border-crossings-after-oil-smuggling-probe-3013810",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 1,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints"
+    ],
+    "tags": [
+      "iraq",
+      "kurdistan"
+    ],
+    "timeline_visibility": false
   }
 ]

@@ -54611,6 +54611,36 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-22-ukmto-reported-three-tankers-struck-by",
+    "event_date": "2026-11-22",
+    "source_time": null,
+    "headline": "UKMTO reported three tankers struck by unidentified projectiles while sailing east through the Strait of Hormuz on 22 November, all crews safe, and a bulk carrier hit and set on fire at anchor off Khor Fakkan; with seven tanker strikes the JMIC logged from 16 November, gCaptain counts 10.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/four-more-ships-attacked-as-iran-widens-hormuz-crackdown-to-tugboats/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "shipping",
+      "hormuz",
+      "ukmto"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "id": "2026-11-22-cyprus-has-expelled-two-russian-embassy",
     "event_date": "2026-11-22",
     "source_time": null,
@@ -55165,6 +55195,70 @@
     "timeline_visibility": true
   },
   {
+    "id": "2026-11-24-two-libyan-soldiers-died-of-injuries",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Two Libyan soldiers died of injuries from the Ukrainian-claimed drone attack on Russian ships near Benghazi, eastern Libya's administration said late on 24 November; France's foreign minister Barrot said Ukraine was exercising its 'absolute right to self-defence'.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261125-live-two-libyan-soldiers-killed-in-ukrainian-attack-on-russian-vessels-in-benghazi",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/world/french-foreign-minister-defends-ukraine-attacks-in-libya-3013954",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "libya",
+      "naval-drones",
+      "out-of-area"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-24-israeli-air-strikes-in-gaza-killed-brigadier",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Israeli air strikes in Gaza on 24 November killed Brigadier General Naeem Abu Nahel, head of Hamas's Internal Security Service, and six other people including two police officers, Gaza's interior ministry said; Israel's military and Shin Bet confirmed striking a senior Hamas official.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/middle-east/20261124-israeli-strikes-on-gaza-kill-senior-hamas-security-official-and-six-other-people-medics-say",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "israel-lebanon-gaza"
+    ],
+    "tags": [
+      "gaza",
+      "ceasefire-strain"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
     "body": "",
     "source_time": null,
     "feed_visibility": true,
@@ -55224,5 +55318,329 @@
       "kurdistan"
     ],
     "timeline_visibility": false
+  },
+  {
+    "id": "2026-11-24-irans-strait-authority-added-26-tugboats",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Iran's Persian Gulf Strait Authority added 26 tugboats to its list of 'non-compliant' vessels for serving ships that break its Hormuz rules, extending its blacklist from ships to service providers.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/four-more-ships-attacked-as-iran-widens-hormuz-crackdown-to-tugboats/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz",
+      "sanctions-financial-warfare"
+    ],
+    "tags": [
+      "gray-zone",
+      "shipping",
+      "hormuz"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-24-marine-insurer-the-swedish-club-told",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Marine insurer The Swedish Club has reaffirmed its advice that shipowners avoid Hormuz unless passage is essential, gCaptain reported on 24 November; the IMO counts 141 incidents in the region and 25 seafarers confirmed dead as of 23 November.",
+    "body": "",
+    "sources": [
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/swedish-club-urges-ships-to-avoid-strait-of-hormuz-as-security-situation-deteriorates/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz",
+      "markets-risk-transmission"
+    ],
+    "tags": [
+      "shipping",
+      "insurance",
+      "hormuz"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-24-libyan-commander-khalifa-haftar-arrived-in-ankara",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Libyan commander Khalifa Haftar arrived in Ankara on 24 November on his first known visit to Turkey, two days after the Benghazi strike on Russian ships; Turkey's chief of general staff met him and Turkey gave no readout.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/24/libyas-haftar-visits-turkiye-days-after-ukraine-hits-russian-warship",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "secondary-flashpoints",
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "libya",
+      "turkey"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-24-zelensky-said-defence-secretary-hegseth-has-not",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Zelensky said on 24 November that US Defence Secretary Hegseth has still not signed off on 48 Patriot interceptors for Ukraine that allies have already paid for through NATO's PURL scheme.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91107",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "air-defence",
+      "patriot",
+      "us-weapons"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-24-britains-protective-security-agency-warned-defence-firms",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "Britain's MI5-run protective security agency warned defence firms and Ukraine suppliers on 24 November that Russia has stepped up sabotage attempts against European defence sites, mainly arson by low-level proxies.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Breaking Defense",
+        "url": "https://breakingdefense.com/2026/11/uks-mi5-warns-local-defense-firms-of-russian-sabotage-risk/",
+        "published_date": "2026-11-24"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/uk-warns-companies-supplying-ukraine-of-russian-sabotage-threat/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "gray-zone",
+      "sabotage",
+      "uk"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-24-us-army-sergeant-jian-zhao-pleaded-guilty",
+    "event_date": "2026-11-24",
+    "source_time": null,
+    "headline": "US Army supply sergeant Jian Zhao pleaded guilty on 24 November to conspiring to pass national defence information, including HIMARS technical material, to people connected to China; sentencing is set for 1 March 2027.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Military Times",
+        "url": "https://www.militarytimes.com/news/your-military/2026/11/24/army-sergeant-pleads-guilty-in-plot-to-sell-military-secrets-to-china/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "severity": 1,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china"
+    ],
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "china"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-25-north-korea-shut-switzerlands-diplomatic-office",
+    "event_date": "2026-11-25",
+    "source_time": null,
+    "headline": "North Korea ordered the closure of Switzerland's diplomatic office in Pyongyang on 25 November, declaring its head persona non grata and telling him to leave within 48 hours, over Swiss sanctions on a children's camp accused of taking in deported Ukrainian children, KCNA said.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Yonhap",
+        "url": "https://en.yna.co.kr/view/AEN20261125005600315",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/25/asia-pacific/north-korea-swiss-diplomatic-office/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "crink"
+    ],
+    "tags": [
+      "gray-zone",
+      "north-korea",
+      "diplomatic-expulsion"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-25-russian-overnight-strikes-halted-naftogaz-gas-production",
+    "event_date": "2026-11-25",
+    "source_time": null,
+    "headline": "Russian strikes overnight into 25 November halted a Naftogaz gas production site in Poltava region and cut power in five regions; Ukraine said the occupied Zaporizhzhia nuclear plant lost external power for the 17th time this year and ran on diesel.",
+    "body": "",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261125-live-two-libyan-soldiers-killed-in-ukrainian-attack-on-russian-vessels-in-benghazi",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "severity": 3,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war"
+    ],
+    "tags": [
+      "energy-strikes",
+      "zaporizhzhia-npp"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-25-us-negotiators-privately-ruled-out-sending-troops",
+    "event_date": "2026-11-25",
+    "source_time": null,
+    "headline": "US negotiators have privately ruled out sending troops or setting up bases in post-war Ukraine as part of security guarantees, people familiar with the talks told the Kyiv Independent; Zelensky said he has seen nothing on paper.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/exclusive-us-rules-out-troops-military-bases-in-ukraine-under-post-war-security-guarantees-falling-short-of-kyivs-expectations/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "severity": 2,
+    "confidence": "medium",
+    "status": "reported",
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ],
+    "tags": [
+      "peace-talks",
+      "security-guarantees"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
+  },
+  {
+    "id": "2026-11-25-irans-revolutionary-guard-navy-said-two",
+    "event_date": "2026-11-25",
+    "source_time": null,
+    "headline": "Iran's Revolutionary Guard navy said two oil tankers hit mines and caught fire in the Strait of Hormuz early on 25 November while using an 'unauthorised route'; it named no ships and the claim was not independently confirmed.",
+    "body": "",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/irgc-navy-says-two-oil-tankers-hit-mines-caught-fire-in-strait-of-hormuz-state-media-3013942",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "severity": 2,
+    "confidence": "low",
+    "status": "reported",
+    "theaters": [
+      "iran-hormuz"
+    ],
+    "tags": [
+      "shipping",
+      "hormuz",
+      "mines"
+    ],
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false
   }
 ]

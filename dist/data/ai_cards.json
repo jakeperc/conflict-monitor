@@ -17,12 +17,12 @@
       "icon": "💻",
       "color": "var(--c-blue)",
       "arc": "us-brics-rivalry",
-      "updated_at": "11/19/2026 · 06:00 EST",
-      "confidence": "HIGH",
-      "confidenceNote": "Charges and police statements read on BBC and The Guardian pages.",
-      "title": "US charges Russian with spying on Palantir staff in Silicon Valley",
-      "summary": "US prosecutors charged Russian national Igor D'iu with acting as a foreign agent to spy on staff of a defence firm that supplies Ukraine, which the BBC understands is Palantir. In Britain, police passed the case of a US Army officer suspected of spying for Russia to US authorities.",
-      "body": "The case filed in northern California is a template of the hybrid campaign the board has tracked in Europe, now run on American soil. Prosecutors say Igor D'iu entered the US from Mexico in June after travelling from Istanbul, was recruited on Telegram, and was told by handlers who called Russia 'the Motherland' to gather information on a firm because its software was used against Russia in Ukraine. He allegedly photographed employees' laptop screens at a Palo Alto coffee shop and set up equipment his handlers could reach remotely. The US Attorney described a state-sponsored operation against a company 'because of that company's assistance to Ukraine.'\n\nThe second case moved jurisdiction rather than forward. Lt Col Brandon Tyner, arrested on 10 November at NATO's Allied Rapid Reaction Corps headquarters in Gloucestershire on suspicion of offences under Britain's National Security Act, is now in US military custody; British counter-terrorism police said a decision was made to pass the investigation to US authorities. That makes a British charge in the case unlikely, and the question becomes whether the US Army brings one."
+      "updated_at": "11/25/2026 · 05:30 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Plea, alert and listing read on Military Times, Breaking Defense, BBC and Al Jazeera pages; the ship-cyber probe rests on a WSJ report carried by gCaptain.",
+      "title": "US Army sergeant pleads guilty to passing HIMARS secrets to China",
+      "summary": "Army supply sergeant Jian Zhao pleaded guilty on 24 November to conspiring to pass defence information, including HIMARS material, to China-connected people. Britain warned defence firms of Russian proxy arson the same day. The US blacklisted Megaspeed on 23 November, and the WSJ reports a probe of suspected Iranian cyberattacks on up to 50 ships.",
+      "body": "Four cases in three days show the technology contest running on several fronts at once, and each points at a different adversary.\n\nThe Zhao plea is the China file. A supply sergeant at Joint Base Lewis-McChord admitted conspiring from late 2021 to early 2025 to sell national defence information, including excerpts of HIMARS technical manuals, photographs of restricted briefings and government computers, to people connected to China; a co-conspirator had already pleaded guilty and sentencing is set for 1 March 2027. HIMARS is the long-range rocket system at the centre of US plans for Taiwan and the Philippines, so the target matters more than the sums involved, which were small.\n\nThe Megaspeed listing is the export-control file. On 23 November the Commerce Department added the Singapore data-centre firm at the centre of the Nvidia diversion affair, and six other Southeast Asian firms, to its Entity List; Singapore opened its own investigation. Beijing has not yet answered, and the board will watch whether it uses its own licensing tools on rare earths or drone parts in reply, as it did in October.\n\nThe Russia file is sabotage rather than theft. Britain's protective security agency, run by MI5, told defence firms and suppliers to Ukraine on 24 November that Russia has stepped up attempts to sabotage European defence sites, mainly through arson by low-level proxies hired online. It is a warning, not a new incident, but it formalises what Estonia, Germany and Denmark have attributed case by case, and it comes a week after the US charged a Russian with spying on Palantir staff in California.\n\nThe Iran file is the least certain. The Wall Street Journal reported on 23 November that US authorities are investigating suspected cyberattacks on as many as 50 tankers and chemical carriers, some sent bomb threats, with Iran the main suspect and Russia a possible one. No US agency has attributed the attacks on the record, and Reuters could not verify the report. If it holds, the Hormuz confrontation has a cyber front against commercial shipping alongside the drones and projectiles UKMTO logs.\n\nWhat would change the picture: a named US attribution of the ship attacks; a Chinese counter-listing after Megaspeed; or a first sabotage incident in Britain tied to the proxies the alert describes."
     },
     {
       "lens": "EPIC FURY · TACTICAL READ",
@@ -88,31 +88,32 @@
   "iran_lead": {
     "kicker": "Epic Fury · Lead Development",
     "pillar": "iran",
-    "salience": 3,
-    "updated_at": "11/24/2026 · 05:30 EST",
-    "title": "WSJ: US probes suspected Iranian cyberattacks on up to 50 ships",
-    "summary": "US authorities are investigating suspected cyberattacks on as many as 50 tankers and chemical carriers, some sent bomb threats, with Iran the primary suspect, the Wall Street Journal reported on 23 November; Reuters could not verify it. Iran had vowed 'all available means' against the US blockade the same day. No US strike on Iran was reported 20-24 November.",
+    "salience": 1,
+    "updated_at": "11/25/2026 · 05:30 EST",
+    "title": "Attacks on Hormuz shipping reach ten tankers in a week",
+    "summary": "UKMTO reported three tankers struck in the Strait of Hormuz and a bulk carrier set ablaze off Khor Fakkan on 22 November; that brings reported tanker strikes since 16 November to 10, by gCaptain's count. The IMO counts 25 seafarers confirmed dead. Iran blacklisted 26 tugboats, and its Guard claimed two tankers hit mines on 25 November. No US strike on Iranian territory has been reported since 17 November.",
     "facts": [
-      "23 Nov: WSJ reports US probe of suspected Iranian cyberattacks on up to 50 ships.",
-      "23 Nov: Iran vows 'all available means' against the blockade; sets reopening terms.",
-      "23 Nov: OFAC sanctioned Iranian exchange houses."
+      "22 Nov: UKMTO reports three tankers struck in Hormuz and a bulk carrier hit off Khor Fakkan.",
+      "24 Nov: Iran's strait authority blacklists 26 tugboats.",
+      "24 Nov: Swedish Club advises avoiding Hormuz; IMO counts 25 seafarers dead.",
+      "25 Nov: IRGC claims two tankers hit mines (unconfirmed)."
     ],
-    "changed": "The reported probe would widen the blockade confrontation to cyber operations against shipping; it names Iran as prime suspect and Russia as a possible culprit, citing unnamed officials. Tehran set terms to reopen Hormuz within two days and protested its mediator Qatar over a Qatar-Germany statement.",
-    "watch": "Any official US attribution of the ship cyberattacks; Iranian tankers testing the blockade from Kharg; a US strike in reply to Iran's Bahrain attack; Qatar's talks with Rubio; Houthi fire on Saudi Arabia."
+    "changed": "The attack rate on outbound tankers off Musandam rose to about ten in a week, all unattributed by UKMTO, while Iran widened its 'non-compliant' list from ships to the tugboats that serve them. The IMO raised its regional count to 141 incidents and 25 seafarer deaths, and The Swedish Club told members to avoid the strait unless passage is essential. Facilitated transits ran at about 26.5 a day on 15-18 November, by monitoring the club cited.",
+    "watch": "Whether UKMTO or CENTCOM attributes the 22 November strikes; any US strike on Iranian territory or on a blockade runner; the IRGC mine claim's ships and position; insurers' war-risk terms; OPEC+ on 29 November."
   },
   "brics_lead": {
     "kicker": "US-BRICS Rivalry · Lead Development",
     "pillar": "brics",
-    "salience": 1,
-    "updated_at": "11/24/2026 · 05:30 EST",
-    "title": "Russian jets near South Korea's Ulleung Island; US blacklists Megaspeed",
-    "summary": "About five Russian warplanes entered South Korea's air defence zone on 24 November and approached Ulleung Island, prompting Seoul's first preliminary air alert over Russian aircraft; Russia's attaché was summoned. The US added Megaspeed and six Southeast Asian firms to its Entity List on 23 November over suspected diversion of Nvidia chips to China.",
-    "changed": "Russia's air activity in North-East Asia moved from Japan's airspace (17 November) to the edge of South Korea's. Washington acted on the Nvidia spy affair after weeks of internal dispute over Megaspeed; Singapore opened its own investigation. Kim Yo Jong threatened to shut Switzerland's new office in Pyongyang over Swiss sanctions on a children's camp linked to deported Ukrainian children.",
-    "watch": "Taiwan's 28 November local elections and any Chinese pressure around them; further Russian or Chinese flights near Korea and Japan; Beijing's response to the Megaspeed listing; North Korea's next step on the Swiss office.",
+    "salience": 3,
+    "updated_at": "11/25/2026 · 05:30 EST",
+    "title": "North Korea expels Switzerland's envoy and orders its Pyongyang office shut",
+    "summary": "North Korea ordered the closure of Switzerland's diplomatic office in Pyongyang on 25 November, declaring its head persona non grata and telling him to leave within 48 hours, a day after Kim Yo Jong's threat over Swiss sanctions on a camp linked to deported Ukrainian children. A US Army sergeant pleaded guilty on 24 November to passing HIMARS material to people connected to China.",
+    "changed": "Pyongyang turned a Swiss sanctions listing tied to Russia's war into the loss of its newest Western diplomatic channel, a month after the Swiss foreign minister's visit. In the US, the Zhao plea adds a China case to the run of Russia-linked spying cases. No BRICS-bloc development was read in the window.",
+    "watch": "Switzerland's response; Taiwan's 28 November local elections and any Chinese pressure around them; further Russian or Chinese flights near Korea and Japan; Beijing's reply to the Megaspeed listing.",
     "lenses": [
       {
         "label": "Bilateral US-China",
-        "oneline": "US blacklisted Megaspeed and six firms over suspected Nvidia chip diversion; Taiwan warns of Chinese election interference before 28 November."
+        "oneline": "A US Army sergeant pleaded guilty to passing HIMARS material to China-connected people; Taiwan votes on 28 November."
       },
       {
         "label": "BRICS bloc",
@@ -120,33 +121,34 @@
       },
       {
         "label": "CRINK",
-        "oneline": "Russian warplanes neared South Korea's Ulleung Island; North Korea threatened Switzerland's office over sanctions on a Russia-linked camp."
+        "oneline": "North Korea ordered Switzerland's Pyongyang office closed over sanctions on a camp linked to deported Ukrainian children."
       },
       {
         "label": "Allies Cohesion",
-        "oneline": "NATO agreed to give Poland an AWACS after Russian missiles and a drone entered its airspace."
+        "oneline": "Britain warned defence firms of Russian proxy arson; the US ruled out troops in post-war Ukraine, the Kyiv Independent reports."
       }
     ],
     "facts": [
-      "24 Nov: Russian warplanes in KADIZ near Ulleung; first preliminary alert; attaché summoned.",
-      "23 Nov: Commerce lists Megaspeed and six Southeast Asian firms.",
-      "24 Nov: Kim Yo Jong threatens to close Swiss office in Pyongyang."
+      "25 Nov: North Korea orders the Swiss office in Pyongyang closed; head declared persona non grata.",
+      "24 Nov: US Army Sgt Jian Zhao pleads guilty in a China defence-information case.",
+      "24 Nov: UK security agency warns firms of Russian sabotage."
     ]
   },
   "ukraine_lead": {
     "kicker": "Russia-Ukraine · Lead Development",
     "pillar": "ukraine",
     "salience": 2,
-    "updated_at": "11/24/2026 · 05:30 EST",
-    "title": "Russian drone returns to Polish airspace as NATO agrees AWACS for Poland",
-    "summary": "A Russian drone entered Polish airspace late on 23 November, three days after Russian cruise missiles fell in south-eastern Poland; Warsaw called it deliberate. NATO's council agreed on 23 November to give Poland an AWACS early-warning aircraft. Ukraine says its drones sank the corvette Merkury at Benghazi on 22 November, and Moscow warned Estonia of 'the brink of an open war'.",
+    "updated_at": "11/25/2026 · 05:30 EST",
+    "title": "Two Libyan soldiers die after Benghazi strike; Russia hits Ukraine's gas",
+    "summary": "Two Libyan soldiers died of injuries from the Ukrainian-claimed drone strike on Russian ships at Benghazi, and France's foreign minister defended Ukraine's right to self-defence. Russian strikes overnight into 25 November halted a Naftogaz gas site and cut power in five regions. US negotiators have privately ruled out troops or bases in post-war Ukraine, the Kyiv Independent reports.",
     "facts": [
-      "23 Nov: NATO council agrees to give Poland an AWACS (Zalewski); Kyiv Post reports three Kh-101 for 20 Nov.",
-      "23 Nov: Russian drone in Polish airspace, Lublin region; Warsaw calls it deliberate.",
-      "22 Nov: corvette Merkury struck at Benghazi; Ukraine claims the attack.",
-      "23 Nov: Russia warned Estonia of 'the brink of an open war'."
+      "24 Nov: two Libyan soldiers die of injuries from the Benghazi strike.",
+      "24 Nov: Haftar arrives in Ankara.",
+      "25 Nov: Russian strikes halt a Naftogaz gas site; ZNPP loses outside power.",
+      "25 Nov: Kyiv Independent: US rules out troops and bases in post-war Ukraine.",
+      "24 Nov: Zelensky says 48 PURL-funded Patriots await Hegseth's sign-off."
     ],
-    "changed": "Kyiv Post reports that all three objects that fell on 20 November were confirmed as Kh-101 cruise missiles, not two missiles and a drone. NATO answered Poland with an AWACS and deferred its other air-defence requests to next week's foreign ministers' meeting, Poland's deputy defence minister said. No Russian reply to the Benghazi strike was reported.",
-    "watch": "NATO foreign ministers' decision on Poland's further air-defence requests; Estonia's 1 December border closure; whether the Abu Dhabi prisoner exchange starts before month-end; Ukraine's air force tally for the 20 November attack; further incursions into NATO airspace."
+    "changed": "The Benghazi strike now has deaths on Libyan soil, and Haftar flew to Ankara two days later. Russia returned to Ukraine's gas production as winter sets in; the Zaporizhzhia plant lost outside power for the 17th time this year. On the diplomatic track, the US offer of an 'Article 5-like' guarantee comes without troops or bases, and Zelensky says 48 Patriot interceptors paid for by allies still await Hegseth's signature.",
+    "watch": "Russia's reply to Benghazi; Estonia's 1 December border closure; the Abu Dhabi prisoner exchange; NATO foreign ministers on Poland's air-defence requests; Pentagon sign-off on the Patriots."
   }
 }

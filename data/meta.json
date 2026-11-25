@@ -3,14 +3,14 @@
   "war_start": "2026-02-28T00:00:00",
   "now": "2026-11-22T05:00:00-05:00",
   "ww3_pct": 66,
-  "ww3_now_label": "Nov 24 · Russian jets probe Korea; NATO AWACS for Poland",
-  "base_last_update": "11/24/2026 · 05:30 EST",
-  "last_built": "2026-11-24T09:31:22.522Z",
+  "ww3_now_label": "Nov 25 · Hormuz tanker attacks widen; NK expels Swiss",
+  "base_last_update": "11/25/2026 · 05:30 EST",
+  "last_built": "2026-11-25T09:34:48.563Z",
   "version": "2.0.0",
   "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
   "hormuz_status": {
     "label": "CONTESTED",
-    "note": "UKMTO logged three tanker-attack reports near Khasab on 20-21 November, with no casualties; Iran says ships must coordinate with it, and the US blockade now covers ship-to-ship transfers.",
-    "as_of": "2026-11-21"
+    "note": "Reported tanker strikes since 16 November reached 10, gCaptain counts; the IMO counts 25 seafarers dead; Iran blacklisted 26 tugboats; transits ran about 26.5 a day on 15-18 November.",
+    "as_of": "2026-11-24"
   }
 }

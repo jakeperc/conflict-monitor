@@ -56,19 +56,19 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "Russian cruise missiles crashed in Poland during a mass attack on Ukraine; Iran struck Bahrain and tankers near Hormuz; a Houthi strike damaged Riyadh's sovereign-fund tower."
+      "currentLabel": "About ten tankers were reported struck near Hormuz in a week, Russia hit Ukraine's gas and power again, and the Benghazi strike has killed two Libyan soldiers."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "Russian warplanes neared South Korea's Ulleung Island and the US blacklisted Megaspeed over chip diversion, after the first Trump-Xi-Putin summit."
+      "currentLabel": "North Korea expelled Switzerland's envoy over Ukraine-linked sanctions, after Russian warplanes neared South Korea and the US blacklisted Megaspeed."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "The Shenzhen declaration says nuclear war must never be fought but sets no arms limits; France and Sweden held a first joint nuclear-deterrence exercise."
+      "currentLabel": "The Zaporizhzhia nuclear plant lost outside power for the 17th time this year; the Shenzhen declaration set no arms limits."
     },
     {
       "key": "alliance",

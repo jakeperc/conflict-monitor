@@ -436,6 +436,13 @@
       "t": "121 non-Iranian transits in a week",
       "s": "At least 121 non-Iranian-linked transits in the last week of October, so about 17 a day is a floor (Lloyd's List Intelligence, 19 Nov brief). Most of the rise from 15 is a revision: Lloyd's now gives 123 for 5-11 Oct, not 104",
       "k": "info"
+    },
+    {
+      "d": "2026-11-18",
+      "v": 26.5,
+      "t": "106 facilitated transits in four days",
+      "s": "106 facilitated transits on 15-18 Nov, about 26.5 a day (independent monitoring cited by The Swedish Club, via gCaptain 24 Nov). A different basis from the Lloyd's List non-Iranian weekly counts, so not directly comparable",
+      "k": "info"
     }
   ]
 }

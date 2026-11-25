@@ -150,9 +150,9 @@
       "risk": 24,
       "level": "MODERATE",
       "alignment": "partner",
-      "note": "Parliament ratified the Mecca defence pact with Saudi Arabia and Pakistan; troop deployments need a separate vote.",
-      "details": "Turkey's parliament approved the Mecca Joint Defence Agreement on 5 November by 279 votes to 119 (Iran International; The New Arab, citing Anadolu). The pact, signed in August, covers intelligence sharing, military coordination, joint deterrence and defence industry, and treats an attack on one member as an attack on all three. It does not authorise sending Turkish troops, which needs a separate vote, and Ankara says its forces will not take part in offensive operations against the Houthis.\n\nA NATO member is now bound to defend Saudi Arabia, which is under Houthi missile fire. Turkey also began 'Sea of Friendship' naval drills with Egypt on 4 November.",
-      "as_of": "2026-11-07",
+      "note": "Hosted Libya's Haftar in Ankara on 24 November, two days after Ukraine's strike on Russian ships at Benghazi; it has ratified the Mecca defence pact.",
+      "details": "Turkey is positioning itself in Libya as the Russia-Ukraine war spills into the Mediterranean. Khalifa Haftar, the eastern Libyan commander, arrived in Ankara on 24 November on his first known visit, met by the chief of general staff (Al Jazeera); Turkey gave no readout. Days earlier Foreign Minister Fidan and intelligence chief Kalin met Tripoli's prime minister Dbeibah in Istanbul, and Fidan said Erdogan will visit Libya in December. The visit followed the 22 November drone strike on Russian ships at Benghazi that Ukraine claims.\n\nTurkey's parliament approved the Mecca Joint Defence Agreement with Saudi Arabia and Pakistan on 5 November by 279 votes to 119. It treats an attack on one member as an attack on all three, but sending troops needs a separate vote, and Ankara says it will not join offensive operations against the Houthis.",
+      "as_of": "2026-11-24",
       "stale_ok": false
     },
     {
@@ -318,7 +318,8 @@
       "alignment": "neutral",
       "as_of": "2026-08-28",
       "note": "Accused Sudan of an air strike near their shared border that killed twelve at a fuel market; Sudan has not responded.",
-      "details": "Chad borders Sudan's Darfur region and has absorbed large numbers of people displaced by that war. On 28 August its government accused Sudan of carrying out an air strike near the shared border, killing twelve people at a fuel market. Sudan has not responded, and no independent verification of responsibility has been published.\n\nThe allegation matters because this board has carried Sudan as an internal war between the army and the Rapid Support Forces. A cross-border strike between two states is a different object, and if substantiated it would widen the conflict rather than deepen it. Chad has previously been named in reporting as a transit route for supplies reaching the Rapid Support Forces, which both governments dispute.\n\nThe entry opens at a low risk level because the claim rests on one government's statement carried by a single outlet, with no attribution established and no second state confirming it."
+      "details": "Chad borders Sudan's Darfur region and has absorbed large numbers of people displaced by that war. On 28 August its government accused Sudan of carrying out an air strike near the shared border, killing twelve people at a fuel market. Sudan has not responded, and no independent verification of responsibility has been published.\n\nThe allegation matters because this board has carried Sudan as an internal war between the army and the Rapid Support Forces. A cross-border strike between two states is a different object, and if substantiated it would widen the conflict rather than deepen it. Chad has previously been named in reporting as a transit route for supplies reaching the Rapid Support Forces, which both governments dispute.\n\nThe entry opens at a low risk level because the claim rests on one government's statement carried by a single outlet, with no attribution established and no second state confirming it.",
+      "stale_ok": true
     },
     {
       "name": "Venezuela",
@@ -386,9 +387,9 @@
       "risk": 40,
       "level": "ELEVATED",
       "alignment": "ally",
-      "note": "Named Russia's GRU for an arson attempt at drone maker Threod and plans to shut three road crossings with Russia on 1 December.",
-      "details": "Estonia is a NATO and EU member on Russia's border.\n\nOn 14 November an arson attempt at drone manufacturer Threod Systems was thwarted and eight Latvian residents were detained; Estonia's security service said Russia's military intelligence, the GRU, ordered it and that about ten defence firms were being targeted. The foreign minister said the Narva, Koidula and Luhamaa road crossings would close from 1 December, pending a cabinet decision. Moscow called the accusation baseless and the Kremlin said Estonia was 'building a wall.'\n\nThe question for this entry is the Russian response once the crossings close, and whether Latvia and Lithuania follow.",
-      "as_of": "2026-11-19"
+      "note": "Closes all four road crossings with Russia from 1 December and says shutting the Narva rail crossing could be next; Moscow warned of 'open war'.",
+      "details": "Estonia's government decided on 20 November to close all road crossings with Russia, Narva, Luhamaa, Koidula and Saatse, to vehicles and pedestrians from 07:00 on 1 December; rail freight continues. Prime Minister Michal said on 24 November that closing the Narva rail crossing 'remains the next step if one is needed' (ERR News). The closure follows Estonia's attribution to Russia's GRU of an arson attempt at drone maker Threod.\n\nRussia summoned Estonia's chargé d'affaires on 23 November, accused Tallinn of letting Ukraine use its airspace and warned of 'the brink of an open war'. Defence Minister Herem said more Ukrainian drones have entered Estonian airspace from Russia than the reverse.",
+      "as_of": "2026-11-24"
     }
   ],
   "chess_players": [
@@ -506,11 +507,11 @@
       "name": "Turkey",
       "flag": "🇹🇷",
       "goal": "Expand its position in post-Assad Syria while keeping its NATO membership and its out-of-alliance commitments from being forced into a single choice.",
-      "move": "Ratified the Mecca defence pact with Saudi Arabia and Pakistan; no troop deployment yet.",
-      "as_of": "2026-11-07",
+      "move": "Hosted Libya's eastern commander Haftar in Ankara on 24 November after Ukraine's Benghazi strike, while keeping ties to Tripoli; Erdogan plans a December Libya visit.",
+      "as_of": "2026-11-24",
       "stale_ok": false,
       "color": "#f59e0b",
-      "details": "Parliament approved the pact on 5 November by 279 to 119. It binds a NATO member to treat an attack on Saudi Arabia or Pakistan as an attack on itself. Sending troops needs a separate vote, and Ankara says it will not join offensive operations against the Houthis."
+      "details": "Ankara is talking to both Libyan camps as Ukraine's war on Russian shipping reaches Libyan ports. Haftar arrived in Ankara on 24 November, his first known visit, and Fidan met Tripoli's Dbeibah in Istanbul days earlier. Turkey has also ratified the Mecca defence pact with Saudi Arabia and Pakistan (5 November); troop deployments need a separate vote."
     },
     {
       "name": "Hezbollah / Lebanon",
@@ -582,9 +583,9 @@
       "flag": "🇪🇪",
       "color": "#38bdf8",
       "goal": "Raise the cost of Russian sabotage on its soil without giving Moscow a pretext on the border.",
-      "move": "Plans to close the Narva, Koidula and Luhamaa road crossings from 1 December after blaming the GRU for arson at a drone maker.",
-      "details": "Estonia's strategy is to treat Russia's hybrid campaign as an attack on the state and answer it with costs Russia can see. After the thwarted 14 November arson at Threod Systems, its security service named the GRU, and the government announced the closure of three road crossings from 1 December, pending cabinet approval.",
-      "as_of": "2026-11-19"
+      "move": "Shuts all four road crossings with Russia from 1 December and keeps a Narva rail closure in reserve, despite Moscow's 'open war' warning.",
+      "details": "The government decided on 20 November to close Narva, Luhamaa, Koidula and Saatse to road traffic from 1 December; rail freight continues, and the prime minister says the Narva rail crossing could follow. Russia summoned Estonia's chargé on 23 November and warned of 'the brink of an open war'.",
+      "as_of": "2026-11-24"
     }
   ],
   "theaters": [
@@ -611,9 +612,9 @@
       "name": "Iran",
       "start": "2026-02-28",
       "threat": 88,
-      "status": "US jets struck Qeshm on 17 November; Iran fired drones at Kuwait and Bahrain; two tankers hit near Khasab, two seafarers missing.",
+      "status": "About ten tankers reported hit near Hormuz since 16 November; Iran blacklisted 26 tugboats and claims two tankers hit mines; no US strike since 17 November.",
       "color": "var(--c-iran)",
-      "as_of": "2026-11-19"
+      "as_of": "2026-11-25"
     },
     {
       "flag": "🇱🇧",
@@ -638,9 +639,9 @@
       "name": "Ukraine",
       "start": "2022-02-24",
       "threat": 72,
-      "status": "Ukraine dropped a Crimean Bridge road span on 17 November; Russia hit Kyiv's bridges, killing 14 across Ukraine; Trump met Putin.",
+      "status": "Russia hit gas and power sites overnight into 25 November; two Libyan soldiers died after the Benghazi strike; US rules out troops in guarantees.",
       "color": "#fb923c",
-      "as_of": "2026-11-19"
+      "as_of": "2026-11-25"
     },
     {
       "flag": "🇸🇩",

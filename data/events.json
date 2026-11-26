@@ -54739,6 +54739,34 @@
     "is_chapter_divider": false
   },
   {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "low",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "dr-congo"
+    ],
+    "id": "2026-11-22-congos-army-lost-contact-with-a",
+    "event_date": "2026-11-22",
+    "severity": 1,
+    "headline": "Congo's army lost contact with a Cessna 208 over South Kivu in bad weather on 22 November; a rebel group says it shot down the plane and captured a Ugandan and a South African pilot, which is unconfirmed.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cwy7r5z8gg65o",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
     "body": "",
     "source_time": "23:00",
     "feed_visibility": true,
@@ -54879,6 +54907,46 @@
       "semiconductors"
     ],
     "timeline_visibility": true
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "high",
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "casualties",
+      "russia-military-deaths",
+      "data-leak"
+    ],
+    "id": "2026-11-23-at-least-490000-russian-soldiers-had",
+    "event_date": "2026-11-23",
+    "severity": 3,
+    "headline": "At least 490,000 Russian soldiers had died in the war by late September, by registered deaths in leaked Rosstat data analysed by Meduza and Mediazona. Adding the missing and registration delays, they estimate the true toll at more than 700,000.",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/23/world/europe/russia-ukraine-war-deaths.html",
+        "published_date": "2026-11-23"
+      },
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/23/new-analysis-of-rosstat-leak-puts-russian-military-death-toll-at-490k-or-more-a94355",
+        "published_date": "2026-11-23"
+      },
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/11/24/at-least-490000-russian-soldiers-killed-in-ukraine-rosstat-data-leak-reveals",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
   },
   {
     "id": "2026-11-23-russias-foreign-ministry-summoned-estonias-charge",
@@ -55159,6 +55227,35 @@
       "first-island-chain"
     ],
     "timeline_visibility": false
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "eu-sanctions"
+    ],
+    "id": "2026-11-23-the-european-commission-proposed-a-22nd",
+    "event_date": "2026-11-23",
+    "severity": 2,
+    "headline": "The European Commission proposed a 22nd sanctions package on Russia on 23 November, targeting crypto used to evade sanctions, sport and visas; it needs unanimous approval by member states.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/ukraine-government-welcomes-newly-proposed-eu-sanctions-package/",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "theaters": [
+      "sanctions-financial-warfare",
+      "russia-ukraine-war"
+    ]
   },
   {
     "body": "",
@@ -55514,6 +55611,105 @@
     "is_chapter_divider": false
   },
   {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "taiwan",
+      "lithuania"
+    ],
+    "id": "2026-11-24-lithuanias-president-nauseda-said-politicians-taiwan",
+    "event_date": "2026-11-24",
+    "severity": 1,
+    "headline": "Lithuania's President Nauseda said politicians' trips to Taiwan should be scrutinised over who was behind opening the Taiwanese office in Vilnius, drawing criticism from visiting lawmakers.",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3125109/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china",
+      "allies-cohesion"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "disinformation",
+      "taiwan"
+    ],
+    "id": "2026-11-24-a-chinalinked-network-has-made-more",
+    "event_date": "2026-11-24",
+    "severity": 1,
+    "headline": "A China-linked network has made more than 500 fake videos targeting Taiwan's ruling party over the past year, including deepfakes before the 28 November local elections, BBC Verify found.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cv702rw7dzx5o",
+        "published_date": "2026-11-24"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "sanctions-enforcement"
+    ],
+    "id": "2026-11-24-huawei-was-convicted-in-a-us",
+    "event_date": "2026-11-24",
+    "severity": 1,
+    "headline": "Huawei was convicted in a US federal court on 10 of 12 counts, including sanctions violations over its covert Iran business, and acquitted of racketeering.",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611251744",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "sanctions-financial-warfare",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
     "id": "2026-11-25-north-korea-shut-switzerlands-diplomatic-office",
     "event_date": "2026-11-25",
     "source_time": null,
@@ -55614,6 +55810,81 @@
     "is_chapter_divider": false
   },
   {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "high",
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "tariffs",
+      "economic-coercion",
+      "signal:india-ambivalence"
+    ],
+    "id": "2026-11-25-the-us-trade-representative-proposed-new",
+    "event_date": "2026-11-25",
+    "severity": 3,
+    "headline": "The US Trade Representative proposed new tariffs of up to 20% on 14 economies, including China, India, the EU, Japan, South Korea and Taiwan, after a probe into excess production capacity. The rates go to public comment first; final action could come in January.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c893r9ke5p97o",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/us-unveils-proposed-tariffs-on-major-partners-including-eu-and-china",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "gCaptain",
+        "url": "https://gcaptain.com/u-s-targets-china-eu-with-new-tariffs-citing-overcapacity/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry",
+      "markets-risk-transmission"
+    ],
+    "lenses": [
+      "bilateral-us-china",
+      "allies-cohesion",
+      "brics-bloc"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "travel-advisory"
+    ],
+    "id": "2026-11-25-the-us-told-its-citizens-to",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "The US told its citizens to leave Iran immediately, warning that hostilities could escalate rapidly and that Iran, the Houthis and aligned groups may target US interests.",
+    "sources": [
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/11/25/us-tells-citizens-to-leave-iran-warns-hostilities-could-escalate-fast",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
     "id": "2026-11-25-irans-revolutionary-guard-navy-said-two",
     "event_date": "2026-11-25",
     "source_time": null,
@@ -55642,5 +55913,707 @@
     "chapter_label": null,
     "chapter_kicker": null,
     "is_chapter_divider": false
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "casualties",
+      "russia-military-deaths"
+    ],
+    "id": "2026-11-25-the-kremlin-declined-to-comment-on",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "The Kremlin declined to comment on reports that about 700,000 Russian soldiers have been killed; Peskov said only the defence ministry can give figures, which it has not done since September 2022.",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261125-kremlin-declines-comment-reports-700-000-russian-soldiers-killed-ukraine-war",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "nato-airspace",
+      "poland"
+    ],
+    "id": "2026-11-25-poland-said-it-will-create-a",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "Poland said it will create a no-fly zone at least 10 km deep along its border with Ukraine, with rules due by early January letting pilots engage targets without visual identification, after repeated Russian incursions.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/ukraine-war-latest-poland-plans-no-fly-zone-near-ukraine-border-asks-nato-to-intercept-russian-missiles-over-ukraine/",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/poland-says-will-create-no-fly-zone-at-ukraine-border-after-repeated-airspace-violations",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "nato"
+    ],
+    "id": "2026-11-25-trump-and-nato-secretary-general-rutte",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "Trump and NATO Secretary General Rutte jointly urged Russia to avoid actions that 'intentionally, or unintentionally, expand the war' in Ukraine, Reuters reports.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/26/trump-and-nato-chief-urge-russia-to-avoid-actions-that-widen-ukraine-war-a812374",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "negotiations"
+    ],
+    "id": "2026-11-25-kushner-said-putin-does-not-seem",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "Kushner said in a podcast interview released on 25 November that Putin does not seem interested in a ceasefire.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91223",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "deep-strike",
+      "airbase"
+    ],
+    "id": "2026-11-25-ukraines-general-staff-said-drones-damaged",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "Ukraine's General Staff said its drones damaged five aircraft, three MiG-31s and two Su-34s, at Russia's Savasleyka airbase in Nizhny Novgorod region; Russia did not comment.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/26/ukraine-attacks-russian-military-base-says-five-planes-struck",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/ck9q8xp5r5pgo",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "refinery-campaign",
+      "deep-strike"
+    ],
+    "id": "2026-11-25-one-person-was-killed-in-samara",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "One person was killed in Samara region as Ukrainian drones reportedly hit two Rosneft refineries, at Syzran and Samara; the governor said more than 145 drones were downed.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/25/one-killed-in-samara-region-as-ukraine-strikes-oil-refinery-a94368",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/ck9q8xp5r5pgo",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "strike-on-cities"
+    ],
+    "id": "2026-11-25-a-russian-ballistic-missile-attack-on",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "A Russian ballistic missile attack on Kyiv's Desnianskyi district hit a shopping centre on 25 November, injuring seven people.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91219",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "high",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "sanctions-relief",
+      "lukoil"
+    ],
+    "id": "2026-11-25-a-us-consortium-led-by-todd",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "A US consortium led by Todd Boehly, with the US Development Finance Corporation as a partner, signed a share-swap deal for sanctioned Lukoil's foreign assets; it needs OFAC approval, and proceeds would sit in restricted accounts.",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/25/us/politics/lukoil-deal.html",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/us-consortium-announces-deal-to-acquire-sanctioned-russian-oil-company-lukoils-global-subsidiary/",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/25/american-billionaire-signs-u-s-backed-share-swap-deal-to-buy-lukoil-global-a812372",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "sanctions-financial-warfare",
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [],
+    "id": "2026-11-25-trump-said-the-iran-war-is",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "Trump said the Iran war is 'funded' through the end of January when asked about the window for a new offensive.",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/trump-says-iran-war-funded-through-january-suggesting-limited-window-for-new-op/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "houthi-saudi-war"
+    ],
+    "id": "2026-11-25-the-houthis-said-they-hit-jeddah",
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "The Houthis said they hit the Jeddah and Jazan ports, Riyadh's financial district and the Ras Tanura refinery; the Saudi-led coalition reported minor damage at Jazan port and four drones downed over Ras Tanura, with no casualties.",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/yemens-houthis-say-they-hit-two-saudi-ports-in-response-to-coalition-strikes/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "red-sea-shipping"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "long-range-fires",
+      "hypersonic"
+    ],
+    "id": "2026-11-25-the-us-armys-first-dark-eagle",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "The US Army's first Dark Eagle hypersonic missile battery is 'fully fielded', the Army's fires programme chief said, about three years behind schedule.",
+    "sources": [
+      {
+        "name": "Breaking Defense",
+        "url": "https://breakingdefense.com/2026/11/first-dark-eagle-hypersonic-battery-fully-fielded-lozano-says/",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "base-security",
+      "uk"
+    ],
+    "id": "2026-11-25-the-raf-is-moving-aircraft-into",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "The RAF is moving aircraft into hangars and hardened shelters at night over drone threats and suspected Iran-linked plots against UK bases, Sky News and Al Jazeera report.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/25/uk-military-moving-aircraft-to-hangars-in-case-of-drone-attacks",
+        "published_date": "2026-11-25"
+      },
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611262631",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "cyber-intrusion"
+    ],
+    "id": "2026-11-25-a-cyberattack-exposed-unclassified-information-from",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "A cyberattack exposed unclassified information from a CIA open-source analysis system, US media reported; no attacker was named.",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/americas/20261125-cyberattack-exposes-unclassified-information-from-cia-system-us-media-reports",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "cyber-infrastructure"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "israel-politics"
+    ],
+    "id": "2026-11-25-judges-in-netanyahus-corruption-trial-suggested",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "Judges in Netanyahu's corruption trial suggested prosecutors drop the bribery charges against him; Netanyahu called for the trial to end immediately.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cxj05mv723r2o",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "israel-lebanon-gaza"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "cuba"
+    ],
+    "id": "2026-11-25-who-chief-tedros-urged-the-us",
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "WHO chief Tedros urged the US to lift its fuel blockade and sanctions on Cuba during a visit; Cuban authorities say power cuts last 20 hours or more.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/25/who-chief-urges-end-to-us-fuel-blockade-on-cuba",
+        "published_date": "2026-11-25"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "north-korea",
+      "nuclear-signalling"
+    ],
+    "id": "2026-11-26-kim-jong-un-called-for-tactical",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Kim Jong Un called for tactical nuclear weapons to be deployed 'across multiple domains' and said bomb-material production is being expanded, during a tour of nuclear sites reported by state media on 26 November.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/26/kim-jong-un-says-north-korea-should-widen-deployment-of-tactical-nukes",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/11/26/north-koreas-kim-vows-to-build-more-nuclear-weapons-after-ignoring-trumps-overture",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry",
+      "secondary-flashpoints"
+    ],
+    "lenses": [
+      "crink"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "tariffs",
+      "economic-coercion"
+    ],
+    "id": "2026-11-26-chinas-commerce-ministry-called-the-us",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "China's commerce ministry called the US tariff probe 'an act of unilateralism' and said it reserves the right to respond; Japan called its proposed 15% rate regrettable, the EU rejected the case and Brazil said it will not yield.",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/americas/20261126-unacceptable-major-economies-push-back-against-new-us-tariffs",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/business/2026/11/26/economy/japan-protests-trump-new-tariff/",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china",
+      "allies-cohesion"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "refinery-campaign",
+      "deep-strike"
+    ],
+    "id": "2026-11-26-ukrainian-drones-were-reported-to-hit",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Ukrainian drones were reported to hit a Transneft pumping station in Bashkortostan, the Kuibyshev refinery in Samara and a Stavropol power plant overnight; Russia's defence ministry said it downed 343 drones.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91262",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "strike-on-cities"
+    ],
+    "id": "2026-11-26-russian-ballistic-missiles-and-113-drones",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Russian ballistic missiles and 113 drones hit Kharkiv overnight into 26 November, killing two people, Ukrainian officials said.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91254",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "houthi-saudi-war"
+    ],
+    "id": "2026-11-26-the-saudiled-coalition-said-it-intercepted",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "The Saudi-led coalition said it intercepted two Houthi ballistic missiles fired at Riyadh on 26 November; an explosion was reported in Sanaa after air strikes near its airport.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/11/26/iran-war-live-explosion-rocks-sanaa-missiles-intercepted-over-riyadh",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "red-sea-shipping"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "espionage",
+      "estonia"
+    ],
+    "id": "2026-11-26-estonias-security-police-expelled-a-russian",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Estonia's security police expelled a Russian worker at the Enefit oil plant near the border over contacts with Russian intelligence, banning him from the Schengen area for 10 years.",
+    "sources": [
+      {
+        "name": "ERR News",
+        "url": "https://news.err.ee/1610206810/estonia-expels-russian-oil-plant-worker-over-intelligence-service-ties",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "coast-guard",
+      "senkaku"
+    ],
+    "id": "2026-11-26-japan-and-china-traded-protests-over",
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Japan and China traded protests over Chinese coast-guard vessels that approached a Japanese fishing boat near the Senkaku Islands, the fifth such approach this year by Japan's count.",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/world/japan-china-trade-accusations-over-ships-near-disputed-islands-3014105",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china",
+      "allies-cohesion"
+    ]
   }
 ]

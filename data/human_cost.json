@@ -1,7 +1,7 @@
 {
   "title": "Human Cost",
-  "scope_note": "Iran arc (Iran, Lebanon, US forces) and the Russia-Ukraine war. Iran and Lebanon are health-ministry totals with no military/civilian split. Ukraine civilians are UN-verified; both militaries are open-source counts of named dead, a floor rather than a full toll.",
-  "updated_at": "2026-11-16",
+  "scope_note": "Iran arc (Iran, Lebanon, US forces) and the Russia-Ukraine war. Iran and Lebanon are health-ministry totals with no military/civilian split. Ukraine civilians are UN-verified; Ukraine's military figure counts named dead and Russia's is a leaked-registry floor, so neither is a full toll.",
+  "updated_at": "2026-11-26",
   "groups": [
     {
       "key": "iran",
@@ -86,11 +86,11 @@
       "rows": [
         {
           "k": "Military deaths",
-          "value": "286,000",
-          "secondary": "Mediazona with BBC Russian · 7,983 officers",
+          "value": "490,000+",
+          "secondary": "registered deaths to 29 Sep (Rosstat leak) · estimate with missing 700,000+",
           "basis": "reported-aggregate",
-          "as_of": "2026-11-06",
-          "note": "Mediazona figure, confirmed by 6 November, from a count of named dead in open sources run with the BBC Russian Service. Its per-name list did not load, so the total is shown as reported. Open sources catch only part of the real toll."
+          "as_of": "2026-11-23",
+          "note": "Floor: deaths already in Rosstat's leaked registry, per Meduza and Mediazona (NYT, Moscow Times). Estimate counting missing soldiers and late registration: above 700,000. Deaths only; Ukraine's General Staff tally of Russian losses also counts wounded."
         }
       ]
     }

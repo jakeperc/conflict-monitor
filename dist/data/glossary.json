@@ -1411,6 +1411,15 @@
       "expansion": "High Mobility Artillery Rocket System",
       "definition": "A US truck-mounted launcher that fires guided rockets and short-range ballistic missiles; it is central to US and allied long-range fires plans, from Ukraine to Taiwan and the Philippines.",
       "category": "military"
+    },
+    {
+      "term": "Rosstat",
+      "aliases": [
+        "Rosstat"
+      ],
+      "expansion": "Russian Federal State Statistics Service",
+      "definition": "Russia's state statistics agency. It stopped publishing mortality data in mid-2025; hacked copies of its death records were used in November 2026 to count Russian war dead.",
+      "category": "institution"
     }
   ]
 }

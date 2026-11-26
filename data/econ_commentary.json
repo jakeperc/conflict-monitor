@@ -2,10 +2,10 @@
   "cards": [
     {
       "key": "equities",
-      "title": "Equities: Treasury Presses the Fed as Oil Risk Persists",
+      "title": "Equities: Tariff Proposal Lands on a War Market",
       "color": "blue",
-      "body": "The S&P 500 trades at {SPX} and the Nasdaq 100 at {NDX}. On 13 November Treasury Secretary Bessent urged the Federal Reserve not to raise rates into what he called an energy supply shock from the Iran war. Oil, at {BRENT} for Brent, remains the main channel to equities: Iran's Guard claims new mine hits around Hormuz and fired drones at Bahrain, while the US pause in strikes on Iran has held since 7 November. Nvidia's chief executive resigned on 12 November after admitting an affair with a woman accused of spying for China; the board gave no reason. Trump is due to meet Xi in Shenzhen next week.",
-      "updated_at": "2026-11-15"
+      "body": "The S&P 500 stands at {SPX} and the Nasdaq at {NDX}. On 25 November the US Trade Representative proposed tariffs of up to 20% on 14 economies, including China, the EU, Japan and South Korea, after a probe into excess capacity; US stocks fell on the news, Reuters reported via Al Jazeera. The rates go to public comment, with action possible in January, and China says it reserves the right to respond. Oil risk has not gone away: Brent trades at {BRENT} after Houthi claims on Saudi ports and a refinery.",
+      "updated_at": "2026-11-26"
     },
     {
       "key": "oil",
@@ -16,10 +16,10 @@
     },
     {
       "key": "crypto",
-      "title": "Crypto: FBI Says North Korea Stole $400 Million With Fake Video Calls",
+      "title": "Crypto: EU Proposes Curbs on Russian Sanctions Evasion",
       "color": "violet",
-      "body": "Bitcoin trades at {BTC}. The FBI said this week that North Korean state hackers took more than $400 million in cryptocurrency from over 900 victims using fake video calls, and that the regime relies on such theft to fund its weapons program (BBC). That is a direct pathway from crypto theft to a sanctioned state's weapons funding. On 6 November the US Treasury sanctioned eight Canadian money-exchange businesses it says moved Iranian funds, including the crypto firm Cryptoyal. OFAC's list of recent actions for 10-15 November shows no designation tied to the $6.3 billion Binance theft the FBI attributes to North Korea.",
-      "updated_at": "2026-11-15"
+      "body": "Bitcoin trades at {BTC} and Ether at {ETH}. On 23 November the European Commission proposed a 22nd sanctions package on Russia that targets cryptocurrency used to get around sanctions, alongside measures on sport and visas, Kyiv Independent reports. It is a proposal: it needs unanimous approval from member states, which some officials hope for before the end of the year. Until it is adopted, it does not change the speed or path of Russia's sanctioned payments.",
+      "updated_at": "2026-11-26"
     },
     {
       "key": "gold",

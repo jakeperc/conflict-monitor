@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "About ten tankers were reported struck near Hormuz in a week, Russia hit Ukraine's gas and power again, and the Benghazi strike has killed two Libyan soldiers."
+      "currentLabel": "Russia hit Kharkiv and Kyiv with ballistic missiles and Ukraine says it struck refineries and an airbase; the Houthis claim Saudi port strikes."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "North Korea expelled Switzerland's envoy over Ukraine-linked sanctions, after Russian warplanes neared South Korea and the US blacklisted Megaspeed."
+      "currentLabel": "The US proposed a 20% tariff on China a week after Shenzhen and told Americans to leave Iran; Trump and Rutte warned Russia not to widen the war."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "The Zaporizhzhia nuclear plant lost outside power for the 17th time this year; the Shenzhen declaration set no arms limits."
+      "currentLabel": "Kim Jong Un called for tactical nuclear weapons across multiple domains; Ukraine says Zaporizhzhia lost outside power for the 17th time this year."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "NATO agreed to give Poland an AWACS after repeated Russian incursions and Denmark expelled Russia's attaché; Europe was absent from Shenzhen."
+      "currentLabel": "The US proposed tariffs on the EU, Japan and South Korea; Tokyo and Brussels protested. Poland is creating a no-fly zone after Russian incursions."
     }
   ]
 }

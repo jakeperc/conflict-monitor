@@ -76,9 +76,9 @@
       "risk": 70,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "A Houthi strike damaged the sovereign wealth fund's Riyadh tower on 19 November; the coalition keeps bombing Houthi targets.",
+      "note": "The Houthis claimed strikes on Jeddah and Jazan ports and Ras Tanura on 25 November; two missiles were intercepted over Riyadh on 26 November.",
       "details": "Saudi Arabia is fighting a renewed war with Yemen's Houthis alongside its role as a US partner in the Iran war. On 19 November a Houthi attack damaged the 80-storey Public Investment Fund tower in Riyadh's financial district; civil defence reported no injuries and called it a flagrant violation of international law. Earlier in November a strike damaged an Aramco tower in the same district. The Saudi-led coalition said it hit 60 Houthi targets on 17 November.",
-      "as_of": "2026-11-22"
+      "as_of": "2026-11-26"
     },
     {
       "name": "UAE",
@@ -119,9 +119,9 @@
       "risk": 38,
       "level": "ELEVATED",
       "alignment": "adversary",
-      "note": "The IAEA said on 18 November a new Yongbyon enrichment extension was externally complete by late October, a 'cause for serious concern'.",
-      "details": "North Korea is expanding its capacity to make bomb fuel. IAEA Director General Grossi told the Board of Governors on 18 November that a new extension to the Yongbyon enrichment facility was externally complete by late October, calling the expansion a cause for serious concern (France 24).\n\nOn 4 November South Korea's military said the North fired several missiles from the Sondok area toward the Sea of Japan. Kim Yo Jong called the FBI's attribution of the $6.3 billion Binance theft a provocation and ruled out talks while US hostility continues. The launches followed a claimed cluster-warhead test in late October.",
-      "as_of": "2026-11-23"
+      "note": "Kim called for tactical nuclear weapons across multiple domains on 26 November, a day after expelling Switzerland's envoy.",
+      "details": "North Korea is expanding both its nuclear arsenal and its quarrels. State media reported on 26 November that Kim Jong Un, touring nuclear-material and weapons sites, called for tactical nuclear weapons to be deployed across multiple domains and said bomb-material production is being systematically expanded (Al Jazeera, Euronews). The IAEA said on 18 November a new Yongbyon enrichment extension was externally complete by late October.\n\nOn 25 November Pyongyang ordered Switzerland's diplomatic office closed and told its head to leave within 48 hours, over Swiss sanctions on a children's camp linked to deported Ukrainian children (Yonhap). It fired several missiles toward the Sea of Japan on 4 November.",
+      "as_of": "2026-11-26"
     },
     {
       "name": "Pakistan",
@@ -254,9 +254,9 @@
       "risk": 28,
       "level": "ELEVATED",
       "alignment": "ally",
-      "as_of": "2026-11-19",
-      "note": "Scrambled jets and protested after two suspected Russian aircraft violated its airspace near Okinoshima on 17 November.",
-      "details": "Putin placed the Russian operations of Japan Tobacco International under state control on 5 November (Euronews; The Moscow Times); Tokyo demanded the return of four businesses. It follows a decree in October seizing several European firms' Russian assets.\n\nJapan's role in the region otherwise centres on Okinawa basing, a debate on a large defence-spending increase, and coordination with the US ahead of APEC."
+      "as_of": "2026-11-26",
+      "note": "Protested Chinese coast-guard approaches near the Senkakus and a proposed 15% US tariff, both on 26 November.",
+      "details": "Japan is under pressure from both directions. On 26 November its coast guard said two Chinese vessels repeatedly approached a Japanese fishing boat near the Senkaku Islands, the fifth such approach this year, and Tokyo protested; Beijing said it lodged serious representations of its own (Arab News, AFP). The same day Chief Cabinet Secretary Kihara called the US proposal of a 15% tariff on Japan over alleged excess capacity regrettable (Japan Times, France 24).\n\nOn 17 November Japan scrambled jets after two suspected Russian aircraft violated its airspace near Okinoshima. Putin placed Japan Tobacco International's Russian operations under state control on 5 November, and Tokyo demanded the return of four businesses."
     },
     {
       "name": "Romania",
@@ -367,8 +367,8 @@
       "risk": 42,
       "level": "HIGH",
       "alignment": "ally",
-      "as_of": "2026-11-24",
-      "note": "Russian cruise missiles fell on its soil on 20 November and a drone entered its airspace on 23 November; NATO agreed to give it an AWACS.",
+      "as_of": "2026-11-25",
+      "note": "Announced a no-fly zone along its Ukraine border on 25 November after Russian missiles and a drone entered its airspace.",
       "details": "On 20 November, during one of Russia's largest attacks on Ukraine, Russian cruise missiles fell at Nowy Lipowiec, Rudnik nad Sanem and Molodycz in south-eastern Poland; first described as two missiles and a jet-powered drone, all three objects were later confirmed as Kh-101s, Kyiv Post reports. No one was hurt. Polish leaders called the timing, during an allied exercise at Nowa Deba, deliberate.\n\nLate on 23 November a Russian drone entered airspace over the Lublin region, triggering an hour-long air alert; Deputy Defence Minister Zalewski called it deliberate (Kyiv Independent). He said NATO's council agreed on 23 November to give Poland an AWACS early-warning aircraft and deferred its other requests to next week's foreign ministers' meeting (Kyiv Post).\n\nEarlier in November prosecutors charged a man over a Russian-directed train bombing."
     },
     {
@@ -527,10 +527,10 @@
       "name": "North Korea",
       "flag": "🇰🇵",
       "goal": "Sustain CRINK operational coordination via arms (artillery shells) and troops to Russia in exchange for tech, energy, and food; preserve ICBM/SLBM ladder as posture-signaling reserve; quiet stretch in May 2026 maintains optionality without provoking US/JK-PH posture firming",
-      "move": "Expanding enrichment: the IAEA said on 18 November a new Yongbyon extension is externally complete, after 4 November missile launches and a refusal of US talks.",
-      "as_of": "2026-11-23",
+      "move": "Kim called for tactical nuclear weapons across multiple domains and more bomb-material output, after shutting the Swiss office over Ukraine-linked sanctions.",
+      "as_of": "2026-11-26",
       "stale_ok": false,
-      "details": "Pyongyang is adding nuclear-material capacity while refusing talks. The IAEA said on 18 November that a new Yongbyon enrichment extension was externally complete by late October, a cause for serious concern (France 24). It fired several missiles from Sondok toward the Sea of Japan on 4 November, and Kim Yo Jong ruled out dialogue while US hostility continues and called the FBI's Binance-theft attribution a provocation. Kim has also called for a faster naval build-up.",
+      "details": "Pyongyang is adding nuclear capacity while cutting Western channels. State media reported on 26 November that Kim Jong Un called for tactical nuclear weapons to be deployed across multiple domains and said bomb-material production is expanding (Al Jazeera). The IAEA said on 18 November a new Yongbyon enrichment extension was externally complete. On 25 November North Korea ordered Switzerland's Pyongyang office closed over Swiss sanctions on a camp linked to deported Ukrainian children, a month after the office reopened. It fired several missiles from Sondok on 4 November, and Kim Yo Jong has ruled out dialogue while US hostility continues.",
       "color": "var(--c-brics)"
     },
     {
@@ -594,9 +594,9 @@
       "name": "China",
       "start": "2026-05-14",
       "threat": 62,
-      "status": "Xi met Trump at the airport and held talks on 19 November before the three-way meeting with Putin in Shenzhen.",
+      "status": "The US proposed a 20% tariff on China on 25 November, a week after Shenzhen; Beijing called it unilateral and reserves the right to respond.",
       "color": "#c97a1a",
-      "as_of": "2026-11-19"
+      "as_of": "2026-11-26"
     },
     {
       "flag": "🇹🇼",

@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "Russia hit Kharkiv and Kyiv with ballistic missiles and Ukraine says it struck refineries and an airbase; the Houthis claim Saudi port strikes."
+      "currentLabel": "A drone attack Kuwait blames on Iran killed two Italian technicians; Ukraine hit Tula, St Petersburg and a Krasnodar refinery; a Houthi strike on a Jazan refinery killed a worker."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "The US proposed a 20% tariff on China a week after Shenzhen and told Americans to leave Iran; Trump and Rutte warned Russia not to widen the war."
+      "currentLabel": "Trump says he sent an extra carrier and would strike Pickaxe Mountain if fighting resumes; the US tariff proposal on China is open for comment."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "Kim Jong Un called for tactical nuclear weapons across multiple domains; Ukraine says Zaporizhzhia lost outside power for the 17th time this year."
+      "currentLabel": "A US institute reports Iran rapidly building an underground complex between Isfahan and Natanz; Trump named Pickaxe Mountain as a target."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "The US proposed tariffs on the EU, Japan and South Korea; Tokyo and Brussels protested. Poland is creating a no-fly zone after Russian incursions."
+      "currentLabel": "Italian nationals died on a Gulf host state's soil; Turkey ratified the Mecca pact; allies protest the US tariff proposal but have not broken ranks."
     }
   ]
 }

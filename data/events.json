@@ -54117,6 +54117,39 @@
     "is_chapter_divider": false
   },
   {
+    "id": "2026-11-19-japan-and-india-agreed-at-a",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "japan",
+      "india",
+      "signal:india-ambivalence"
+    ],
+    "event_date": "2026-11-19",
+    "severity": 1,
+    "headline": "Japan and India agreed at a 2+2 meeting in Tokyo on 19 November to deepen military and defence-industry cooperation, including future Japanese live-fire missile training at Indian ranges.",
+    "sources": [
+      {
+        "name": "AP",
+        "url": "https://www.ajc.com/news/2026/11/japan-india-agree-to-enhance-military-and-defense-industry-cooperation/",
+        "published_date": "2026-11-19"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
     "id": "2026-11-20-two-russian-kh101-cruise-missiles-and",
     "event_date": "2026-11-20",
     "source_time": "06:30",
@@ -55244,7 +55277,7 @@
     "id": "2026-11-23-the-european-commission-proposed-a-22nd",
     "event_date": "2026-11-23",
     "severity": 2,
-    "headline": "The European Commission proposed a 22nd sanctions package on Russia on 23 November, targeting crypto used to evade sanctions, sport and visas; it needs unanimous approval by member states.",
+    "headline": "The European Commission proposed a new sanctions package on Russia on 23 November, which Ukraine's prime minister called the 22nd, targeting crypto used to evade sanctions, sport and visas; it needs unanimous approval by member states.",
     "sources": [
       {
         "name": "Kyiv Independent",
@@ -55707,6 +55740,37 @@
     ],
     "lenses": [
       "bilateral-us-china"
+    ]
+  },
+  {
+    "id": "2026-11-24-a-european-commission-report-circulated-on",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "sanctions-effect",
+      "oil-revenue"
+    ],
+    "event_date": "2026-11-24",
+    "severity": 2,
+    "headline": "A European Commission report circulated on 24 November found Russia's crude export revenue reached $102 billion in January-September 2026, already above all of 2025, and attributed the rise to the Middle East crisis.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/exclusive-eu-report-confirms-trump-threw-russian-energy-sector-an-economic-lifeline-even-as-sanctions-ukrainian-drones-bite-hard/",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "sanctions-financial-warfare",
+      "russia-ukraine-war",
+      "markets-risk-transmission"
     ]
   },
   {
@@ -56386,6 +56450,64 @@
     ]
   },
   {
+    "id": "2026-11-25-the-institute-for-science-and-international",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "nuclear",
+      "satellite-imagery"
+    ],
+    "event_date": "2026-11-25",
+    "severity": 2,
+    "headline": "The Institute for Science and International Security said Iran is rapidly building a fortified underground complex at Behjatabad, midway between Isfahan and Natanz; it called the purpose unclear and said a nuclear use cannot be ruled out.",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611269924",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-25-a-moscow-military-court-ordered-the",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "russia-military",
+      "purge"
+    ],
+    "event_date": "2026-11-25",
+    "severity": 1,
+    "headline": "A Moscow military court ordered the detention of Col. Gen. Yuri Grekhov, deputy commander of Russia's Aerospace Forces, on large-scale bribery charges, Kommersant reported; he denies them.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/26/deputy-commander-of-russia-s-aerospace-forces-arrested-in-moscow-reports-a812377",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
     "source_time": null,
     "body": "",
     "status": "reported",
@@ -56422,6 +56544,47 @@
     ],
     "lenses": [
       "crink"
+    ]
+  },
+  {
+    "id": "2026-11-26-two-italian-technicians-working-for-rheinmetall",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "high",
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "casualties",
+      "gulf-host-state",
+      "kuwait",
+      "italy"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 3,
+    "headline": "Two Italian technicians working for Rheinmetall were killed in Kuwait on 26 November in a drone attack on a site where they were servicing an air-defence system. Kuwait and Italy blamed Iran, which denied any involvement and offered a joint investigation.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c39w9y5dx4k5o",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/26/world/middleeast/italians-killed-iran-drone-attack-kuwait.html",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/26/two-italians-killed-after-iranian-drones-strike-facility-says-kuwait",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
     ]
   },
   {
@@ -56614,6 +56777,499 @@
     "lenses": [
       "bilateral-us-china",
       "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-26-a-houthi-strike-on-a-refinery",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "high",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "houthis",
+      "saudi-energy"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 3,
+    "headline": "A Houthi strike on a refinery in Jazan, Saudi Arabia, on 26 November killed a worker from Nepal and halted operations, the Saudi energy ministry said; the coalition spokesman confirmed the strike, a day after the Houthis claimed Ras Tanura.",
+    "sources": [
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/26/world/middleeast/italians-killed-iran-drone-attack-kuwait.html",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "red-sea-shipping",
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-26-trump-told-us-troops-on-26",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "us-posture",
+      "pickaxe-mountain"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Trump told US troops on 26 November that he had sent an extra aircraft carrier to the region and that the US would strike Pickaxe Mountain near Natanz if military action resumed. He did not name the carrier, and said NATO was 'involved with us' in Iran without elaborating.",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611270476",
+        "published_date": "2026-11-27"
+      },
+      {
+        "name": "New York Times",
+        "url": "https://www.nytimes.com/2026/11/26/world/middleeast/italians-killed-iran-drone-attack-kuwait.html",
+        "published_date": "2026-11-26"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/trump-downplays-russia-china-support-for-iran-during-talks-with-us-troops",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-26-german-police-arrested-two-iraqi-men",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "plot",
+      "germany"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "German police arrested two Iraqi men on 26 November on suspicion of membership of a pro-Iranian terrorist group; prosecutors say people carried explosives to synagogues in Cologne and another European city in March, but no attack took place.",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611263377",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-26-ukraines-military-intelligence-said-north-korea",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "low",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "north-korea",
+      "claim"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Ukraine's military intelligence said North Korea has suspended arms deliveries to Russia and closed its airspace to Russian military transport planes after a dispute over Moscow's approach to Seoul. It cited no source, and the claim is unverified.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/north-korea-pauses-military-aid-to-russia-ukrainian-intelligence-says/",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "lenses": [
+      "crink"
+    ]
+  },
+  {
+    "id": "2026-11-26-ukrainian-drones-seriously-damaged-the-slavyansk",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "refinery",
+      "deep-strike"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 2,
+    "headline": "Ukrainian drones seriously damaged the Slavyansk ECO refinery in Russia's Krasnodar region on 26 November; industry sources estimate Ukrainian strikes have cut Russian refining by 45% since late October.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/26/ukrainian-drone-strike-sparks-fire-and-inflicts-serious-damage-at-krasnodar-a812387",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "markets-risk-transmission"
+    ]
+  },
+  {
+    "id": "2026-11-26-zelensky-warned-on-26-november-that",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "air-defence",
+      "patriot"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Zelensky warned on 26 November that Russia is preparing another massive strike on energy and logistics, as delivery of 48 US Patriot interceptors remains stalled.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91341",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-26-lithuanias-foreign-minister-budrys-called-for",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "lithuania"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Lithuania's foreign minister Budrys called for the EU to designate Russia's GRU military intelligence a terrorist organisation, citing sabotage and cyberattacks.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91323",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-26-armenias-prime-minister-pashinyan-said-armenian",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "armenia",
+      "russia-influence"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Armenia's prime minister Pashinyan said Armenian forces will fully replace Russian border guards in the coming years, giving no date.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/armenia-plans-full-withdrawal-of-russian-border-guards-in-coming-years-prime-minister-says/",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "id": "2026-11-26-dr-congo-summoned-ugandas-top-diplomat",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "dr-congo",
+      "uganda"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "DR Congo summoned Uganda's top diplomat over posts by Ugandan army chief Gen. Muhoozi Kainerugaba that appeared to back a rebel takeover of Walikale in North Kivu.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cwz0k90rgpm8o",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "id": "2026-11-26-protests-in-irbil-on-26-november",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "iraq",
+      "kurdistan"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Protests in Irbil on 26 November opposed Baghdad's plan to take over Kurdish-run oil operations and border crossings; state media said federal border forces closed the al-Waleed and Bashta crossings.",
+    "sources": [
+      {
+        "name": "DW",
+        "url": "https://www.dw.com/en/protests-in-iraqi-kurdistan-at-plans-for-government-in-baghdad-to-take-over-oil-border-crossings/a-80065994",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "id": "2026-11-26-a-large-power-outage-hit-occupied",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "crimea",
+      "power"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "A large power outage hit occupied Crimea on 26 November, leaving Sevastopol without power and disrupting transport; the local utility blamed an incident at facilities outside the peninsula.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/large-scale-power-outage-hits-russian-occupied-crimea-disrupts-transport/",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-erdogan-signed-off-turkeys-ratification-of",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "mecca-pact",
+      "alliance"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Erdogan signed off Turkey's ratification of the Mecca joint defence pact with Saudi Arabia and Pakistan, published in the Official Gazette, ahead of a meeting of the three states in Islamabad.",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/erdogan-completes-turkeys-ratification-mecca-pact",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz",
+      "red-sea-shipping"
+    ]
+  },
+  {
+    "id": "2026-11-27-ukrainian-drones-struck-russias-tula-region",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "deep-strike"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Ukrainian drones struck Russia's Tula region and St Petersburg overnight into 27 November; residents reported explosions near a power plant in Yefremov, and Russia said it downed 318 drones.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91362",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-latvia-scrambled-nato-air-policing-jets-and",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "nato-airspace",
+      "latvia"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Latvia scrambled NATO air-policing jets and launched an interceptor drone after an unidentified drone briefly entered its airspace near the Russian border overnight into 27 November; Estonia issued an air-threat warning.",
+    "sources": [
+      {
+        "name": "LRT",
+        "url": "https://www.lrt.lt/en/news-in-english/19/3127097/latvia-estonia-issue-drone-warnings-overnight-amid-reported-attacks-near-st-petersburg",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-27-afp-said-a-cyberattack-forced-its",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "cyberattack",
+      "media"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "AFP said a cyberattack forced its client content platform offline early on 27 November; the agency did not say who was behind it.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/global-news-agency-afp-reports-cyberattack-shuts-down-content-platform",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "cyber-infrastructure"
+    ]
+  },
+  {
+    "id": "2026-11-27-satellite-images-show-a-weeks-long-chinese",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "taiwan",
+      "pla-exercise"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Satellite images show a weeks-long Chinese amphibious drill in Fujian's Dacheng Bay, seen since 1 November, testing civilian vessels linked into a floating bridge to land troops, the Japan Times reported.",
+    "sources": [
+      {
+        "name": "Japan Times",
+        "url": "https://www.japantimes.co.jp/news/2026/11/27/asia-pacific/china-taiwan-landing-tactics/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china"
     ]
   }
 ]

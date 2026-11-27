@@ -211,12 +211,12 @@
     {
       "name": "Kuwait",
       "flag": "🇰🇼",
-      "risk": 50,
+      "risk": 55,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "Repelled an Iranian drone attack on Ali Al Salem air base on 18 November, its first in two months, and condemned it.",
-      "details": "Kuwait hosts US forces at Ali Al Salem air base and, since November, the advanced headquarters of the Gulf states' unified military command.\n\nOn the night of 17-18 November, after US jets struck Qeshm, Iran's army said its drones targeted US Patriot systems and launch platforms at Ali Al Salem. Kuwait's military said its air defences engaged the drones and reported no casualties or damage, and the foreign ministry said the attack flagrantly violated Kuwait's sovereignty and was a grave breach of international law. It was the first Iranian attack on Kuwait in more than two months.\n\nKuwait's posture through the war has been to host the forces Iran targets while avoiding a public role in the fighting. A strike that causes casualties on Kuwaiti soil would test that directly.",
-      "as_of": "2026-11-19"
+      "note": "A drone attack Kuwait blamed on Iran killed two Italian technicians at a 'vital site' on 26 November; Iran denies it.",
+      "details": "Kuwait hosts US forces at Ali Al Salem air base and, since November, the advanced headquarters of the Gulf states' unified military command.\n\nOn 26 November Kuwait's defence ministry said drones from Iran were intercepted over a 'vital site' and falling shrapnel hurt four people. Two of them, Italian technicians from Rheinmetall Italia working on an air-defence system, died; a Kuwaiti army captain and a Pakistani civilian were also hurt. Kuwait called it 'heinous Iranian aggression', and Italy's foreign minister was quoted by Italian media as saying the drone was Iranian-made. Iran denied any operation and offered a joint investigation. Airspace was briefly closed.\n\nIt was the second attack on Kuwait in November: on 18 November, after US jets struck Qeshm, Iran's army said its drones targeted US Patriot systems at Ali Al Salem, and Kuwait reported no casualties.\n\nKuwait's posture has been to host the forces Iran targets while avoiding a public role in the fighting. Deaths on its soil test that directly.",
+      "as_of": "2026-11-27"
     },
     {
       "name": "Jordan",
@@ -295,9 +295,9 @@
       "risk": 40,
       "level": "ELEVATED",
       "alignment": "ally",
-      "note": "Sanctioned 38 entities and 24 people tied to Russia's missile industry, cyber actors and crypto enablers.",
-      "details": "Foreign minister Anita Anand announced new Russia sanctions on 9 November at the G7 foreign ministers' meeting in Paris, adding 38 entities and 24 individuals linked to Russia's ballistic-missile industry, Russian cyber actors and financial enablers including crypto exchanges.\n\nIn September the EU invited Canada to become its first associate member, offering an alliance covering technology, defence industry, energy and critical minerals as Ottawa seeks less dependence on US trade. Canada's Treasury-sanctioned money-exchange firms that moved Iranian funds were named by the US on 6 November.",
-      "as_of": "2026-11-10"
+      "note": "Carney and Xi agreed wider tariff relief at Shenzhen on 17 November as US-Canada trade talks stayed unresolved.",
+      "details": "Prime Minister Mark Carney met Xi Jinping at the APEC summit in Shenzhen and the two governments expanded tariff relief on 17 November: China dropped its 25% tariff on about C$400 million of Canadian pork and seafood, and Canada extended steel and aluminium remissions for two years and added 32 items. Carney had said Canada could turn to Chinese automakers if talks with the US failed, which Trump adviser Peter Navarro called offensive.\n\nForeign minister Anita Anand announced new Russia sanctions on 9 November at the G7 foreign ministers' meeting in Paris, adding 38 entities and 24 individuals linked to Russia's ballistic-missile industry, cyber actors and financial enablers including crypto exchanges. In September the EU invited Canada to become its first associate member.",
+      "as_of": "2026-11-27"
     },
     {
       "name": "Syria",
@@ -546,10 +546,10 @@
       "name": "Kuwait",
       "flag": "🇰🇼",
       "goal": "Stay a basing partner without becoming a belligerent, and avoid making a strike on its own soil into a public quarrel.",
-      "move": "Shot down Iranian drones aimed at US Patriot batteries at Ali Al Salem on 18 November and condemned the attack as a sovereignty breach.",
-      "as_of": "2026-11-19",
+      "move": "Blamed Iran for a 26 November drone attack that killed two Italian technicians at a 'vital site'; Tehran denies it.",
+      "as_of": "2026-11-27",
       "color": "var(--c-amber)",
-      "details": "Kuwait wants to remain a basing partner without becoming a belligerent. On 18 November it was attacked for the first time in two months: Iran's army said it targeted US air-defence systems at Ali Al Salem air base, and Kuwait said it repelled the drones with no damage. Its foreign ministry condemned the attack in unusually strong terms, calling it a flagrant violation of Kuwait's sovereignty.\n\nKuwait also hosts the new advanced headquarters of the Gulf states' unified military command. Its choice now is whether that role stays defensive while Iran treats US-used bases in the emirate as targets."
+      "details": "Kuwait wants to remain a basing partner without becoming a belligerent. In November it was attacked twice. On 18 November Iran's army said it targeted US air-defence systems at Ali Al Salem air base, and Kuwait said it repelled the drones with no damage. On 26 November drones hit a 'vital site' where two Italian Rheinmetall technicians were servicing an air-defence system; both died. Kuwait's army called it 'heinous Iranian aggression', while Iran denied any involvement and proposed a joint investigation.\n\nKuwait also hosts the new advanced headquarters of the Gulf states' unified military command. With deaths now on its soil, its choice is whether to keep that role defensive and quiet or to press Tehran publicly."
     },
     {
       "name": "Jordan",

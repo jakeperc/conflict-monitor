@@ -29,12 +29,12 @@
       "icon": "🎯",
       "color": "var(--c-iran)",
       "arc": "iran-hormuz",
-      "updated_at": "11/26/2026 · 06:00 EST",
+      "updated_at": "11/27/2026 · 05:30 EST",
       "confidence": "MODERATE",
-      "confidenceNote": "UKMTO and JMIC counts via gCaptain (read); US alert via Euronews; Iranian mine claims are statements of record only; no attribution of any strike.",
-      "title": "Hormuz shipping attacks reach ten tankers as Iran blacklists tugboats",
-      "summary": "gCaptain counts 10 tankers reported struck near Hormuz between 16 and 22 November, none attributed. Iran blacklisted 26 tugboats on 24 November and claims tankers hit mines on 25 November. The IMO counts 25 seafarers dead. The US told citizens to leave Iran on 25 November.",
-      "body": "The fighting around Hormuz has moved off Iranian territory and onto the shipping lane. Since the US strike on Qeshm on 17 November, the board has no confirmed US strike on Iran, yet the attack count on merchant ships has risen fastest of any measure: UKMTO reported three tankers struck while sailing east through the strait on 22 November and a bulk carrier set on fire off Khor Fakkan, and gCaptain's tally of reported tanker strikes since 16 November reached ten. None has been attributed by UKMTO or CENTCOM.\n\nIran's own moves widen the pressure without a named shooter. Its Persian Gulf Strait Authority added 26 tugboats to the blacklist of 'non-compliant' traffic on 24 November, the first time it has listed service craft rather than ships. Its Guard said two tankers hit mines on 25 November, and its army claimed a tanker hit a mine in a 'restricted zone' the same day; neither named a ship, and AP could not confirm. The claims fit a pattern in which Iran asserts control of the strait's rules while declining responsibility for specific hits.\n\nThe toll is cumulative and institutional. The IMO counts 141 incidents and 25 seafarers confirmed dead across the crisis as of 23 November, and insurer The Swedish Club told members to avoid the strait unless passage is essential. Traffic has not stopped: independent monitoring cited by the club counted about 26.5 facilitated transits a day on 15-18 November, which is why the board keeps the strait's status at contested rather than closed.\n\nThe US signal on 25 November cuts the other way from the lull on land. The embassy alert told Americans to leave Iran immediately because hostilities could escalate rapidly, and Trump said the war is funded through the end of January. Neither is a strike, and the methodology treats preparation as preparation. The tactical question for the next week is whether the US answers the shipping campaign at sea, by seizing or striking a blockade runner, or on Iranian soil, and whether anyone attributes the November strikes."
+      "confidenceNote": "Kuwait deaths read on BBC, NYT and Al Jazeera; attribution rests on Kuwait's and Italy's statements and Iran denies it; shipping counts via gCaptain; Trump remarks via Iran International.",
+      "title": "Drone attack kills two Italians in Kuwait as Hormuz strikes continue",
+      "summary": "Two Italian Rheinmetall technicians died in Kuwait on 26 November after a drone attack Kuwait and Italy blamed on Iran; Iran denies it. gCaptain counts 10 tankers reported struck near Hormuz on 16-22 November, none attributed. A Houthi strike on a Jazan refinery killed a Nepali worker. Trump says an extra carrier was sent.",
+      "body": "The fighting around Iran is happening at the edges, not on Iranian territory. Since the US strike on Qeshm on 17 November the board has no confirmed US strike on Iran, but on 26 November a drone attack on a 'vital site' in Kuwait killed two Italian technicians from Rheinmetall Italia who were working on an air-defence system. Kuwait's defence ministry called it 'heinous Iranian aggression' and said four people were hurt by falling shrapnel after drones were intercepted; Italy's foreign minister was quoted by Italian media as saying the drone was Iranian-made and that Iranian proxies are known to carry out attacks in the region. Iran's armed forces said no operation had been conducted, and Foreign Minister Araghchi called the incident 'suspicious' and offered a joint investigation. On this board, the attacker's denial and the target's attribution are recorded side by side; the deaths themselves are confirmed by three outlets.\n\nThe attack fits the month's pattern. Iran's army said it targeted US air-defence systems in Kuwait and a radar in Bahrain earlier in November, and Kuwait said it repelled drones on 18 November with no casualties. What changed is the cost: technicians servicing the defences have now died.\n\nAt sea, the attack count on merchant ships has risen fastest of any measure. UKMTO reported three tankers struck while sailing east through the strait on 22 November and a bulk carrier set on fire off Khor Fakkan, and gCaptain's tally of reported tanker strikes since 16 November reached ten. None has been attributed by UKMTO or CENTCOM. Iran's Persian Gulf Strait Authority added 26 tugboats to its blacklist of 'non-compliant' traffic on 24 November, and its Guard claimed tankers hit mines on 25 November without naming a ship. Traffic has not stopped: Vortexa data cited by gCaptain kept tanker transits above 26 a day on a seven-day average through 19 November, which is why the board keeps the strait at contested rather than closed. The IMO counts 141 incidents and 25 seafarers confirmed dead as of 23 November.\n\nWashington's signals harden without a shot. The embassy told Americans to leave Iran on 25 November; on 26 November Trump told troops he had sent an extra aircraft carrier, without naming it, and said the US would hit Pickaxe Mountain near Natanz if military action resumed. A Washington institute reported fast construction of an underground complex at Behjatabad, between Isfahan and Natanz, purpose unknown. The Houthis widened their Saudi campaign: a strike on a Jazan refinery killed a worker from Nepal and halted operations, the Saudi energy ministry said.\n\nThe tactical questions for the next week: whether Kuwait or Italy take formal steps against Tehran, whether the US answers on Iranian soil or against a blockade runner, and whether anyone attributes the November tanker strikes."
     },
     {
       "lens": "EPIC FURY · DIPLOMATIC TRACK",
@@ -88,32 +88,33 @@
   "iran_lead": {
     "kicker": "Epic Fury · Lead Development",
     "pillar": "iran",
-    "salience": 2,
-    "updated_at": "11/26/2026 · 06:00 EST",
-    "title": "US tells citizens to leave Iran; Trump says war funded to January",
-    "summary": "The US told its citizens on 25 November to leave Iran immediately, warning that hostilities could escalate rapidly. Trump said the war is funded through the end of January. Iran's Revolutionary Guard claims two tankers hit mines on 25 November, unconfirmed. No US strike on Iranian territory has been reported since 17 November.",
+    "salience": 1,
+    "updated_at": "11/27/2026 · 05:30 EST",
+    "title": "Drone attack in Kuwait kills two Italians; Iran denies a role",
+    "summary": "Two Italian Rheinmetall technicians servicing an air-defence system died in Kuwait on 26 November after a drone attack that Kuwait and Italy blamed on Iran; Tehran denied it. Trump said he sent an extra carrier and would strike Pickaxe Mountain if fighting resumed. A Houthi strike on a Jazan refinery killed a Nepali worker.",
     "facts": [
-      "25 Nov: US tells citizens to leave Iran immediately.",
-      "25 Nov: Trump says the Iran war is funded through January.",
-      "25 Nov: Houthis claim strikes on Jeddah and Jazan ports and Ras Tanura.",
-      "26 Nov: coalition intercepts two missiles fired at Riyadh."
+      "26 Nov: two Italian technicians killed by a drone attack in Kuwait; Iran denies a role.",
+      "26 Nov: Trump says an extra carrier was sent and Pickaxe Mountain would be hit.",
+      "25 Nov: US institute reports a fast-built underground complex at Behjatabad.",
+      "26 Nov: Houthi strike on a Jazan refinery kills a Nepali worker.",
+      "27 Nov: Turkey completes ratification of the Mecca defence pact."
     ],
-    "changed": "Washington's posture shifted from blockade maintenance toward preparation language: a leave-now alert naming Iran, the Houthis and aligned groups as threats, and a presidential funding horizon that sets a window rather than a date. At sea, the only new claim in the window is Iranian (mine strikes, no ship named). The Houthis widened their Saudi campaign to Red Sea ports and Ras Tanura, and Sky News reports Britain is sheltering RAF aircraft over drone threats and suspected Iran-linked plots.",
-    "watch": "Any US strike on Iranian territory or on a blockade runner; attribution of the 22 November tanker strikes; whether other governments issue leave-now alerts; Houthi fire on Riyadh; OPEC+ on 29 November."
+    "changed": "The November exchange produced deaths on a Gulf host state's soil: Kuwait called the attack Iranian aggression, and Italy's foreign minister was quoted by Italian media saying the drone was Iranian-made and that Iranian proxies carry out attacks, while Tehran called it 'suspicious' and offered a joint investigation. Washington hardened its words, not its strikes: Trump said an extra carrier was sent, without naming it, and named Pickaxe Mountain as a target. A US institute reported fast construction of an underground complex between Isfahan and Natanz. No US strike on Iranian territory has been reported since 17 November.",
+    "watch": "Whether Italy or Kuwait take formal steps against Iran; any US strike after Trump's Pickaxe Mountain warning; which carrier he meant; Houthi fire on Saudi energy sites; the Mecca pact partners' Islamabad meeting; OPEC+ on 29 November."
   },
   "brics_lead": {
     "kicker": "US-BRICS Rivalry · Lead Development",
     "pillar": "brics",
-    "salience": 1,
-    "updated_at": "11/26/2026 · 06:00 EST",
+    "salience": 3,
+    "updated_at": "11/27/2026 · 05:30 EST",
     "title": "US proposes tariffs up to 20% on China, EU and 12 others",
-    "summary": "The US Trade Representative proposed tariffs of up to 20% on 14 economies, including China, the EU, Japan, South Korea and Taiwan, on 25 November after a probe into excess capacity. China said it reserves the right to respond; Japan and the EU pushed back. Kim Jong Un called for wider tactical nuclear deployment.",
-    "changed": "A week after the Shenzhen summit, Washington opened a trade front against its rival and its allies at once: the proposal puts China at 20%, the rate its truce set, with officials signalling 40% if talks fail, and treats Japan, South Korea and the EU as overcapacity producers too. Rates go to public comment before any action in January. In the CRINK lens, Kim called for tactical nuclear weapons spread across more domains.",
-    "watch": "Beijing's formal countermeasures and whether the truce holds; allied responses in the comment period; Taiwan's 28 November local elections and Chinese pressure around them; further North Korean nuclear moves.",
+    "summary": "The US proposal of tariffs up to 20% on 14 economies, including China and US allies, is open for comment; China says it reserves the right to respond. Ukrainian intelligence says North Korea paused arms deliveries to Russia, which is unverified. Satellite images show China rehearsing landings with civilian vessels in Fujian.",
+    "changed": "No Chinese countermeasure followed the tariff proposal in the window. In the CRINK lens, Ukraine's military intelligence claims Pyongyang halted shell and missile deliveries and closed its airspace to Russian military transports after a row over Moscow's outreach to Seoul; it cited no source, and Seoul did not address it. A weeks-long PLA amphibious drill in Dacheng Bay tests linking civilian ships into a floating bridge, days before Taiwan's local elections. Japan and India agreed on 19 November to deepen defence-industry cooperation.",
+    "watch": "Taiwan's 28 November local elections and Chinese pressure around them; Beijing's formal response to the tariffs; any confirmation of a North Korean pause; allies' responses in the comment period.",
     "lenses": [
       {
         "label": "Bilateral US-China",
-        "oneline": "The US proposed a 20% tariff on China a week after Shenzhen; Beijing reserves the right to respond."
+        "oneline": "The tariff proposal is open for comment with no Chinese countermeasure yet; the PLA rehearses landings with civilian vessels in Fujian."
       },
       {
         "label": "BRICS bloc",
@@ -121,35 +122,35 @@
       },
       {
         "label": "CRINK",
-        "oneline": "Kim Jong Un called for tactical nuclear weapons across multiple domains and more bomb-material production."
+        "oneline": "Ukrainian intelligence claims North Korea paused arms deliveries to Russia; there is no second source."
       },
       {
         "label": "Allies Cohesion",
-        "oneline": "Japan, South Korea and the EU face proposed US tariffs; Japan and the EU protested."
+        "oneline": "Japan and India agreed deeper defence ties; Lithuania urged an EU terrorist label for Russia's GRU."
       }
     ],
     "facts": [
       "25 Nov: USTR proposes tariffs of up to 20% on 14 economies.",
-      "26 Nov: China's commerce ministry reserves the right to respond.",
-      "26 Nov: Kim calls for wider tactical nuclear deployment (state media).",
-      "26 Nov: Japan and China trade protests over the Senkakus."
+      "26 Nov: Ukrainian intelligence says North Korea paused arms to Russia (unverified).",
+      "27 Nov: Japan Times: PLA drill in Dacheng Bay tests a civilian-vessel landing bridge.",
+      "19 Nov: Japan and India agree deeper defence cooperation."
     ]
   },
   "ukraine_lead": {
     "kicker": "Russia-Ukraine · Lead Development",
     "pillar": "ukraine",
-    "salience": 3,
-    "updated_at": "11/26/2026 · 06:00 EST",
-    "title": "Leaked Rosstat data puts Russian war dead at 490,000 or more",
-    "summary": "Leaked Rosstat records show at least 490,000 Russian soldiers dead by late September, Meduza and Mediazona found; counting the missing, they estimate more than 700,000. Poland will create a no-fly zone on its Ukraine border. Ukraine says it damaged five jets at Savasleyka; Russian missiles hit Kharkiv and Kyiv.",
+    "salience": 2,
+    "updated_at": "11/27/2026 · 05:30 EST",
+    "title": "Ukraine hits Tula and St Petersburg; drone enters Latvian airspace",
+    "summary": "Ukrainian drones struck Russia's Tula region and St Petersburg overnight into 27 November after seriously damaging a Krasnodar refinery on 26 November. Latvia scrambled NATO jets when a drone briefly crossed its border. Zelensky warned another massive Russian strike is coming. An EU report says Russia's oil revenue already exceeds 2025's.",
     "facts": [
-      "23 Nov: Rosstat leak analysis: at least 490,000 Russian war dead; estimate 700,000+.",
-      "25 Nov: Poland announces a no-fly zone along the Ukraine border.",
-      "25 Nov: Trump and Rutte urge Russia not to widen the war.",
-      "25 Nov: Ukraine's General Staff says five jets damaged at Savasleyka.",
-      "25 Nov: US consortium signs Lukoil foreign-assets deal, pending OFAC."
+      "27 Nov: Ukrainian drones hit Tula region and St Petersburg; Russia claims 318 downed.",
+      "27 Nov: Latvia scrambles NATO jets after a drone enters its airspace.",
+      "26 Nov: Slavyansk refinery in Krasnodar seriously damaged.",
+      "26 Nov: Zelensky warns of another massive Russian strike.",
+      "24 Nov: EU report: Russia's January-September crude revenue $102bn, above all of 2025."
     ],
-    "changed": "The registry leak gives a death count built from Russia's own records: 490,000 registered deaths is a floor, and the 700,000-plus estimate is the authors' model for the missing and late registrations. On the ground both sides hit energy and cities again. Poland moved from protests to a no-fly zone, and Trump and Rutte jointly warned Russia not to widen the war while Kushner said Putin shows no interest in a ceasefire.",
-    "watch": "Estonia's 1 December border closure; the Abu Dhabi prisoner exchange before 30 November; NATO foreign ministers on Poland; Pentagon sign-off on the 48 Patriots; OFAC's decision on the Lukoil deal."
+    "changed": "Ukraine's refinery campaign continued; industry sources put Russian refining down 45% since late October. Zelensky says Russia is preparing a new mass strike while 48 US Patriot interceptors remain unsigned. Latvia reported a drone briefly entering its airspace. A Commission report found Russia's crude revenue for January-September already tops all of 2025, which it attributes to the Middle East crisis. Ukrainian intelligence claims North Korea paused arms deliveries to Russia; no second source has it.",
+    "watch": "Russia's next mass strike and the Patriot sign-off; Estonia's 1 December border closure; the Abu Dhabi prisoner exchange before 30 November; any confirmation of a North Korean pause; OFAC's decision on the Lukoil deal."
   }
 }

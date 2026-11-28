@@ -5,12 +5,12 @@
       "icon": "🐉",
       "color": "var(--c-blue)",
       "arc": "us-brics-rivalry",
-      "updated_at": "11/22/2026 · 05:00 EST",
-      "confidence": "HIGH",
-      "confidenceNote": "Declaration text quoted by BBC and The Guardian (both read); outcome assessments are analysts' views.",
-      "title": "Trump, Xi and Putin issue joint declaration at first three-way summit",
-      "summary": "The three leaders met for about 90 minutes in Shenzhen on 19 November and issued a declaration that nuclear war cannot be won and must never be fought. It called for UN reform, more oil supply and limits on the International Criminal Court, and did not mention Ukraine or Iran.",
-      "body": "The Shenzhen meeting was the first three-way session of US, Chinese and Russian leaders, held on the sidelines of APEC after separate Trump-Putin and Trump-Xi bilaterals the same day. Its written output is short. The nuclear sentence repeats the formula the five permanent Security Council members adopted in 2022, so it restates an existing commitment rather than creating a new one. There is no number, no verification step and no date for talks, and Xi used the occasion to repeat China's long-standing call for nuclear weapons to be prohibited over time, the argument Beijing uses to stay out of US-Russia style limits.\n\nWhat the declaration includes says as much as what it leaves out. Oil supply and UN reform give each leader a deliverable at home; the clause on the International Criminal Court protects officials of all three states. The two wars the participants are fighting or backing, Ukraine and Iran, are absent. Kyiv and European capitals read that absence as a sign that great-power bargaining can proceed over their heads; Britain's opposition leader called the meeting disturbing and Zelensky said big powers cannot decide the world's fate.\n\nThe summit is engagement, not a change in posture: its content is declaratory. It does mean the nuclear-risk channel among the three now has a leaders' text to point to; whether officials follow it with talks is the testable next step.\n\nThe Russian side paired summitry with pressure: the next morning Russian cruise missiles crashed in Poland during one of the war's largest attacks, and earlier in the week Russian bombers flew to Vietnam. China, meanwhile, began licensing exports of drone engines Russia relies on, a narrow but real constraint that Kyiv welcomed while saying many components remain uncontrolled."
+      "updated_at": "11/28/2026 · 05:30 EST",
+      "confidence": "MODERATE",
+      "confidenceNote": "Economic committee via Yonhap relaying North Korean state media; Kim travel speculation from Seoul's spy agency via Yonhap; submarine via Al Jazeera (AFP, Reuters); the Zircon claim is Moscow's.",
+      "title": "Russia, North Korea sign economic protocol; Seoul watches for Kim China visit",
+      "summary": "North Korea and Russia held their economic committee in Pyongyang on 27 November and agreed new projects; state media did not mention arms. Seoul's spy agency is watching for a possible Kim Jong Un visit to China. Putin commissioned the submarine Perm, which Moscow says is the first armed with Zircon hypersonic missiles.",
+      "body": "The week after the Shenzhen summit, the three-way relationship among Moscow, Beijing and Pyongyang showed activity on the economic and symbolic side rather than the military one. North Korea and Russia held the 13th session of their intergovernmental committee in Pyongyang, signed a protocol and confirmed projects in power, agriculture, health and education; Kim met the Russian minister, and North Korean state media used the language of 'alliance'. The report said nothing about weapons. That matters because Ukraine's military intelligence claimed on 26 November that Pyongyang had paused arms deliveries to Russia and closed its airspace to Russian military transports after a row over Moscow's outreach to Seoul. The committee meeting neither confirms nor refutes that claim, and no second government or major news agency has reported a pause, so the board keeps it labelled as a claim.\n\nSouth Korea's National Intelligence Service said it is watching for a possible Kim visit to China; a diplomatic source told Yonhap it could come at any time, and observers point to early December. A visit soon after Xi hosted Trump and Putin would show Beijing keeping its own channel to Pyongyang while it manages Washington.\n\nOn the Russian side, Putin attended the commissioning of the Yasen-M submarine Perm at Severodvinsk on 27 November. Moscow says it is the first boat armed with Zircon hypersonic missiles, and Putin said five more nuclear submarines will join the navy by 2030. Yasen-M boats carry cruise missiles rather than the ballistic missiles of Russia's strategic submarines, and no change in nuclear posture was announced, so the board reads the ceremony as fleet renewal and signalling.\n\nChina's own moves stayed economic: its commerce ministry called the US tariff probe unilateral and reserved the right to respond, but announced no countermeasure. The questions for the next fortnight are whether Kim travels to Beijing, whether anyone independent confirms or denies the North Korean pause, and how Beijing answers the tariff proposal before the trade truce expires in January."
     },
     {
       "lens": "COLD WAR · CYBER + TECH",
@@ -29,12 +29,12 @@
       "icon": "🎯",
       "color": "var(--c-iran)",
       "arc": "iran-hormuz",
-      "updated_at": "11/27/2026 · 05:30 EST",
+      "updated_at": "11/28/2026 · 05:30 EST",
       "confidence": "MODERATE",
-      "confidenceNote": "Kuwait deaths read on BBC, NYT and Al Jazeera; attribution rests on Kuwait's and Italy's statements and Iran denies it; shipping counts via gCaptain; Trump remarks via Iran International.",
-      "title": "Drone attack kills two Italians in Kuwait as Hormuz strikes continue",
-      "summary": "Two Italian Rheinmetall technicians died in Kuwait on 26 November after a drone attack Kuwait and Italy blamed on Iran; Iran denies it. gCaptain counts 10 tankers reported struck near Hormuz on 16-22 November, none attributed. A Houthi strike on a Jazan refinery killed a Nepali worker. Trump says an extra carrier was sent.",
-      "body": "The fighting around Iran is happening at the edges, not on Iranian territory. Since the US strike on Qeshm on 17 November the board has no confirmed US strike on Iran, but on 26 November a drone attack on a 'vital site' in Kuwait killed two Italian technicians from Rheinmetall Italia who were working on an air-defence system. Kuwait's defence ministry called it 'heinous Iranian aggression' and said four people were hurt by falling shrapnel after drones were intercepted; Italy's foreign minister was quoted by Italian media as saying the drone was Iranian-made and that Iranian proxies are known to carry out attacks in the region. Iran's armed forces said no operation had been conducted, and Foreign Minister Araghchi called the incident 'suspicious' and offered a joint investigation. On this board, the attacker's denial and the target's attribution are recorded side by side; the deaths themselves are confirmed by three outlets.\n\nThe attack fits the month's pattern. Iran's army said it targeted US air-defence systems in Kuwait and a radar in Bahrain earlier in November, and Kuwait said it repelled drones on 18 November with no casualties. What changed is the cost: technicians servicing the defences have now died.\n\nAt sea, the attack count on merchant ships has risen fastest of any measure. UKMTO reported three tankers struck while sailing east through the strait on 22 November and a bulk carrier set on fire off Khor Fakkan, and gCaptain's tally of reported tanker strikes since 16 November reached ten. None has been attributed by UKMTO or CENTCOM. Iran's Persian Gulf Strait Authority added 26 tugboats to its blacklist of 'non-compliant' traffic on 24 November, and its Guard claimed tankers hit mines on 25 November without naming a ship. Traffic has not stopped: Vortexa data cited by gCaptain kept tanker transits above 26 a day on a seven-day average through 19 November, which is why the board keeps the strait at contested rather than closed. The IMO counts 141 incidents and 25 seafarers confirmed dead as of 23 November.\n\nWashington's signals harden without a shot. The embassy told Americans to leave Iran on 25 November; on 26 November Trump told troops he had sent an extra aircraft carrier, without naming it, and said the US would hit Pickaxe Mountain near Natanz if military action resumed. A Washington institute reported fast construction of an underground complex at Behjatabad, between Isfahan and Natanz, purpose unknown. The Houthis widened their Saudi campaign: a strike on a Jazan refinery killed a worker from Nepal and halted operations, the Saudi energy ministry said.\n\nThe tactical questions for the next week: whether Kuwait or Italy take formal steps against Tehran, whether the US answers on Iranian soil or against a blockade runner, and whether anyone attributes the November tanker strikes."
+      "confidenceNote": "Pacific Archer via Al Jazeera (with AP) and Iran International citing CENTCOM; Kuwait summons via The New Arab; Italy's attribution via an Al Jazeera liveblog; Lakenheath via Reuters (Arab News), with the FT's anonymous sourcing.",
+      "title": "US disables blockade runner as Kuwait protests Iranian attacks",
+      "summary": "US aircraft disabled the merchant ship Pacific Archer in the Gulf of Oman on 26 November, at least the 15th ship disabled since April. Kuwait summoned Iran's ambassador on 27 November; Italy says the drone that killed two Italians was Iranian-made. The FT reports a drone swarm was repelled at RAF Lakenheath on 13 November.",
+      "body": "The blockade is the part of the war that is still being fought every week. On 26 November US aircraft fired precision munitions at the stern of the Palau-flagged Pacific Archer in the Gulf of Oman and disabled its propulsion, CENTCOM said, after the ship left Bandar Abbas apparently bound for Singapore; the crew was unharmed. By Al Jazeera's count of US statements it is at least the 15th ship disabled since the blockade began in April and the sixth since it resumed in July; CENTCOM says 158 ships have been redirected. The previous one was on 7 November. A day later Iran's navy commander said on state television that Iran would 'break the naval blockade' and drive US forces out of the region's waters, and the Guard said two tankers using an 'unauthorised' route met a mine and a forced turnaround; neither claim has been verified.\n\nThe Kuwait deaths moved into diplomacy. Kuwait's foreign ministry summoned Iran's ambassador on 27 November to protest continued Iranian attacks, and Italy's foreign minister said Kuwaiti investigators had found the drone was made in Iran. Iran denies launching it and has offered a joint investigation. Manufacture is not the same as launch point, which is why the board still records the attribution as Kuwait's and Italy's, beside Iran's denial.\n\nThe war's reach into allied homelands also came into sharper view. The Financial Times, citing people familiar with the matter, reported that US forces used counter-drone systems to repel about six drones swarming RAF Lakenheath on 13 November and that Iran is suspected; Britain's defence ministry confirmed only an incident that was quickly resolved. The board already carried the incident with its origin unknown; the new elements are the swarm and the suspicion.\n\nThe information contest sharpened too. CENTCOM rejected an Iranian commander's claims that Iran had struck USS Abraham Lincoln and retaken two seized tankers, saying the Lincoln group was never hit and went home in October. That leaves the identity of Trump's 'extra carrier' open.\n\nSouth of the Gulf, armed people seized a cargo ship 64 nautical miles off Balhaf on 28 November, UKMTO said, with no group named, while the Saudi-led coalition kept striking Houthi areas. The tactical questions now are whether Iran attempts anything at sea against the blockade, whether the US answers on Iranian soil, and who took the ship off Yemen."
     },
     {
       "lens": "EPIC FURY · DIPLOMATIC TRACK",
@@ -65,12 +65,12 @@
       "icon": "🎯",
       "color": "var(--c-green)",
       "arc": "cross-cutting",
-      "updated_at": "11/22/2026 · 05:00 EST",
+      "updated_at": "11/28/2026 · 05:30 EST",
       "confidence": "MODERATE",
-      "confidenceNote": "Facts read on BBC, Guardian, Al Jazeera pages; scenario weights are the board's judgement.",
-      "title": "Russian missiles hit Poland a day after the Shenzhen nuclear declaration",
-      "summary": "Trump, Xi and Putin declared on 19 November that nuclear war must never be fought. On 20 November Russian cruise missiles crashed in Poland during a mass attack on Ukraine, and on 21 November Iran struck Bahrain and tankers near Hormuz. The board's score holds at 66.",
-      "body": "The window shows the distance between leaders' declarations and the two wars. The Shenzhen text was the most significant joint statement by the three nuclear powers this year, yet it ignored Ukraine and Iran, and within a day each war produced a fresh escalation step outside its main theatre: Russian missiles inside NATO territory, Iranian fire causing damage at a civilian site in Bahrain.\n\nBoth steps sit inside the bands the board already scores. Poland reported no injuries; NATO scrambled jets but did not engage; Warsaw is asking for more air defence rather than invoking collective defence. In the Gulf, the Bahrain attack caused damage but no injuries, and no US retaliation on Iranian soil was confirmed. The four axes therefore hold: kinetic 75, great-power 70, WMD 60, alliance 60.\n\nThe European pattern is the week's most consistent signal. Poland calls the missiles intentional, Denmark attributes an assassination plot to Russian intelligence and expelled an attaché, Estonia closes its road border, and Finland says the war is spilling over after a strike on a Russian ship in the Gulf of Finland. These are national responses, coordinated in solidarity statements, not an alliance rupture. At the same time Denmark ratified its Greenland deal with Washington, which removes a source of NATO friction.\n\nWhat would move the score: a NATO shootdown or a casualty on allied territory; a US strike campaign on Iranian energy targets; deaths in a Gulf state from Iranian fire; or follow-up nuclear talks among the three powers, which would argue the other way."
+      "confidenceNote": "Facts read on Al Jazeera, Kyiv Independent, Kyiv Post and The New Arab pages; band judgements are the board's, under its scoring method.",
+      "title": "US disables a blockade runner and drones fly at Moscow; risk holds",
+      "summary": "US aircraft disabled a ship running the Iran blockade on 26 November, and a drone attack Kuwait blames on Iran killed two Italians. Ukraine sent hundreds of drones toward Moscow, and a Russian strike killed seven in Nizhyn. The board's four axes hold at 75, 70, 60 and 60, a score of 66.",
+      "body": "Both wars produced action this week without crossing a new threshold. In the Gulf, the US used force to enforce its blockade for the first time since 7 November, disabling the Pacific Archer in the Gulf of Oman, and Iran's navy vowed to break the blockade. A drone attack that Kuwait and Italy blame on Iran killed two Italian technicians at a Kuwaiti air-defence site, the first deaths on a Gulf host state's soil in the November exchange, and Kuwait summoned Iran's ambassador. Washington has not struck Iranian territory since 17 November.\n\nIn Europe, Ukraine's drones reached the Moscow region in large numbers and its General Staff says it hit a plant making Iskander missile fuel, while Russia's strikes killed seven people in Nizhyn. Kyiv put a Black Sea ceasefire to Moscow, which wants oil shipments included. A Russian convoy to Libya turned back after the Merkury sinking.\n\nThe four axes hold. Kinetic stays at 75: firing on a blockade runner is enforcement of a blockade the board already scores, and the Kuwait deaths were scored on 27 November. Great-power stays at 70: there is no direct US-Iran exchange on Iranian soil and no US-Russia contact. WMD stays at 60: the new Russian submarine is a cruise-missile boat, and no change in nuclear posture was announced. Alliance stays at 60: Kuwait's protest is aimed at Iran, the Mecca pact partners are closing ranks around Saudi Arabia, and European friction over the sanctions package and Nord Stream is a dispute among allies, not a break with Washington.\n\nWhat would move the score: a US strike on Iranian territory or an Iranian attack on a US warship (kinetic and great-power up); a NATO shoot-down or casualty from Russian fire on allied soil; a second deadly strike on a Gulf host state paired with a US response; US tariffs on the EU actually imposed (alliance up); or Russian acceptance of a Black Sea ceasefire, which would argue the other way."
     },
     {
       "lens": "EASTERN FRONT · WAR & CHANNELS",
@@ -89,68 +89,69 @@
     "kicker": "Epic Fury · Lead Development",
     "pillar": "iran",
     "salience": 1,
-    "updated_at": "11/27/2026 · 05:30 EST",
-    "title": "Drone attack in Kuwait kills two Italians; Iran denies a role",
-    "summary": "Two Italian Rheinmetall technicians servicing an air-defence system died in Kuwait on 26 November after a drone attack that Kuwait and Italy blamed on Iran; Tehran denied it. Trump said he sent an extra carrier and would strike Pickaxe Mountain if fighting resumed. A Houthi strike on a Jazan refinery killed a Nepali worker.",
+    "updated_at": "11/28/2026 · 05:30 EST",
+    "title": "US disables blockade runner as Kuwait summons Iran's envoy",
+    "summary": "US aircraft disabled the merchant ship Pacific Archer in the Gulf of Oman on 26 November after it left Bandar Abbas, the first blockade runner hit since 7 November. Kuwait summoned Iran's ambassador over the drone attack that killed two Italians; Italy says the drone was Iranian-made. Iran denies launching it.",
     "facts": [
-      "26 Nov: two Italian technicians killed by a drone attack in Kuwait; Iran denies a role.",
-      "26 Nov: Trump says an extra carrier was sent and Pickaxe Mountain would be hit.",
-      "25 Nov: US institute reports a fast-built underground complex at Behjatabad.",
-      "26 Nov: Houthi strike on a Jazan refinery kills a Nepali worker.",
-      "27 Nov: Turkey completes ratification of the Mecca defence pact."
+      "26 Nov: US aircraft disable the blockade runner Pacific Archer in the Gulf of Oman.",
+      "27 Nov: Kuwait summons Iran's ambassador; Italy says the Kuwait drone was Iranian-made.",
+      "28 Nov: FT: US forces repelled a drone swarm at RAF Lakenheath on 13 November; Iran suspected.",
+      "28 Nov: armed people seize a cargo ship off Balhaf, Yemen (UKMTO).",
+      "27 Nov: Mecca pact ministers pledge to intensify support for Saudi Arabia."
     ],
-    "changed": "The November exchange produced deaths on a Gulf host state's soil: Kuwait called the attack Iranian aggression, and Italy's foreign minister was quoted by Italian media saying the drone was Iranian-made and that Iranian proxies carry out attacks, while Tehran called it 'suspicious' and offered a joint investigation. Washington hardened its words, not its strikes: Trump said an extra carrier was sent, without naming it, and named Pickaxe Mountain as a target. A US institute reported fast construction of an underground complex between Isfahan and Natanz. No US strike on Iranian territory has been reported since 17 November.",
-    "watch": "Whether Italy or Kuwait take formal steps against Iran; any US strike after Trump's Pickaxe Mountain warning; which carrier he meant; Houthi fire on Saudi energy sites; the Mecca pact partners' Islamabad meeting; OPEC+ on 29 November."
+    "changed": "The blockade was enforced with fire again: CENTCOM says aircraft hit the Pacific Archer's stern and disabled it, at least the 15th ship disabled since April by Al Jazeera's count, as Iran's navy chief vowed to break the blockade. Kuwait protested what it called continued Iranian attacks. The Financial Times reports US counter-drone systems repelled about six drones over RAF Lakenheath on 13 November, with Iran suspected. CENTCOM called Iranian claims of hitting USS Abraham Lincoln false and said that carrier returned home in October. No US strike on Iranian territory has been reported since 17 November.",
+    "watch": "Whether Iran tries to break the blockade at sea; any US strike on Iranian soil; Italy's diplomatic response to the Kuwait deaths; who seized the cargo ship off Balhaf; OPEC+ on 29-30 November; Israel's coalition talks, as Mossad's chief backs acting alone."
   },
   "brics_lead": {
     "kicker": "US-BRICS Rivalry · Lead Development",
     "pillar": "brics",
     "salience": 3,
-    "updated_at": "11/27/2026 · 05:30 EST",
-    "title": "US proposes tariffs up to 20% on China, EU and 12 others",
-    "summary": "The US proposal of tariffs up to 20% on 14 economies, including China and US allies, is open for comment; China says it reserves the right to respond. Ukrainian intelligence says North Korea paused arms deliveries to Russia, which is unverified. Satellite images show China rehearsing landings with civilian vessels in Fujian.",
-    "changed": "No Chinese countermeasure followed the tariff proposal in the window. In the CRINK lens, Ukraine's military intelligence claims Pyongyang halted shell and missile deliveries and closed its airspace to Russian military transports after a row over Moscow's outreach to Seoul; it cited no source, and Seoul did not address it. A weeks-long PLA amphibious drill in Dacheng Bay tests linking civilian ships into a floating bridge, days before Taiwan's local elections. Japan and India agreed on 19 November to deepen defence-industry cooperation.",
-    "watch": "Taiwan's 28 November local elections and Chinese pressure around them; Beijing's formal response to the tariffs; any confirmation of a North Korean pause; allies' responses in the comment period.",
+    "updated_at": "11/28/2026 · 05:30 EST",
+    "title": "Taiwan votes as Chinese military aircraft fly near the island",
+    "summary": "Taiwan held local elections on 28 November as its defence ministry counted about 33 Chinese military aircraft sorties over two days; results were due that evening. Seoul is watching for a possible Kim Jong Un visit to China. Putin commissioned a nuclear submarine Moscow says carries Zircon hypersonic missiles.",
+    "changed": "Taiwan accused Beijing of interfering in the vote; China rejects that. China has not announced a countermeasure to the US tariff proposal. In the CRINK lens, North Korea and Russia held their economic committee and agreed new projects, and state media said nothing about the arms pause Ukrainian intelligence claims. In Allies Cohesion, the FT reported the Lakenheath drone swarm, the IISS said Russian sabotage in Europe rose 16% in a year, and a Croatian court halted a Nord Stream suspect's extradition to Germany. Hackers breached a US Air Force cloud platform; no attacker was named.",
+    "watch": "Taiwan's results and Beijing's reaction; any Kim visit to China; Beijing's formal response to the tariff proposal; Spain's 29 November election.",
     "lenses": [
       {
         "label": "Bilateral US-China",
-        "oneline": "The tariff proposal is open for comment with no Chinese countermeasure yet; the PLA rehearses landings with civilian vessels in Fujian."
+        "oneline": "Taiwan voted under about 33 Chinese aircraft sorties; China has announced no countermeasure to the US tariff proposal yet."
       },
       {
         "label": "BRICS bloc",
-        "oneline": "India faces a proposed 17% rate among the 14 economies; Brazil said it will not yield to new US tariff measures."
+        "oneline": "No bloc-wide step in the window; members' responses to the US tariff proposal remain in the comment period."
       },
       {
         "label": "CRINK",
-        "oneline": "Ukrainian intelligence claims North Korea paused arms deliveries to Russia; there is no second source."
+        "oneline": "North Korea and Russia agreed new economic projects; nothing confirms the claimed arms pause. Seoul watches for a Kim trip to China."
       },
       {
         "label": "Allies Cohesion",
-        "oneline": "Japan and India agreed deeper defence ties; Lithuania urged an EU terrorist label for Russia's GRU."
+        "oneline": "The FT reports a drone swarm at a US base in England; a Croatian court halted a Nord Stream extradition to Germany."
       }
     ],
     "facts": [
-      "25 Nov: USTR proposes tariffs of up to 20% on 14 economies.",
-      "26 Nov: Ukrainian intelligence says North Korea paused arms to Russia (unverified).",
-      "27 Nov: Japan Times: PLA drill in Dacheng Bay tests a civilian-vessel landing bridge.",
-      "19 Nov: Japan and India agree deeper defence cooperation."
+      "28 Nov: Taiwan votes; its defence ministry counts about 33 Chinese aircraft sorties over two days.",
+      "28 Nov: Seoul's spy agency watches for a possible Kim visit to China.",
+      "27 Nov: North Korea and Russia agree new economic projects.",
+      "27 Nov: Putin commissions the submarine Perm, which Moscow says carries Zircon missiles.",
+      "27 Nov: Reuters: hackers breached the US Air Force's Cloud One platform."
     ]
   },
   "ukraine_lead": {
     "kicker": "Russia-Ukraine · Lead Development",
     "pillar": "ukraine",
     "salience": 2,
-    "updated_at": "11/27/2026 · 05:30 EST",
-    "title": "Ukraine hits Tula and St Petersburg; drone enters Latvian airspace",
-    "summary": "Ukrainian drones struck Russia's Tula region and St Petersburg overnight into 27 November after seriously damaging a Krasnodar refinery on 26 November. Latvia scrambled NATO jets when a drone briefly crossed its border. Zelensky warned another massive Russian strike is coming. An EU report says Russia's oil revenue already exceeds 2025's.",
+    "updated_at": "11/28/2026 · 05:30 EST",
+    "title": "Hundreds of drones fly at Moscow; Russian strike kills seven in Nizhyn",
+    "summary": "Moscow's mayor said 462 drones flew toward the capital region overnight into 28 November, suspending flights at two airports. Ukraine says it hit a Tula plant making Iskander fuel and a Rostov refinery. A Russian strike killed seven in Nizhyn. Kyiv has offered Russia a Black Sea ceasefire and awaits a reply.",
     "facts": [
-      "27 Nov: Ukrainian drones hit Tula region and St Petersburg; Russia claims 318 downed.",
-      "27 Nov: Latvia scrambles NATO jets after a drone enters its airspace.",
-      "26 Nov: Slavyansk refinery in Krasnodar seriously damaged.",
-      "26 Nov: Zelensky warns of another massive Russian strike.",
-      "24 Nov: EU report: Russia's January-September crude revenue $102bn, above all of 2025."
+      "28 Nov: Moscow's mayor says 462 drones flew toward the capital region.",
+      "27 Nov: Ukraine's General Staff confirms strikes on a Tula missile-fuel plant and the Novoshakhtinsk refinery.",
+      "27 Nov: a Russian strike kills seven in Nizhyn.",
+      "27 Nov: Ukraine proposes a Black Sea ceasefire.",
+      "27 Nov: Russia extends its jet fuel export ban to March 2027."
     ],
-    "changed": "Ukraine's refinery campaign continued; industry sources put Russian refining down 45% since late October. Zelensky says Russia is preparing a new mass strike while 48 US Patriot interceptors remain unsigned. Latvia reported a drone briefly entering its airspace. A Commission report found Russia's crude revenue for January-September already tops all of 2025, which it attributes to the Middle East crisis. Ukrainian intelligence claims North Korea paused arms deliveries to Russia; no second source has it.",
-    "watch": "Russia's next mass strike and the Patriot sign-off; Estonia's 1 December border closure; the Abu Dhabi prisoner exchange before 30 November; any confirmation of a North Korean pause; OFAC's decision on the Lukoil deal."
+    "changed": "Ukraine's strike campaign reached Russia's missile industry: the General Staff named the Yefremov rubber plant, which it says makes Iskander fuel, and Russia extended its jet fuel export ban to March 2027. Kyiv proposed a Black Sea ceasefire; Moscow wants oil included. A Russian convoy bound for Libya turned back after the Merkury sinking, Reuters reports. Bulgaria wants some Russian import bans lifted before backing the EU's new package. Germany approved €11.6 billion for Ukraine in 2027. A civilian exchange took place; the agreed prisoner exchange has not.",
+    "watch": "Russia's reply to the Black Sea offer; the expected Russian mass strike and US approval of the 48 stalled Patriot interceptors; Estonia's 1 December border closure; whether the prisoner exchange happens; EU unanimity on the new sanctions package."
   }
 }

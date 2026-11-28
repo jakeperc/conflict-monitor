@@ -6,9 +6,9 @@
       "risk": 82,
       "level": "EXTREME",
       "alignment": "adversary",
-      "note": "Vows 'all available means' against the US blockade, offering to reopen Hormuz within two days if hostilities, the blockade and sanctions end.",
-      "details": "Iran is answering the blockade with fire on Gulf hosts and with terms. On 21 November the Guard said it hit US Patriot radars at Bahraini bases in what it called retaliation for US attacks, citing Hengam Island; Bahrain said an Iranian strike set fire to a civilian industrial site in Sitra, with no injuries (Al Jazeera). That followed a US strike on a launch site on Qeshm on 17 November and Iranian drones on Kuwait and Bahrain.\n\nOn 23 November the foreign ministry said Iran will use all available means against the blockade, calling it military aggression, and that Hormuz could reopen within two days if the US halts hostilities, lifts the blockade and waives sanctions (Al Jazeera). It summoned Qatar's envoy the same day over a Qatar-Germany statement, and its courts claimed $290 billion in damages from the US (France 24). The US Treasury sanctioned more of its exchange houses and companies on 23 November.",
-      "as_of": "2026-11-23"
+      "note": "Its navy chief vowed to break the US blockade after US aircraft disabled a ship leaving Bandar Abbas; it denies the Kuwait drone attack.",
+      "details": "Iran is contesting the blockade in words and, its rivals say, with drones. On 26 November US aircraft disabled the Palau-flagged Pacific Archer in the Gulf of Oman after it left Bandar Abbas, CENTCOM said; by Al Jazeera's count it is at least the 15th ship disabled since April. The next day navy commander Shahram Irani said on state television that Iran would break the blockade and drive US forces out of the region's waters, and the Guard claimed two tankers on an 'unauthorised' route hit a mine or turned back (Al Jazeera).\n\nOn 26 November a drone attack killed two Italian technicians at an air-defence site in Kuwait. Kuwait summoned Iran's ambassador on 27 November and Italy's foreign minister said the drone was Iranian-made; Iran denies launching it and offered a joint investigation (The New Arab, Al Jazeera). CENTCOM called an Iranian commander's claim of hitting USS Abraham Lincoln false (Arab News).\n\nOn 23 November the foreign ministry said Hormuz could reopen within two days if the US ends hostilities, the blockade and sanctions. No US strike on Iranian territory has been reported since 17 November.",
+      "as_of": "2026-11-28"
     },
     {
       "name": "Israel",
@@ -66,9 +66,9 @@
       "risk": 78,
       "level": "SEVERE",
       "alignment": "adversary",
-      "note": "Its corvette Merkury capsized at Benghazi after a 22 November drone strike Kyiv claims; it warned Estonia of 'the brink of an open war'.",
-      "details": "Russia's war is spilling over its neighbours' borders and beyond Europe. On 20 November two Kh-101 cruise missiles and a jet drone crashed in south-eastern Poland during one of Russia's largest attacks on Ukraine; Tusk called it intentional (BBC). On 22 November Ukrainian naval drones sank the corvette Merkury at Benghazi in Libya, Kyiv says; Russia's ambassador said it would not go unanswered (The New Arab).\n\nOn 23 November the foreign ministry summoned Estonia's chargé d'affaires over its closure of road crossings from 1 December, accused Tallinn of letting Ukrainian drones use its airspace, warned of 'the brink of an open war' and reserved 'comprehensive political and diplomatic measures' (The Moscow Times). Denmark expelled Russia's defence attaché over an assassination plot on 20 November. In Shenzhen on 19 November Putin joined Trump and Xi in declaring that nuclear war cannot be won; German media report Russia may launch a nuclear-armed satellite, which the Kremlin dismisses.",
-      "as_of": "2026-11-23"
+      "note": "Ukrainian drones flew at Moscow and hit a Tula missile-fuel plant; a Russian convoy to Libya turned back after the Merkury sinking.",
+      "details": "The war is reaching deeper into Russia and its operations abroad. Moscow's mayor said 462 drones flew toward the capital region overnight into 28 November, suspending flights at Vnukovo and Domodedovo (Kyiv Post). Ukraine's General Staff says it hit the Yefremov synthetic rubber plant in Tula region, which it says makes Iskander missile fuel, and the Novoshakhtinsk refinery (Kyiv Independent). Russia extended its jet fuel export ban to March 2027 as refinery damage strains supply (The Moscow Times).\n\nAfter Ukrainian sea drones sank the corvette Merkury at Benghazi on 22 November, a convoy carrying military vehicles to Libya turned back near the Strait of Sicily, three sources told Reuters. Putin commissioned the nuclear submarine Perm on 27 November, which Moscow says is the first armed with Zircon hypersonic missiles (Al Jazeera).\n\nRussia's strikes on Ukraine continue: one killed seven people in Nizhyn on 27 November. Its foreign ministry accused Latvia, without evidence, of letting Ukrainian drones through its airspace, and earlier warned Estonia over its 1 December border closure.",
+      "as_of": "2026-11-28"
     },
     {
       "name": "Saudi Arabia",
@@ -204,9 +204,9 @@
       "risk": 50,
       "level": "HIGH",
       "alignment": "neutral",
-      "note": "Government forces entered Kataib Hezbollah's Jurf al-Sakhar base on 20 November; the group is to withdraw within a month.",
-      "details": "Baghdad ordered its forces into Jurf al-Sakhar, Kataib Hezbollah's stronghold 60 km south-west of the capital, after an inquiry linked the group to oil smuggling through illicit refineries; nine senior officials were dismissed. A compromise reached on 19 November brought a joint force of army, federal police, energy police and Popular Mobilisation units into the town on 20 November, with the group expected to leave within a month. Prime Minister al-Zaidi told troops they were not waging war but that keeping weapons under state control was final. US and Gulf pressure was a driver. Earlier in November a drone hit the Khor Mor gas field, cutting power across much of Kurdistan.",
-      "as_of": "2026-11-22"
+      "note": "Kataib Hezbollah has left about 70% of its Jurf al-Sakhar area; Baghdad is moving Kurdish crossings and oil under federal control.",
+      "details": "Baghdad is pressing state authority on two fronts with open US backing. In Jurf al-Sakhar, Kataib Hezbollah's stronghold 60 km south-west of the capital, a joint force entered on 20 November under a negotiated compromise; by 27 November the group had withdrawn from about 70% of the area it held, letting army and police advance under a new command reporting to the prime minister (The New Arab). Accounts differ on who brokered the deal.\n\nPrime Minister al-Zaidi also moved to put the Kurdish region's border crossings and several oil fields under federal control; the supreme court ruled federal forces may deploy on all borders, two Kurdish-region crossings were closed on 26 November and thousands of Kurds protested. On 27 November Trump said the US backs his drive to stop oil smuggling and bring all weapons under state control (Al Jazeera). Iraq has also shut more crossings with Iran under US pressure. A drone hit the Khor Mor gas field earlier in November.",
+      "as_of": "2026-11-28"
     },
     {
       "name": "Kuwait",
@@ -214,9 +214,9 @@
       "risk": 55,
       "level": "HIGH",
       "alignment": "partner",
-      "note": "A drone attack Kuwait blamed on Iran killed two Italian technicians at a 'vital site' on 26 November; Iran denies it.",
+      "note": "Summoned Iran's ambassador on 27 November after a drone attack it blames on Iran killed two Italian technicians.",
       "details": "Kuwait hosts US forces at Ali Al Salem air base and, since November, the advanced headquarters of the Gulf states' unified military command.\n\nOn 26 November Kuwait's defence ministry said drones from Iran were intercepted over a 'vital site' and falling shrapnel hurt four people. Two of them, Italian technicians from Rheinmetall Italia working on an air-defence system, died; a Kuwaiti army captain and a Pakistani civilian were also hurt. Kuwait called it 'heinous Iranian aggression', and Italy's foreign minister was quoted by Italian media as saying the drone was Iranian-made. Iran denied any operation and offered a joint investigation. Airspace was briefly closed.\n\nIt was the second attack on Kuwait in November: on 18 November, after US jets struck Qeshm, Iran's army said its drones targeted US Patriot systems at Ali Al Salem, and Kuwait reported no casualties.\n\nKuwait's posture has been to host the forces Iran targets while avoiding a public role in the fighting. Deaths on its soil test that directly.",
-      "as_of": "2026-11-27"
+      "as_of": "2026-11-28"
     },
     {
       "name": "Jordan",
@@ -327,9 +327,9 @@
       "risk": 30,
       "level": "ELEVATED",
       "alignment": "neutral",
-      "note": "Resumed military cooperation with the US during Defence Secretary Hegseth's unannounced visit to Caracas on 18 November.",
-      "details": "Venezuela has been governed since January by interim leader Delcy Rodríguez, Nicolás Maduro's former vice-president, with Washington's backing after US special forces captured Maduro and took him to New York for trial.\n\nOn 18 November US Defence Secretary Pete Hegseth made an unannounced stop in Caracas, the highest-level US visit since Maduro's ouster, and announced renewed US-Venezuelan military cooperation against drug traffickers. Rodríguez hailed a 'resumption of the technical-military relationship.' Opposition leader María Corina Machado has returned from exile, but hundreds of political prisoners remain held and no election date has been set.\n\nThe US interest is oil and a Caribbean security footprint; the risk is that the arrangement entrenches the old state apparatus.",
-      "as_of": "2026-11-19"
+      "note": "Plans to repeal the law barring sanctions backers from office, after renewing military ties with the US on 18 November.",
+      "details": "Venezuela has been governed since January by interim leader Delcy Rodríguez, Nicolás Maduro's former vice-president, with Washington's backing after US special forces captured Maduro and took him to New York for trial.\n\nOn 18 November US Defence Secretary Pete Hegseth made an unannounced stop in Caracas and announced renewed US-Venezuelan military cooperation against drug traffickers. On 26 November National Assembly speaker Jorge Rodríguez said the 2024 law that barred people who backed foreign sanctions from public office, and allowed their assets to be seized, will be repealed, with approval expected the following week (BBC, Al Jazeera). Opposition leader María Corina Machado has returned from exile and is organising neighbourhood assemblies, but hundreds of political prisoners remain held and no election date has been set.\n\nThe US interest is oil and a Caribbean security footprint; the risk is that the arrangement entrenches the old state apparatus.",
+      "as_of": "2026-11-28"
     },
     {
       "name": "Ukraine",
@@ -406,9 +406,9 @@
       "name": "China",
       "flag": "🇨🇳",
       "goal": "Keep buying Iranian oil and refuse the enforcement architecture, while raising maritime pressure on Taiwan without committing to a campaign.",
-      "move": "Hosted the first Trump-Putin-Xi summit in Shenzhen and its joint declaration, while licensing exports of drone engines Russia uses.",
-      "as_of": "2026-11-22",
-      "details": "Beijing used APEC in Shenzhen to stage the first three-way meeting of the US, Chinese and Russian leaders on 19 November. The joint declaration said nuclear war cannot be won and must never be fought, called for UN reform and more oil supply, and did not mention Ukraine or Iran. Xi pressed Trump on Taiwan and repeated China's call for nuclear weapons to be prohibited over time. From 18 November China requires export licences for drone components including jet engines used in Russia's Geran drones; Ukraine welcomed the step but says many parts remain uncontrolled.",
+      "move": "Called the US tariff probe unilateralism and reserves the right to respond, while Taiwan counted about 33 Chinese aircraft sorties around its election.",
+      "as_of": "2026-11-28",
+      "details": "A week after hosting Trump and Putin in Shenzhen, Beijing faces a US proposal of tariffs up to 20% on China, with 40% signalled if talks fail. Its commerce ministry called the probe 'a typical act of unilateralism', said it reserves the right to respond and urged a return to dialogue, but has announced no countermeasure; the trade truce runs to January and Trump and Xi are due to meet at the G20 in Miami next month (Al Jazeera). Around Taiwan's 28 November local elections its defence ministry counted about 33 Chinese military aircraft sorties over two days, and Taipei accuses Beijing of interference, which China rejects (France 24, Al Jazeera). Since 18 November China requires export licences for drone parts including engines used in Russia's Geran drones.",
       "color": "var(--c-brics)"
     },
     {
@@ -433,18 +433,18 @@
       "name": "Iran",
       "flag": "🇮🇷",
       "goal": "Convert control of the Strait into sanctions relief and compensation, with Washington moving first.",
-      "move": "Struck Bahrain again and hit tankers near Khasab while receiving Qatari mediators; demands the US accept its conditions.",
-      "as_of": "2026-11-22",
-      "details": "Since the US struck Qeshm on 17 November, Iran has fired drones and missiles at Kuwait and repeatedly at Bahrain, where a 21 November attack set fire to a civilian industrial site. Its navy enforces what it calls coordinated passage through the strait; UKMTO logged three tanker-attack reports near Khasab on 20-21 November. The Guard claims it shot down two US drones. Tehran calls the US blockade an act of war and says it will act to break it, while a Qatari delegation held talks in Tehran on 20 November that Iran says are not yet formal negotiations; it insists its enriched uranium stays in the country.",
+      "move": "Denies the drone attack that killed two Italians in Kuwait and vows to break the blockade as the US disables a ship leaving Bandar Abbas.",
+      "as_of": "2026-11-28",
+      "details": "Tehran's line is denial at home and defiance at sea. After the 26 November drone attack that killed two Italian technicians in Kuwait, its armed forces said no operation had been conducted and the foreign minister called the incident 'suspicious' and offered a joint investigation; Kuwait summoned its ambassador anyway, and Italy says the drone was Iranian-made. When US aircraft disabled the Pacific Archer after it left Bandar Abbas on 26 November, the navy commander promised to break the blockade, and Iranian commanders made claims about striking USS Abraham Lincoln that CENTCOM called fabricated. Iran offers to reopen Hormuz within two days only if the US ends hostilities, the blockade and sanctions first, and Qatari mediation has not produced formal talks.",
       "color": "var(--c-iran)"
     },
     {
       "name": "Russia",
       "flag": "🇷🇺",
       "goal": "Absorb strikes on export infrastructure without acknowledging damage, while keeping the war's economic pressure pointed at Ukraine through winter.",
-      "move": "Signed the Shenzhen joint declaration, then launched a mass strike on Ukraine in which cruise missiles crashed in Poland.",
-      "as_of": "2026-11-22",
-      "details": "Putin met Trump and then joined Xi and Trump in Shenzhen on 19 November for a declaration on nuclear war that left out Ukraine. He vowed a painful response to Ukraine's Crimean Bridge strikes; the 20 November attack was one of the war's largest, and two Kh-101 missiles and a drone crashed in Poland, which calls it intentional. Strikes damaged the Dutch and Austrian embassies in Kyiv. Denmark says Russian intelligence initiated a plot to kill a Ukrainian-American near Copenhagen, and expelled Russia's attaché; Moscow denies it. Estonia will close its road border from 1 December.",
+      "move": "Commissioned a nuclear submarine it says carries Zircon missiles and wants oil included in Ukraine's proposed Black Sea ceasefire, while its Libya convoy turned back.",
+      "as_of": "2026-11-28",
+      "details": "Moscow is answering pressure with display and conditions. On 27 November Putin attended the commissioning of the Yasen-M submarine Perm, which Moscow says is the first armed with Zircon missiles, and promised five more nuclear submarines by 2030. When Kyiv proposed a Black Sea ceasefire to protect grain exports, Russia's position was that oil shipments must be included and Ukraine should stop striking its oil sector; Kyiv says that belongs in an energy ceasefire. Its foreign ministry accused Latvia of obstructing grain transit and, without evidence, of helping Ukrainian drones. The cost side is visible: a convoy to Libya turned back after the Merkury sinking, drones keep reaching the Moscow region, and refinery damage has extended the jet fuel export ban to March 2027. The prisoner exchange agreed in Abu Dhabi has not taken place.",
       "color": "var(--c-ukraine-war)"
     },
     {
@@ -546,10 +546,10 @@
       "name": "Kuwait",
       "flag": "🇰🇼",
       "goal": "Stay a basing partner without becoming a belligerent, and avoid making a strike on its own soil into a public quarrel.",
-      "move": "Blamed Iran for a 26 November drone attack that killed two Italian technicians at a 'vital site'; Tehran denies it.",
-      "as_of": "2026-11-27",
+      "move": "Summoned Iran's ambassador to protest continued Iranian attacks after a drone strike killed two Italian technicians at a 'vital site'.",
+      "as_of": "2026-11-28",
       "color": "var(--c-amber)",
-      "details": "Kuwait wants to remain a basing partner without becoming a belligerent. In November it was attacked twice. On 18 November Iran's army said it targeted US air-defence systems at Ali Al Salem air base, and Kuwait said it repelled the drones with no damage. On 26 November drones hit a 'vital site' where two Italian Rheinmetall technicians were servicing an air-defence system; both died. Kuwait's army called it 'heinous Iranian aggression', while Iran denied any involvement and proposed a joint investigation.\n\nKuwait also hosts the new advanced headquarters of the Gulf states' unified military command. With deaths now on its soil, its choice is whether to keep that role defensive and quiet or to press Tehran publicly."
+      "details": "Kuwait wants to remain a basing partner without becoming a belligerent. In November it was attacked twice. On 18 November Iran's army said it targeted US air-defence systems at Ali Al Salem air base, and Kuwait said it repelled the drones with no damage. On 26 November drones hit a 'vital site' where two Italian Rheinmetall technicians were servicing an air-defence system; both died. Kuwait's army called it 'heinous Iranian aggression', while Iran denied any involvement and proposed a joint investigation.\n\nKuwait also hosts the new advanced headquarters of the Gulf states' unified military command. With deaths now on its soil, it summoned Iran's ambassador on 27 November to protest continued Iranian attacks; the open question is how far it presses Tehran beyond protest."
     },
     {
       "name": "Jordan",

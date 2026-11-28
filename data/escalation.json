@@ -56,25 +56,25 @@
       "key": "kinetic",
       "label": "Kinetic Intensity",
       "score": 75,
-      "currentLabel": "A drone attack Kuwait blames on Iran killed two Italian technicians; Ukraine hit Tula, St Petersburg and a Krasnodar refinery; a Houthi strike on a Jazan refinery killed a worker."
+      "currentLabel": "US aircraft disabled a blockade runner off Oman; Ukrainian drones flew at Moscow and a Russian strike killed seven in Nizhyn; Houthi and Saudi strikes continue."
     },
     {
       "key": "greatpower",
       "label": "Great-Power Involvement",
       "score": 70,
-      "currentLabel": "Trump says he sent an extra carrier and would strike Pickaxe Mountain if fighting resumes; the US tariff proposal on China is open for comment."
+      "currentLabel": "Putin commissioned a nuclear submarine Moscow says carries Zircon missiles; CENTCOM rebutted Iranian claims about USS Abraham Lincoln; no US strike on Iranian territory since 17 November."
     },
     {
       "key": "wmd",
       "label": "WMD / Nuclear Posture",
       "score": 60,
-      "currentLabel": "A US institute reports Iran rapidly building an underground complex between Isfahan and Natanz; Trump named Pickaxe Mountain as a target."
+      "currentLabel": "Russia commissioned a nuclear-powered submarine Moscow says carries Zircon missiles; Iran's fast-built underground complex near Natanz remains unexplained."
     },
     {
       "key": "alliance",
       "label": "Alliance Cohesion (inverse)",
       "score": 60,
-      "currentLabel": "Italian nationals died on a Gulf host state's soil; Turkey ratified the Mecca pact; allies protest the US tariff proposal but have not broken ranks."
+      "currentLabel": "Kuwait summoned Iran's envoy; Mecca pact ministers pledged more support for Saudi Arabia; Bulgaria is withholding backing for the EU's new Russia sanctions package to win concessions."
     }
   ]
 }

@@ -3,9 +3,9 @@
   "war_start": "2026-02-28T00:00:00",
   "now": "2026-11-22T05:00:00-05:00",
   "ww3_pct": 66,
-  "ww3_now_label": "Nov 27 · Two Italians killed in Kuwait; Ukraine hits Tula",
-  "base_last_update": "11/27/2026 · 05:30 EST",
-  "last_built": "2026-11-27T09:32:12.368Z",
+  "ww3_now_label": "Nov 28 · US disables blockade runner; drones fly at Moscow",
+  "base_last_update": "11/28/2026 · 05:30 EST",
+  "last_built": "2026-11-28T09:53:39.233Z",
   "version": "2.0.0",
   "notes": "Generated from index.html via scripts/extract-data.js. Future automations edit data/ files only.",
   "hormuz_status": {

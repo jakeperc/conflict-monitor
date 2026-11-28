@@ -1420,6 +1420,25 @@
       "expansion": "Russian Federal State Statistics Service",
       "definition": "Russia's state statistics agency. It stopped publishing mortality data in mid-2025; hacked copies of its death records were used in November 2026 to count Russian war dead.",
       "category": "institution"
+    },
+    {
+      "term": "Zircon",
+      "aliases": [
+        "Zircon",
+        "Tsirkon"
+      ],
+      "expansion": "3M22 Zircon",
+      "definition": "A Russian ship- and submarine-launched hypersonic cruise missile; Moscow says the submarine Perm, commissioned in November 2026, is the first armed with it.",
+      "category": "military"
+    },
+    {
+      "term": "IISS",
+      "aliases": [
+        "IISS"
+      ],
+      "expansion": "International Institute for Strategic Studies",
+      "definition": "A London-based security think tank; in November 2026 it published reports on Russian sabotage and Iranian operations in Europe.",
+      "category": "institution"
     }
   ]
 }

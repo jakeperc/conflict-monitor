@@ -56588,6 +56588,41 @@
     ]
   },
   {
+    "id": "2026-11-26-us-aircraft-fired-on-the-palau-flagged",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "high",
+    "feed_visibility": true,
+    "timeline_visibility": true,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "blockade",
+      "centcom",
+      "shipping"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 3,
+    "headline": "US aircraft fired on the Palau-flagged merchant ship Pacific Archer in the Gulf of Oman on 26 November and disabled its propulsion, saying it tried to run the blockade after leaving Bandar Abbas; CENTCOM said the crew was unharmed. It is the first ship disabled since 7 November.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/us-military-says-it-disabled-merchant-ship-trying-to-breach-iran-blockade",
+        "published_date": "2026-11-27"
+      },
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611274132",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
     "source_time": null,
     "body": "",
     "status": "reported",
@@ -57120,6 +57155,203 @@
     ]
   },
   {
+    "id": "2026-11-26-the-iiss-said-in-a-report",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "europe",
+      "report"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "The IISS said in a report on 26 November that Iran kept up operations in Europe although arrests followed 58% of about 80 cases since 2022; incidents rose to 12 a month in March and April after the war began.",
+    "sources": [
+      {
+        "name": "Iran International",
+        "url": "https://www.iranintl.com/en/202611270083",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz",
+      "cyber-infrastructure"
+    ]
+  },
+  {
+    "id": "2026-11-26-an-iiss-report-published-on-26",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "sabotage",
+      "report"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "An IISS report published on 26 November said Russian sabotage incidents in Europe rose 16% over the past year, with arson and explosives use roughly doubling, and warned that a mass-casualty incident is possible.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-sabotage-attacks-across-europe-fall-short-of-strategic-goals-threats-remain-report-says/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-26-venezuelas-national-assembly-speaker-said-on",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "venezuela"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Venezuela's National Assembly speaker said on 26 November that the 2024 law barring people who backed foreign sanctions from public office will be repealed, with approval expected next week.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/c58j4pw9xjrlo",
+        "published_date": "2026-11-27"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/venezuela-to-repeal-law-that-bans-opposition-figures-from-office",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "id": "2026-11-26-zelensky-told-the-bbc-that-restrictions",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "starshield",
+      "us-ukraine"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Zelensky told the BBC that restrictions on the US-provided Starshield satellite service over Russian-occupied areas still hamper Ukraine's drone operations, and that it is unclear whether SpaceX or Washington is responsible.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/starshield-restrictions-still-hampering-ukraines-drone-defenses-zelensky-tells-bbc/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-26-cypruss-president-christodoulides-called-turkey-the",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "eu-sanctions",
+      "turkey"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Cyprus's President Christodoulides called Turkey 'the champion' of Russia sanctions violations at an EU summit on 26 November; draft documents seen by the Kyiv Independent would add nine Turkish companies to the EU's new package and, for the first time, apply a countrywide measure to Kyrgyzstan over crypto-based evasion.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/cyprus-takes-aim-at-turkeys-role-in-helping-russia-evade-sanctions/",
+        "published_date": "2026-11-26"
+      }
+    ],
+    "theaters": [
+      "sanctions-financial-warfare",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-26-irans-foreign-minister-araghchi-told-south",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "south-korea",
+      "cheonghae"
+    ],
+    "event_date": "2026-11-26",
+    "severity": 1,
+    "headline": "Iran's foreign minister Araghchi told South Korea's Cho Hyun by phone on 26 November that a foreign military presence in the Gulf would heighten tensions, as Seoul's parliament reviews extending its Cheonghae naval unit's area to the outer Gulf of Oman; Cho said Seoul will not join any war, the Iranian embassy said.",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/iran-warns-on-gulf-military-presence-as-south-korea-readies-expanded-naval-role-3014216",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
     "id": "2026-11-27-erdogan-signed-off-turkeys-ratification-of",
     "source_time": null,
     "body": "",
@@ -57270,6 +57502,940 @@
     ],
     "lenses": [
       "bilateral-us-china"
+    ]
+  },
+  {
+    "id": "2026-11-27-kuwaits-foreign-ministry-summoned-irans-ambassador",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "kuwait",
+      "diplomatic"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Kuwait's foreign ministry summoned Iran's ambassador on 27 November to protest continued Iranian attacks after the drone strike that killed two Italian technicians. Italy's Tajani said Kuwaiti investigators found the drone was made in Iran; Iran denies launching it.",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/kuwait-summons-iran-ambassador-saudi-arabia-strikes-sanaa",
+        "published_date": "2026-11-27"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/11/28/iran-war-live-italy-says-drone-in-deadly-kuwait-attack-was-made-in-iran",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-27-mossad-chief-roman-gofman-has-voiced",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "israel",
+      "strike-planning"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Mossad chief Roman Gofman has voiced support for a unilateral Israeli attack on Iran, without US participation if necessary, Yedioth Ahronoth reported, according to The New Arab; army chief Eyal Zamir favours waiting for a new government and coordinating with Washington.",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/mossad-chief-backs-israeli-attack-iran-without-us",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz",
+      "israel-lebanon-gaza"
+    ]
+  },
+  {
+    "id": "2026-11-27-pakistan-saudi-arabia-and-turkeys-foreign",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "mecca-pact",
+      "alliance"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Pakistan, Saudi Arabia and Turkey's foreign and defence ministers, meeting in Islamabad on 27 November under the Mecca defence pact, condemned Houthi attacks on Saudi Arabia and pledged to intensify support under its collective-defence provisions.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/mecca-pact-allies-condemn-heinous-houthi-attacks-on-saudi-arabia",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "red-sea-shipping",
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-27-a-saudi-strike-killed-11-people",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "low",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "yemen",
+      "claim"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "A Saudi strike killed 11 people in Yemen's Taiz on 27 November, Houthi media said, as the coalition said it downed a drone aimed at Riyadh and struck Sanaa a day after the Jazan refinery attack.",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/saudi-strike-kills-11-yemens-taiz",
+        "published_date": "2026-11-27"
+      },
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/kuwait-summons-iran-ambassador-saudi-arabia-strikes-sanaa",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "red-sea-shipping"
+    ]
+  },
+  {
+    "id": "2026-11-27-an-israeli-strike-on-a-doctors",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gaza",
+      "aid-workers"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "An Israeli strike on a Doctors Without Borders clinic in Gaza City on the night of 27 November killed two of its watchmen, MSF said, bringing its staff killed in Gaza to 17; Israel said both were Hamas members, without evidence.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/28/israeli-strike-on-doctors-without-borders-clinic-in-gaza-kills-two-staff",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "israel-lebanon-gaza"
+    ]
+  },
+  {
+    "id": "2026-11-27-ukraines-general-staff-said-it-struck",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "deep-strike",
+      "refinery",
+      "missile-industry"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Ukraine's General Staff said it struck the Yefremov synthetic rubber plant in Tula region, which it says makes solid fuel for Iskander missiles, and confirmed a strike on the Novoshakhtinsk refinery in Rostov region that destroyed 20 storage tanks.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/ukraine-war-latest-ukraine-hits-missile-fuel-production-facility-in-russias-tula-oblast-military-says/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-a-russian-strike-on-businesses-in",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "civilian-casualties"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "A Russian strike on businesses in Nizhyn, Chernihiv region, killed seven people on 27 November; Russian attacks killed 10 across Ukraine that day, and Russia launched 162 drones overnight into 28 November.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/russian-attacks-kill-10-injure-55-across-ukraine-over-past-day-as-deadly-strike-hits-chernihiv-oblast-businesses/",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-ukraines-foreign-minister-sybiha-said-kyiv",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "ceasefire-talks",
+      "black-sea"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Ukraine's foreign minister Sybiha said Kyiv has sent Russia a proposal for a Black Sea ceasefire to protect grain exports and is awaiting a reply; he said Moscow wants oil shipments included, which Kyiv says belongs in an energy ceasefire.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/kyiv-offers-black-sea-ceasefire-as-putin-expands-russias-navy",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-russia-and-ukraine-exchanged-43-mostly",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "exchange",
+      "humanitarian"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Russia and Ukraine exchanged 43 mostly elderly civilians at the Belarus border on 27 November in a Red Cross family-reunification mission, Belarusian state media said, a day after the first exchange of soldiers' remains since the Abu Dhabi talks.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/27/russia-and-ukraine-exchange-over-40-elderly-civilians-in-belarus-a812393",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-a-russian-convoy-carrying-military-vehicles",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "libya",
+      "naval",
+      "disclosure"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "A Russian convoy carrying military vehicles to Libya turned back near the Strait of Sicily on 22 November, the day Ukrainian sea drones sank the corvette Merkury at Benghazi, three security sources told Reuters on 27 November.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/27/russian-military-flotilla-bound-for-libya-turns-around-after-warship-sunk-a812400",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "id": "2026-11-27-putin-attended-the-commissioning-of-the",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "strategic",
+      "navy",
+      "hypersonic"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Putin attended the commissioning of the Yasen-M nuclear-powered submarine Perm, which Moscow says is the first armed with Zircon hypersonic missiles, and said the navy will get five more nuclear submarines by 2030.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/putin-unveils-new-russian-nuclear-powered-submarine-with-hypersonic-weapons",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-russia-extended-its-jet-fuel-export",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "refinery",
+      "fuel"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Russia extended its jet fuel export ban to 31 March 2027 as Ukrainian refinery strikes strain the domestic market; Deputy Prime Minister Novak said a fuel deficit is being covered by imports.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/27/russia-extends-jet-fuel-export-ban-until-march-2027-a812395",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "sanctions-financial-warfare",
+      "markets-risk-transmission"
+    ]
+  },
+  {
+    "id": "2026-11-27-bulgaria-is-demanding-that-eu-bans",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "eu-sanctions",
+      "sanctions-relief"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Bulgaria is demanding that EU bans on Russian pig iron and mining equipment be lifted, and that a Russian chemicals company and an individual be dropped from proposed listings, before it backs the new sanctions package, diplomats told the Kyiv Independent; Italy also raised objections.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/bulgaria-holding-eus-22nd-russia-sanctions-package-hostage-in-bid-to-extract-concessions/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "sanctions-financial-warfare",
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-germanys-parliament-approved-11-6-billion",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "aid"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Germany's parliament approved €11.6 billion in support for Ukraine in its 2027 budget on 27 November, as Kyiv seeks to close a €70 billion financing gap.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/germany-votes-through-nearly-12-billion-euros-in-ukraine-support-for-2027/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-27-hackers-breached-the-us-air-forces",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "cyber",
+      "us-military"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Hackers breached the US Air Force's Cloud One computing platform, discovered during an upgrade, Reuters reported on 27 November; the attackers are unidentified and the Air Force declined to discuss its security.",
+    "sources": [
+      {
+        "name": "Military Times",
+        "url": "https://www.militarytimes.com/news/your-military/2026/11/27/hackers-breach-us-air-force-flagship-cloud-one-computing-platform/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "cyber-infrastructure"
+    ]
+  },
+  {
+    "id": "2026-11-27-north-korea-and-russia-held-their",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "north-korea",
+      "russia"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "North Korea and Russia held their intergovernmental economic committee in Pyongyang and agreed more joint projects in power, agriculture and health, state media said; the report did not mention arms deliveries.",
+    "sources": [
+      {
+        "name": "Yonhap",
+        "url": "https://en.yna.co.kr/view/AEN20261128000500315",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry",
+      "russia-ukraine-war"
+    ],
+    "lenses": [
+      "crink"
+    ]
+  },
+  {
+    "id": "2026-11-27-australia-imposed-counter-terrorism-financing-sanctions-on",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "australia",
+      "sanctions"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Australia imposed counter-terrorism financing sanctions on two men it links to the Iran-directed arson attacks on a Sydney kosher deli and a Melbourne synagogue in 2024; Iran denies involvement.",
+    "sources": [
+      {
+        "name": "Times of Israel",
+        "url": "https://www.timesofisrael.com/australia-sanctions-2-alleged-iran-operatives-over-antisemitic-arson-attacks/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz",
+      "sanctions-financial-warfare"
+    ]
+  },
+  {
+    "id": "2026-11-27-croatias-high-criminal-court-overturned-the",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "nord-stream",
+      "court"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Croatia's High Criminal Court overturned the extradition to Germany of Ukrainian diver Volodymyr Zhuravliov, a suspect in the 2022 Nord Stream sabotage, and sent the case back for reconsideration, his lawyers said on 27 November.",
+    "sources": [
+      {
+        "name": "Kyiv Independent",
+        "url": "https://kyivindependent.com/croatian-court-overturns-extradition-ruling-against-ukrainian-suspect-in-nord-stream-sabotage-case/",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-27-russias-foreign-ministry-accused-latvia-of",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "latvia",
+      "baltic"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Russia's foreign ministry accused Latvia of obstructing Russian grain transit and said, without evidence, that the Baltic states let Ukrainian drones cross their airspace to attack Russia.",
+    "sources": [
+      {
+        "name": "The Moscow Times",
+        "url": "https://www.themoscowtimes.com/2026/11/27/russia-accuses-latvia-of-obstructing-grain-transit-aiding-ukrainian-drone-a812399",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-27-kataib-hezbollah-has-withdrawn-from-about",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "iraq",
+      "militias"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "Kataib Hezbollah has withdrawn from about 70% of the area it held in Jurf al-Sakhar, letting Iraqi army and police advance, The New Arab reported; Trump said on 27 November the US backs the prime minister's push to bring all weapons under state control.",
+    "sources": [
+      {
+        "name": "The New Arab",
+        "url": "https://www.newarab.com/news/what-happened-iraqs-jurf-al-sakhr-and-why-does-it-matter",
+        "published_date": "2026-11-27"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/trump-backs-iraqi-pms-oil-smuggling-crackdown",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints",
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-27-ugandas-army-said-it-will-withdraw",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "dr-congo",
+      "uganda"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Uganda's army said it will withdraw its troops from Lubero in eastern DR Congo within two weeks and hand security to Congolese forces, days after Kinshasa summoned Uganda's top diplomat; it gave no reason.",
+    "sources": [
+      {
+        "name": "BBC",
+        "url": "https://www.bbc.co.uk/news/articles/cq4gnj2ldkyzo",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "secondary-flashpoints"
+    ]
+  },
+  {
+    "id": "2026-11-27-a-son-of-hamas-leader-khalil",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gaza",
+      "hamas"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 2,
+    "headline": "A son of Hamas leader Khalil al-Hayya survived an Israeli air strike targeting his family in Gaza on 27 November, Hamas said, calling it an assassination attempt; Israeli attacks elsewhere in Gaza killed four people that day.",
+    "sources": [
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/27/israel-kills-four-in-gaza-as-hamas-chief-al-hayyas-son-survives-strike",
+        "published_date": "2026-11-27"
+      }
+    ],
+    "theaters": [
+      "israel-lebanon-gaza"
+    ]
+  },
+  {
+    "id": "2026-11-27-ukraine-used-a-laser-weapon-to",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "air-defence",
+      "first-of-kind"
+    ],
+    "event_date": "2026-11-27",
+    "severity": 1,
+    "headline": "Ukraine used a laser weapon to shoot down a Russian jet-powered drone for the first time, its state-backed defence group Brave1 told AFP on 27 November, cautioning that the technology remains experimental.",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261128-live-ukraine-downs-russian-drone-with-laser-technology-as-moscow-intercepts-overnight-assault",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-28-centcom-rejected-an-iranian-commanders-claims",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "information-war",
+      "carriers"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 1,
+    "headline": "CENTCOM rejected an Iranian commander's claims that Iran struck the carrier USS Abraham Lincoln and retook two tankers seized by US forces, saying the Lincoln group was never hit and returned to the US in October.",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/us-military-rejects-iranian-claims-of-attack-on-aircraft-carrier-abraham-lincoln-3014347",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz"
+    ]
+  },
+  {
+    "id": "2026-11-28-the-financial-times-reported-on-28",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "gray-zone",
+      "uk-bases",
+      "disclosure"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 2,
+    "headline": "The Financial Times reported on 28 November that US forces used counter-drone systems to repel about six drones swarming RAF Lakenheath on 13 November, with Iran suspected; Britain's defence ministry confirmed only that the incident was quickly resolved.",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/world/us-military-repelled-drones-at-uk-air-base-this-month-ft-reports-3014346",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "iran-hormuz",
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "allies-cohesion"
+    ]
+  },
+  {
+    "id": "2026-11-28-armed-people-boarded-a-cargo-ship",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "shipping",
+      "hijack",
+      "ukmto"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 2,
+    "headline": "Armed people boarded a cargo ship 64 nautical miles southwest of Balhaf, Yemen, at 06:30 GMT on 28 November and took control of it, UKMTO said, citing the ship's master; no group was named.",
+    "sources": [
+      {
+        "name": "Arab News",
+        "url": "https://www.arabnews.com/middle-east/armed-group-boards-cargo-ship-off-yemen-and-takes-control-ukmto-says-3014353",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "red-sea-shipping"
+    ]
+  },
+  {
+    "id": "2026-11-28-moscows-mayor-said-462-drones-flew",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "deep-strike",
+      "moscow"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 2,
+    "headline": "Moscow's mayor said 462 drones flew toward the Moscow region from the evening of 27 November and 123 were downed near the capital; Russia's defence ministry said it downed 1,246 drones over more than a dozen regions. Vnukovo and Domodedovo suspended flights; officials gave no damage assessment.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91468",
+        "published_date": "2026-11-28"
+      },
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/europe/20261128-live-ukraine-downs-russian-drone-with-laser-technology-as-moscow-intercepts-overnight-assault",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war"
+    ]
+  },
+  {
+    "id": "2026-11-28-taiwan-voted-in-local-elections-on",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "taiwan",
+      "election",
+      "pla"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 2,
+    "headline": "Taiwan voted in local elections on 28 November as its defence ministry counted about 33 Chinese military aircraft sorties toward the island over 27-28 November; Taiwan accuses Beijing of interference, which China rejects.",
+    "sources": [
+      {
+        "name": "France 24",
+        "url": "https://www.france24.com/en/asia-pacific/20261128-taiwan-holds-local-elections-under-beijing-s-watchful-gaze",
+        "published_date": "2026-11-28"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/11/28/taiwan-votes-in-local-elections-to-choose-mayors-other-leaders",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "bilateral-us-china"
+    ]
+  },
+  {
+    "id": "2026-11-28-south-koreas-spy-agency-said-it",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "medium",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "north-korea",
+      "china"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 1,
+    "headline": "South Korea's spy agency said it is monitoring developments amid speculation that Kim Jong Un could visit China, which a diplomatic source said could happen at any time; Seoul's presidential office said Xi had not mentioned such a visit, Yonhap reported.",
+    "sources": [
+      {
+        "name": "Yonhap",
+        "url": "https://en.yna.co.kr/view/AEN20261128000751315",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "us-brics-rivalry"
+    ],
+    "lenses": [
+      "crink"
+    ]
+  },
+  {
+    "id": "2026-11-28-drones-struck-russias-novoshakhtinsk-refinery-in",
+    "source_time": null,
+    "body": "",
+    "status": "reported",
+    "confidence": "low",
+    "feed_visibility": true,
+    "timeline_visibility": false,
+    "chapter_label": null,
+    "chapter_kicker": null,
+    "is_chapter_divider": false,
+    "tags": [
+      "deep-strike",
+      "refinery"
+    ],
+    "event_date": "2026-11-28",
+    "severity": 1,
+    "headline": "Drones struck Russia's Novoshakhtinsk refinery in Rostov region for the second time in a week overnight into 28 November, starting a large fire, and reportedly hit a Transneft crude-blending station in Samara region, local media and monitoring channels said.",
+    "sources": [
+      {
+        "name": "Kyiv Post",
+        "url": "https://www.kyivpost.com/post/91472",
+        "published_date": "2026-11-28"
+      }
+    ],
+    "theaters": [
+      "russia-ukraine-war",
+      "markets-risk-transmission"
     ]
   }
 ]

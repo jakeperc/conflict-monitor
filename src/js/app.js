@@ -5515,7 +5515,9 @@ function AITab({ targetArc = null, onConsumeTarget } = {}) {
     <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
       <div className="ai-head" style={{ display:"flex", alignItems:"center", flexWrap:"wrap", gap:12, rowGap:6, padding:"14px 18px", background:alpha(VIOLET, .08), border:`1px solid ${alpha(VIOLET, .22)}`, borderRadius:12 }}>
         <span style={{ width:8, height:8, borderRadius:"50%", background:VIOLET, animation:"ping 1.5s ease infinite", flexShrink:0 }} />
-        <M style={{ fontSize:12, color:VIOLET, letterSpacing:".06em", fontWeight:600 }}>AI Strategic Analysis · Claude Opus 4.7</M>
+        {/* Names the model the daily pipeline runs on. Change it in the same PR as any change to the model
+            or effort pinned in the /conflict-update command (standing rule #99). */}
+        <M style={{ fontSize:12, color:VIOLET, letterSpacing:".06em", fontWeight:600 }}>AI Strategic Analysis · Claude Opus 5.5 · <span style={{ whiteSpace:"nowrap" }}>Extra-high effort</span></M>
         <span className="ai-head-divider" style={{ width:1, height:14, background:alpha(VIOLET, .25) }} />
         <M className="ai-head-arcs" style={{ fontSize:12, color:TEXT_BODY, fontWeight:500 }}>Epic Fury · US-BRICS Rivalry · Russia-Ukraine</M>
         <M className="ai-head-latest" style={{ fontSize:11, color:TEXT_DIM, marginLeft:"auto", fontVariantNumeric:"tabular-nums" }}>Latest card: {latest.label}</M>
